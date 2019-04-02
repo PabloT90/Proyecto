@@ -27,7 +27,6 @@
  * public double getPrecio()
  * public void setPrecio(double precio)
  *
- *
  * public String getNombre()
  * public void setNombre()
  *
@@ -89,44 +88,92 @@ public class ImplProducto implements Producto, Cloneable, Comparable<ImplProduct
     }
 
     //Get Y Set
+    /**
+     * Obtiene el ID del producto
+     * @return asociado al nombre manda el ID del producto
+     */
     public int getId(){
         return id;
     }
+    /**
+     *  Establece el ID del producto
+     * @param id El ID para el producto
+     */
     public void setId(int id){
         this.id = id;
     }
 
+    /**
+     * Obtiene un EnumTipo que se refiere al tipo de producto que es.
+     * @return asociado al nombre devuelve el tipo de producto.
+     */
     public EnumTipo getTipo(){
         return tipo;
     }
+    /**
+     * Establece el tipo de producto.
+     * @param tipo EnumTipo para establecer el tipo de producto.
+     */
     public void setTipo(EnumTipo tipo){
         this.tipo = tipo;
     }
 
+    /**
+     * Obtiene el precio del producto.
+     * @return asociado al nombre devuelve el precio del producto.
+     */
     public double getPrecio(){
         return precio;
     }
+    /**
+     * Establece el precio del producto.
+     * @param precio Precio al que se establece el producto.
+     */
     public void setPrecio(double precio){
         this.precio = precio;
     }
 
+    /**
+     * Obtiene el nombre del producto
+     * @return asociado al nombre devuelve el nombre del producto
+     */
     public String getNombre(){
         return nombre;
     }
+    /**
+     * Establece el nombre del producto.
+     * @param nombre Nombre para el producto.
+     */
     public void setNombre(String nombre){
         this.nombre = nombre;
     }
 
+    /**
+     * Obtiene la descripcion del producto
+     * @return asociado al nombre devuelve la descripcion del producto.
+     */
     public String getDescripcion(){
         return descripcion;
     }
+    /**
+     * Establece la descripcion del producto.
+     * @param descripcion Descripcion del producto.
+     */
     public void setDescripcion(String descripcion){
         this.descripcion = descripcion;
     }
 
+    /**
+     * Obtiene si un producto es vegano o no.
+     * @return asociado al nombre devuelve un boolean. True en caso de ser vegano y False en caso contrario.
+     */
     public boolean getVegano(){
         return vegano;
     }
+    /**
+     * Establece si un producto es vegano o no.
+     * @param vegano Boolean para indicar si es vegano o no.
+     */
     public void setVegano(boolean vegano){
         this.vegano = vegano;
     }
@@ -180,9 +227,9 @@ public class ImplProducto implements Producto, Cloneable, Comparable<ImplProduct
     /**
      * Criterio de comparacion: segun el id
      * @param otro de tipo ImplProducto para compararlo.
-     * @return 1 --> Si el tipo ImplProducto es mayor que el otro introducido por parámetros.
-     *         0 --> Si el tipo ImplProducto es igual que el otro introducido por parámetros.
-     *        -1 --> Si el tipo ImplProducto es menor que el otro introducido por parámetros.
+     * @return 1 -- Si el tipo ImplProducto es mayor que el otro introducido por parámetros.
+     *         0 -- Si el tipo ImplProducto es igual que el otro introducido por parámetros.
+     *        -1 -- Si el tipo ImplProducto es menor que el otro introducido por parámetros.
      */
     public int compareTo(ImplProducto otro){
         int ret = -1;

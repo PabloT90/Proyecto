@@ -78,44 +78,92 @@ public class ImplStockProducto implements StockProducto, Cloneable{
     //Funciones añadidas
 
     //Patrón delegación ImplProducto
+    /**
+     *  Obtiene el ID del producto.
+     * @return asociado al nombre manda el ID del producto.
+     */
     public int getProductoId(){
         return producto.getId();
     }
+    /**
+     * Establece el ID del producto.
+     * @param id El ID para el producto.
+     */
     public void setProductoId(int id){
         producto.setId(id);
     }
 
+    /**
+     * Obtiene el tipo de producto
+     * @return Asociado al nombre manda un EnumTipo con el tipo de producto.
+     */
     public EnumTipo getProductoTipo(){
         return producto.getTipo();
     }
+    /**
+     * Establece el tipo de producto
+     * @param tipo EnumTipo para el tipo de producto
+     */
     public void setProductoTipo(EnumTipo tipo){
         producto.setTipo(tipo);
     }
 
+    /**
+     * Obtiene el precio de un producto.
+     * @return asociado al nombre devuelve el precio del producto
+     */
     public double getProductoPrecio(){
         return producto.getPrecio();
     }
+    /**
+     * Establece el precio del producto.
+     * @param precio Precio que tendra el producto.
+     */
     public void setProductoPrecio(double precio){
         producto.setPrecio(precio);
     }
 
+    /**
+     * Obtiene el nombre de un producto.
+     * @return asociado al nombre devuelve el nombre del producto.
+     */
     public String getProductoNombre(){
         return producto.getNombre();
     }
+    /**
+     * Establece el nombre del producto.
+     * @param nombre Nombre que tendra el producto.
+     */
     public void setProductoNombre(String nombre){
         producto.setNombre(nombre);
     }
 
+    /**
+     * Obtiene la descripcion del prodcuto
+     * @return asociado al nombre devuelve la descripcion del producto.
+     */
     public String getProductoDescripcion(){
         return producto.getDescripcion();
     }
+    /**
+     * Establece la descripcion del producto.
+     * @param descripcion Descripcion del producto.
+     */
     public void setProductoDescripcion(String descripcion){
         producto.setDescripcion(descripcion);
     }
 
+    /**
+     * Obtiene si un producto es vegano o no.
+     * @return asociado al nombre devuelve un boolean. True en caso de ser vegano, false en caso contrario.
+     */
     public boolean getProductoVegano(){
         return producto.getVegano();
     }
+    /**
+     * Establece si un producto es vegano o no.
+     * @param vegano Boolean para establecer vegano o no.
+     */
     public void setProductoVegano(boolean vegano){
         producto.setVegano(vegano);
     }

@@ -74,27 +74,55 @@ public class ImplMenu implements Menu, Cloneable, Comparable<ImplMenu> {
     }
 
     //Get Y Set
+    /** Obtiene el ID del Menu
+     * @return Devuelve asociado al nombre el ID del menu
+     */
     public int getId(){
         return id;
     }
+
+    /**
+     * Establece el ID al menu
+     * @param id El ID para el menu
+     */
     public void setId(int id){
         this.id = id;
     }
 
+    /**
+     * Obtiene el nombre del menu
+     * @return Asociado al nombre devuelve el nombre del menu.
+     */
     public String getNombre(){
         return nombre;
     }
+    /**
+     * Establece el nombre al menu
+     * @param nombre Nombre que se le asigna al menu
+     */
     public void setNombre(String nombre){
         this.nombre = nombre;
     }
 
+    /**
+     * Obtiene la descripcion del menu
+     * @return Asociado al nombre devuelve la descripcion.
+     */
     public String getDescripcion(){
         return descripcion;
     }
+    /**
+     * Establece la descripcion para el menu
+     * @param descripcion Descripcion que se le asigna al menu
+     */
     public void setDescripcion(String descripcion){
         this.descripcion = descripcion;
     }
 
+    /**
+     * Obtiene el precio del menu
+     * @return asociado al nombre devuelve el precio del menu.
+     */
     public double getPrecioMenu(){
         double precio = 0.0;
         //Sumamos el precio de todos los productos
@@ -105,9 +133,18 @@ public class ImplMenu implements Menu, Cloneable, Comparable<ImplMenu> {
     }
 
     //Funciones añadidas
+
+    /**
+     * Obtiene los productos del menu
+     * @return asociado al nombre manda un array con los productos que contiene el menu
+     */
     public ImplProducto[] getProductos(){
         return productos;
     }
+    /**
+     *  Establece los productos que contiene el menu
+     * @param productos Array de productos para el menu
+     */
     public void setProductos(ImplProducto[] productos){
         this.productos = productos;
     }
@@ -163,9 +200,9 @@ public class ImplMenu implements Menu, Cloneable, Comparable<ImplMenu> {
     /**
      * Criterio de comparacion: segun el id.
      * @param otro un tipo ImplMenu para compararlo.
-     * @return      1 --> Si el tipo ImplMenu es mayor que el otro introducido por parámetros.
-     *              0 --> Si el tipo ImplMenu es igual que el otro introducido por parámetros.
-     *             -1 --> Si el tipo ImplMenu es menor que el otro introducido por parámetros.
+     * @return      1 -- Si el tipo ImplMenu es mayor que el otro introducido por parámetros.
+     *              0 -- Si el tipo ImplMenu es igual que el otro introducido por parámetros.
+     *             -1 -- Si el tipo ImplMenu es menor que el otro introducido por parámetros.
      */
     public int compareTo(ImplMenu otro){
         int ret = -1;
