@@ -185,6 +185,7 @@
 * Inicio
 *   leerYValidarId*
 *   Si el menú existe
+*       leerYValidarMenu* //El ID se recibe como parametro
 *       modificarMenu*
 *   Sino
 *       MensajeExplicatorio3
@@ -207,8 +208,12 @@
 *
 * InsercionMenu
 * Inicio
-*   leerYValidarMenu*
-*   insertarMenu*
+*   Si almacen de productos no esta vacio //Si no hay productos
+*       leerYValidarMenu*
+*       insertarMenu*
+*   Sino
+*       MensajeExplicatorio5
+*   Fin_si
 * Fin
 *
 * EliminacionMenu
