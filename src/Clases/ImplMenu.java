@@ -3,7 +3,7 @@
  *
  * Propiedades Básicas:
  *   -Id entero, consultable y modificable.
- *   -Nombre String, consultable y modificable.
+ *   -Nombre Cadena, consultable y modificable.
  *   -Descripcion Cadena, consultable y modificable.
  *   -Productos ImplProducto[], consultable y modificable.
  * Propiedades Derivadas:

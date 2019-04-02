@@ -5,6 +5,7 @@
 *   -Id entero, consultable y modificable.
 *   -Tipo EnumTipo, consultable y modificable.
 *   -Precio real, consultable y modificable.
+*   -Nombre Cadena, consultable y modificable.
 *   -Descripcion Cadena, consultable y modificable.
 *   -Vegano booleano, consultable y modificable.
 *
@@ -25,6 +26,9 @@
 *
 * public double getPrecio()
 * public void setPrecio(double precio)
+*
+* public String getNombre()
+* public void setNombre(String nombre)
 *
 * public String getDescripcion()
 * public void setDescripcion(String descripcion)
