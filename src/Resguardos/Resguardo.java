@@ -1,0 +1,220 @@
+package Resguardos;
+
+import Clases.ImplMenu;
+import Clases.ImplStockProducto;
+import Enums.EnumTipo;
+
+public class Resguardo {
+    /*
+    * Interfaz
+    * Nombre: mostrarMenus
+    * Comentario: Esta función permite mostrar los diferentes menús de comida por pantalla.
+    * Se muestra el id, el nombre y la descripción del menú.
+    * Cabecera: public void mostrarMenus()
+    * Postcondiciciones: Nada, solo se muestra por pantalla los menús de comida.
+    * */
+    public void mostrarMenus(){
+        System.out.println("mostrarMenus en reguardo.");
+    }
+
+    /*
+    * Interfaz
+    * Nombre: mostrarProductosAlmacen
+    * Comentario: Esta función permite mostrar todos los productos del almacén.
+    * Cabecera: public void mostrarProductosAlmacen()
+    * Postcondiciones: Nada, solo se muestran todos los productos del almacén.
+    * */
+    public void mostrarProductosAlmacen(){
+        System.out.println("mostrarProductosAlmacen en resguardo.");
+    }
+
+    /*
+    * Interfaz
+    * Nombre: mostrarProductosVeganos
+    * Comentario: Esta función permite mostrar por pantalla todos los productos veganos
+    * del almacén.
+    * Cabecera: public void mostrarProductosVeganos()
+    * Postcondiciones: Nada, solo se muestra por pantalla los productos veganos del almacén.
+    * */
+    public void mostrarProductosVeganos(){
+        System.out.println("mostrarProductosVeganos en resguardo.");
+    }
+
+    /*
+    * Interfaz
+    * Nombre: modificarProducto
+    * Comentario: Esta función permite modificar un producto del almacen. Si el producto no existe
+    * en el almacén la función devuelve -1.
+    * Cabecera: public int modificarProducto(ImplStockProducto producto)
+    * Entrada:
+    *   -ImplStockProducto producto
+    * Salida:
+    *   -entero validez
+    * Postcondiciones: La función devuelve un número entero asociado al nombre, 0 si no se han cometido
+    * errores, modificando el producto del almacén o -1 si la id de producto no coincide con ninguno de los
+    * productos del almacén.
+    * */
+    public int modificarProducto(ImplStockProducto producto){
+        int validez = -1;
+
+        System.out.println("modificarProducto en resguardo.");
+
+        return validez;
+    }
+
+    /*
+    * Interfaz
+    * Nombre: leerYValidarProducto
+    * Comentario: Esta función permite obtener un tipo ImplStockProducto válido para
+    * el programa BurguerDonaldStore.
+    * Cabecera: public ImplStockProducto leerYValidarProducto()
+    * Salida:
+    *   -ImplStockProducto producto
+    * Postcondiciones: La función devuelve un tipo ImplStockProducto asociado al nombre,
+    * que es un producto válido para la aplicación BurguerDonaldStore.
+    * */
+    public ImplStockProducto leerYValidarProducto(){
+        ImplStockProducto producto = null;
+
+        System.out.println("leerYValidarProducto en resguardo.");
+
+        return producto;
+    }
+
+    /*
+    * Interfaz
+    * Nombre: insertarProducto
+    * Comentario: Esta función permite insertar un producto en el almacen.
+    * Cabecera: public void insertarProducto(ImplStockProducto producto)
+    * Entrada:
+    *   -ImplStockProducto producto
+    * Postcondiciones: La función inserta un tipo ImplStockProducto en el fichero
+    * del almacén.
+    * */
+    public void insertarProducto(ImplStockProducto producto){
+        System.out.println("insertarProducto en resguardo.");
+    }
+
+    /*
+    * Interfaz
+    * Nombre: eliminarProducto
+    * Comentario: Esta función permite eliminar un producto del almacén.
+    * Cabecera: public int eliminarProducto(int idProducto)
+    * Entrada:
+    *   -entero idProducto
+    * Postcondiciones: La función devuelve un número entero asociado al nombre, 0 si se
+    * ha conseguido eliminar el producto o -1 si no se ha encontrado el producto en el almacén.
+    * */
+    public int eliminarProducto(int idProducto){
+        int validez = -1;
+
+        System.out.println("eliminarProducto en resguardo.");
+
+        return validez;
+    }
+
+    /*
+    * Interfaz
+    * Nombre: modificarMenu
+    * Comentario: Esta función permite modificar un menú de comida, si en el fichero
+    * de menús no se encuentra un menú con el mismo id que la modificación la función
+    * devuelve -1 y no se realiza ninguna modificación.
+    * Cabecera: public int modificarMenu(ImplMenu menu)
+    * Entrada:
+    *   -ImplMenu menu
+    * Salida:
+    *   -entero validez
+    * Postcondiciones: La función devuelve un número entero asociado al nombre, 0 si no se han
+    * ---------------------
+    * */
+
+    /*
+    * Interfaz
+    * Nombre: canjearMenu
+    * Comentario: Esta función permite decrementar en una unidad, los productos de un menú
+    * en el almacén.
+    * Cabecera: public void canjearMenu(int idMenu)
+    * Entrada:
+    *   -entero idMenu
+    * Precondiciones:
+    *   -Los productos del menú deben tener un stock superior de 0.
+    * Postcondiciones: La función decrementa en una unidad los productos del almacén que aparecen
+    * en el menú.
+    * */
+    public void canjearMenu(int idMenu){
+        System.out.println("canjearMenu en resguardo.");
+    }
+
+    /*
+    * Interfaz
+    * Nombre: leerYValidarMenu
+    * Comentario: La función permite obetener un menú válido para el programa
+    * BuguerDonald.
+    * Cabecera: public ImplMenu leerYValidarMenu()
+    * Salida:
+    *   -ImplMenu menu
+    * Precondiciones:
+    *   -El almacén(fichero) de productos no debe estar vacío.
+    * Postcondiciones: La función devuelve un tipo ImplMenu asociado al nombre,
+    * que es un menú válido para la aplicación.
+    * */
+    public ImplMenu leerYValidarMenu(){
+        ImplMenu menu = null;
+
+        System.out.println("leerYValidarMenu en resguardo.");
+
+        return menu;
+    }
+
+    /*
+    * Interfaz
+    * Nombre: insertarMenu
+    * Comentario: Esta función permite insertar un menú en el archivo de menús.
+    * Cabecera: public void insertarMenu(ImplMenu menu)
+    * Entrada:
+    *   -ImplMenu menu
+    * Postcondiciones: La función inserta un menú en el archivo de menús de la
+    * aplicación BurguerDonald.
+    * */
+    public void insertarMenu(ImplMenu menu){
+        System.out.println("insertarMenu en resguardo.");
+    }
+
+    /*
+    * Interfaz
+    * Nombre: eliminarMenu
+    * Comentario: Esta función permite eliminar un menú del archivo de menús del
+    * programa BurguerDonald. Si no se encuentra el menú en el archivo, la función
+    * devuelve -1 y no elimina nada.
+    * Cabecera: public int eliminarMenu(int idMenu)
+    * Entrada:
+    *   -entero idMenu
+    * Salida:
+    *   -entero validez
+    * Postcondiciones: La función devuelve un número entero asociado al nombre, 0 si se
+    * ha conseguido eliminar el menú o -1 si no se ha encontrado el menú en el archivo
+    * de menús.
+    * */
+    public int eliminarMenu(int idMenu){
+        int validez = -1;
+
+        System.out.println("eliminarMenu en resguardo.");
+
+        return validez;
+    }
+
+    /*
+    * Interfaz
+    * Nombre: mostrarProductosTipo
+    * Comentario: Esta función permite mostrar por pantalla todos los productos que sean
+    * de un mismo tipo introducido por parámetros.
+    * Cabecera: public void mostrarProductosTipo(EnumTipo tipoProducto)
+    * Entrada:
+    *   -EnumTipo tipoProducto
+    * Postcondiciones: La función muestra por pantalla todos los productos del almacén que
+    * sean del mismo tipo.
+    * */
+    public void mostrarProductosTipo(EnumTipo tipoProducto){
+        System.out.println("mostrarProductosTipo en resguardo.");
+    }
+}
