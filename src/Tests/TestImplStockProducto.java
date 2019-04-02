@@ -1,10 +1,10 @@
-package Conductores;
+package Tests;
 
 import Clases.ImplProducto;
 import Clases.ImplStockProducto;
 import Enums.EnumTipo;
 
-public class ConductorImplStockProducto {
+public class TestImplStockProducto {
     public static void main (String[] args){
         //Constructor por defecto
         ImplStockProducto stockProducto1 = new ImplStockProducto();

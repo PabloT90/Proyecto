@@ -1,9 +1,9 @@
-package Conductores;
+package Tests;
 
 import Clases.ImplProducto;
 import Enums.EnumTipo;
 
-public class ConductorImplProducto {
+public class TestImplProducto {
     public static void main (String[] args){
         //Constructor por defecto
         ImplProducto producto1 = new ImplProducto();

@@ -1,8 +1,8 @@
-package Conductores;
+package Tests;
 
 import Enums.EnumTipo;
 
-public class ConductorEnumTipo {
+public class TestEnumTipo {
     public static void main (String[] args){
         System.out.println(EnumTipo.BEBIDA);
         System.out.println(EnumTipo.COMPLEMENTO);

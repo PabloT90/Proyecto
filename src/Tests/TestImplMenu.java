@@ -1,10 +1,10 @@
-package Conductores;
+package Tests;
 
 import Clases.ImplMenu;
 import Clases.ImplProducto;
 import Enums.EnumTipo;
 
-public class ConductorImplMenu {
+public class TestImplMenu {
     public static void main (String[] args){
         //Constructor por defecto
         ImplMenu menu1 = new ImplMenu();
