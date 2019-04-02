@@ -38,8 +38,8 @@
 * Todos los menús anteriores son iterativos, es decir, solo finalizan cuando el usuario así lo desea.
 *
 * Entrada:
-*   -Un número entero para opcionMenu.
-*   -Un número entero para opcionSubMenu.
+*   -Un número entero para opcionMenu1.
+*   -Un número entero para opcionMenu2.
 *   -Un número entero para id.//Para produto o menú.
 *   -Un tipo ImplMenu para menu.
 *   -Un tipo ImplProducto para producto.
@@ -48,7 +48,66 @@
 *
 * Salida:
 *   -Mensajes de comunicación con el usuario.
-*   -
+*   -Se muestran los menús por pantalla.
+*   -Se muestran los productos por pantalla.
+*
+* Restricciones:
+*   -opcionMenu1 debe ser un número entre 0 y 2.
+*   -opcionMenu2 debe ser un número entre 0 y 3.
+*   -id debe ser mayor o igual que 0.
+*   -modificadorStock debe ser mayor que 0.
+*   -tipoProducto debe ser igual a "BEBIDA", "POSTRE", "SANDWICH", "COMPLEMENTO", "ENSALADA" o "DESAYUNO".
+*
+* PG Nivel: 0
+* Inicio
+*
+*   Repetir
+*
+*       leerYValidarOpcionMenu1*
+*
+*       Si opcionMenu1 != 0
+*
+*           Segun (opcionMenu1)
+*
+*               para opcionMenu1 == 1
+*                   AccionesMenu
+*
+*               para opcionMenu2 == 2
+*                   AccionesProductos
+*
+*           Fin_segun
+*
+*       Fin_si
+*
+*   Mientras opcionMenu1 != 0
+*
+* Fin
+*
+* PG Nivel: 1
+* AccionesMenu
+* Inicio
+*
+*   Repetir
+*
+*       leerYValidarOpcionSubMenu1*
+*
+*       Si opcionMenu2 != 0
+*
+*           Segun (opcionMenu2)
+*
+*               para opcionMenu2 == 1
+*
+*               para opcionMenu2 == 2
+*
+*               para opcionMenu2 == 3
+*
+*           Fin_si
+*
+*       Fin_si
+*
+*   Mientras opcionMenu2 != 0
+*
+* Fin
 * */
 
 package Main;
