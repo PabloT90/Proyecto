@@ -125,8 +125,16 @@ public class Resguardo {
     * Salida:
     *   -entero validez
     * Postcondiciones: La función devuelve un número entero asociado al nombre, 0 si no se han
-    * ---------------------
+    * cometido errores, modificando el menú o -1 si la id de menu no coincide con ninguna id de los
+    * menús almacenados en el fichero de menús.
     * */
+    public int modificarMenu(ImplMenu menu){
+        int validez = -1;
+
+        System.out.println("modificarMenu en resguardo.");
+
+        return validez;
+    }
 
     /*
     * Interfaz
