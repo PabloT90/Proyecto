@@ -48,6 +48,10 @@ public class ImplMenu implements Menu, Cloneable, Comparable<ImplMenu> {
     private ImplProducto[] productos;
 
     //Constructor por defecto
+
+    /**
+     * Instancia un nuevo objeto ImplMenu
+     */
     public ImplMenu(){
         ImplProducto producto = new ImplProducto();
         id = 0;
@@ -58,6 +62,14 @@ public class ImplMenu implements Menu, Cloneable, Comparable<ImplMenu> {
     }
 
     //Constructor con parámetros
+
+    /**
+     * Instancia un nuevo objeto ImplMenu.
+     * @param id ID del menu.
+     * @param nombre Nombre del menu.
+     * @param descripcion Breve descripcion del menu.
+     * @param productos Productos que componen el menu.
+     */
     public ImplMenu(int id,String nombre, String descripcion, ImplProducto[] productos){
         this.id = id;
         this.nombre = nombre;
@@ -66,6 +78,11 @@ public class ImplMenu implements Menu, Cloneable, Comparable<ImplMenu> {
     }
 
     //Constructor de copia
+
+    /**
+     * Instancia un nuevo objeto ImplMenu
+     * @param otro el objeto a copiar.
+     */
     public ImplMenu(ImplMenu otro){
         id = otro.getId();  //La copia tendrá el mismo id
         nombre = otro.getNombre();
@@ -150,6 +167,10 @@ public class ImplMenu implements Menu, Cloneable, Comparable<ImplMenu> {
     }
 
     //hashCode
+
+    /**
+     * @see java.lang.Object#hashCode()
+     */
     @Override
     public int hashCode(){
         return getId(); //El id debe ser único para cada producto
@@ -192,6 +213,9 @@ public class ImplMenu implements Menu, Cloneable, Comparable<ImplMenu> {
     }
 
     //toString
+    /**
+     * @see java.lang.Object#toString()
+	 */
     @Override
     public String toString(){
         return getId()+","+getNombre()+","+getDescripcion()+","+getPrecioMenu();

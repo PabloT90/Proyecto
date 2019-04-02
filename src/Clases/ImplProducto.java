@@ -58,6 +58,10 @@ public class ImplProducto implements Producto, Cloneable, Comparable<ImplProduct
     private boolean vegano;
 
     //Constructor por defecto
+
+    /**
+     * Instancia un nuevo objeto ImplProducto
+     */
     public ImplProducto(){
         id = 0;
         tipo = EnumTipo.COMPLEMENTO;
@@ -68,6 +72,16 @@ public class ImplProducto implements Producto, Cloneable, Comparable<ImplProduct
     }
 
     //Constructor con parámetros
+
+    /**
+     * Instancia un nuevo objeto ImplProducto
+     * @param id ID que tendra el producto.
+     * @param tipo Tipo que sera el producto.
+     * @param precio Precio al que se vendera el producto.
+     * @param nombre Nombre del producto.
+     * @param descripcion Breve descripcion del producto.
+     * @param vegano Para conocer si es vegano o no.
+     */
     public ImplProducto(int id, EnumTipo tipo, double precio, String nombre, String descripcion, boolean vegano){
         this.id = id;
         this.tipo = tipo;
@@ -78,6 +92,11 @@ public class ImplProducto implements Producto, Cloneable, Comparable<ImplProduct
     }
 
     //Constructor de copia
+
+    /**
+     * Instancia un nuevo objeto ImplProducto.
+     * @param otro Objeto que vamos a copiar.
+     */
     public ImplProducto(ImplProducto otro){
         id = otro.getId();
         tipo = otro.getTipo();
@@ -180,6 +199,9 @@ public class ImplProducto implements Producto, Cloneable, Comparable<ImplProduct
 
     //Funciones sobreescritas
     //hashCode
+    /**
+     * @see java.lang.Object#hashCode()
+     */
     @Override
     public int hashCode(){
         return getId(); //El id debe ser único para cada producto
@@ -220,6 +242,9 @@ public class ImplProducto implements Producto, Cloneable, Comparable<ImplProduct
         return copia;
     }
     //toString
+    /**
+     * @see java.lang.Object#toString()
+     */
     public String toString() {
         return getId() + "," + getTipo() + "," + getPrecio() + "," +getNombre()+ "," + getDescripcion() + "," + getVegano();
     }

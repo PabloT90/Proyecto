@@ -50,27 +50,51 @@ public class ImplStockProducto implements StockProducto, Cloneable{
     private int stock;
     
     //Constructor por defecto
+
+    /**
+     * Instancia un nuevo objeto ImplStockProducto
+     */
     public ImplStockProducto(){
         producto = new ImplProducto();
         stock = 0;
     }
     
     //Constructor con parámetros
+
+    /**
+     * Instancia un nuevo objeto ImplStockProducto
+     * @param producto Producto del que vamos a registrar el stock
+     * @param stock Cantidad de producto que tendremos en el almacen.
+     */
     public ImplStockProducto(ImplProducto producto, int stock){
         this.producto = producto;
         this.stock = stock;
     }
     
     //Constructor de copia
+
+    /**
+     * Instancia un nuevo objeto ImplStockProducto
+     * @param otro Objeto que copiaremos.
+     */
     public ImplStockProducto(ImplStockProducto otro){
         producto = otro.producto;
         this.stock = otro.getStock();
     }
 
     //Get Y Set
+
+    /**
+     * Obtiene el stock del producto
+     * @return asociado al nombre devuelve un entero con el numero de stock del producto.
+     */
     public int getStock(){
         return stock;
     }
+    /**
+     * Establece el stock del producto.
+     * @param stock Numero de productos guardados en el almacen.
+     */
     public void setStock(int stock){
         this.stock = stock;
     }
@@ -169,6 +193,9 @@ public class ImplStockProducto implements StockProducto, Cloneable{
     }
 
     //hashCode
+    /**
+     * @see java.lang.Object#hashCode()
+     */
     public int hashCode(){
         return getProductoId() * 7 + stock + 1 * 13;
     }
@@ -222,6 +249,9 @@ public class ImplStockProducto implements StockProducto, Cloneable{
         return copia;
     }
     //toString
+    /**
+     * @see java.lang.Object#toString()
+     */
     public String toString(){
         return getProductoId()+","+getProductoTipo()+","+getProductoPrecio()+","+getProductoNombre()+","+getProductoDescripcion()+","+
                 getProductoVegano()+","+getStock();
