@@ -10,10 +10,10 @@ public class TestImplProducto {
         System.out.println("producto1.toString() --> "+producto1.toString());
 
         //Constructor con parámetros
-        ImplProducto producto2 = new ImplProducto(1, EnumTipo.BEBIDA, 1.50, "CocaCola", true);
+        ImplProducto producto2 = new ImplProducto(1, EnumTipo.BEBIDA, 1.50, "CocaCola","Bebida refrescante", true);
         System.out.println("producto2.toString() --> "+producto2.toString());
 
-        ImplProducto producto3 = new ImplProducto(300, EnumTipo.COMPLEMENTO, 1.0, "Patatas fritas", true);
+        ImplProducto producto3 = new ImplProducto(300, EnumTipo.COMPLEMENTO, 1.0, "Patatas fritas","Patatas a gajos", true);
         System.out.println("producto3.toString() --> "+producto3.toString());
 
         //Constructor de copia
@@ -56,6 +56,12 @@ public class TestImplProducto {
 
         //getDescripcion
         System.out.println("producto1.getDescripcion() --> "+producto1.getDescripcion());
+
+        //setNombre
+        producto1.setNombre("Patatas con palomino");
+
+        //getNombre
+        System.out.println("producto1.getNombre() --> "+ producto1.getNombre());
 
         //setVegano
         producto1.setVegano(true);

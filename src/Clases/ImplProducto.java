@@ -3,6 +3,7 @@
  *
  * Propiedades Básicas:
  *   -Id entero, consultable y modificable.
+ *   -Nombre String, consultable y modificable.
  *   -Tipo EnumTipo, consultable y modificable.
  *   -Precio real, consultable y modificable.
  *   -Descripcion Cadena, consultable y modificable.
@@ -25,6 +26,10 @@
  *
  * public double getPrecio()
  * public void setPrecio(double precio)
+ *
+ *
+ * public String getNombre()
+ * public void setNombre()
  *
  * public String getDescripcion()
  * public void setDescripcion(String descripcion)
@@ -49,6 +54,7 @@ public class ImplProducto implements Producto, Cloneable, Comparable<ImplProduct
     private int id;
     private EnumTipo tipo;
     private double precio;
+    private String nombre;
     private String descripcion;
     private boolean vegano;
 
@@ -57,15 +63,17 @@ public class ImplProducto implements Producto, Cloneable, Comparable<ImplProduct
         id = 0;
         tipo = EnumTipo.COMPLEMENTO;
         precio = 0.0;
+        nombre = "DEFAULT";
         descripcion = "DEFAULT";
         vegano = false;
     }
 
     //Constructor con parámetros
-    public ImplProducto(int id, EnumTipo tipo, double precio, String descripcion, boolean vegano){
+    public ImplProducto(int id, EnumTipo tipo, double precio, String nombre, String descripcion, boolean vegano){
         this.id = id;
         this.tipo = tipo;
         this.precio = precio;
+        this.nombre = nombre;
         this.descripcion = descripcion;
         this.vegano = vegano;
     }
@@ -75,6 +83,7 @@ public class ImplProducto implements Producto, Cloneable, Comparable<ImplProduct
         id = otro.getId();
         tipo = otro.getTipo();
         precio = otro.getPrecio();
+        nombre = otro.getNombre();
         descripcion = otro.getDescripcion();
         vegano = otro.getVegano();
     }
@@ -99,6 +108,13 @@ public class ImplProducto implements Producto, Cloneable, Comparable<ImplProduct
     }
     public void setPrecio(double precio){
         this.precio = precio;
+    }
+
+    public String getNombre(){
+        return nombre;
+    }
+    public void setNombre(String nombre){
+        this.nombre = nombre;
     }
 
     public String getDescripcion(){
@@ -158,7 +174,7 @@ public class ImplProducto implements Producto, Cloneable, Comparable<ImplProduct
     }
     //toString
     public String toString() {
-        return getId() + "," + getTipo() + "," + getPrecio() + "," + getDescripcion() + "," + getVegano();
+        return getId() + "," + getTipo() + "," + getPrecio() + "," +getNombre()+ "," + getDescripcion() + "," + getVegano();
     }
 
     /**

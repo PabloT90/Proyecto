@@ -11,8 +11,8 @@ public class TestImplStockProducto {
         System.out.println("stockProducto1.toString() --> "+stockProducto1.toString());
 
         //Constructor con parámetros
-        ImplProducto producto1 = new ImplProducto(1, EnumTipo.BEBIDA, 1.50, "CocaCola", true);
-        ImplProducto producto2 = new ImplProducto(300, EnumTipo.COMPLEMENTO, 1.0, "Patatas fritas", true);
+        ImplProducto producto1 = new ImplProducto(1, EnumTipo.BEBIDA, 1.50, "CocaCola", "Bebida refreacante", true);
+        ImplProducto producto2 = new ImplProducto(300, EnumTipo.COMPLEMENTO, 1.0, "Patatas fritas", "A gajos", true);
 
         ImplStockProducto stockProducto2 = new ImplStockProducto(producto1, 7);
         System.out.println("stockProducto2.toString() --> "+stockProducto2.toString());
@@ -70,8 +70,16 @@ public class TestImplStockProducto {
         //stockProducto1.setProductoDescripcion("  ");
         stockProducto1.setProductoDescripcion("Esto es una descripcion.");
 
-        //getDescripcion
+        //getProductoDescripcion
         System.out.println("stockProducto1.getProductoDescripcion() --> "+stockProducto1.getProductoDescripcion());
+
+        //setProductoNombre
+        //stockProducto1.setProductoNombre(" ");
+        //stockProducto1.setProductoNombre("  ");
+        stockProducto1.setProductoNombre("Mekacola.");
+
+        //getProductoNombre
+        System.out.println("stockProducto1.getProductoNombre() --> "+stockProducto1.getProductoNombre());
 
         //setProductoVegano
         stockProducto1.setProductoVegano(true);

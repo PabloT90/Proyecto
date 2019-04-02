@@ -3,6 +3,7 @@
  *
  * Propiedades Básicas:
  *   -Id entero, consultable y modificable.
+ *   -Nombre String, consultable y modificable.
  *   -Descripcion Cadena, consultable y modificable.
  *   -Productos ImplProducto[], consultable y modificable.
  * Propiedades Derivadas:
@@ -16,6 +17,9 @@
  * Interfaz
  * public int getId()
  * public void setId(int id)
+ *
+ * public String getNombre()
+ * public void setNombre(String nombre)
  *
  * public String getDescripcion()
  * public void setDescripcion(String descripcion)
@@ -39,6 +43,7 @@ import Interfaces.Menu;
 
 public class ImplMenu implements Menu, Cloneable, Comparable<ImplMenu> {
     private int id;
+    private String nombre;
     private String descripcion;
     private ImplProducto[] productos;
 
@@ -47,13 +52,15 @@ public class ImplMenu implements Menu, Cloneable, Comparable<ImplMenu> {
         ImplProducto producto = new ImplProducto();
         id = 0;
         descripcion = "DEFAULT";
+        nombre = "DEFAULT";
         productos = new ImplProducto[1];
         productos[0] = producto;//productos no debe contener ningún valor nulo.
     }
 
     //Constructor con parámetros
-    public ImplMenu(int id, String descripcion, ImplProducto[] productos){
+    public ImplMenu(int id,String nombre, String descripcion, ImplProducto[] productos){
         this.id = id;
+        this.nombre = nombre;
         this.descripcion = descripcion;
         this.productos = productos;
     }
@@ -61,6 +68,7 @@ public class ImplMenu implements Menu, Cloneable, Comparable<ImplMenu> {
     //Constructor de copia
     public ImplMenu(ImplMenu otro){
         id = otro.getId();  //La copia tendrá el mismo id
+        nombre = otro.getNombre();
         descripcion = otro.getDescripcion();
         productos = otro.getProductos();
     }
@@ -71,6 +79,13 @@ public class ImplMenu implements Menu, Cloneable, Comparable<ImplMenu> {
     }
     public void setId(int id){
         this.id = id;
+    }
+
+    public String getNombre(){
+        return nombre;
+    }
+    public void setNombre(String nombre){
+        this.nombre = nombre;
     }
 
     public String getDescripcion(){
@@ -142,7 +157,7 @@ public class ImplMenu implements Menu, Cloneable, Comparable<ImplMenu> {
     //toString
     @Override
     public String toString(){
-        return getId()+","+getDescripcion()+","+getPrecioMenu();
+        return getId()+","+getNombre()+","+getDescripcion()+","+getPrecioMenu();
     }
 
     /**

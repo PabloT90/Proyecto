@@ -41,12 +41,19 @@ import Enums.EnumTipo;
 public interface Producto {
     public int getId();
     public void setId(int id);
+
     public EnumTipo getTipo();
     public void setTipo(EnumTipo tipo);
+
     public double getPrecio();
     public void setPrecio(double precio);
+
+    public String getNombre();
+    public void setNombre(String nombre);
+
     public String getDescripcion();
     public void setDescripcion(String descripcion);
+
     public boolean getVegano();
     public void setVegano(boolean vegano);
 }

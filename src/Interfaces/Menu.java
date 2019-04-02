@@ -28,7 +28,12 @@ package Interfaces;
 public interface Menu {
     public int getId();
     public void setId(int id);
+
+    public String getNombre();
+    public void setNombre(String nombre);
+
     public String getDescripcion();
     public void setDescripcion(String descripcion);
+
     public double getPrecioMenu();
 }

@@ -11,17 +11,17 @@ public class TestImplMenu {
         System.out.println("menu1.toString() --> "+menu1.toString());
 
         //Constructor con parámetros
-        ImplProducto producto1 = new ImplProducto(1, EnumTipo.BEBIDA, 1.50, "CocaCola", true);
-        ImplProducto producto2 = new ImplProducto(300, EnumTipo.COMPLEMENTO, 1.0, "Patatas fritas", true);
-        ImplProducto producto3 = new ImplProducto(201, EnumTipo.SANDWICH, 4.5, "Big Supreme", false);
+        ImplProducto producto1 = new ImplProducto(1, EnumTipo.BEBIDA, 1.50, "CocaCola", "Bebida refrescante", true);
+        ImplProducto producto2 = new ImplProducto(300, EnumTipo.COMPLEMENTO, 1.0, "Patatas fritas", "Cortadas a gajos", true);
+        ImplProducto producto3 = new ImplProducto(201, EnumTipo.SANDWICH, 4.5, "Big Supreme", "Hamburguesa colosal", false);
         ImplProducto[] productos1 = {producto1, producto2};
         ImplProducto[] productos2 = {producto1, producto2, producto3};
         ImplProducto[] productos3 = new ImplProducto[2];//Contiene elementos nulos
 
-        ImplMenu menu2 = new ImplMenu(101, "Revienta arterias", productos1);
+        ImplMenu menu2 = new ImplMenu(101, "Revienta arterias", "Con extra de grasas malas", productos1);
         System.out.println("menu2.toString() --> "+menu2.toString());
 
-        ImplMenu menu3 = new ImplMenu(102, "Tocino Kusmi", productos2);
+        ImplMenu menu3 = new ImplMenu(102, "Tocino Kusmi", "Viene de un cochino flaco", productos2);
         System.out.println("menu3.toString() --> "+menu3.toString());
 
         //Constructor de copia
@@ -47,6 +47,13 @@ public class TestImplMenu {
 
         //getDescripcion
         System.out.println("menu1.getDescripcion() --> "+menu1.getDescripcion());
+
+        //setNombre
+        menu1.setNombre(" ");
+        menu1.setNombre("Esto es un nombre");
+
+        //getDescripcion
+        System.out.println("menu1.getNombre() --> "+menu1.getNombre());
 
         //setProductos
         //menu1.setProductos(productos3);//Contiene elementos nulos, la interfaz no lo permite.

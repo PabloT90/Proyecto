@@ -24,6 +24,9 @@
  * public double getProductoPrecio()
  * public void setProductoPrecio(double precio)
  *
+ * public String getProductoNombre()
+ * public void setProductoNombre(String nombre)
+ *
  * public String getProductoDescripcion()
  * public void setProductoDescripcion(String descripcion)
  *
@@ -96,6 +99,13 @@ public class ImplStockProducto implements StockProducto, Cloneable{
         producto.setPrecio(precio);
     }
 
+    public String getProductoNombre(){
+        return producto.getNombre();
+    }
+    public void setProductoNombre(String nombre){
+        producto.setNombre(nombre);
+    }
+
     public String getProductoDescripcion(){
         return producto.getDescripcion();
     }
@@ -165,7 +175,7 @@ public class ImplStockProducto implements StockProducto, Cloneable{
     }
     //toString
     public String toString(){
-        return getProductoId()+","+getProductoTipo()+","+getProductoPrecio()+","+getProductoDescripcion()+","+
+        return getProductoId()+","+getProductoTipo()+","+getProductoPrecio()+","+getProductoNombre()+","+getProductoDescripcion()+","+
                 getProductoVegano()+","+getStock();
     }
 }
