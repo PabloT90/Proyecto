@@ -50,7 +50,6 @@ public class ImplStockProducto implements StockProducto, Cloneable{
     private int stock;
     
     //Constructor por defecto
-
     /**
      * Instancia un nuevo objeto ImplStockProducto
      */
@@ -60,7 +59,6 @@ public class ImplStockProducto implements StockProducto, Cloneable{
     }
     
     //Constructor con parámetros
-
     /**
      * Instancia un nuevo objeto ImplStockProducto
      * @param producto Producto del que vamos a registrar el stock
@@ -70,9 +68,14 @@ public class ImplStockProducto implements StockProducto, Cloneable{
         this.producto = producto;
         this.stock = stock;
     }
+
+    //Constructor con parametros 2
+    public ImplStockProducto(int id, EnumTipo tipo, double precio, String nombre, String descripcion, boolean vegano, int stock){
+        producto = new ImplProducto( id, tipo, precio, nombre, descripcion, vegano);
+        this.stock = stock;
+    }
     
     //Constructor de copia
-
     /**
      * Instancia un nuevo objeto ImplStockProducto
      * @param otro Objeto que copiaremos.
