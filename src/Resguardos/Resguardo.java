@@ -51,7 +51,8 @@ public class Resguardo {
     /**
      * Modifica un producto del almacen.
      * @param producto Objeto que nos indica la cantidad de stock que hay de dicho producto.
-     * @return Asociado al nombre devuelve un entero. -1 en caso de no existir el producto. 0 en caso de haber cometido errores modificando el producto
+     * @return Asociado al nombre devuelve un entero. -1 en caso de no existir el producto.
+     * 0 en caso de haber cometido errores modificando el producto
      * Cabecera: public int modificarProducto(ImplStockProducto producto)
      */
     public int modificarProducto(ImplStockProducto producto){
