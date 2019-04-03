@@ -9,6 +9,10 @@ public class MenusYPantallas {
     * Cabecera: public void mostrarMenu1()
     * Postcondiciones: Nada, solo se pinta un menú por pantalla.
     * */
+
+    /**
+     * Muestra por pantalla el primer menú de la aplicacion BurguerDonald.
+     */
     public void mostrarMenu1(){
         System.out.println("Elige una de las siguientes opciones:");
         System.out.println();
@@ -21,11 +25,14 @@ public class MenusYPantallas {
     /*
      * Interfaz
      * Nombre: mostrarMenu2
-     * Comentario: Esta función permite mostrar por pantalla el primer submenú de
+     * Comentario: Esta función permite mostrar por pantalla el segundo submenú de
      * la aplicación BurguerDonald.
      * Cabecera: public void mostrarMenu2()
      * Postcondiciones: Nada, solo se pinta un menú por pantalla.
      * */
+    /**
+     * Esta función permite mostrar por pantalla el primer submenú de la aplicación BurguerDonald.
+     */
     public void mostrarMenu2(){
         System.out.println("Elige una de las siguientes opciones:");
         System.out.println();
@@ -42,11 +49,15 @@ public class MenusYPantallas {
     /*
      * Interfaz
      * Nombre: mostrarMenu3
-     * Comentario: Esta función permite mostrar por pantalla el segundo submenú de
+     * Comentario: Esta función permite mostrar por pantalla el tercer submenú de
      * la aplicación BurguerDonald.
      * Cabecera: public void mostrarMenu3()
      * Postcondiciones: Nada, solo se pinta un menú por pantalla.
      * */
+
+    /**
+     * Esta función permite mostrar por pantalla el tercer submenú de la aplicación BurguerDonald.
+     */
     public void mostrarMenu3(){
         System.out.println("Elige una de las siguientes opciones:");
         System.out.println();
@@ -68,6 +79,10 @@ public class MenusYPantallas {
      * Cabecera: public void mostrarMenu4()
      * Postcondiciones: Nada, solo se pinta un menú por pantalla.
      * */
+
+    /**
+     *Esta función permite mostrar por pantalla un menú de consultas sobre productos de la aplicación BurguerDonald.
+     */
     public void mostrarMenu4(){
         System.out.println("Elige una de las siguientes opciones:");
         System.out.println();
@@ -86,6 +101,11 @@ public class MenusYPantallas {
      * Cabecera: public void mostrarMenu5()
      * Postcondiciones: Nada, solo se pinta un menú por pantalla.
      * */
+
+    /**
+     * Esta función permite mostrar por pantalla un menú sobre la modificación de stock de
+     * productos de la aplicación BurguerDonald.
+     */
     public void mostrarMenu5(){
         System.out.println("Elige una de las siguientes opciones:");
         System.out.println();
