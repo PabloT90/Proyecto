@@ -78,7 +78,7 @@ public class Resguardo {
      * @param idProducto ID del producto.
      * @return asociado al nombre devuelve un tipo ImplStockProducto.
      */
-    public ImplStockProducto leerYValidarProducto(int idProducto){
+    public ImplStockProducto leerYValidarNuevoProducto(int idProducto){
         ImplStockProducto producto = null;
 
         System.out.println("leerYValidarProducto en resguardo.");
