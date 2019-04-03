@@ -1,0 +1,4 @@
+56,BEBIDA,1.5,CocaCola,Un poco cara.,true,56
+56,BEBIDA,1.5,CocaCola,Un poco cara.,true,56
+56,BEBIDA,1.5,CocaCola,Un poco cara.,true,56
+56,BEBIDA,1.5,CocaCola,Un poco cara.,true,56
