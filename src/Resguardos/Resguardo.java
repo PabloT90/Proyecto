@@ -5,11 +5,11 @@ import Clases.ImplStockProducto;
 import Enums.EnumTipo;
 
 public class Resguardo {
+    
     /**
      * Permite mostrar los diferentes menus de comida por pantalla
      * Se muestra el id, el nombre y la descripcion del menu.
      * Postcondiciones: nada, solo se muestra por pantalla los menus de comida.
-     * Cabecera: public void mostrarMenus()
      */
     public void mostrarMenus(){
         System.out.println("mostrarMenus en reguardo.");
@@ -27,7 +27,6 @@ public class Resguardo {
     /**
      * Muestra por pantalla todos los productos veganos
      * Postcondiciones: nada, solo se muestra por pantalla los productos veganos del almacen.
-     * Cabecera: public void mostrarProductosVeganos()
      */
     public void mostrarProductosVeganos(){
         System.out.println("mostrarProductosVeganos en resguardo.");
@@ -52,7 +51,6 @@ public class Resguardo {
      * Modifica un producto del almacen.
      * @param producto Objeto que nos indica la cantidad de stock que hay de dicho producto.
      * @return Asociado al nombre devuelve un entero. -1 en caso de no existir el producto. 0 en caso de haber cometido errores modificando el producto
-     * Cabecera: public int modificarProducto(ImplStockProducto producto)
      */
     public int modificarProducto(ImplStockProducto producto){
         int validez = -1;
@@ -77,7 +75,6 @@ public class Resguardo {
     /**
      * Obtiene un tipo ImplStockProducto valido.
      * @return asociado al nombre devuelve un tipo ImplStockProducto.
-     * Cabecera: public ImplStockProducto leerYValidarProducto()
      */
     public ImplStockProducto leerYValidarProducto(){
         ImplStockProducto producto = null;
@@ -102,7 +99,6 @@ public class Resguardo {
      * Inserta un producto en el almacen.
      * @param producto Producto que se quiere insertar.
      * Postcondiciones: La función inserta un tipo ImplStockProducto en el fichero del almacen.
-     * Cabecera: public void insertarProducto(ImplStockProducto producto)
      */
     public void insertarProducto(ImplStockProducto producto){
         System.out.println("insertarProducto en resguardo.");
@@ -123,7 +119,6 @@ public class Resguardo {
      * Elimina un producto del almacen
      * @param idProducto ID del producto que se quiere eliminar.
      * @return Asociado al nombre se devuelve un entero. 0 si se ha eliminado y -1 en caso contrario.
-     * Cabecera: public int eliminarProducto(int idProducto)
      */
     public int eliminarProducto(int idProducto){
         int validez = -1;
@@ -148,6 +143,12 @@ public class Resguardo {
     * cometido errores, modificando el menú o -1 si la id de menu no coincide con ninguna id de los
     * menús almacenados en el fichero de menús.
     * */
+
+    /**
+     * Modifica un menu de comida
+     * @param menu tipo ImplMenu que queremos modificar
+     * @return Asociado al nombre devuelve 0 si no ha habido errores modificando el menu o -1 si la ID del menu no coincida con ninguna ID almacenada.
+     */
     public int modificarMenu(ImplMenu menu){
         int validez = -1;
 
@@ -174,7 +175,6 @@ public class Resguardo {
      * Permite decrementar en una unidad los productos que componen un menu.
      * @param idMenu ID del menu al que queremos aplicar el decremento de sus productos. El prooducto debe tener un stock superior a 0.
      * Postcondiciones: decrementa en una unidad los productos que componen el menu.
-     * Cabecera: public void canjearMenu(int idMenu)
      */
     public void canjearMenu(int idMenu){
         System.out.println("canjearMenu en resguardo.");
@@ -197,7 +197,6 @@ public class Resguardo {
     /**
      * Obtiene un menu valido
      * @return Asociado al nombre devuelve un tipo ImplMenu.
-     * public ImplMenu leerYValidarMenu()
      */
     public ImplMenu leerYValidarMenu(){
         ImplMenu menu = null;
@@ -222,7 +221,6 @@ public class Resguardo {
      * Inserta un menu en el archivo de menus.
      * @param menu Tipo ImplMenu, es el menu que queremos insertar en el fichero de menus.
      * Postcondiciones: La función inserta un menú en el archivo de menús de la aplicacion BurguerDonald
-     * Cabecera: public void insertarMenu(ImplMenu menu)
      */
     public void insertarMenu(ImplMenu menu){
         System.out.println("insertarMenu en resguardo.");
@@ -248,7 +246,6 @@ public class Resguardo {
      * Elimina un menu del archivo de menus.
      * @param idMenu El ID del menus que queremos eliminar.
      * @return asociado al nombre devuelve un entero. 0 si se ha conseguido eliminar o -1 si no se ha podido.
-     * public int eliminarMenu(int idMenu)
      */
     public int eliminarMenu(int idMenu){
         int validez = -1;
@@ -274,7 +271,6 @@ public class Resguardo {
      * Muestra por pantalla todos los productos que sean del mismo tipo introducido por parametro.
      * @param tipoProducto EnumTipo para los productos que hay que mostrar.
      * Postcondiciones: muestra por pantalla todos los productos del almacén que sean del mismo tipo.
-     * Cabecera: public void mostrarProductosTipo(EnumTipo tipoProducto)
      */
     public void mostrarProductosTipo(EnumTipo tipoProducto){
         System.out.println("mostrarProductosTipo en resguardo.");

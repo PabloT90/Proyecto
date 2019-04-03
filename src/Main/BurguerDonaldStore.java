@@ -17,11 +17,11 @@
 * 3 --> Modificar stock.
 * 4 --> Insertar producto con stock.
 * 5 --> Eliminar producto.
-*
+* 6 --> Ordenar almacén producto
 *       Si se elige la opción de "Consultas", se muestra el siguiente submenú:
 *
 *       0 --> Volver al menú anterior.
-*       1 --> Mostrar todos los productos del almacen.
+*       1 --> Mostrar todos los productos del almacén.
 *       2 --> Mostrar un tipo de producto.
 *       3 --> Mostrar productos veganos.
 *
@@ -38,6 +38,7 @@
 * 3 --> Canjear un menú. //Al canjear un menú se modificará el stock de los productos que tenga el menú.
 * 4 --> Insertar menú.
 * 5 --> Eliminar menú.
+* 6 --> Ordenar lista menús.
 *
 * Todos los menús anteriores son iterativos, es decir, solo finalizan cuando el usuario así lo desea.
 *
@@ -58,8 +59,10 @@
 *
 * Restricciones:
 *   -opcionMenu debe ser un número entre 0 y 2.
-*   -opcionSubMenu1 debe ser un número entre 0 y 5.
+*   -opcionSubMenu1 debe ser un número entre 0 y 6.
 *   -opcionSubMenu2 debe ser un número entre 0 y 3.
+*   -opcionSubMenu3 debe ser un numero entre 0 y 3.
+*   -opcionSubMenu4 debe ser un numero entre 0 y 2.
 *   -id debe ser mayor o igual que 0.
 *   -modificadorStock debe ser mayor que 0.
 *   -tipoProducto debe ser igual a "BEBIDA", "POSTRE", "SANDWICH", "COMPLEMENTO", "ENSALADA" o "DESAYUNO".
@@ -96,6 +99,8 @@
 *                   InsercionProducto
 *               para opcionSubMenu1 == 5
 *                   EliminacionProducto
+*               para opcionSubMenu1 == 6
+*                   OrdenarAlmacenProducto
 *           Fin_si
 *       Fin_si
 *   Mientras opcionSubMenu1 != 0
@@ -105,21 +110,23 @@
 * Inicio
 *   Repetir
 *       leerYValidarOpcionSubMenu2*
-*       Si opcionSubMenu1 != 0
-*           Segun (opcionSubMenu1)
-*               para opcionSubMenu1 == 1
+*       Si opcionSubMenu2 != 0
+*           Segun (opcionSubMenu2)
+*               para opcionSubMenu2 == 1
 *                   mostrarMenus*
-*               para opcionSubMenu1 == 2
+*               para opcionSubMenu2 == 2
 *                   ModificacionMenu
-*               para opcionSubMenu1 == 3
+*               para opcionSubMenu2 == 3
 *                   CanjeoMenu
-*               para opcionSubMenu1 == 4
+*               para opcionSubMenu2 == 4
 *                   InsercionMenu
-*               para opcionSubMenu1 == 5
+*               para opcionSubMenu2 == 5
 *                   EliminacionMenu
+*               para opcionSubMenu2 == 6
+*                   OrdenarListaMenus
 *           Fin_segun
 *       Fin_si
-*   Mientras opcionSubMenu1 != 0
+*   Mientras opcionSubMenu2 != 0
 * Fin
 *
 * PG Nivel: 2
@@ -127,17 +134,17 @@
 * Inicio
 *   Repetir
 *       leerYValidarSubMenu3*
-*       Si opcionSubMenu2 != 0
-*           Segun (opcionSubMenu2)
-*               para opcionSubMenu2 == 1
+*       Si opcionSubMenu3 != 0
+*           Segun (opcionSubMenu3)
+*               para opcionSubMenu3 == 1
 *                   mostrarProductosAlmacen*
-*               para opcionSubMenu2 == 2
+*               para opcionSubMenu3 == 2
 *                   MostrarProductosPorTipo
-*               para opcionSubMenu2 == 3
+*               para opcionSubMenu3 == 3
 *                   mostrarProductosVeganos*
 *           Fin_segun
 *       Fin_si
-*   Mientras opcionSubMenu2 != 0
+*   Mientras opcionSubMenu3 != 0
 * Fin
 *
 * ModificacionProducto
@@ -154,15 +161,15 @@
 * Inicio
 *   Repetir
 *       leerYValidarOpcionSubMenu4*
-*       Si opcionMenu != 0
-*           Segun (opcionMenu)
-*               para opcionMenu == 1
+*       Si opcionMenu4 != 0
+*           Segun (opcionMenu4)
+*               para opcionMenu4 == 1
 *                   IncrementoStock
-*               para opcionMenu == 2
+*               para opcionMenu4 == 2
 *                   DecrementoStock
 *           Fin_segun
 *       Fin_si
-*   Mientras opcionMenu != 0
+*   Mientras opcionMenu4 != 0
 * Fin
 *
 * InsercionProducto
