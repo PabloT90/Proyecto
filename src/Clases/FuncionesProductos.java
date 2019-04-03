@@ -28,7 +28,8 @@ public class FuncionesProductos {
         BufferedWriter bw = null;
 
         try{
-            fw = new FileWriter("F:\\Proyecto\\Proyecto\\src\\Ficheros\\FicheroMovimientoNuevosProductos.txt", true);
+            //fw = new FileWriter("F:\\Proyecto\\Proyecto\\src\\Ficheros\\FicheroMovimientoNuevosProductos.txt", true);
+            fw = new FileWriter("src\\Ficheros\\FicheroMovimientoNuevosProductos.txt", true);
             bw = new BufferedWriter(fw);
             //Insertamos el nuevo producto en el almacén
             bw.write(producto.toString());
@@ -76,7 +77,8 @@ public class FuncionesProductos {
         String[] separador;
 
         try{
-            fr1 = new FileReader("F:\\Proyecto\\Proyecto\\src\\Ficheros\\AlmacenProductos.txt");
+            //fr1 = new FileReader("F:\\Proyecto\\Proyecto\\src\\Ficheros\\AlmacenProductos.txt");
+            fr1 = new FileReader("src\\Ficheros\\AlmacenProductos.txt");
             br1 = new BufferedReader(fr1);
             //Buscamos el producto en el almacén
             registro = br1.readLine();
@@ -97,10 +99,11 @@ public class FuncionesProductos {
             fr1.close();
             //Si el producto no se encontraba en el almacén se buscará en el fichero de movimientos de productos.
             if(producto == null){
-                fr2 = new FileReader("F:\\Proyecto\\Proyecto\\src\\Ficheros\\FicheroMovimientoNuevosProductos.txt");
+                //fr2 = new FileReader("F:\\Proyecto\\Proyecto\\src\\Ficheros\\FicheroMovimientoNuevosProductos.txt");
+                fr2 = new FileReader("src\\Ficheros\\FicheroMovimientoNuevosProductos.txt");
                 br2 = new BufferedReader(fr2);
-
                 registro = br2.readLine();
+
                 while(registro != null && producto == null){//Mientras no sea fin de fichero y no se haya encontrado el producto
                     separador = registro.split(",");//Separamos el registro en campos
 
