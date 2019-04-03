@@ -19,6 +19,21 @@ public class ConductorValidacionesBurguerDonald {
         //System.out.println(funcion.leerYValidarOpcionSubMenu3());
 
         //leerYValidarOpcionSubMenu4
-        System.out.println(funcion.leerYValidarOpcionSubMenu4());
+        //System.out.println(funcion.leerYValidarOpcionSubMenu4());
+
+        //leerYValidarId
+        //System.out.println(funcion.leerYValidarId());
+
+        //leerYValidarTipoProducto
+        //System.out.println(funcion.leerYValidarTipoProducto());
+
+        //leerYValidarPrecio
+        //System.out.println(funcion.leerYValidarPrecio());
+
+        //leerYValidarStock
+        //System.out.println(funcion.leerYValidarStock());
+
+        //leerYValidarNuevoProducto
+        System.out.println(funcion.leerYValidarNuevoProducto(345));
     }
 }
