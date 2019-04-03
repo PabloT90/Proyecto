@@ -1,8 +1,6 @@
 package Clases;
 
 import Enums.EnumTipo;
-import Interfaces.Menu;
-
 import java.util.Scanner;
 
 public class ValidacionesBurguerDonald {
@@ -25,7 +23,7 @@ public class ValidacionesBurguerDonald {
     public int leerYValidarOpcionMenu(){
         Scanner teclado = new Scanner(System.in);
         MenusYPantallas menu = new MenusYPantallas();
-        int opcion = 0;
+        int opcion;
 
         do{
             menu.mostrarMenu1();
@@ -54,7 +52,7 @@ public class ValidacionesBurguerDonald {
     public int leerYValidarOpcionSubMenu1(){
         Scanner teclado = new Scanner(System.in);
         MenusYPantallas menu = new MenusYPantallas();
-        int opcion = 0;
+        int opcion;
 
         do{
             menu.mostrarMenu2();
@@ -83,7 +81,7 @@ public class ValidacionesBurguerDonald {
     public int leerYValidarOpcionSubMenu2(){
         Scanner teclado = new Scanner(System.in);
         MenusYPantallas menu = new MenusYPantallas();
-        int opcion = 0;
+        int opcion;
 
         do{
             menu.mostrarMenu3();
@@ -112,7 +110,7 @@ public class ValidacionesBurguerDonald {
     public int leerYValidarOpcionSubMenu3(){
         Scanner teclado = new Scanner(System.in);
         MenusYPantallas menu = new MenusYPantallas();
-        int opcion = 0;
+        int opcion;
 
         do{
             menu.mostrarMenu4();
@@ -141,7 +139,7 @@ public class ValidacionesBurguerDonald {
     public int leerYValidarOpcionSubMenu4(){
         Scanner teclado = new Scanner(System.in);
         MenusYPantallas menu = new MenusYPantallas();
-        int opcion = 0;
+        int opcion;
 
         do{
             menu.mostrarMenu5();
@@ -164,8 +162,7 @@ public class ValidacionesBurguerDonald {
     * */
     public int leerYValidarId(){
         Scanner teclado = new Scanner(System.in);
-        MenusYPantallas menu = new MenusYPantallas();
-        int id = 0;
+        int id;
 
         do{
             System.out.println("Introduce el id (Debe ser mayor o igual que 0).");
@@ -192,12 +189,12 @@ public class ValidacionesBurguerDonald {
     * */
     public ImplStockProducto leerYValidarNuevoProducto(int idProducto){
         Scanner teclado = new Scanner(System.in);
-        ImplStockProducto producto = null;
-        EnumTipo tipo = null;
-        String nombre = " ", descripcion = " ";
-        double precio = 0.0;
+        ImplStockProducto producto;
+        EnumTipo tipo;
+        String nombre, descripcion;
+        double precio;
         boolean vegano;
-        int stock = 0;
+        int stock;
 
         tipo = leerYValidarTipoProducto();//Obtenemos un tipo válido
         precio = leerYValidarPrecio();//Obtenemos un precio válido
@@ -228,7 +225,7 @@ public class ValidacionesBurguerDonald {
     public EnumTipo leerYValidarTipoProducto(){
         Scanner teclado = new Scanner(System.in);
         EnumTipo tipoProducto = null;
-        String tipo = " ";
+        String tipo;
 
         do{
             System.out.println("Indica el tipo de producto (Bebida, Postre, Sandwich, Ensalada, Desayuno o Complemento).");
@@ -273,7 +270,7 @@ public class ValidacionesBurguerDonald {
     * */
     public double leerYValidarPrecio(){
         Scanner teclado = new Scanner(System.in);
-        double precio = 0.0;
+        double precio;
 
         do{
             System.out.println("Indica el precio del producto (No puede ser negativo).");
@@ -296,7 +293,7 @@ public class ValidacionesBurguerDonald {
     * */
     public int leerYValidarStock(){
         Scanner teclado = new Scanner(System.in);
-        int stock = 0;
+        int stock;
 
         do{
             System.out.println("Indica el stock del producto (No puede ser negativo).");
