@@ -16,6 +16,11 @@ public class ValidacionesBurguerDonald {
     * Postcondiciones: La función devuelve un número entero asociado al nombre, que
     * es una opción válida del menú.
     * */
+
+    /**
+     * Obtiene una opcion para el primer menu del programa BurgerDonald.
+     * @return asociado al nombre devuelve un número entero con la opción valida del menú.
+     */
     public int leerYValidarOpcionMenu(){
         Scanner teclado = new Scanner(System.in);
         MenusYPantallas menu = new MenusYPantallas();
@@ -40,6 +45,11 @@ public class ValidacionesBurguerDonald {
     * Postcondiciones: La función devuelve un número entero asociado al nombre,
     * que es una opción válida del menú.
     * */
+
+    /**
+     * Obtiene un opcion valida del primer submenú de la aplicación BurgerDonald.
+     * @return Asociado al nombre devuelve un número entero con la opción valida del menú.
+     */
     public int leerYValidarOpcionSubMenu1(){
         Scanner teclado = new Scanner(System.in);
         MenusYPantallas menu = new MenusYPantallas();
@@ -64,6 +74,11 @@ public class ValidacionesBurguerDonald {
      * Postcondiciones: La función devuelve un número entero asociado al nombre,
      * que es una opción válida del menú.
      * */
+
+    /**
+     * Obtiene una opcion valida del segundo submenú de la aplicación BurguerDonald
+     * @return Asociado al nombre devuelve un número entero con la opción valida del menú.
+     */
     public int leerYValidarOpcionSubMenu2(){
         Scanner teclado = new Scanner(System.in);
         MenusYPantallas menu = new MenusYPantallas();
@@ -88,6 +103,11 @@ public class ValidacionesBurguerDonald {
      * Postcondiciones: La función devuelve un número entero asociado al nombre,
      * que es una opción válida del menú.
      * */
+
+    /**
+     * Obtiene una opcion valida del tercer submenú de la aplicacion BurguerDonald
+     * @return Asociado al nombre devuelve un número entero con la opción valida del menú.
+     */
     public int leerYValidarOpcionSubMenu3(){
         Scanner teclado = new Scanner(System.in);
         MenusYPantallas menu = new MenusYPantallas();
@@ -112,6 +132,11 @@ public class ValidacionesBurguerDonald {
      * Postcondiciones: La función devuelve un número entero asociado al nombre,
      * que es una opción válida del menú.
      * */
+
+    /**
+     * Obtiene una opcion válida del cuarto submenú de la aplicación BurguerDonald.
+     * @return Asociado al nombre devuelve un número entero con la opción válida del menú.
+     */
     public int leerYValidarOpcionSubMenu4(){
         Scanner teclado = new Scanner(System.in);
         MenusYPantallas menu = new MenusYPantallas();
