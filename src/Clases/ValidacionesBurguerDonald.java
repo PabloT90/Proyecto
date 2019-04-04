@@ -538,15 +538,33 @@ public class ValidacionesBurguerDonald {
 
     /*
     * Interfaz
-    * Nombre: leerYValidarMenu
+    * Nombre: leerYValidarNuevoMenu
     * Comentario: Esta función nos permite obtener un tipo ImplMenu válido
     * para el programa BurguerDonald.
-    * Cabecera: public ImplMenu leerYValidarMenu()
+    * Cabecera: public ImplMenu leerYValidarNuevoMenu()
     * Salida:
     *   -ImplMenu menu
     * Postcondiciones: La función devuelve un tipo ImplMenu asociado al nombre,
     * que es un menú válido para el programa.
     * */
+    public ImplMenu leerYValidarNuevoMenu(){
+        ImplMenu menu = null;
+        Scanner teclado = new Scanner(System.in);
+        int idMenu = 0;
+        String nombre = " ", descripcion = " ";
+        ImplProducto[] productos;
+
+        idMenu = leerYValidarId();
+        System.out.println("Introduce el nombre del men\u00fa.");
+        nombre = teclado.nextLine();
+        System.out.println("Introduce la descripci\u00f3n del men\u00fa.");
+        descripcion = teclado.nextLine();
+        productos = leerYValidarListaProductos();
+
+        menu = new ImplMenu(idMenu, nombre, descripcion, productos);
+
+        return menu;
+    }
 
     /*
     * Interfaz
@@ -562,16 +580,47 @@ public class ValidacionesBurguerDonald {
     * Postcondiciones: La función devuelve un array del tipo ImplProducto
     * asociado al nombre, que es una lista de productos válida para un menú.
     * */
-    /*public ImplProducto[] leerYValidarListaProductos(){
+    public ImplProducto[] leerYValidarListaProductos(){
         ImplProducto[] productos = new ImplProducto[1];
+        char respuesta = ' ';
+        ImplProducto[] aux = null;
 
         do{
-
-
+            productos[productos.length-1] = leerYValidarProductoDelAlmacen();
+            respuesta = leerYValidarRespuestaInsercion();
+            if(respuesta == 's'){//Incrementamos el tamaño del array
+                aux = new ImplProducto[productos.length+1];
+                System.arraycopy(productos, 0, aux, 0, productos.length);
+                productos = aux;
+            }
         }while(respuesta == 's');
 
         return productos;
-    }*/
+    }
+
+    /*
+    * Interfaz
+    * Nombre: leerYValidarRespuestaInsercion
+    * Comentario: Esta función nos permite obtener una respuesta válida
+    * a la hora de insertar un nuevo producto en un menú. Esta función es
+    * utilizada en el método leerYValidarListaProductos.
+    * Cabecera: public char leerYValidarRespuestaInsercion()
+    * Salida:
+    *   -carácter respuesta
+    * Postcondiciones: La función devuelve un número entero asociado al nombre,
+    * que es una respuesta válida.
+    * */
+    public char leerYValidarRespuestaInsercion(){
+        char respuesta = ' ';
+        Scanner teclado = new Scanner(System.in);
+
+        do{
+            System.out.println("Indica si deseas insertar otro producto (s/n).");
+            respuesta = Character.toLowerCase(teclado.next().charAt(0));
+        }while (respuesta != 's' && respuesta != 'n');
+
+        return respuesta;
+    }
 
     /*
     * Interfaz

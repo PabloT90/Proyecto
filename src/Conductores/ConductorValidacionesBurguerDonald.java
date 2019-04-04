@@ -1,5 +1,6 @@
 package Conductores;
 
+import Clases.ImplProducto;
 import Clases.ImplStockProducto;
 import Clases.ValidacionesBurguerDonald;
 import Enums.EnumTipo;
@@ -8,6 +9,7 @@ public class ConductorValidacionesBurguerDonald {
     public static void main (String[] args){
         ValidacionesBurguerDonald funcion = new ValidacionesBurguerDonald();
         ImplStockProducto producto1 = new ImplStockProducto(300, EnumTipo.COMPLEMENTO, 1.0, "Patatas fritas", "A gajos", true, 34);
+        ImplProducto[] listaProductos = null;
 
         //leerYValidarOpcionMenu
         //System.out.println(funcion.leerYValidarOpcionMenu());
@@ -62,6 +64,19 @@ public class ConductorValidacionesBurguerDonald {
         //System.out.println(funcion.leerYValidarProductoModificado(55));
 
         //leerYValidarProductoDelAlmacen
-        System.out.println(funcion.leerYValidarProductoDelAlmacen());
+        //System.out.println(funcion.leerYValidarProductoDelAlmacen());
+
+        //leerYValidarRespuestaInsercion
+        //System.out.println(funcion.leerYValidarRespuestaInsercion());
+
+        //leerYValidarListaProductos
+        /*listaProductos = funcion.leerYValidarListaProductos();
+
+        for(int i = 0; i < listaProductos.length; i++){
+            System.out.println(listaProductos[i]);
+        }*/
+
+        //leerYValidarNuevoMenu //-------------------Pendiente--------------------------------
+        System.out.println(funcion.leerYValidarNuevoMenu());
     }
 }
