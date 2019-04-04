@@ -323,4 +323,217 @@ public class ValidacionesBurguerDonald {
 
         return stock;
     }
+
+    /*
+    * Interfaz
+    * Nombre: leerYValidarProductoModificado
+    * Comentario: Esta función nos permite obtener un tipo ImplStockProducto
+    * válido, que es un producto del almacén modificado por el usuario.
+    * El usuario podrá modificar los campos del producto que el desee.
+    * Cabecera: public ImplStockProducto leerYValidarProductoModificado(int idProducto)
+    * Entrada:
+    *   -int idProducto
+    * Salida:
+    *   -ImplStockProducto producto
+    * Postcondiciones: La función devuelve un tipo ImplStockProducto asociado al nombre, que
+    * es un producto del almacén modificado o null si idProducto no coincide con ninguno de los
+    * productos del almacén (Si no se encontró el producto en el almacén).
+    * */
+    public ImplStockProducto leerYValidarProductoModificado(int idProducto){
+        FuncionesProductos funcion = new FuncionesProductos();
+        ImplStockProducto producto = funcion.obtenerProductoAlmacen(idProducto);
+        Scanner teclado = new Scanner(System.in);
+        char respuesta = ' ';
+
+        if(producto != null){
+            respuesta = leerYValidarRespuestaTipo(producto);
+            if(respuesta == 's'){
+                producto.setProductoTipo(leerYValidarTipoProducto());
+            }
+            respuesta = leerYValidarRespuestaPrecio(producto);
+            if(respuesta == 's'){
+                producto.setProductoPrecio(leerYValidarPrecio());
+            }
+            respuesta = leerYValidarRespuestaNombre(producto);
+            if(respuesta == 's'){
+                System.out.println("Introduce el nuevo nombre del producto.");
+                producto.setProductoNombre(teclado.nextLine());
+            }
+            respuesta = leerYValidarRespuestaDescripcion(producto);
+            if(respuesta == 's'){
+                System.out.println("Introduce la nueva descripci\u00f3n del producto.");
+                producto.setProductoDescripcion(teclado.nextLine());
+            }
+            respuesta = leerYValidarRespuestaVegano(producto);
+            if(respuesta == 's'){
+                System.out.println("Indica si el producto es o no vegano (true/false).");
+                producto.setProductoVegano(teclado.nextBoolean());
+            }
+            respuesta = leerYValidarRespuestaStock(producto);
+            if(respuesta == 's'){
+                producto.setStock(leerYValidarStock());
+            }
+        }
+
+        return producto;
+    }
+
+    /*
+    * Interfaz
+    * Nombre: leerYValidarRespuestaTipo
+    * Comentario: Esta función nos permite obtener una respuesta válida para
+    * la modificación del tipo de un producto. Esta función es utilizada en
+    * el método leerYValidarProductoModificado.
+    * Cabecera: public char leerYValidarRespuestaTipo(ImplStockProducto producto)
+    * Entrada:
+    *   -ImplStockProducto producto
+    * Salida:
+    *   -carácter respuesta
+    * Postcondiciones: La función devuelve un carácter asociado al nombre, que es
+    * una respuesta válida.
+    * */
+    public char leerYValidarRespuestaTipo(ImplStockProducto producto){
+        Scanner teclado = new Scanner(System.in);
+        char respuesta = ' ';
+
+        do{
+            System.out.println("Indica si deseas modificar su tipo (s/n). Tipo actual: "+producto.getProductoTipo());
+            respuesta = Character.toLowerCase(teclado.next().charAt(0));
+        }while(respuesta != 's' & respuesta != 'n');
+
+        return respuesta;
+    }
+
+    /*
+     * Interfaz
+     * Nombre: leerYValidarRespuestaPrecio
+     * Comentario: Esta función nos permite obtener una respuesta válida para
+     * la modificación del precio de un producto. Esta función es utilizada en
+     * el método leerYValidarProductoModificado.
+     * Cabecera: public char leerYValidarRespuestaPrecio(ImplStockProducto producto)
+     * Entrada:
+     *   -ImplStockProducto producto
+     * Salida:
+     *   -carácter respuesta
+     * Postcondiciones: La función devuelve un carácter asociado al nombre, que es
+     * una respuesta válida.
+     * */
+    public char leerYValidarRespuestaPrecio(ImplStockProducto producto){
+        Scanner teclado = new Scanner(System.in);
+        char respuesta = ' ';
+
+        do{
+            System.out.println("Indica si deseas modificar su precio (s/n). Precio actual: "+producto.getProductoPrecio());
+            respuesta = Character.toLowerCase(teclado.next().charAt(0));
+        }while(respuesta != 's' & respuesta != 'n');
+
+        return respuesta;
+    }
+
+    /*
+     * Interfaz
+     * Nombre: leerYValidarRespuestaNombre
+     * Comentario: Esta función nos permite obtener una respuesta válida para
+     * la modificación del nombre de un producto. Esta función es utilizada en
+     * el método leerYValidarProductoModificado.
+     * Cabecera: public char leerYValidarRespuestaNombre(ImplStockProducto producto)
+     * Entrada:
+     *   -ImplStockProducto producto
+     * Salida:
+     *   -carácter respuesta
+     * Postcondiciones: La función devuelve un carácter asociado al nombre, que es
+     * una respuesta válida.
+     * */
+    public char leerYValidarRespuestaNombre(ImplStockProducto producto){
+        Scanner teclado = new Scanner(System.in);
+        char respuesta = ' ';
+
+        do{
+            System.out.println("Indica si deseas modificar su nombre (s/n). Nombre actual: "+producto.getProductoNombre());
+            respuesta = Character.toLowerCase(teclado.next().charAt(0));
+        }while(respuesta != 's' & respuesta != 'n');
+
+        return respuesta;
+    }
+
+    /*
+     * Interfaz
+     * Nombre: leerYValidarRespuestaDescripcion
+     * Comentario: Esta función nos permite obtener una respuesta válida para
+     * la modificación de la descripción de un producto. Esta función es utilizada en
+     * el método leerYValidarProductoModificado.
+     * Cabecera: public char leerYValidarRespuestaDescripcion(ImplStockProducto producto)
+     * Entrada:
+     *   -ImplStockProducto producto
+     * Salida:
+     *   -carácter respuesta
+     * Postcondiciones: La función devuelve un carácter asociado al nombre, que es
+     * una respuesta válida.
+     * */
+    public char leerYValidarRespuestaDescripcion(ImplStockProducto producto){
+        Scanner teclado = new Scanner(System.in);
+        char respuesta = ' ';
+
+        do{
+            System.out.println("Indica si deseas modificar su descripci\u00f3n (s/n).");
+            System.out.println("Descripci\u00f3n actual: "+producto.getProductoDescripcion());
+            respuesta = Character.toLowerCase(teclado.next().charAt(0));
+        }while(respuesta != 's' & respuesta != 'n');
+
+        return respuesta;
+    }
+
+    /*
+     * Interfaz
+     * Nombre: leerYValidarRespuestaVegano
+     * Comentario: Esta función nos permite obtener una respuesta válida para
+     * la modificación de la clasificación vegana de un producto. Esta función es utilizada en
+     * el método leerYValidarProductoModificado.
+     * Cabecera: public char leerYValidarRespuestaVegano(ImplStockProducto producto)
+     * Entrada:
+     *   -ImplStockProducto producto
+     * Salida:
+     *   -carácter respuesta
+     * Postcondiciones: La función devuelve un carácter asociado al nombre, que es
+     * una respuesta válida.
+     * */
+    public char leerYValidarRespuestaVegano(ImplStockProducto producto){
+        Scanner teclado = new Scanner(System.in);
+        char respuesta = ' ';
+
+        do{
+            System.out.println("Indica si deseas modificar la clasificaci\u00f3n vegana del producto (s/n). " +
+                    "Producto vegano: "+producto.getProductoVegano());
+            respuesta = Character.toLowerCase(teclado.next().charAt(0));
+        }while(respuesta != 's' & respuesta != 'n');
+
+        return respuesta;
+    }
+
+    /*
+     * Interfaz
+     * Nombre: leerYValidarRespuestaStock
+     * Comentario: Esta función nos permite obtener una respuesta válida para
+     * la modificación del stock de un producto. Esta función es utilizada en
+     * el método leerYValidarProductoModificado.
+     * Cabecera: public char leerYValidarRespuestaStock(ImplStockProducto producto)
+     * Entrada:
+     *   -ImplStockProducto producto
+     * Salida:
+     *   -carácter respuesta
+     * Postcondiciones: La función devuelve un carácter asociado al nombre, que es
+     * una respuesta válida.
+     * */
+    public char leerYValidarRespuestaStock(ImplStockProducto producto){
+        Scanner teclado = new Scanner(System.in);
+        char respuesta = ' ';
+
+        do{
+            System.out.println("Indica si deseas modificar su stock (s/n). Stock actual: "+producto.getStock());
+            respuesta = Character.toLowerCase(teclado.next().charAt(0));
+        }while(respuesta != 's' & respuesta != 'n');
+
+        return respuesta;
+    }
 }
+
