@@ -74,7 +74,7 @@ public class FuncionesProductos {
         FileReader fr1 = null, fr2 = null;
         BufferedReader br1 = null, br2 = null;
         String registro = " ";
-        String[] separador;
+        String[] separador = null;
 
         try{
             //fr1 = new FileReader("F:\\Proyecto\\Proyecto\\src\\Ficheros\\AlmacenProductos.txt");
@@ -82,8 +82,11 @@ public class FuncionesProductos {
             br1 = new BufferedReader(fr1);
             //Buscamos el producto en el almacén
             registro = br1.readLine();
-            while(registro != null && producto == null){//Mientras no sea fin de fichero y no se haya encontrado el producto
+            if(registro != null){
                 separador = registro.split(",");//Separamos el registro en campos
+            }
+            //Mientras no sea fin de fichero, no se haya encontrado el producto y sea posible encontrar el producto
+            while(registro != null && producto == null && Integer.parseInt(separador[0]) <= id){
 
                 if(Integer.parseInt(separador[0]) == id){//Si los id's coinciden
                     tipo = EnumTipo.valueOf(separador[1]);
@@ -93,6 +96,9 @@ public class FuncionesProductos {
                     producto = new ImplStockProducto(id, tipo, precio, separador[3], separador[4], vegano, stock);
                 }else{
                     registro = br1.readLine();
+                    if(registro != null){
+                        separador = registro.split(",");//Separamos el registro en campos
+                    }
                 }
             }
             br1.close();//Cerramos los dos streams
