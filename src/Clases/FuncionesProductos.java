@@ -67,9 +67,11 @@ public class FuncionesProductos {
     * */
     public ImplStockProducto obtenerProductoAlmacen(int id){
         ImplStockProducto producto = null;
-
-            producto = buscarEnAlmacen(id);
-            //Si el producto no se encontraba en el almacén se buscará en el fichero de movimientos de productos.
+        //Buscamos el producto en el almacén.
+        producto = buscarEnAlmacen(id);
+        
+        //Si el producto no se encontraba en el almacén se buscará en el fichero de movimientos de productos.
+        if(producto == null)
             producto = buscarEnFicheroMovimiento(id);
 
         return producto;
@@ -98,8 +100,8 @@ public class FuncionesProductos {
         double precio = 0.0;
         boolean vegano;
         EnumTipo tipo = null;
-        FileReader fr1 = null, fr2 = null;
-        BufferedReader br1 = null, br2 = null;
+        FileReader fr1 = null;
+        BufferedReader br1 = null;
         String registro = " ";
         String[] separador = null;
 
@@ -129,12 +131,17 @@ public class FuncionesProductos {
                     }
                 }
             }
-            br1.close();//Cerramos los dos streams
-            fr1.close();
         }catch(FileNotFoundException error1){
             error1.printStackTrace();
         }catch(IOException error2){
             error2.printStackTrace();
+        }finally{
+            try{
+                br1.close();
+                fr1.close();
+            }catch (IOException error){
+                error.printStackTrace();
+            }
         }
         return producto;
     }
@@ -162,14 +169,12 @@ public class FuncionesProductos {
         double precio = 0.0;
         boolean vegano;
         EnumTipo tipo = null;
-        FileReader fr1 = null, fr2 = null;
-        BufferedReader br1 = null, br2 = null;
+        FileReader fr2 = null;
+        BufferedReader br2 = null;
         String registro = " ";
         String[] separador = null;
 
-        //Si el producto no se encontraba en el almacén se buscará en el fichero de movimientos de productos.
         try{
-        if(producto == null) {
             //fr2 = new FileReader("F:\\Proyecto\\Proyecto\\src\\Ficheros\\FicheroMovimientoNuevosProductos.txt");
             fr2 = new FileReader("src\\Ficheros\\FicheroMovimientoNuevosProductos.txt");
             br2 = new BufferedReader(fr2);
@@ -188,14 +193,18 @@ public class FuncionesProductos {
                     registro = br2.readLine();
                 }
             }
-        }
-            br2.close();//Cerramos ambos streams
-            br2.close();
         }catch(FileNotFoundException error1){
                 error1.printStackTrace();
-            }catch(IOException error2){
+        }catch(IOException error2){
                 error2.printStackTrace();
+        }finally{
+            try{
+                br2.close();
+                fr2.close();
+            }catch (IOException error){
+                error.printStackTrace();
             }
+        }
         return producto;
     }
 }
