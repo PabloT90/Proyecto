@@ -160,12 +160,16 @@ public class ValidacionesBurguerDonald {
     * Postcondiciones: La función de vuelve un número entero asociado al nombre,
     * que es una id válida.
     * */
+    /**
+     * Obtiene un ID válida de un producto o menu.
+     * @return Asociado al nombre devuelve un entero mayor que 0, que es una ID válida.
+     */
     public int leerYValidarId(){
         Scanner teclado = new Scanner(System.in);
         int id;
 
         do{
-            System.out.println("Introduce el id (Debe ser mayor o igual que 0).");
+            System.out.println("Introduce el ID (Debe ser mayor o igual que 0).");
             id = teclado.nextInt();
         }while(id < 0);
 
@@ -187,6 +191,11 @@ public class ValidacionesBurguerDonald {
     * Postcondiciones: La función devuelve un tipo ImplStockProducto asociado
     * al nombre, que es un producto con un stock válido.
     * */
+    /**
+     * Obtiene un producto con un stock válido.
+     * @param idProducto ID del producto.
+     * @return Asociado al nombre devuelve un tipo ImplStockProducto, que es un producto con stock válido.
+     */
     public ImplStockProducto leerYValidarNuevoProducto(int idProducto){
         Scanner teclado = new Scanner(System.in);
         ImplStockProducto producto;
@@ -222,6 +231,10 @@ public class ValidacionesBurguerDonald {
     * Postcondiciones: La función devuelve un tipo EnumTipo asociado al nombre,
     * que es un tipo de producto válido.
     * */
+    /**
+     * Obtiene un tipo de producto válido para la aplicación BurguerDonald
+     * @return Asociado al nombre devuelve un EnumTipo.
+     */
     public EnumTipo leerYValidarTipoProducto(){
         Scanner teclado = new Scanner(System.in);
         EnumTipo tipoProducto = null;
@@ -268,6 +281,10 @@ public class ValidacionesBurguerDonald {
     * Postcondiciones: La función devuelve un número real asociado al nombre,
     * que es un precio válido para un producto.
     * */
+    /**
+     * Obtiene un precio válido para un producto.
+     * @return Asociado al nombre devuelve el precio del producto.
+     */
     public double leerYValidarPrecio(){
         Scanner teclado = new Scanner(System.in);
         double precio;
@@ -291,6 +308,10 @@ public class ValidacionesBurguerDonald {
     * Postcondiciones: La función devuelve un número entero asociado al nombre,
     * que es un stock válido para un producto.
     * */
+    /**
+     * Obtiene un stock válido para un producto.
+     * @return Asociado al nombre devuelve el número de stock de un producto.
+     */
     public int leerYValidarStock(){
         Scanner teclado = new Scanner(System.in);
         int stock;
