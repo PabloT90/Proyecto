@@ -16,5 +16,8 @@ public class ConductorFuncionesProductos {
         System.out.println(funcion.obtenerProductoAlmacen(3));
         System.out.println(funcion.obtenerProductoAlmacen(57));
         System.out.println(funcion.obtenerProductoAlmacen(56));
+
+        //mostrarProductosAlmacen
+        funcion.mostrarProductosAlmacen();
     }
 }

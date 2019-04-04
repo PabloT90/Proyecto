@@ -535,5 +535,76 @@ public class ValidacionesBurguerDonald {
 
         return respuesta;
     }
+
+    /*
+    * Interfaz
+    * Nombre: leerYValidarMenu
+    * Comentario: Esta función nos permite obtener un tipo ImplMenu válido
+    * para el programa BurguerDonald.
+    * Cabecera: public ImplMenu leerYValidarMenu()
+    * Salida:
+    *   -ImplMenu menu
+    * Postcondiciones: La función devuelve un tipo ImplMenu asociado al nombre,
+    * que es un menú válido para el programa.
+    * */
+
+    /*
+    * Interfaz
+    * Nombre: leerYValidarListaProductos
+    * Comentario: Esta función nos permite obtener un array del tipo
+    * ImplProducto válido para un menú. Obtendremos un array lleno de
+    * productos, el array no contendrá ningún elemento nulo.
+    * Cabecera: public ImplProducto[] leerYValidarListaProductos()
+    * Salida:
+    *   -ImplProducto[] productos
+    * Precondiciones:
+    *   -El almacén de productos no debe estar vacío. (Fichero AlmacenProductos y FicheroMovimientoNuevosProductos)
+    * Postcondiciones: La función devuelve un array del tipo ImplProducto
+    * asociado al nombre, que es una lista de productos válida para un menú.
+    * */
+    /*public ImplProducto[] leerYValidarListaProductos(){
+        ImplProducto[] productos = new ImplProducto[1];
+
+        do{
+
+
+        }while(respuesta == 's');
+
+        return productos;
+    }*/
+
+    /*
+    * Interfaz
+    * Nombre: leerYValidarProductoDelAlmacen
+    * Comentario: Esta función nos permite obtener un tipo ImplProducto
+    * válido del almacén de productos.
+    * Cabecera: public ImplProducto leerYValidarProductoDelAlmacen()
+    * Salida:
+    *   -ImplProducto producto
+    * Precondiciones:
+    *   -El almacén no debe estar vacío (Los ficheros AlmacenProductos y FicheroMovimientoNuevosProductos).
+    * Postcondiciones: La función devuelve un tipo ImplProducto asociado al nombre,
+    * que es un producto del almacén.
+    * */
+    public ImplProducto leerYValidarProductoDelAlmacen(){
+        ImplProducto producto = null;
+        ImplStockProducto productoConStock = null;
+        Scanner teclado = new Scanner(System.in);
+        FuncionesProductos funcion = new FuncionesProductos();
+        int idProducto = 0;
+        //!!!Si la clase StockProducto tuviera una función obtenerProducto sin stock sería más limpio el código!!!!!!
+        do{
+            System.out.println("Lista de productos:");
+            funcion.mostrarProductosAlmacen();
+            System.out.println("Indica el id del producto a introducir.");
+            idProducto = teclado.nextInt();
+            productoConStock = funcion.obtenerProductoAlmacen(idProducto);
+        }while(productoConStock == null);//Si el id no coincide con ninguno de los productos del almacén
+
+        producto = new ImplProducto(productoConStock.getProductoId(), productoConStock.getProductoTipo(), productoConStock.getProductoPrecio(), productoConStock.getProductoNombre(),
+                productoConStock.getProductoDescripcion(), productoConStock.getProductoVegano());
+        return producto;
+    }
+
 }
 

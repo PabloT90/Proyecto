@@ -59,6 +59,9 @@ public class ConductorValidacionesBurguerDonald {
 
         //leerYValidarProductoModificado
         //System.out.println(funcion.leerYValidarProductoModificado(54));
-        System.out.println(funcion.leerYValidarProductoModificado(55));
+        //System.out.println(funcion.leerYValidarProductoModificado(55));
+
+        //leerYValidarProductoDelAlmacen
+        System.out.println(funcion.leerYValidarProductoDelAlmacen());
     }
 }

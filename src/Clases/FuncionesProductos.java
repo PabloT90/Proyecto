@@ -207,4 +207,56 @@ public class FuncionesProductos {
         }
         return producto;
     }
+
+    /*
+    * Interfaz
+    * Nombre: mostrarProductosAlmacen
+    * Comentario: Esta función nos permite mostrar por pantalla los productos del
+    * almacén.
+    * Cabecera: public void mostrarProductosAlmacen()
+    * Postcondiciones: Nada, solo se muestra por pantalla los productos del almacén.
+    * */
+
+    /**
+     * Permite mostrar todos los productos del almacen
+     * Postcondiciones: nada, solo se muestran todos los productos del almacen.
+     */
+    public void mostrarProductosAlmacen(){
+        FileReader fr1 = null, fr2 = null;
+        BufferedReader br1 = null, br2 = null;
+        String registro = " ";
+
+        try{
+            fr1 = new FileReader("src\\Ficheros\\AlmacenProductos.txt");
+            br1 = new BufferedReader(fr1);
+
+            registro = br1.readLine();
+            while(registro != null){
+                System.out.println(registro);
+                registro = br1.readLine();
+            }
+            br1.close();//Cerramos los streams
+            fr1.close();
+
+            fr2 = new FileReader("src\\Ficheros\\FicheroMovimientoNuevosProductos.txt");
+            br2 = new BufferedReader(fr2);
+            registro = br2.readLine();
+            while(registro != null) {
+                System.out.println(registro);
+                registro = br2.readLine();
+            }
+
+        }catch (FileNotFoundException error1){
+            error1.printStackTrace();
+        }catch (IOException error2){
+            error2.printStackTrace();
+        }finally {
+            try{
+                br2.close();
+                fr2.close();
+            }catch (IOException error){
+                error.printStackTrace();
+            }
+        }
+    }
 }
