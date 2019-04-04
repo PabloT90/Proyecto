@@ -18,6 +18,15 @@ public class ConductorFuncionesProductos {
         System.out.println(funcion.obtenerProductoAlmacen(56));
 
         //mostrarProductosAlmacen
+        System.out.println("Mostrar todos los productos del almacen");
         funcion.mostrarProductosAlmacen();
+
+        //mostrarAlmacenProductos
+        System.out.println("Mostrar Almacen de productos");
+        funcion.mostrarAlmacenProductos();
+
+        //mostrarFicheroMov
+        System.out.println("Mostrar Fichero de movimiento");
+        funcion.mostrarFicheroMov();
     }
 }

@@ -1,7 +1,6 @@
 package Clases;
 
 import Enums.EnumTipo;
-
 import java.io.*;
 
 public class FuncionesProductos {
@@ -65,6 +64,13 @@ public class FuncionesProductos {
     * se ha encontrado un producto con la misma id en el almacén, en caso contrario la función
     * devuelve null.
     * */
+
+    /**
+     * Obtiene un tipo ImplStockProducto del fichero AlmacenProductos.
+     * @param id ID del producto.
+     * @return Asociado al nombre devuelve un tipo ImplStockProducto si se ha encontrado un producto con la
+     * misma ID en el almacén, en caso contrario devuelve null.
+     */
     public ImplStockProducto obtenerProductoAlmacen(int id){
         ImplStockProducto producto = null;
         //Buscamos el producto en el almacén.
@@ -94,6 +100,13 @@ public class FuncionesProductos {
      * se ha encontrado un producto con la misma id en el almacén, en caso contrario la función
      * devuelve null.
      * */
+
+    /**
+     * Obtiene un tipo ImplStockProducto del fichero AlmacenProductos
+     * @param id ID del producto.
+     * @return Asociado al nombre devuelve un tipo ImplStockProducto si se ha encontrado un producto con el mismo ID
+     * en el almacén y null en caso contrario.
+     */
     public ImplStockProducto buscarEnAlmacen(int id){
         ImplStockProducto producto = null;
         int stock = 0;
@@ -112,12 +125,12 @@ public class FuncionesProductos {
 
             //Buscamos el producto en el almacén
             registro = br1.readLine();
+
             if(registro != null){
                 separador = registro.split(",");//Separamos el registro en campos
             }
             //Mientras no sea fin de fichero, no se haya encontrado el producto y sea posible encontrar el producto
             while(registro != null && producto == null && Integer.parseInt(separador[0]) <= id){
-
                 if(Integer.parseInt(separador[0]) == id){//Si los id's coinciden
                     tipo = EnumTipo.valueOf(separador[1]);
                     precio = Double.parseDouble(separador[2]);
@@ -163,6 +176,13 @@ public class FuncionesProductos {
      * se ha encontrado un producto con la misma id en el fichero de movimiento, en caso contrario la función
      * devuelve null.
      * */
+
+    /**
+     * Obtiene un tipo ImplStockProducto del fichero AlmacenProductos.
+     * @param id ID del producto.
+     * @return Asociado al nombre devuelve un tipo ImplStockProducto si se ha encontrado algun producto con el mismo ID
+     * pasado por parametro, en caso contrario devuelve null.
+     */
     public ImplStockProducto buscarEnFicheroMovimiento(int id) {
         ImplStockProducto producto = null;
         int stock = 0;
@@ -222,8 +242,28 @@ public class FuncionesProductos {
      * Postcondiciones: nada, solo se muestran todos los productos del almacen.
      */
     public void mostrarProductosAlmacen(){
-        FileReader fr1 = null, fr2 = null;
-        BufferedReader br1 = null, br2 = null;
+        //Se muestran los productos del almacén.
+        mostrarAlmacenProductos();
+        //Se muestran los productos del fichero de movimiento.
+        mostrarFicheroMov();
+    }
+
+    //MostrarAlmacenProductos
+    /*
+     * Interfaz
+     * Nombre: mostrarAlmacenProductos
+     * Comentario: Esta función nos permite mostrar por pantalla los productos del
+     * almacén.
+     * Cabecera: public void mostrarAlmacenProductos()
+     * Postcondiciones: Nada, solo se muestra por pantalla los productos del almacén.
+     * */
+
+    /**
+     * Muestra en pantalla los productos del fichero AlmacenProductos
+     */
+    public void mostrarAlmacenProductos(){
+        FileReader fr1 = null;
+        BufferedReader br1 = null;
         String registro = " ";
 
         try{
@@ -231,32 +271,64 @@ public class FuncionesProductos {
             br1 = new BufferedReader(fr1);
 
             registro = br1.readLine();
+
             while(registro != null){
                 System.out.println(registro);
                 registro = br1.readLine();
             }
-            br1.close();//Cerramos los streams
-            fr1.close();
-
-            fr2 = new FileReader("src\\Ficheros\\FicheroMovimientoNuevosProductos.txt");
-            br2 = new BufferedReader(fr2);
-            registro = br2.readLine();
-            while(registro != null) {
-                System.out.println(registro);
-                registro = br2.readLine();
-            }
-
         }catch (FileNotFoundException error1){
             error1.printStackTrace();
         }catch (IOException error2){
             error2.printStackTrace();
-        }finally {
-            try{
-                br2.close();
-                fr2.close();
+        }finally{
+            try{ //Cerramos los streams
+                br1.close();
+                fr1.close();
             }catch (IOException error){
                 error.printStackTrace();
             }
         }
     }
+
+    //mostrarFicheroMov
+    /*
+     * Interfaz
+     * Nombre: mostrarFicheroMov
+     * Comentario: Esta función nos permite mostrar por pantalla los productos del
+     * almacén.
+     * Cabecera: public void mostrarFicheroMov()
+     * Postcondiciones: Nada, solo se muestra por pantalla los productos que se encuentran en el fichero de movimiento.
+     * */
+    /**
+     * Muestra los productos del fichero FicheroMovimientoNuevosProductos.
+     */
+    public void mostrarFicheroMov(){
+        FileReader fr1 = null;
+        BufferedReader br1 = null;
+        String registro = " ";
+
+        try{
+            fr1 = new FileReader("src\\Ficheros\\FicheroMovimientoNuevosProductos.txt");
+            br1 = new BufferedReader(fr1);
+
+            registro = br1.readLine();
+
+            while(registro != null) {
+                System.out.println(registro);
+                registro = br1.readLine();
+            }
+        }catch (FileNotFoundException error1){
+            error1.printStackTrace();
+        }catch (IOException error2){
+            error2.printStackTrace();
+        }finally{
+            try{ //Cerramos los streams
+                br1.close();
+                fr1.close();
+            }catch (IOException error){
+                error.printStackTrace();
+            }
+        }
+    }
+
 }

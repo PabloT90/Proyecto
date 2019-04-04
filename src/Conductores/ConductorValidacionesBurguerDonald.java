@@ -70,13 +70,13 @@ public class ConductorValidacionesBurguerDonald {
         //System.out.println(funcion.leerYValidarRespuestaInsercion());
 
         //leerYValidarListaProductos
-        /*listaProductos = funcion.leerYValidarListaProductos();
+        listaProductos = funcion.leerYValidarListaProductos();
 
         for(int i = 0; i < listaProductos.length; i++){
             System.out.println(listaProductos[i]);
-        }*/
+        }
 
         //leerYValidarNuevoMenu //-------------------Pendiente--------------------------------
-        System.out.println(funcion.leerYValidarNuevoMenu());
+        //System.out.println(funcion.leerYValidarNuevoMenu());
     }
 }

@@ -42,6 +42,7 @@
  * public ImplProducto clone()
  * public String toString()
  * public int compareTo(ImplProducto otro)
+ * public String toStringBonito()
  * */
 
 package Clases;
@@ -245,8 +246,17 @@ public class ImplProducto implements Producto, Cloneable, Comparable<ImplProduct
     /**
      * @see java.lang.Object#toString()
      */
+    @Override
     public String toString() {
         return getId() + "," + getTipo() + "," + getPrecio() + "," +getNombre()+ "," + getDescripcion() + "," + getVegano();
+    }
+
+    //toStringBonito
+    /**
+     * toString que muestra los datos de manera mas legible para el usuario.
+     */
+    public String toStringBonito() {
+        return "ID: "+getId() + "  |Tipo: " + getTipo() + "  |Precio: " + getPrecio() + "  |Nombre: " +getNombre()+ "  |Descripcion: " + getDescripcion() + "  |Vegano: " + getVegano();
     }
 
     /**

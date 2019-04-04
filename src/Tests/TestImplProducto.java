@@ -107,5 +107,6 @@ public class TestImplProducto {
 
         System.out.println("producto1.toString() --> "+producto1.toString());
         System.out.println("producto2.toString() --> "+producto2.toString());
+        System.out.println("producto2.toStringBonito() -->" + producto2.toStringBonito());
     }
 }

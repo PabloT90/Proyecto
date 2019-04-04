@@ -91,6 +91,7 @@ public class TestImplMenu {
 
         System.out.println("menu1.toString() --> "+menu1.toString());
         System.out.println("menu2.toString() --> "+menu2.toString());
+        System.out.println("menu2.toStringBonito() -->" + menu2.toStringBonito());
 
         System.out.println("menu1 = menu2.clone()");
         menu1 = menu2.clone();

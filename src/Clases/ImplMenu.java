@@ -35,6 +35,7 @@
  * public ImplMenu clone()
  * public String toString()
  * public int compareTo(ImplMenu otro)
+ * public String toStringBonito()
  * */
 
 package Clases;
@@ -219,6 +220,14 @@ public class ImplMenu implements Menu, Cloneable, Comparable<ImplMenu> {
     @Override
     public String toString(){
         return getId()+","+getNombre()+","+getDescripcion()+","+getPrecioMenu();
+    }
+
+    //toStringBonito
+    /**
+     * Es un toString que muestra los datos de manera mas legible para el usuario.
+     */
+    public String toStringBonito(){
+        return "ID: "+getId()+"  |Nombre: "+getNombre()+"  |Descripcion: "+getDescripcion()+"  |Precio:"+getPrecioMenu();
     }
 
     /**

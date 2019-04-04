@@ -1,7 +1,5 @@
 package Clases;
 
-import java.lang.reflect.Array;
-
 public class FuncionesMenus {
     /*
     * Interfaz
@@ -33,7 +31,6 @@ public class FuncionesMenus {
             for (int i = 0; i < array.length; i++){
                 copia[i] = array[i];
             }
-
 
             //Hacemos que array apunte a una nueva colección de elementos de mayor tamaño
             array = copia;

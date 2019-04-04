@@ -38,6 +38,7 @@
  * public ImplStockProducto clone()
  * public ImplStockProducto deepClone()
  * public String toString()
+ * public String toStringBonito()
  * */
 
 package Clases;
@@ -255,8 +256,18 @@ public class ImplStockProducto implements StockProducto, Cloneable{
     /**
      * @see java.lang.Object#toString()
      */
+    @Override
     public String toString(){
         return getProductoId()+","+getProductoTipo()+","+getProductoPrecio()+","+getProductoNombre()+","+getProductoDescripcion()+","+
                 getProductoVegano()+","+getStock();
+    }
+
+    //toStringBonito
+    /**
+     * toString que muestra los datos de forma más legible para el usuario.
+     */
+    public String toStringBonito(){
+        return "ID: " +getProductoId()+"  |Tipo: "+getProductoTipo()+"  |Precio: "+getProductoPrecio()+"  |Nombre: "+getProductoNombre()+"  |Descripcion: "+getProductoDescripcion()+"  |Vegano: "+
+                getProductoVegano()+"  |Stock: "+getStock();
     }
 }

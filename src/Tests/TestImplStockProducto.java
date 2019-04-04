@@ -107,6 +107,7 @@ public class TestImplStockProducto {
 
         System.out.println("stockProducto1.toString() --> "+stockProducto1.toString());
         System.out.println("stockProducto2.toString() --> "+stockProducto2.toString());
+        System.out.println("stockProducto2.toStringBonito() --> "+stockProducto2.toStringBonito());
 
         System.out.println("stockProducto1 = stockProducto2.clone()");
         stockProducto1 = stockProducto2.clone();

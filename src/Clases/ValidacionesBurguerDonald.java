@@ -339,6 +339,13 @@ public class ValidacionesBurguerDonald {
     * es un producto del almacén modificado o null si idProducto no coincide con ninguno de los
     * productos del almacén (Si no se encontró el producto en el almacén).
     * */
+
+    /**
+     * Obtiene un tipo StockImplProducto válido, que es un producto modificado por el usuario.
+     * @param idProducto ID del producto a modificar.
+     * @return Asociado al nombre devuelve un ImplStockProducto con el producto modificado. Si el ID no coincide
+     * con ninguno de los del almacén devuelve null
+     */
     public ImplStockProducto leerYValidarProductoModificado(int idProducto){
         FuncionesProductos funcion = new FuncionesProductos();
         ImplStockProducto producto = funcion.obtenerProductoAlmacen(idProducto);
@@ -374,7 +381,6 @@ public class ValidacionesBurguerDonald {
                 producto.setStock(leerYValidarStock());
             }
         }
-
         return producto;
     }
 
@@ -392,6 +398,12 @@ public class ValidacionesBurguerDonald {
     * Postcondiciones: La función devuelve un carácter asociado al nombre, que es
     * una respuesta válida.
     * */
+
+    /**
+     * Obtiene una respuesta valida para la modificación del tipo producto.
+     * @param producto Producto al que le queremos modificar el tipo.
+     * @return Asociado al nombre devuelve un caracter. 's' o 'n'.
+     */
     public char leerYValidarRespuestaTipo(ImplStockProducto producto){
         Scanner teclado = new Scanner(System.in);
         char respuesta = ' ';
@@ -418,6 +430,12 @@ public class ValidacionesBurguerDonald {
      * Postcondiciones: La función devuelve un carácter asociado al nombre, que es
      * una respuesta válida.
      * */
+
+    /**
+     * Obtiene un respuesta válida para la modificación del precio de un producto.
+     * @param producto Producto al que queremos modificar el precio.
+     * @return Asociado al nombre devuelve un caracter. 's' o 'n'.
+     */
     public char leerYValidarRespuestaPrecio(ImplStockProducto producto){
         Scanner teclado = new Scanner(System.in);
         char respuesta = ' ';
@@ -444,6 +462,12 @@ public class ValidacionesBurguerDonald {
      * Postcondiciones: La función devuelve un carácter asociado al nombre, que es
      * una respuesta válida.
      * */
+
+    /**
+     * Obtiene una respuesta valida para la modificación del nombre de un producto.
+     * @param producto Producto al que le queremos modificar el nombre.
+     * @return Asociado al nombre devuelve un caracter. 's' o 'n'.
+     */
     public char leerYValidarRespuestaNombre(ImplStockProducto producto){
         Scanner teclado = new Scanner(System.in);
         char respuesta = ' ';
@@ -470,6 +494,12 @@ public class ValidacionesBurguerDonald {
      * Postcondiciones: La función devuelve un carácter asociado al nombre, que es
      * una respuesta válida.
      * */
+
+    /**
+     * Obtiene un respuesta válida para la modificación de la descripión de un producto.
+     * @param producto Producto al que le queremos modificar la descripción.
+     * @return Asociado al nombre devuelve un caracter. 's' o 'n'.
+     */
     public char leerYValidarRespuestaDescripcion(ImplStockProducto producto){
         Scanner teclado = new Scanner(System.in);
         char respuesta = ' ';
@@ -497,6 +527,11 @@ public class ValidacionesBurguerDonald {
      * Postcondiciones: La función devuelve un carácter asociado al nombre, que es
      * una respuesta válida.
      * */
+    /**
+     * Obtiene un respuesta válida para la modificación de la clasificación vegana de un producto.
+     * @param producto Producto al que le queremos modificar si es vegano o no.
+     * @return Asociado al nombre devuelve un caracter. 's' o 'n'.
+     */
     public char leerYValidarRespuestaVegano(ImplStockProducto producto){
         Scanner teclado = new Scanner(System.in);
         char respuesta = ' ';
@@ -524,6 +559,11 @@ public class ValidacionesBurguerDonald {
      * Postcondiciones: La función devuelve un carácter asociado al nombre, que es
      * una respuesta válida.
      * */
+    /**
+     * Obtiene un respuesta válida para la modificación del stock de un producto.
+     * @param producto Producto al que le queremos modificar el stock.
+     * @return Asociado al nombre devuelve un caracter. 's' o 'n'.
+     */
     public char leerYValidarRespuestaStock(ImplStockProducto producto){
         Scanner teclado = new Scanner(System.in);
         char respuesta = ' ';
@@ -547,6 +587,11 @@ public class ValidacionesBurguerDonald {
     * Postcondiciones: La función devuelve un tipo ImplMenu asociado al nombre,
     * que es un menú válido para el programa.
     * */
+
+    /**
+     * Obtiene un tipo ImplMenu válido para el programa BurguerDonald.
+     * @return Asociado al nombre devuelve un tipo ImplMenu, que es un menu válido para el programa.
+     */
     public ImplMenu leerYValidarNuevoMenu(){
         ImplMenu menu = null;
         Scanner teclado = new Scanner(System.in);
@@ -580,6 +625,11 @@ public class ValidacionesBurguerDonald {
     * Postcondiciones: La función devuelve un array del tipo ImplProducto
     * asociado al nombre, que es una lista de productos válida para un menú.
     * */
+
+    /**
+     * Obtiene un array del tipo ImplProducto válido para un menú.
+     * @return Asociado al nombre devuelve un array del tipo ImplProducto, que es una lista de productos válida para un menú.
+     */
     public ImplProducto[] leerYValidarListaProductos(){
         ImplProducto[] productos = new ImplProducto[1];
         char respuesta = ' ';
@@ -589,12 +639,41 @@ public class ValidacionesBurguerDonald {
             productos[productos.length-1] = leerYValidarProductoDelAlmacen();
             respuesta = leerYValidarRespuestaInsercion();
             if(respuesta == 's'){//Incrementamos el tamaño del array
-                aux = new ImplProducto[productos.length+1];
-                System.arraycopy(productos, 0, aux, 0, productos.length);
-                productos = aux;
+                //aux = new ImplProducto[productos.length+1];
+                //System.arraycopy(productos, 0, aux, 0, productos.length);
+                //productos = aux;
+                productos = aumentarTamano(productos);
             }
         }while(respuesta == 's');
 
+        return productos;
+    }
+
+    /*
+     * Interfaz
+     * Nombre: aumentarTamano
+     * Comentario: Esta función nos permite aumentar en 1 unidad el tamaño de un array pasado por parametro,
+     * copiando los datos que guardaba.
+     * Cabecera: public ImplProducto[] aumentarTamano(ImplProducto[] productos)
+     * Entrada:
+     *   - ImplProducto[] producto
+     * Precondiciones: el array no debe estar vacío.
+     * Salida:
+     *   -ImplProducto[] productos
+     * Postcondiciones: La función devuelve un array del tipo ImplProducto
+     * asociado al nombre, que es una lista de productos válida para un menú.
+     * */
+
+    /**
+     * Aumenta en una unidad el tamaño de un array recibido como parametro. Sin modificar los datos que contuviera anteriormente.
+     * @param productos Array de productos.
+     * @return Asociado al nombre devuelve un array del tipo ImplProducto, que es una lista válida para un menú.
+     */
+    public ImplProducto[] aumentarTamano(ImplProducto[] productos){
+        ImplProducto[] aux = null;
+        aux = new ImplProducto[productos.length+1];
+        System.arraycopy(productos, 0, aux, 0, productos.length);
+        productos = aux;
         return productos;
     }
 
@@ -607,9 +686,14 @@ public class ValidacionesBurguerDonald {
     * Cabecera: public char leerYValidarRespuestaInsercion()
     * Salida:
     *   -carácter respuesta
-    * Postcondiciones: La función devuelve un número entero asociado al nombre,
+    * Postcondiciones: La función devuelve un caracter asociado al nombre,
     * que es una respuesta válida.
     * */
+
+    /**
+     * Obtiene una respuesta válida a la hora de insertar un nuevo producto en un menú.
+     * @return Asociado al nombre devuelve 's' o 'n'.
+     */
     public char leerYValidarRespuestaInsercion(){
         char respuesta = ' ';
         Scanner teclado = new Scanner(System.in);
@@ -635,6 +719,11 @@ public class ValidacionesBurguerDonald {
     * Postcondiciones: La función devuelve un tipo ImplProducto asociado al nombre,
     * que es un producto del almacén.
     * */
+
+    /**
+     * Obtiene un tipo ImplProducto válido para el almacén de productos.
+     * @return Asociado al nombre devuelve un producto del almacén.
+     */
     public ImplProducto leerYValidarProductoDelAlmacen(){
         ImplProducto producto = null;
         ImplStockProducto productoConStock = null;
