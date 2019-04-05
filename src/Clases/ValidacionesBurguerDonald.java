@@ -350,34 +350,32 @@ public class ValidacionesBurguerDonald {
         FuncionesProductos funcion = new FuncionesProductos();
         ImplStockProducto producto = funcion.obtenerProductoAlmacen(idProducto);
         Scanner teclado = new Scanner(System.in);
-        char respuesta = ' ';
 
         if(producto != null){
-            respuesta = leerYValidarRespuestaTipo(producto);
-            if(respuesta == 's'){
+            if(leerYValidarRespuestaTipo(producto) == 's'){
                 producto.setProductoTipo(leerYValidarTipoProducto());
             }
-            respuesta = leerYValidarRespuestaPrecio(producto);
-            if(respuesta == 's'){
+
+            if(leerYValidarRespuestaTipo(producto) == 's'){
                 producto.setProductoPrecio(leerYValidarPrecio());
             }
-            respuesta = leerYValidarRespuestaNombre(producto);
-            if(respuesta == 's'){
+
+            if(leerYValidarRespuestaTipo(producto) == 's'){
                 System.out.println("Introduce el nuevo nombre del producto.");
                 producto.setProductoNombre(teclado.nextLine());
             }
-            respuesta = leerYValidarRespuestaDescripcion(producto);
-            if(respuesta == 's'){
+
+            if(leerYValidarRespuestaTipo(producto) == 's'){
                 System.out.println("Introduce la nueva descripci\u00f3n del producto.");
                 producto.setProductoDescripcion(teclado.nextLine());
             }
-            respuesta = leerYValidarRespuestaVegano(producto);
-            if(respuesta == 's'){
+
+            if(leerYValidarRespuestaTipo(producto) == 's'){
                 System.out.println("Indica si el producto es o no vegano (true/false).");
                 producto.setProductoVegano(teclado.nextBoolean());
             }
-            respuesta = leerYValidarRespuestaStock(producto);
-            if(respuesta == 's'){
+
+            if(leerYValidarRespuestaTipo(producto) == 's'){
                 producto.setStock(leerYValidarStock());
             }
         }
