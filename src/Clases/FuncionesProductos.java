@@ -248,7 +248,6 @@ public class FuncionesProductos {
         mostrarFicheroMov();
     }
 
-    //MostrarAlmacenProductos
     /*
      * Interfaz
      * Nombre: mostrarAlmacenProductos
@@ -290,7 +289,6 @@ public class FuncionesProductos {
         }
     }
 
-    //mostrarFicheroMov
     /*
      * Interfaz
      * Nombre: mostrarFicheroMov
@@ -331,4 +329,20 @@ public class FuncionesProductos {
         }
     }
 
+    /*
+     * Interfaz
+     * Nombre: mostrarProductosVeganos
+     * Comentario: Esta función nos permite mostrar por pantalla los productos veganos del
+     * almacén.
+     * Cabecera: public void mostrarProductosVeganos()
+     * Postcondiciones: Nada, solo se muestra por pantalla los productos veganos del almacén.
+     * */
+
+    /**
+     * Muestra por pantalla todos los productos veganos
+     * Postcondiciones: nada, solo se muestra por pantalla los productos veganos del almacen.
+     */
+    public void mostrarProductosVeganos(){
+        System.out.println("mostrarProductosVeganos en resguardo.");
+    }
 }
