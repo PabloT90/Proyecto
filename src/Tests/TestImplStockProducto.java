@@ -88,6 +88,9 @@ public class TestImplStockProducto {
         //getProductoVegano
         System.out.println("stockProducto1.getProductoVegano() --> "+stockProducto1.getProductoVegano());
 
+        //productoSinStock
+        System.out.println(stockProducto1.productoSinStock());
+
         System.out.println();
 
         //hashCode

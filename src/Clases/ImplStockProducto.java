@@ -39,6 +39,7 @@
  * public ImplStockProducto deepClone()
  * public String toString()
  * public String toStringBonito()
+ * public ImplProducto productoSinStock()
  * */
 
 package Clases;
@@ -194,6 +195,21 @@ public class ImplStockProducto implements StockProducto, Cloneable{
      */
     public void setProductoVegano(boolean vegano){
         producto.setVegano(vegano);
+    }
+
+    /*
+    * Interfaz
+    * Nombre: productoSinStock
+    * Comentario: Esta función nos permite obtener el tipo ImplProducto sin el
+    * atributo stock.
+    * Cabecera: public ImplProducto productoSinStock()
+    * Salida:
+    *   -ImplProducto producto
+    * Postcondiciones: La función devuelve un tipo ImplProducto asociado al nombre,
+    * que es el producto sin el stock.
+    * */
+    public ImplProducto productoSinStock(){
+        return producto;
     }
 
     //hashCode
