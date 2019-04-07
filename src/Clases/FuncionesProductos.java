@@ -131,7 +131,7 @@ public class FuncionesProductos {
             }
             //Mientras no sea fin de fichero, no se haya encontrado el producto y sea posible encontrar el producto
             while(registro != null && producto == null && Integer.parseInt(separador[0]) <= id){
-                if(Integer.parseInt(separador[0]) == id){//Si los id's coinciden
+                if(Integer.parseInt(separador[0]) == id && separador[3].charAt(0) != '*'){//Si los id's coinciden
                     tipo = EnumTipo.valueOf(separador[1]);
                     precio = Double.parseDouble(separador[2]);
                     vegano = Boolean.parseBoolean(separador[5]);
@@ -203,7 +203,7 @@ public class FuncionesProductos {
             while (registro != null && producto == null) {//Mientras no sea fin de fichero y no se haya encontrado el producto
                 separador = registro.split(",");//Separamos el registro en campos
 
-                if (Integer.parseInt(separador[0]) == id) {//Si los id's coinciden
+                if (Integer.parseInt(separador[0]) == id && separador[3].charAt(0) != '*') {//Si los id's coinciden
                     tipo = EnumTipo.valueOf(separador[1]);
                     precio = Double.parseDouble(separador[2]);
                     vegano = Boolean.parseBoolean(separador[5]);
@@ -263,6 +263,7 @@ public class FuncionesProductos {
     public void mostrarAlmacenProductos(){
         FileReader fr1 = null;
         BufferedReader br1 = null;
+        String[] partesRegistro = null;
         String registro = " ";
 
         try{
@@ -270,10 +271,18 @@ public class FuncionesProductos {
             br1 = new BufferedReader(fr1);
 
             registro = br1.readLine();
-
+            if(registro != null){
+                partesRegistro = registro.split(",");//Separamos el registro en campos
+            }
             while(registro != null){
-                System.out.println(registro);
+                if(partesRegistro[3].charAt(0) != '*'){
+                    System.out.println(registro);
+                }
+
                 registro = br1.readLine();
+                if(registro != null){
+                    partesRegistro = registro.split(",");//Separamos el registro en campos
+                }
             }
         }catch (FileNotFoundException error1){
             error1.printStackTrace();
@@ -304,16 +313,25 @@ public class FuncionesProductos {
         FileReader fr1 = null;
         BufferedReader br1 = null;
         String registro = " ";
+        String[] partesRegistro = null;
 
         try{
             fr1 = new FileReader("src\\Ficheros\\FicheroMovimientoNuevosProductos.txt");
             br1 = new BufferedReader(fr1);
 
             registro = br1.readLine();
-
+            if(registro != null){
+                partesRegistro = registro.split(",");//Separamos el registro en campos
+            }
             while(registro != null) {
-                System.out.println(registro);
+                if(partesRegistro[3].charAt(0) != '*'){
+                    System.out.println(registro);
+                }
+
                 registro = br1.readLine();
+                if(registro != null){
+                    partesRegistro = registro.split(",");//Separamos el registro en campos
+                }
             }
         }catch (FileNotFoundException error1){
             error1.printStackTrace();
@@ -343,6 +361,102 @@ public class FuncionesProductos {
      * Postcondiciones: nada, solo se muestra por pantalla los productos veganos del almacen.
      */
     public void mostrarProductosVeganos(){
-        System.out.println("mostrarProductosVeganos en resguardo.");
+        mostrarProductosVeganosAlmacen();
+        mostrarProductosVeganosMovimientos();
     }
+
+    /*
+    * Interfaz
+    * Nombre: mostrarProductosVeganosAlmacen
+    * Comentario: Esta función muestra por pantalla todos los productos veganos del
+    * almacén.
+    * Cabecera: public void mostrarProductosVeganosAlmacen()
+    * Postcondiciones: Nada, solo se muestra por pantalla todos los productos veganos
+    * del almacén.
+    * */
+    public void mostrarProductosVeganosAlmacen(){
+        FileReader fr1 = null;
+        BufferedReader br1 = null;
+        String registro = " ";
+        String[] partesRegistro = null;
+
+        try{
+            fr1 = new FileReader("src\\Ficheros\\AlmacenProductos.txt");
+            br1 = new BufferedReader(fr1);
+
+            registro = br1.readLine();
+            if(registro != null){
+                partesRegistro = registro.split(",");//Separamos el registro en campos
+            }
+            while(registro != null) {
+                if(partesRegistro[3].charAt(0) != '*' && Boolean.parseBoolean(partesRegistro[3]) == true){
+                    System.out.println(registro);
+                }
+
+                registro = br1.readLine();
+                if(registro != null){
+                    partesRegistro = registro.split(",");//Separamos el registro en campos
+                }
+            }
+        }catch (FileNotFoundException error1){
+            error1.printStackTrace();
+        }catch (IOException error2){
+            error2.printStackTrace();
+        }finally{
+            try{ //Cerramos los streams
+                br1.close();
+                fr1.close();
+            }catch (IOException error){
+                error.printStackTrace();
+            }
+        }
+    }
+
+    /*
+     * Interfaz
+     * Nombre: mostrarProductosVeganosMovimientos
+     * Comentario: Esta función muestra por pantalla todos los productos veganos del
+     * fichero de movimientos.
+     * Cabecera: public void mostrarProductosVeganosMovimientos()
+     * Postcondiciones: Nada, solo se muestra por pantalla todos los productos veganos
+     * del almacén.
+     * */
+    public void mostrarProductosVeganosMovimientos(){
+        FileReader fr1 = null;
+        BufferedReader br1 = null;
+        String registro = " ";
+        String[] partesRegistro = null;
+
+        try{
+            fr1 = new FileReader("src\\Ficheros\\FicheroMovimientoNuevosProductos.txt");
+            br1 = new BufferedReader(fr1);
+
+            registro = br1.readLine();
+            if(registro != null){
+                partesRegistro = registro.split(",");//Separamos el registro en campos
+            }
+            while(registro != null) {
+                if(partesRegistro[3].charAt(0) != '*' && Boolean.parseBoolean(partesRegistro[3]) == true){
+                    System.out.println(registro);
+                }
+
+                registro = br1.readLine();
+                if(registro != null){
+                    partesRegistro = registro.split(",");//Separamos el registro en campos
+                }
+            }
+        }catch (FileNotFoundException error1){
+            error1.printStackTrace();
+        }catch (IOException error2){
+            error2.printStackTrace();
+        }finally{
+            try{ //Cerramos los streams
+                br1.close();
+                fr1.close();
+            }catch (IOException error){
+                error.printStackTrace();
+            }
+        }
+    }
+
 }
