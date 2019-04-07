@@ -2,9 +2,7 @@ package Clases;
 
 import Enums.EnumTipo;
 import java.io.*;
-
 public class FuncionesProductos {
-
     /*
      * Interfaz
      * Nombre: insertarProducto
@@ -15,7 +13,6 @@ public class FuncionesProductos {
      * Postcondiciones: La función inserta un tipo ImplStockProducto en el fichero
      * del almacén.
      * */
-
     /**
      * Inserta un producto en el almacen.
      * @param producto Producto que se quiere insertar.
@@ -48,48 +45,12 @@ public class FuncionesProductos {
     }
 
     /*
-    * Interfaz
-    * Nombre: obtenerProductoAlmacen
-    * Comentario: La función nos permite obtener un tipo ImplStockProducto
-    * del fichero AlmacenProductos. Se pasará por parámetros un número de id,
-    * si no existe un producto con la misma id en el almacen la función devuelve null.
-    * Cabecera: public ImplStockProducto obtenerProductoAlmacen(int id)
-    * Entrada:
-    *   -entero id
-    * Salida:
-    *   -ImplStockProducto producto
-    * Precondiciones:
-    *   -id debe ser mayor o igual que 0.
-    * Postcondiciones: La función devuelve un tipo ImplStockProducto asociado al nombre, si
-    * se ha encontrado un producto con la misma id en el almacén, en caso contrario la función
-    * devuelve null.
-    * */
-
-    /**
-     * Obtiene un tipo ImplStockProducto del fichero AlmacenProductos.
-     * @param id ID del producto.
-     * @return Asociado al nombre devuelve un tipo ImplStockProducto si se ha encontrado un producto con la
-     * misma ID en el almacén, en caso contrario devuelve null.
-     */
-    public ImplStockProducto obtenerProductoAlmacen(int id){
-        ImplStockProducto producto = null;
-        //Buscamos el producto en el almacén.
-        producto = buscarEnAlmacen(id);
-        
-        //Si el producto no se encontraba en el almacén se buscará en el fichero de movimientos de productos.
-        if(producto == null)
-            producto = buscarEnFicheroMovimiento(id);
-
-        return producto;
-    }
-
-    /*
      * Interfaz
-     * Nombre: buscarEnAlmacen
+     * Nombre: obtenerProductoAlmacen
      * Comentario: La función nos permite obtener un tipo ImplStockProducto
      * del fichero AlmacenProductos. Se pasará por parámetros un número de id,
      * si no existe un producto con la misma id en el almacen la función devuelve null.
-     * Cabecera: public ImplStockProducto buscarEnAlmacen(int id)
+     * Cabecera: public ImplStockProducto obtenerProductoAlmacen(int id)
      * Entrada:
      *   -entero id
      * Salida:
@@ -102,12 +63,50 @@ public class FuncionesProductos {
      * */
 
     /**
-     * Obtiene un tipo ImplStockProducto del fichero AlmacenProductos
+     * Obtiene un tipo ImplStockProducto del fichero AlmacenProductos.
      * @param id ID del producto.
+     * @return Asociado al nombre devuelve un tipo ImplStockProducto si se ha encontrado un producto con la
+     * misma ID en el almacén, en caso contrario devuelve null.
+     */
+    public ImplStockProducto obtenerProductoAlmacen(int id){
+        ImplStockProducto producto = null;
+        //Buscamos el producto en el almacén.
+        producto = buscarEnAlmacen(id,"src\\Ficheros\\AlmacenProductos.txt");
+
+        //Si el producto no se encontraba en el almacén se buscará en el fichero de movimientos de productos.
+        if(producto == null)
+            producto = buscarEnAlmacen(id,"src\\Ficheros\\FicheroMovimientoNuevosProductos.txt");
+
+        return producto;
+    }
+
+    /*
+     * Interfaz
+     * Nombre: buscarEnAlmacen
+     * Comentario: La función nos permite obtener un tipo ImplStockProducto un directorio dado.
+     * Se pasará por parámetros un número de id y una direccion.
+     * si no existe un producto con la misma id en el almacen la función devuelve null.
+     * Cabecera: public ImplStockProducto buscarEnAlmacen(int ID, String direccion)
+     * Entrada:
+     *   -entero ID
+     *   -direccion String
+     * Salida:
+     *   -ImplStockProducto producto
+     * Precondiciones:
+     *   -id debe ser mayor o igual que 0.
+     *   -direccion el fichero debe existir.
+     * Postcondiciones: La función devuelve un tipo ImplStockProducto asociado al nombre, si
+     * se ha encontrado un producto con la misma id en el almacén, en caso contrario la función
+     * devuelve null.
+     * */
+    /**
+     * Obtiene un tipo ImplStockProducto de un directorio.
+     * @param ID ID del producto.
+     * @param direccion Dirección del directorio donde vamos a buscar el producto.
      * @return Asociado al nombre devuelve un tipo ImplStockProducto si se ha encontrado un producto con el mismo ID
      * en el almacén y null en caso contrario.
      */
-    public ImplStockProducto buscarEnAlmacen(int id){
+    public ImplStockProducto buscarEnAlmacen(int ID, String direccion){
         ImplStockProducto producto = null;
         int stock = 0;
         double precio = 0.0;
@@ -119,29 +118,22 @@ public class FuncionesProductos {
         String[] separador = null;
 
         try{
-            //fr1 = new FileReader("F:\\Proyecto\\Proyecto\\src\\Ficheros\\AlmacenProductos.txt");
-            fr1 = new FileReader("src\\Ficheros\\AlmacenProductos.txt");
+            //fr2 = new FileReader("src\\Ficheros\\FicheroMovimientoNuevosProductos.txt");
+            fr1 = new FileReader(direccion);
             br1 = new BufferedReader(fr1);
-
-            //Buscamos el producto en el almacén
             registro = br1.readLine();
 
-            if(registro != null){
+            while (registro != null && producto == null) {//Mientras no sea fin de fichero y no se haya encontrado el producto
                 separador = registro.split(",");//Separamos el registro en campos
-            }
-            //Mientras no sea fin de fichero, no se haya encontrado el producto y sea posible encontrar el producto
-            while(registro != null && producto == null && Integer.parseInt(separador[0]) <= id){
-                if(Integer.parseInt(separador[0]) == id && separador[3].charAt(0) != '*'){//Si los id's coinciden
+
+                if (Integer.parseInt(separador[0]) == ID && separador[3].charAt(0) != '*') {//Si los id's coinciden
                     tipo = EnumTipo.valueOf(separador[1]);
                     precio = Double.parseDouble(separador[2]);
                     vegano = Boolean.parseBoolean(separador[5]);
                     stock = Integer.parseInt(separador[6]);
-                    producto = new ImplStockProducto(id, tipo, precio, separador[3], separador[4], vegano, stock);
-                }else{
+                    producto = new ImplStockProducto(ID, tipo, precio, separador[3], separador[4], vegano, stock);
+                } else {
                     registro = br1.readLine();
-                    if(registro != null){
-                        separador = registro.split(",");//Separamos el registro en campos
-                    }
                 }
             }
         }catch(FileNotFoundException error1){
@@ -152,75 +144,6 @@ public class FuncionesProductos {
             try{
                 br1.close();
                 fr1.close();
-            }catch (IOException error){
-                error.printStackTrace();
-            }
-        }
-        return producto;
-    }
-
-    /*
-     * Interfaz
-     * Nombre: buscarEnFicheroMovimiento
-     * Comentario: La función nos permite obtener un tipo ImplStockProducto
-     * del fichero AlmacenProductos. Se pasará por parámetros un número de id,
-     * si no existe un producto con la misma id en el fichero de movimiento la función devuelve null.
-     * Cabecera: public ImplStockProducto buscarEnFicheroMovimiento(int id)
-     * Entrada:
-     *   -entero id
-     * Salida:
-     *   -ImplStockProducto producto
-     * Precondiciones:
-     *   -id debe ser mayor o igual que 0.
-     * Postcondiciones: La función devuelve un tipo ImplStockProducto asociado al nombre, si
-     * se ha encontrado un producto con la misma id en el fichero de movimiento, en caso contrario la función
-     * devuelve null.
-     * */
-
-    /**
-     * Obtiene un tipo ImplStockProducto del fichero AlmacenProductos.
-     * @param id ID del producto.
-     * @return Asociado al nombre devuelve un tipo ImplStockProducto si se ha encontrado algun producto con el mismo ID
-     * pasado por parametro, en caso contrario devuelve null.
-     */
-    public ImplStockProducto buscarEnFicheroMovimiento(int id) {
-        ImplStockProducto producto = null;
-        int stock = 0;
-        double precio = 0.0;
-        boolean vegano;
-        EnumTipo tipo = null;
-        FileReader fr2 = null;
-        BufferedReader br2 = null;
-        String registro = " ";
-        String[] separador = null;
-
-        try{
-            //fr2 = new FileReader("F:\\Proyecto\\Proyecto\\src\\Ficheros\\FicheroMovimientoNuevosProductos.txt");
-            fr2 = new FileReader("src\\Ficheros\\FicheroMovimientoNuevosProductos.txt");
-            br2 = new BufferedReader(fr2);
-            registro = br2.readLine();
-
-            while (registro != null && producto == null) {//Mientras no sea fin de fichero y no se haya encontrado el producto
-                separador = registro.split(",");//Separamos el registro en campos
-
-                if (Integer.parseInt(separador[0]) == id && separador[3].charAt(0) != '*') {//Si los id's coinciden
-                    tipo = EnumTipo.valueOf(separador[1]);
-                    precio = Double.parseDouble(separador[2]);
-                    vegano = Boolean.parseBoolean(separador[5]);
-                    stock = Integer.parseInt(separador[6]);
-                    producto = new ImplStockProducto(id, tipo, precio, separador[3], separador[4], vegano, stock);
-                } else {
-                    registro = br2.readLine();
-                }
-            }
-        }catch(FileNotFoundException error1){
-                error1.printStackTrace();
-        }catch(IOException error2){
-                error2.printStackTrace();
-        }finally{
-            try{
-                br2.close();
-                fr2.close();
             }catch (IOException error){
                 error.printStackTrace();
             }
@@ -243,31 +166,34 @@ public class FuncionesProductos {
      */
     public void mostrarProductosAlmacen(){
         //Se muestran los productos del almacén.
-        mostrarAlmacenProductos();
+        mostrarProductosAlmacen("src\\Ficheros\\AlmacenProductos.txt");
         //Se muestran los productos del fichero de movimiento.
-        mostrarFicheroMov();
+        mostrarProductosAlmacen("src\\Ficheros\\FicheroMovimientoNuevosProductos.txt");
     }
 
     /*
      * Interfaz
-     * Nombre: mostrarAlmacenProductos
+     * Nombre: mostrarProductosAlmacen
      * Comentario: Esta función nos permite mostrar por pantalla los productos del
      * almacén.
-     * Cabecera: public void mostrarAlmacenProductos()
+     * Entrada:
+     *  -direccion String
+     * Cabecera: public void mostrarProductosAlmacen()
      * Postcondiciones: Nada, solo se muestra por pantalla los productos del almacén.
      * */
 
     /**
      * Muestra en pantalla los productos del fichero AlmacenProductos
+     * @param direccion Dirección en la que se guarda el fichero a leer.
      */
-    public void mostrarAlmacenProductos(){
+    public void mostrarProductosAlmacen(String direccion){
         FileReader fr1 = null;
         BufferedReader br1 = null;
         String[] partesRegistro = null;
         String registro = " ";
 
         try{
-            fr1 = new FileReader("src\\Ficheros\\AlmacenProductos.txt");
+            fr1 = new FileReader(direccion);
             br1 = new BufferedReader(fr1);
 
             registro = br1.readLine();
@@ -275,55 +201,6 @@ public class FuncionesProductos {
                 partesRegistro = registro.split(",");//Separamos el registro en campos
             }
             while(registro != null){
-                if(partesRegistro[3].charAt(0) != '*'){
-                    System.out.println(registro);
-                }
-
-                registro = br1.readLine();
-                if(registro != null){
-                    partesRegistro = registro.split(",");//Separamos el registro en campos
-                }
-            }
-        }catch (FileNotFoundException error1){
-            error1.printStackTrace();
-        }catch (IOException error2){
-            error2.printStackTrace();
-        }finally{
-            try{ //Cerramos los streams
-                br1.close();
-                fr1.close();
-            }catch (IOException error){
-                error.printStackTrace();
-            }
-        }
-    }
-
-    /*
-     * Interfaz
-     * Nombre: mostrarFicheroMov
-     * Comentario: Esta función nos permite mostrar por pantalla los productos del
-     * almacén.
-     * Cabecera: public void mostrarFicheroMov()
-     * Postcondiciones: Nada, solo se muestra por pantalla los productos que se encuentran en el fichero de movimiento.
-     * */
-    /**
-     * Muestra los productos del fichero FicheroMovimientoNuevosProductos.
-     */
-    public void mostrarFicheroMov(){
-        FileReader fr1 = null;
-        BufferedReader br1 = null;
-        String registro = " ";
-        String[] partesRegistro = null;
-
-        try{
-            fr1 = new FileReader("src\\Ficheros\\FicheroMovimientoNuevosProductos.txt");
-            br1 = new BufferedReader(fr1);
-
-            registro = br1.readLine();
-            if(registro != null){
-                partesRegistro = registro.split(",");//Separamos el registro en campos
-            }
-            while(registro != null) {
                 if(partesRegistro[3].charAt(0) != '*'){
                     System.out.println(registro);
                 }
@@ -361,74 +238,31 @@ public class FuncionesProductos {
      * Postcondiciones: nada, solo se muestra por pantalla los productos veganos del almacen.
      */
     public void mostrarProductosVeganos(){
-        mostrarProductosVeganosAlmacen();
-        mostrarProductosVeganosMovimientos();
-    }
-
-    /*
-    * Interfaz
-    * Nombre: mostrarProductosVeganosAlmacen
-    * Comentario: Esta función muestra por pantalla todos los productos veganos del
-    * almacén.
-    * Cabecera: public void mostrarProductosVeganosAlmacen()
-    * Postcondiciones: Nada, solo se muestra por pantalla todos los productos veganos
-    * del almacén.
-    * */
-    public void mostrarProductosVeganosAlmacen(){
-        FileReader fr1 = null;
-        BufferedReader br1 = null;
-        String registro = " ";
-        String[] partesRegistro = null;
-
-        try{
-            fr1 = new FileReader("src\\Ficheros\\AlmacenProductos.txt");
-            br1 = new BufferedReader(fr1);
-
-            registro = br1.readLine();
-            if(registro != null){
-                partesRegistro = registro.split(",");//Separamos el registro en campos
-            }
-            while(registro != null) {
-                if(partesRegistro[3].charAt(0) != '*' && Boolean.parseBoolean(partesRegistro[3]) == true){
-                    System.out.println(registro);
-                }
-
-                registro = br1.readLine();
-                if(registro != null){
-                    partesRegistro = registro.split(",");//Separamos el registro en campos
-                }
-            }
-        }catch (FileNotFoundException error1){
-            error1.printStackTrace();
-        }catch (IOException error2){
-            error2.printStackTrace();
-        }finally{
-            try{ //Cerramos los streams
-                br1.close();
-                fr1.close();
-            }catch (IOException error){
-                error.printStackTrace();
-            }
-        }
+        mostrarProductosVeganos("src\\Ficheros\\AlmacenProductos.txt");
+        mostrarProductosVeganos("src\\Ficheros\\FicheroMovimientoNuevosProductos.txt");
     }
 
     /*
      * Interfaz
-     * Nombre: mostrarProductosVeganosMovimientos
+     * Nombre: mostrarProductosVeganosAlmacen
      * Comentario: Esta función muestra por pantalla todos los productos veganos del
-     * fichero de movimientos.
-     * Cabecera: public void mostrarProductosVeganosMovimientos()
+     * almacén.
+     * Cabecera: public void mostrarProductosVeganosAlmacen()
      * Postcondiciones: Nada, solo se muestra por pantalla todos los productos veganos
      * del almacén.
      * */
-    public void mostrarProductosVeganosMovimientos(){
+    /**
+     * Muestra los productos veganos del almacén.
+     * @param direccion Dirección en la que se encuentra el fichero en que realizamos la busqueda.
+     */
+    public void mostrarProductosVeganos(String direccion){
         FileReader fr1 = null;
         BufferedReader br1 = null;
         String registro = " ";
         String[] partesRegistro = null;
 
         try{
-            fr1 = new FileReader("src\\Ficheros\\FicheroMovimientoNuevosProductos.txt");
+            fr1 = new FileReader(direccion);
             br1 = new BufferedReader(fr1);
 
             registro = br1.readLine();
@@ -436,7 +270,7 @@ public class FuncionesProductos {
                 partesRegistro = registro.split(",");//Separamos el registro en campos
             }
             while(registro != null) {
-                if(partesRegistro[3].charAt(0) != '*' && Boolean.parseBoolean(partesRegistro[3]) == true){
+                if(partesRegistro[3].charAt(0) != '*' && Boolean.parseBoolean(partesRegistro[5]) == true){
                     System.out.println(registro);
                 }
 

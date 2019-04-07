@@ -47,6 +47,8 @@
  *   -Un número entero para opcionMenu.
  *   -Un número entero para opcionSubMenu1.
  *   -Un número entero para opcionSubMenu2.
+ *   -Un número entero para opcionSubMenu3
+ *   -Un número entero para opcionSubMenu4
  *   -Un número entero para id.//Para produto o menú.
  *   -Un tipo ImplMenu para menu.
  *   -Un tipo ImplProducto para producto.

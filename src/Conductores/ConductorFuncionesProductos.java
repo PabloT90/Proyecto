@@ -13,20 +13,17 @@ public class ConductorFuncionesProductos {
         //funcion.insertarProducto(producto1);
 
         //obtenerProductoAlmacen
-        System.out.println(funcion.obtenerProductoAlmacen(3));
-        System.out.println(funcion.obtenerProductoAlmacen(57));
-        System.out.println(funcion.obtenerProductoAlmacen(56));
+        System.out.println(funcion.buscarEnAlmacen(3,"src\\Ficheros\\FicheroMovimientoNuevosProductos.txt"));
+        System.out.println(funcion.buscarEnAlmacen(57,"src\\Ficheros\\FicheroMovimientoNuevosProductos.txt"));
+        System.out.println(funcion.buscarEnAlmacen(56,"src\\Ficheros\\FicheroMovimientoNuevosProductos.txt"));
 
         //mostrarProductosAlmacen
         System.out.println("Mostrar todos los productos del almacen");
         funcion.mostrarProductosAlmacen();
 
-        //mostrarAlmacenProductos
-        System.out.println("Mostrar Almacen de productos");
-        funcion.mostrarAlmacenProductos();
+        //mostrarProductosVeganos
+        System.out.println("Mostrar los productos veganos.");
+        funcion.mostrarProductosVeganos();
 
-        //mostrarFicheroMov
-        System.out.println("Mostrar Fichero de movimiento");
-        funcion.mostrarFicheroMov();
     }
 }

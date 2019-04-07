@@ -356,26 +356,26 @@ public class ValidacionesBurguerDonald {
                 producto.setProductoTipo(leerYValidarTipoProducto());
             }
 
-            if(leerYValidarRespuestaTipo(producto) == 's'){
+            if(leerYValidarRespuestaPrecio(producto) == 's'){
                 producto.setProductoPrecio(leerYValidarPrecio());
             }
 
-            if(leerYValidarRespuestaTipo(producto) == 's'){
+            if(leerYValidarRespuestaNombre(producto) == 's'){
                 System.out.println("Introduce el nuevo nombre del producto.");
                 producto.setProductoNombre(teclado.nextLine());
             }
 
-            if(leerYValidarRespuestaTipo(producto) == 's'){
+            if(leerYValidarRespuestaDescripcion(producto) == 's'){
                 System.out.println("Introduce la nueva descripci\u00f3n del producto.");
                 producto.setProductoDescripcion(teclado.nextLine());
             }
 
-            if(leerYValidarRespuestaTipo(producto) == 's'){
+            if(leerYValidarRespuestaVegano(producto) == 's'){
                 System.out.println("Indica si el producto es o no vegano (true/false).");
                 producto.setProductoVegano(teclado.nextBoolean());
             }
 
-            if(leerYValidarRespuestaTipo(producto) == 's'){
+            if(leerYValidarRespuestaStock(producto) == 's'){
                 producto.setStock(leerYValidarStock());
             }
         }
