@@ -124,7 +124,7 @@ public class FuncionesProductos {
             while (registro != null && producto == null) {//Mientras no sea fin de fichero y no se haya encontrado el producto
                 separador = registro.split(",");//Separamos el registro en campos
 
-                if (Integer.parseInt(separador[0]) == ID && separador[3].charAt(1) != '*') {//Si los id's coinciden
+                if (Integer.parseInt(separador[0]) == ID && separador[3].charAt(0) != '*') {//Si los id's coinciden
                     tipo = EnumTipo.valueOf(separador[1]);
                     precio = Double.parseDouble(separador[2]);
                     vegano = Boolean.parseBoolean(separador[5]);
@@ -196,7 +196,7 @@ public class FuncionesProductos {
             while((registro = br1.readLine()) != null){
                 partesRegistro = registro.split(",");//Separamos el registro en campos
 
-                if(partesRegistro[3].charAt(1) != '*'){
+                if(partesRegistro[3].charAt(0) != '*'){
                     System.out.println(registro);
                 }
             }
@@ -258,7 +258,7 @@ public class FuncionesProductos {
             //Recorremos el fichero
             while((registro = br1.readLine()) != null) {
                 partesRegistro = registro.split(",");//Separamos el registro en campos
-                if(partesRegistro[3].charAt(1) != '*' && Boolean.parseBoolean(partesRegistro[5]) == true){
+                if(partesRegistro[3].charAt(0) != '*' && Boolean.parseBoolean(partesRegistro[5]) == true){
                     System.out.println(registro);
                 }
             }
@@ -304,7 +304,7 @@ public class FuncionesProductos {
             try{
                 raf = new RandomAccessFile(direccionArchivo, "rw");
                 raf.skipBytes(posicionRegistro + (producto.getProductoTipo().toString().length()) + 8);
-                raf.writeChar('*');
+                raf.writeBytes("*");
             }catch (FileNotFoundException error1){
                 error1.printStackTrace();
             }catch (IOException error2){
@@ -351,7 +351,7 @@ public class FuncionesProductos {
             //Mientras no sea fin de fichero y aún no se haya encontrado el producto
             while((registro = br.readLine()) != null && posicionBytes == -1){
                 partesRegistro = registro.split(",");
-                if(Integer.parseInt(partesRegistro[0]) == id && partesRegistro[3].charAt(1) != '*'){
+                if(Integer.parseInt(partesRegistro[0]) == id && partesRegistro[3].charAt(0) != '*'){
                     posicionBytes = cantidadBytes;
                 }else{
                     cantidadBytes += registro.length() + 2;
