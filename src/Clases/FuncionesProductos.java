@@ -278,6 +278,31 @@ public class FuncionesProductos {
 
     /*
     * Interfaz
+    * Nombre: eliminarProducto
+    * Comentario: Esta función permite eliminar un producto del almacén.
+    * Cabecera: public int eliminarProducto(int id)
+    * Entrada:
+    *   -entero id
+    * Salida:
+    *   -entero validez
+    * Postcondiciones: La función devuelve un número entero asociado al nombre, 0 si se
+    * ha conseguido eliminar el producto o -1 si no se ha encontrado el producto en el
+    * almacén.
+    * */
+    public int eliminarProducto(int id){
+        int validez = 0, eliminacion = 0;
+        //Si el producto no se encontraba en el fichero AlmacenProductos.txt
+        if(eliminarProductoFichero("src\\Ficheros\\AlmacenProductos.txt", id) == -1){
+            if(eliminarProductoFichero("src\\Ficheros\\FicheroMovimientoNuevosProductos.txt", id) == -1){
+                validez = -1;
+            }
+        }
+
+        return validez;
+    }
+
+    /*
+    * Interfaz
     * Nombre: eliminarProductoFichero
     * Comentario: Esta función permite eliminar un registro de producto de un fichero.
     * Cabecera: public int eliminarProductoFichero(String direccionArchivo, int id)

@@ -31,5 +31,10 @@ public class ConductorFuncionesProductos {
         //eliminarProductoFichero
         System.out.println(funcion.eliminarProductoFichero("src\\Ficheros\\FicheroMovimientoNuevosProductos.txt", 56));
         System.out.println(funcion.eliminarProductoFichero("src\\Ficheros\\FicheroMovimientoNuevosProductos.txt", 55));
+
+        //eliminarProducto
+        System.out.println(funcion.eliminarProducto(57));
+        System.out.println(funcion.eliminarProducto(58));
+        System.out.println(funcion.eliminarProducto(27));
     }
 }
