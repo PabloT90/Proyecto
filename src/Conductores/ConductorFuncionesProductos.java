@@ -25,5 +25,7 @@ public class ConductorFuncionesProductos {
         System.out.println("Mostrar los productos veganos.");
         funcion.mostrarProductosVeganos();
 
+        //posicionProducto
+        System.out.println(funcion.posicionProducto("src\\Ficheros\\FicheroMovimientoNuevosProductos.txt", 55));
     }
 }

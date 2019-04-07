@@ -276,4 +276,101 @@ public class FuncionesProductos {
         }
     }
 
+    /*
+    * Interfaz
+    * Nombre: eliminarProductoFichero
+    * Comentario: Esta función permite eliminar un registro de producto de un fichero.
+    * Cabecera: public int eliminarProductoFichero(String direccionArchivo, int id)
+    * Entrada:
+    *   -Cadena direccionArchivo
+    *   -entero id
+    * Salida:
+    *   -entero validez
+    * Precondiciones:
+    *   -direccionArchivo debe apuntar a un fichero de texto existente.
+    * Postcondiciones: La función devuelve un número entero asociado al nombre, 0 si se ha
+    * conseguido eliminar el producto o -1 si no se ha encontrado el producto en el almacén.
+    * */
+    public int eliminarProductoFichero(String direccionArchivo, int id){
+        int validez = -1, posicionRegistro = 0;
+        RandomAccessFile raf = null;
+        ImplStockProducto producto = null;
+
+        posicionRegistro = posicionProducto(direccionArchivo, id);
+
+        if(posicionRegistro != 0){//Si se encontró el producto
+            validez = 0;
+            producto = obtenerProductoAlmacen(id);
+            try{
+                raf = new RandomAccessFile(direccionArchivo, "rw");
+                raf.skipBytes(posicionRegistro + 4 + (producto.getProductoTipo().toString().length() * 2) + 8);
+                raf.writeChar('*');
+            }catch (FileNotFoundException error1){
+                error1.printStackTrace();
+            }catch (IOException error2){
+                error2.printStackTrace();
+            }finally {
+                try{
+                    raf.close();
+                }catch(IOException error){
+                    error.printStackTrace();
+                }
+            }
+        }
+
+        return validez;
+    }
+
+    /*
+    * Interfaz
+    * Nombre: posicionProducto
+    * Comentario: Esta función nos permite obtener la posición en bytes de un registro de producto en
+    * un archivo.
+    * Cabecera: public int posicionProducto(String direccionArchivo, int id)
+    * Entrada:
+    *   -Cadena direccionArchivo
+    *   -entero id
+    * Salida:
+    *   -entero posicionBytes
+    * Precondiciones:
+    *   -direccionArchivo debe apuntar a un fichero de texto existente.
+    * Postcondiciones: La función devuelve un número entero asociado al nombre, que es la posición
+    * en bytes que ocupa el registro en el fichero o -1 si no se ha encontrado un registro que tenga
+    * la misma id de producto.
+    * */
+    public int posicionProducto(String direccionArchivo, int id){
+        int posicionBytes = -1, cantidadBytes = 0;
+        FileReader fr = null;
+        BufferedReader br = null;
+        String registro = " ";
+        String[] partesRegistro;
+
+        try{
+            fr = new FileReader(direccionArchivo);
+            br = new BufferedReader(fr);
+            //Mientras no sea fin de fichero y aún no se haya encontrado el producto
+            while((registro = br.readLine()) != null && posicionBytes == -1){
+                partesRegistro = registro.split(",");
+                if(Integer.parseInt(partesRegistro[0]) == id && partesRegistro[3].charAt(0) != '*'){
+                    posicionBytes = cantidadBytes;
+                }else{
+                    cantidadBytes += registro.length() + 2;
+                }
+            }
+        }catch(FileNotFoundException error1){
+            error1.printStackTrace();
+        }catch(IOException error2){
+            error2.printStackTrace();
+        }finally {
+            try{
+                br.close();
+                fr.close();
+            }catch (IOException error){
+                error.printStackTrace();
+            }
+        }
+
+        return posicionBytes;
+    }
+
 }
