@@ -31,7 +31,6 @@ public class FuncionesProductos {
             bw.write(producto.toString());
             bw.newLine();
             bw.flush();
-
         } catch(IOException error){
             error.printStackTrace();
         }finally {
@@ -60,8 +59,7 @@ public class FuncionesProductos {
      * Postcondiciones: La función devuelve un tipo ImplStockProducto asociado al nombre, si
      * se ha encontrado un producto con la misma id en el almacén, en caso contrario la función
      * devuelve null.
-     * */
-
+     **/
     /**
      * Obtiene un tipo ImplStockProducto del fichero AlmacenProductos.
      * @param id ID del producto.
@@ -181,7 +179,6 @@ public class FuncionesProductos {
      * Cabecera: public void mostrarProductosAlmacen()
      * Postcondiciones: Nada, solo se muestra por pantalla los productos del almacén.
      * */
-
     /**
      * Muestra en pantalla los productos del fichero AlmacenProductos
      * @param direccion Dirección en la que se guarda el fichero a leer.
@@ -195,19 +192,12 @@ public class FuncionesProductos {
         try{
             fr1 = new FileReader(direccion);
             br1 = new BufferedReader(fr1);
-
-            registro = br1.readLine();
-            if(registro != null){
+            //Recorremos el fichero.
+            while((registro = br1.readLine()) != null){
                 partesRegistro = registro.split(",");//Separamos el registro en campos
-            }
-            while(registro != null){
+
                 if(partesRegistro[3].charAt(0) != '*'){
                     System.out.println(registro);
-                }
-
-                registro = br1.readLine();
-                if(registro != null){
-                    partesRegistro = registro.split(",");//Separamos el registro en campos
                 }
             }
         }catch (FileNotFoundException error1){
@@ -265,18 +255,11 @@ public class FuncionesProductos {
             fr1 = new FileReader(direccion);
             br1 = new BufferedReader(fr1);
 
-            registro = br1.readLine();
-            if(registro != null){
+            //Recorremos el fichero
+            while((registro = br1.readLine()) != null) {
                 partesRegistro = registro.split(",");//Separamos el registro en campos
-            }
-            while(registro != null) {
                 if(partesRegistro[3].charAt(0) != '*' && Boolean.parseBoolean(partesRegistro[5]) == true){
                     System.out.println(registro);
-                }
-
-                registro = br1.readLine();
-                if(registro != null){
-                    partesRegistro = registro.split(",");//Separamos el registro en campos
                 }
             }
         }catch (FileNotFoundException error1){
