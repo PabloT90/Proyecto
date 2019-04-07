@@ -26,6 +26,10 @@ public class ConductorFuncionesProductos {
         funcion.mostrarProductosVeganos();
 
         //posicionProducto
-        System.out.println(funcion.posicionProducto("src\\Ficheros\\FicheroMovimientoNuevosProductos.txt", 55));
+        System.out.println(funcion.posicionProducto("src\\Ficheros\\FicheroMovimientoNuevosProductos.txt", 57));
+
+        //eliminarProductoFichero
+        System.out.println(funcion.eliminarProductoFichero("src\\Ficheros\\FicheroMovimientoNuevosProductos.txt", 56));
+        System.out.println(funcion.eliminarProductoFichero("src\\Ficheros\\FicheroMovimientoNuevosProductos.txt", 55));
     }
 }
