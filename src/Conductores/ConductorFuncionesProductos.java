@@ -8,6 +8,8 @@ public class ConductorFuncionesProductos {
     public static void main (String[] args){
         FuncionesProductos funcion = new FuncionesProductos();
         ImplStockProducto producto1 = new ImplStockProducto(57, EnumTipo.BEBIDA, 1.5, "CocaCola", "Un poco cara.", true, 56);
+        ImplStockProducto producto2 = new ImplStockProducto(54,EnumTipo.SANDWICH,7.8,"Modificacion","Esta es la prueba de una modificación.",false,90);
+        ImplStockProducto producto3 = new ImplStockProducto(13,EnumTipo.COMPLEMENTO,45,"Pablo centrate","Un poquito.",false,22);
 
         //insertarProducto
         //funcion.insertarProducto(producto1);
@@ -36,5 +38,9 @@ public class ConductorFuncionesProductos {
         System.out.println(funcion.eliminarProducto(57));
         System.out.println(funcion.eliminarProducto(58));
         System.out.println(funcion.eliminarProducto(27));
+
+        //modificarProducto
+        System.out.println(funcion.modificarProducto(producto2));
+        System.out.println(funcion.modificarProducto(producto3));
     }
 }

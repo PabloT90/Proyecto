@@ -398,4 +398,28 @@ public class FuncionesProductos {
         return posicionBytes;
     }
 
+    /*
+    * Interfaz
+    * Nombre: modificarProducto
+    * Comentario: Esta función nos permite modificar un producto del almacén. En realidad la
+    * función elimina un producto para después insertar otro actualizado.
+    * Cabecera: public int modificarProducto(ImplStockProducto producto)
+    * Entrada:
+    *   -ImplStockProducto producto
+    * Salida:
+    *   -entero validez
+    * Postcondiciones: La función devuelve un número entero asociado al nombre, 0 si no se
+    * ha cometido errores, modificando el producto o -1 si no se ha encontrado el producto en el almecén.
+    * */
+    public int modificarProducto(ImplStockProducto producto){
+        int validez = -1;
+
+        if(obtenerProductoAlmacen(producto.getProductoId()) != null){//Si el producto existe en el almacén
+            validez = 0;
+            eliminarProducto(producto.getProductoId());//Eliminamos el producto
+            insertarProducto(producto);//Insertamos el nuevo producto actualizado
+        }
+
+        return validez;
+    }
 }
