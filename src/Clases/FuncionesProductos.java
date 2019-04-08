@@ -328,7 +328,7 @@ public class FuncionesProductos {
             producto = obtenerProductoAlmacen(id);
             try{
                 raf = new RandomAccessFile(direccionArchivo, "rw");
-                raf.skipBytes(posicionRegistro + (producto.getProductoTipo().toString().length()) + 8);
+                raf.skipBytes(posicionRegistro + 4 + (producto.getProductoTipo().toString().length()));
                 raf.writeBytes("*");
             }catch (FileNotFoundException error1){
                 error1.printStackTrace();
@@ -421,5 +421,22 @@ public class FuncionesProductos {
         }
 
         return validez;
+    }
+
+    /*
+    * Interfaz
+    * Nombre:
+    * Comentario:
+    * Cabecera:
+    * */
+    public int bytesCamposIntermedios(ImplStockProducto producto){
+        int ret = 0;
+
+        ret = String.valueOf(producto.getProductoId()).length();
+        ret += String.valueOf(producto.getProductoTipo()).length();
+        ret += String.valueOf(producto.getProductoPrecio()).length() + 6;
+        ret *= 2;
+
+        return ret;
     }
 }

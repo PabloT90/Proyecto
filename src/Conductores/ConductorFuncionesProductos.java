@@ -35,12 +35,19 @@ public class ConductorFuncionesProductos {
         System.out.println(funcion.eliminarProductoFichero("src\\Ficheros\\FicheroMovimientoNuevosProductos.txt", 55));
 
         //eliminarProducto
-        System.out.println(funcion.eliminarProducto(57));
-        System.out.println(funcion.eliminarProducto(58));
-        System.out.println(funcion.eliminarProducto(27));
+        System.out.println(funcion.eliminarProducto(1));
+        System.out.println(funcion.eliminarProducto(2));
+        System.out.println(funcion.eliminarProducto(3));
+
+        System.out.println(funcion.eliminarProducto(4));
+        System.out.println(funcion.eliminarProducto(5));
+        System.out.println(funcion.eliminarProducto(6));
 
         //modificarProducto
-        System.out.println(funcion.modificarProducto(producto2));
-        System.out.println(funcion.modificarProducto(producto3));
+        //System.out.println(funcion.modificarProducto(producto2));
+        //System.out.println(funcion.modificarProducto(producto3));
+
+        //bytesCamposIntermedios
+        System.out.println(funcion.bytesCamposIntermedios(producto1));
     }
 }

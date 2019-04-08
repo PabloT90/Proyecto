@@ -1,8 +1,6 @@
-54,BEBIDA,1.5,*epsi,Un poco cara.,true,56
-56,BEBIDA,1.5,*ocaCola,Un poco cara.,true,56
-57,BEBIDA,1.5,*ocaCola,Un poco cara.,true,56
-54,SANDWICH,7.8,*odificacion,Esta es la prueba de una modificación.,false,90
-54,SANDWICH,7.8*Modificacion,Esta es la prueba de una modificación.,false,90
-13,COMPLEMENTO,45*0,Pablo centrate,Un poquito.,false,22
-54,SANDWICH,7.8,Modificacion,Esta es la prueba de una modificación.,false,90
-13,COMPLEMENTO,45.0,Pablo centrate,Un poquito.,false,22
+1,BEBIDA,1*5,Co,*n pco cara.,true,56
+2,BEBIDA,1*5,coo*a,U poco cara.,true,56
+3,COMPLEMENTO,1*5,cOC*leca,U poco cara.,true,56
+4,SANDWICH,7*8,Cou*dificacion,Esta es la prueba de una modificación.,false,90
+5,SANDWICH,*.8,Co*ificacion,Esta es la prueba de una modificación.,false,90
+6,COMPLEMENTO,45.0,*ablo centrate,Un poquito.,false,22
