@@ -14,25 +14,28 @@ public class ConductorFuncionesProductos {
         //insertarProducto
         //funcion.insertarProducto(producto1);
 
-        //buscarEnAlmacen
+        //buscarEnAlmacen (Funciona)
         System.out.println("buscarEnAlmacen:");
         System.out.println(funcion.buscarEnAlmacen(3));
         System.out.println(funcion.buscarEnAlmacen(12));
         System.out.println(funcion.buscarEnAlmacen(29));
 
-        //buscarEnMovimientos
+        //buscarEnMovimientos (funciona)
         System.out.println("buscarEnMovimientos:");
         System.out.println(funcion.buscarEnMovimientos(3));
-        System.out.println(funcion.buscarEnMovimientos(12));
-        System.out.println(funcion.buscarEnMovimientos(29));
+        System.out.println(funcion.buscarEnMovimientos(4));
+        System.out.println(funcion.buscarEnMovimientos(7));
+        System.out.println("--------");
 
-        //mostrarProductosAlmacen
+        //mostrarProductosAlmacen (Funciona, aunque si hay ID en ambos archivos muestra el de Movimiento)
         System.out.println("Mostrar todos los productos del almacen");
         funcion.mostrarProductosAlmacen();
+        System.out.println("---Fin Almacen-----");
 
-        //mostrarProductosVeganos
-        //System.out.println("Mostrar los productos veganos.");
-        //funcion.mostrarProductosVeganos();
+        //mostrarProductosVeganos (No funciona del todo)
+        System.out.println("Mostrar los productos veganos.");
+        funcion.mostrarProductosVeganos();
+        System.out.println("----Fin veganos---");
 
         //posicionProducto
         //System.out.println(funcion.posicionProducto("src\\Ficheros\\Movimientos.txt", 57));
@@ -50,9 +53,12 @@ public class ConductorFuncionesProductos {
         //System.out.println(funcion.eliminarProducto(5));
         //System.out.println(funcion.eliminarProducto(6));
 
-        //modificarProducto
+        //modificarProducto (Funciona)
         //System.out.println(funcion.modificarProducto(producto2));
         //System.out.println(funcion.modificarProducto(producto3));
 
+        //productoEliminado(Funciona)
+        System.out.println(funcion.productoEliminado(1)+ "Debe salir true");
+        System.out.println(funcion.productoEliminado(2)+ "Debe salir false");
     }
 }

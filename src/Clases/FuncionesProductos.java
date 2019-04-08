@@ -68,10 +68,11 @@ public class FuncionesProductos {
      */
     public ImplStockProducto obtenerProductoAlmacen(int id){
         ImplStockProducto producto = null;
+
         //Buscamos en el fichero de movimientos
         producto = buscarEnMovimientos(id);
         //Si el producto no se encontraba en el fichero de movimientos se buscará en el almacén de productos.
-        if(producto == null)//Modificar
+        if(producto == null && !productoEliminado(id)) //Si no se ha encontrado en el fichero de mov y no se ha marcado como eliminado.
             producto = buscarEnAlmacen(id);
 
         return producto;
@@ -192,10 +193,6 @@ public class FuncionesProductos {
                 }
                     registro = br1.readLine();
             }
-
-            if(producto != null && producto.getProductoNombre().charAt(0) == '*'){
-                producto = null;
-            }
         }catch(FileNotFoundException error1){
             error1.printStackTrace();
         }catch(IOException error2){
@@ -215,14 +212,14 @@ public class FuncionesProductos {
     /*
     * Interfaz
     * Nombre: mostrarProductosAlmacen
-    * Comentario: Esta función nos permite mostrar por pantalla los productos del
-    * almacén.
+    * Comentario: Esta función nos permite mostrar por pantalla todos los productos del
+    * almacén. Tanto de fichero de movimiento como de almacen.
     * Cabecera: public void mostrarProductosAlmacen()
     * Postcondiciones: Nada, solo se muestra por pantalla los productos del almacén.
     * */
 
     /**
-     * Permite mostrar todos los productos del almacen
+     * Permite mostrar todos los productos del almacen.
      * Postcondiciones: nada, solo se muestran todos los productos del almacen.
      */
     public void mostrarProductosAlmacen(){
@@ -290,7 +287,6 @@ public class FuncionesProductos {
             }
         }
     }
-
     /*
      * Interfaz
      * Nombre: mostrarProductosVeganos
@@ -301,52 +297,69 @@ public class FuncionesProductos {
      * */
 
     /**
-     * Muestra por pantalla todos los productos veganos
-     * Postcondiciones: nada, solo se muestra por pantalla los productos veganos del almacen.
+     * Permite mostrar todos los productos veganos del almacen
+     * Postcondiciones: nada, solo se muestran todos los productos veganos del almacen.
      */
-    public void mostrarProductosVeganos(){
-        mostrarProductosVeganos("src\\Ficheros\\AlmacenProductos.txt");
-        mostrarProductosVeganos("src\\Ficheros\\Movimientos.txt");
-    }
-
-    /*
-     * Interfaz
-     * Nombre: mostrarProductosVeganosAlmacen
-     * Comentario: Esta función muestra por pantalla todos los productos veganos del
-     * almacén.
-     * Cabecera: public void mostrarProductosVeganosAlmacen()
-     * Postcondiciones: Nada, solo se muestra por pantalla todos los productos veganos
-     * del almacén.
-     * */
-    /**
-     * Muestra los productos veganos del almacén.
-     * @param direccion Dirección en la que se encuentra el fichero en que realizamos la busqueda.
-     */
-    public void mostrarProductosVeganos(String direccion){
+    public void mostrarProductosVeganos(){ //No funciona bien.
+        ImplStockProducto producto = null;
         FileReader fr1 = null;
         BufferedReader br1 = null;
-        String registro = " ";
-        String[] partesRegistro = null;
+        FileReader fr2 = null;
+        BufferedReader br2 = null;
+        String registro1, registro2;
+        String[] separador1 = null, separador2 = null;
 
         try{
-            fr1 = new FileReader(direccion);
+            fr1 = new FileReader("src\\Ficheros\\AlmacenProductos.txt");
             br1 = new BufferedReader(fr1);
+            fr2 = new FileReader("src\\Ficheros\\Movimientos.txt");
+            br2 = new BufferedReader(fr2);
 
-            //Recorremos el fichero
-            while((registro = br1.readLine()) != null) {
-                partesRegistro = registro.split(",");//Separamos el registro en campos
-                if(partesRegistro[3].charAt(0) != '*' && Boolean.parseBoolean(partesRegistro[5]) == true){
-                    System.out.println(registro);
+            registro1 = br1.readLine();
+            registro2 = br2.readLine();
+            while(registro1 != null && registro2 != null){//Mientras no haya ningún fin de fichero
+                separador1 = registro1.split(",");
+                separador2 = registro2.split(",");
+                if(Integer.parseInt(separador1[0]) < Integer.parseInt(separador2[0]) && Boolean.parseBoolean(separador1[5]) == true){
+                    System.out.println(registro1);
+                    registro1 = br1.readLine();
+                }else{
+                    if(Integer.parseInt(separador1[0]) > Integer.parseInt(separador2[0]) && Boolean.parseBoolean(separador2[5]) == true){
+                        System.out.println(registro2);
+                        registro2 = br2.readLine();
+                    }else{
+                        //Buscamos el movimiento más reciente del producto
+                        producto = buscarEnMovimientos(Integer.parseInt(separador2[0]));
+                        //Si el último movimiento no es una eliminación
+                        if(producto != null && Boolean.parseBoolean(separador2[5]) == true){
+                            System.out.println(producto);
+                        }
+                        registro1 = br1.readLine();
+                        registro2 = br2.readLine();
+                    }
+                }
+            }
+            if(registro1 != null){
+                while((registro1 = br1.readLine()) != null && Boolean.parseBoolean(separador1[5]) == true){
+                    System.out.println(registro1);
+                }
+            }
+
+            if(registro2 != null){
+                while((registro2 = br2.readLine()) != null && Boolean.parseBoolean(separador2[5]) == true){
+                    System.out.println(registro2);
                 }
             }
         }catch (FileNotFoundException error1){
             error1.printStackTrace();
         }catch (IOException error2){
             error2.printStackTrace();
-        }finally{
-            try{ //Cerramos los streams
+        }finally {
+            try{
                 br1.close();
                 fr1.close();
+                br2.close();
+                fr2.close();
             }catch (IOException error){
                 error.printStackTrace();
             }
@@ -501,6 +514,51 @@ public class FuncionesProductos {
     }
 
     /*
+    * ProductoEliminado
+    * Comentario: comprueba si un producto esta marcado como eliminado o no.
+    * Entrada: entero ID.
+    * Precondiciones: no hay.
+    * Salida: boolean ret.
+    * Postcondiciones: Asociado al nombre devuelve un boolean. True en caso que el ultimo registro con esa ID sea marcado
+    * como eliminado. False en caso contrario.
+    * Cabecera: public boolean productoEliminado(int ID)
+    * */
+    public boolean productoEliminado(int ID){
+        boolean ret = false;
+
+        //Recorremos el fichero de movimiento buscando si el ultimo registro con ese ID se encuentra en estado de borrado.
+        FileReader fr1 = null;
+        BufferedReader br1 = null;
+        String registro = " ";
+        String[] partesRegistro = null;
+
+        try{
+            fr1 = new FileReader("src\\Ficheros\\Movimientos.txt");
+            br1 = new BufferedReader(fr1);
+
+            //Recorremos el fichero de movimiento.
+            while((registro = br1.readLine()) != null) {
+                partesRegistro = registro.split(",");//Separamos el registro en campos
+                if(partesRegistro[3].charAt(0) == '*' && Integer.parseInt(partesRegistro[0]) == ID){ //Comprueba que este marcado como eliminado ('*')
+                    ret = true;
+                }
+            }
+        }catch (FileNotFoundException error1){
+            error1.printStackTrace();
+        }catch (IOException error2){
+            error2.printStackTrace();
+        }finally{
+            try{ //Cerramos los streams
+                br1.close();
+                fr1.close();
+            }catch (IOException error){
+                error.printStackTrace();
+            }
+        }
+        return ret;
+    }
+
+    /*
     * Interfaz
     * Nombre: eliminarProducto (Actu)
     * Comentario: Esta función nos permite eliminar un producto del almacén.
@@ -512,6 +570,5 @@ public class FuncionesProductos {
     * Postcondiciones: La función devuelve un número entero asociado al nombre, 0 si se
     * ha conseguido eliminar el producto o -1 si no se encuentre el producto en el almacén.
     * */
-
 
 }
