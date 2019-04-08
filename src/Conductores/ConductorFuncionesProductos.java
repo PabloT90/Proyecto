@@ -14,10 +14,17 @@ public class ConductorFuncionesProductos {
         //insertarProducto
         //funcion.insertarProducto(producto1);
 
-        //obtenerProductoAlmacen
+        //buscarEnAlmacen
+        System.out.println("buscarEnAlmacen:");
         System.out.println(funcion.buscarEnAlmacen(3));
-        System.out.println(funcion.buscarEnAlmacen(57));
+        System.out.println(funcion.buscarEnAlmacen(12));
         System.out.println(funcion.buscarEnAlmacen(29));
+
+        //buscarEnMovimientos
+        System.out.println("buscarEnMovimientos:");
+        System.out.println(funcion.buscarEnMovimientos(3));
+        System.out.println(funcion.buscarEnMovimientos(12));
+        System.out.println(funcion.buscarEnMovimientos(29));
 
         //mostrarProductosAlmacen
         System.out.println("Mostrar todos los productos del almacen");

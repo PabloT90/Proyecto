@@ -71,7 +71,7 @@ public class FuncionesProductos {
         //Buscamos en el fichero de movimientos
         producto = buscarEnMovimientos(id);
         //Si el producto no se encontraba en el fichero de movimientos se buscará en el almacén de productos.
-        if(producto == null)
+        if(producto == null)//Modificar
             producto = buscarEnAlmacen(id);
 
         return producto;
@@ -119,7 +119,7 @@ public class FuncionesProductos {
             while (registro != null && producto == null && rangoValido == true) {
                 separador = registro.split(",");//Separamos el registro en campos
 
-                if (Integer.parseInt(separador[0]) == ID && separador[3].charAt(0) != '*') {//Si los id's coinciden
+                if (Integer.parseInt(separador[0]) == ID) {//Si los id's coinciden
                     tipo = EnumTipo.valueOf(separador[1]);
                     precio = Double.parseDouble(separador[2]);
                     vegano = Boolean.parseBoolean(separador[5]);
@@ -183,15 +183,18 @@ public class FuncionesProductos {
             while (registro != null) {
                 separador = registro.split(",");//Separamos el registro en campos
 
-                if (Integer.parseInt(separador[0]) == ID && separador[3].charAt(0) != '*') {//Si los id's coinciden
+                if (Integer.parseInt(separador[0]) == ID) {//Si los id's coinciden
                     tipo = EnumTipo.valueOf(separador[1]);
                     precio = Double.parseDouble(separador[2]);
                     vegano = Boolean.parseBoolean(separador[5]);
                     stock = Integer.parseInt(separador[6]);
                     producto = new ImplStockProducto(ID, tipo, precio, separador[3], separador[4], vegano, stock);
-                } else {
-                    registro = br1.readLine();
                 }
+                    registro = br1.readLine();
+            }
+
+            if(producto != null && producto.getProductoNombre().charAt(0) == '*'){
+                producto = null;
             }
         }catch(FileNotFoundException error1){
             error1.printStackTrace();
@@ -223,6 +226,7 @@ public class FuncionesProductos {
      * Postcondiciones: nada, solo se muestran todos los productos del almacen.
      */
     public void mostrarProductosAlmacen(){
+        ImplStockProducto producto = null;
         FileReader fr1 = null;
         BufferedReader br1 = null;
         FileReader fr2 = null;
@@ -250,7 +254,11 @@ public class FuncionesProductos {
                         registro2 = br2.readLine();
                     }else{
                         //Buscamos el movimiento más reciente del producto
-                        System.out.println(buscarEnMovimientos(Integer.parseInt(separador2[0])));
+                        producto = buscarEnMovimientos(Integer.parseInt(separador2[0]));
+                        //Si el último movimiento no es una eliminación
+                        if(producto != null){
+                            System.out.println(producto);
+                        }
                         registro1 = br1.readLine();
                         registro2 = br2.readLine();
                     }

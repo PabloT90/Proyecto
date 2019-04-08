@@ -2,15 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3ab907e1-48bf-4659-a794-507be8868556" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Clases/FuncionesOrdenacionFicheros.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Conductores/ConductorFuncionesOrdenacionFicheros.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BurguerDonald/Ficheros/AlmacenProductos.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BurguerDonald/Ficheros/AlmacenProductos.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BurguerDonald/Ficheros/FicheroMovimientoNuevosProductos.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BurguerDonald/Ficheros/Movimientos.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BurguerDonald/Ficheros/Movimientos.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Clases/FuncionesProductos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Clases/FuncionesProductos.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Conductores/ConductorFuncionesProductos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Conductores/ConductorFuncionesProductos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Ficheros/AlmacenProductos.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ficheros/AlmacenProductos.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Ficheros/FicheroMovimientoNuevosProductos.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ficheros/Movimientos.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Ficheros/Movimientos.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ficheros/Movimientos.txt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,11 +17,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Conductores/ConductorFuncionesProductos.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="19" column="53" selection-start-line="19" selection-start-column="53" selection-end-line="19" selection-end-column="53" />
+            <state relative-caret-position="255">
+              <caret line="30" column="8" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -36,8 +32,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Ficheros/Movimientos.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" selection-start-line="6" selection-end-line="6" />
+            <state>
+              <caret column="14" selection-start-column="14" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -63,7 +59,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Tests/TestImplProducto.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1598">
+            <state relative-caret-position="347">
               <caret line="95" column="15" selection-start-line="95" selection-start-column="15" selection-end-line="95" selection-end-column="15" />
             </state>
           </provider>
@@ -81,11 +77,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Clases/FuncionesProductos.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="241">
-              <caret line="233" column="65" selection-start-line="233" selection-start-column="65" selection-end-line="233" selection-end-column="65" />
+            <state relative-caret-position="2340">
+              <caret line="509" column="13" lean-forward="true" selection-start-line="509" selection-start-column="13" selection-end-line="509" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -96,7 +92,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Clases/FuncionesOrdenacionFicheros.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
+            <state relative-caret-position="3224">
               <caret line="231" column="29" selection-start-line="231" selection-start-column="16" selection-end-line="231" selection-end-column="29" />
             </state>
           </provider>
@@ -156,10 +152,10 @@
         <option value="$PROJECT_DIR$/src/Clases/ImplStockProducto.java" />
         <option value="$PROJECT_DIR$/src/Tests/TestImplStockProducto.java" />
         <option value="$PROJECT_DIR$/src/Ficheros/FicheroMovimientoNuevosProductos.txt" />
-        <option value="$PROJECT_DIR$/src/Ficheros/Movimientos.txt" />
-        <option value="$PROJECT_DIR$/src/Clases/FuncionesProductos.java" />
         <option value="$PROJECT_DIR$/src/Ficheros/AlmacenProductos.txt" />
         <option value="$PROJECT_DIR$/src/Conductores/ConductorFuncionesProductos.java" />
+        <option value="$PROJECT_DIR$/src/Ficheros/Movimientos.txt" />
+        <option value="$PROJECT_DIR$/src/Clases/FuncionesProductos.java" />
       </list>
     </option>
   </component>
@@ -236,7 +232,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554739661631" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554741913364" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
@@ -340,7 +336,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1376" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1376" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="UI Designer" order="0" />
@@ -425,7 +421,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Conductores/ConductorFuncionesProductos.java</url>
-          <line>32</line>
+          <line>39</line>
           <properties />
           <option name="timeStamp" value="25" />
         </line-breakpoint>
@@ -550,13 +546,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Tests/TestImplProducto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1598">
-          <caret line="95" column="15" selection-start-line="95" selection-start-column="15" selection-end-line="95" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Conductores/ConductorFuncionesMenus.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -574,20 +563,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Clases/FuncionesOrdenacionFicheros.java">
+    <entry file="file://$PROJECT_DIR$/src/Tests/TestImplProducto.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="231" column="29" selection-start-line="231" selection-start-column="16" selection-end-line="231" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Clases/FuncionesProductos.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="233" column="65" selection-start-line="233" selection-start-column="65" selection-end-line="233" selection-end-column="65" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="347">
+          <caret line="95" column="15" selection-start-line="95" selection-start-column="15" selection-end-line="95" selection-end-column="15" />
         </state>
       </provider>
     </entry>
@@ -605,6 +584,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Clases/FuncionesOrdenacionFicheros.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3224">
+          <caret line="231" column="29" selection-start-line="231" selection-start-column="16" selection-end-line="231" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Ficheros/AlmacenProductos.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -612,17 +598,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Ficheros/Movimientos.txt">
+    <entry file="file://$PROJECT_DIR$/src/Conductores/ConductorFuncionesProductos.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        <state relative-caret-position="255">
+          <caret line="30" column="8" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Conductores/ConductorFuncionesProductos.java">
+    <entry file="file://$PROJECT_DIR$/src/Ficheros/Movimientos.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="19" column="53" selection-start-line="19" selection-start-column="53" selection-end-line="19" selection-end-column="53" />
+        <state>
+          <caret column="14" selection-start-column="14" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Clases/FuncionesProductos.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2340">
+          <caret line="509" column="13" lean-forward="true" selection-start-line="509" selection-start-column="13" selection-end-line="509" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
