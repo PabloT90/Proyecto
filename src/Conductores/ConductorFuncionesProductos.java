@@ -15,39 +15,37 @@ public class ConductorFuncionesProductos {
         //funcion.insertarProducto(producto1);
 
         //obtenerProductoAlmacen
-        System.out.println(funcion.buscarEnAlmacen(3,"src\\Ficheros\\FicheroMovimientoNuevosProductos.txt"));
-        System.out.println(funcion.buscarEnAlmacen(57,"src\\Ficheros\\FicheroMovimientoNuevosProductos.txt"));
-        System.out.println(funcion.buscarEnAlmacen(56,"src\\Ficheros\\FicheroMovimientoNuevosProductos.txt"));
+        System.out.println(funcion.buscarEnAlmacen(3));
+        System.out.println(funcion.buscarEnAlmacen(57));
+        System.out.println(funcion.buscarEnAlmacen(29));
 
         //mostrarProductosAlmacen
         System.out.println("Mostrar todos los productos del almacen");
         funcion.mostrarProductosAlmacen();
 
         //mostrarProductosVeganos
-        System.out.println("Mostrar los productos veganos.");
-        funcion.mostrarProductosVeganos();
+        //System.out.println("Mostrar los productos veganos.");
+        //funcion.mostrarProductosVeganos();
 
         //posicionProducto
-        System.out.println(funcion.posicionProducto("src\\Ficheros\\FicheroMovimientoNuevosProductos.txt", 57));
+        //System.out.println(funcion.posicionProducto("src\\Ficheros\\Movimientos.txt", 57));
 
         //eliminarProductoFichero
-        System.out.println(funcion.eliminarProductoFichero("src\\Ficheros\\FicheroMovimientoNuevosProductos.txt", 56));
-        System.out.println(funcion.eliminarProductoFichero("src\\Ficheros\\FicheroMovimientoNuevosProductos.txt", 55));
+        //System.out.println(funcion.eliminarProductoFichero("src\\Ficheros\\Movimientos.txt", 56));
+        //System.out.println(funcion.eliminarProductoFichero("src\\Ficheros\\Movimientos.txt", 55));
 
         //eliminarProducto
-        System.out.println(funcion.eliminarProducto(1));
-        System.out.println(funcion.eliminarProducto(2));
-        System.out.println(funcion.eliminarProducto(3));
+        //System.out.println(funcion.eliminarProducto(1));
+        //System.out.println(funcion.eliminarProducto(2));
+        //System.out.println(funcion.eliminarProducto(3));
 
-        System.out.println(funcion.eliminarProducto(4));
-        System.out.println(funcion.eliminarProducto(5));
-        System.out.println(funcion.eliminarProducto(6));
+        //System.out.println(funcion.eliminarProducto(4));
+        //System.out.println(funcion.eliminarProducto(5));
+        //System.out.println(funcion.eliminarProducto(6));
 
         //modificarProducto
         //System.out.println(funcion.modificarProducto(producto2));
         //System.out.println(funcion.modificarProducto(producto3));
 
-        //bytesCamposIntermedios
-        System.out.println(funcion.bytesCamposIntermedios(producto1));
     }
 }

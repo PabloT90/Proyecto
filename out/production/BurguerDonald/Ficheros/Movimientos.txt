@@ -1,0 +1,6 @@
+1,BEBIDA,1.5,ConCalo ,pco cara.,true,56
+2,BEBIDA,1.5,cooBa,U poco cara.,true,56
+3,COMPLEMENTO,1.5,cOCyleca,U poco cara.,true,56
+4,SANDWICH,7.8,Coutdificacion,Esta es la prueba de una modificación.,false,90
+5,SANDWICH,76.8,Cotificacion,Esta es la prueba de una modificación.,false,90
+6,COMPLEMENTO,45.0,tablo centrate,Un poquito.,false,22
