@@ -64,5 +64,8 @@ public class ConductorFuncionesProductos {
         //ObtenerProdcutoAlmacen (funciona)
         //System.out.println(funcion.obtenerProductoAlmacen(2));
         //System.out.println(funcion.obtenerProductoAlmacen(29));
+
+        //sincronizarAlmacen
+        funcion.sincronizarAlmacen();
     }
 }

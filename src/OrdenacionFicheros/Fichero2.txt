@@ -1,7 +1,4 @@
-27,BEBIDA,1.5,*CocaCola,Un poco cara.,true,56
-34,SANDWICH,76.8,Cotificacion,Esta es la prueba de una modificación.,false,90
-34,COMPLEMENTO,1.5,cOCyleca,U poco cara.,true,56
-34,POSTRE,1.5,cOCyleca,U poco cara.,true,56
-34,POSTRE,1.5,*cOCyleca,U poco cara.,true,56
-54,BEBIDA,1.5,*CocaCola,Un poco cara.,true,56
-55,BEBIDA,1.5,*ConCalo ,pco cara.,true,56
+66,BEBIDA,1.5,Nuevo ,pco cara.,true,56
+66,BEBIDA,1.5,Nuevo Actu,pco cara.,true,56
+66,BEBIDA,1.5,*Nuevo ,pco cara.,true,56
+88,BEBIDA,6.6,Nuevo Visualizable ,Nueva insercion,false,22

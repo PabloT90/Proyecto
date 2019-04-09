@@ -1,6 +1,0 @@
-1,BEBIDA,1.5,Esto no debe salir ,pco cara.,true,56
-2,BEBIDA,1.5,cooBa,Esto tampoco.,true,56
-12,BEBIDA,1.5,CocaCola,Un poco cara.,false,56
-13,BEBIDA,1.5,CocaCola,Un poco cara.,true,56
-27,BEBIDA,1.5,CocaCola,Un poco cara.,true,56
-29,BEBIDA,1.5,CocaCola,Un poco cara.,true,56

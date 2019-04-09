@@ -481,4 +481,123 @@ public class FuncionesProductos {
         }
         return validez;
     }
+
+    /*
+    * Interfaz
+    * Nombre: sincronizarAlmacen
+    * Comentario: Esta función permite sincronizar el fichero maestro AlmacenProductos.txt con
+    * el fichero de movimientos Movimientos.txt. Esta función permite reorganizar el almacén
+    * de productos.
+    * Cabecera: public void sincronizarAlmacen()
+    * Postcondiciones: La función sincroniza dos ficheros que almacenan productos, dejando al
+    * maestro actualizado.
+    * */
+    public void sincronizarAlmacen(){
+        ImplStockProducto producto = null;
+        File ficheroMovimiento = new File("src\\Ficheros\\Movimientos.txt");
+        File ficheroMaestro = new File("src\\Ficheros\\AlmacenProductos.txt");
+        File ficheroMaestroActualizado = new File("src\\Ficheros\\MaestroActualizado.txt");
+        File aux = null;
+        FileReader fr1 = null, fr2 = null;
+        BufferedReader br1 = null, br2 = null;
+        FileWriter fw = null;
+        BufferedWriter bw = null;
+        int idActual = 0;
+        String registro1, registro2;
+        String[] separador1 = null, separador2 = null;
+        FuncionesOrdenacionFicheros ordenacion = new FuncionesOrdenacionFicheros();
+        ordenacion.mezclaDirecta("src\\Ficheros\\Movimientos.txt");
+
+        try{
+            fr1 = new FileReader(ficheroMaestro);
+            br1 = new BufferedReader(fr1);
+            fr2 = new FileReader(ficheroMovimiento);
+            br2 = new BufferedReader(fr2);
+            fw = new FileWriter(ficheroMaestroActualizado);
+            bw = new BufferedWriter(fw);
+
+            registro1 = br1.readLine();
+            registro2 = br2.readLine();
+            while(registro1 != null && registro2 != null){//Mientras no haya ningún fin de fichero
+                separador1 = registro1.split(",");
+                separador2 = registro2.split(",");
+                if(Integer.parseInt(separador1[0]) < Integer.parseInt(separador2[0])){
+                    bw.write(registro1);
+                    bw.newLine();
+                    bw.flush();
+                    registro1 = br1.readLine();
+                }else{
+                    if(Integer.parseInt(separador1[0]) > Integer.parseInt(separador2[0])){
+                        //Si el producto no sufre una posterior eliminación
+                        if((producto = obtenerProductoAlmacen(Integer.parseInt(separador1[0]))) != null) {
+                            bw.write(producto.toString());//Almacenamos el último movimiento del producto
+                            bw.newLine();
+                            bw.flush();
+                        }
+                        idActual =  Integer.parseInt(separador2[0]);//Almacemos la id del producto actual
+                        do{
+                            registro2 = br2.readLine();
+                            if(registro2 != null){
+                                separador2 = registro2.split(",");
+                            }
+                        }while(registro2 != null && Integer.parseInt(separador2[0]) == idActual);
+                    }else{
+                        //Buscamos el movimiento más reciente del producto
+                        //Si el último movimiento no es una eliminación y es vegano.
+                        if((producto = buscarEnMovimientos(Integer.parseInt(separador2[0]))) != null){
+                            bw.write(producto.toString());
+                            bw.newLine();
+                            bw.flush();
+                        }
+
+                        do{
+                            registro2 = br2.readLine();
+                            if(registro2 != null){
+                                separador2 = registro2.split(",");
+                            }
+                        }while(registro2 != null && Integer.parseInt(separador2[0]) == idActual);
+                        registro1 = br1.readLine();
+                    }
+                }
+            }
+            //if(registro1 != null){
+                while((registro1 = br1.readLine()) != null){
+                    bw.write(registro1);
+                    bw.newLine();
+                    bw.flush();
+                }
+            //}
+            registro2 = br2.readLine();
+            while(registro2 != null){
+                separador2 = registro2.split(",");
+                if((producto = obtenerProductoAlmacen(Integer.parseInt(separador2[0]))) != null) {
+                    bw.write(producto.toString());//Almacenamos el último movimiento del producto
+                    bw.newLine();
+                    bw.flush();
+                }
+                idActual =  Integer.parseInt(separador2[0]);//Almacemos la id del producto actual
+                do{
+                    registro2 = br2.readLine();
+                    if(registro2 != null){
+                        separador2 = registro2.split(",");
+                    }
+                }while(registro2 != null && Integer.parseInt(separador2[0]) == idActual);
+            }
+            br1.close();//Cerramos los streams
+            fr1.close();
+            br2.close();
+            fr2.close();
+            fw.close();
+            bw.close();
+
+            //Eliminamos los ficheros del maestro y el de movimientos
+            ficheroMaestro.delete();
+            ficheroMovimiento.delete();
+            ficheroMaestroActualizado.renameTo(aux = new File ("src\\Ficheros\\AlmacenProductos.txt"));
+        }catch (FileNotFoundException error1){
+            error1.printStackTrace();
+        }catch (IOException error2){
+            error2.printStackTrace();
+        }
+    }
 }
