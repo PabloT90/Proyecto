@@ -86,7 +86,7 @@
  * Fin
 
  * PG Nivel: 1
- * AccionesMenu
+ * AccionesProductos
  * Inicio
  *   Repetir
  *       leerYValidarOpcionSubMenu1*
@@ -104,12 +104,12 @@
  *                   EliminacionProducto
  *               para opcionSubMenu1 == 6
  *                   OrdenarListaProducto
- *           Fin_si
+ *           Fin_segun
  *       Fin_si
  *   Mientras opcionSubMenu1 != 0
  * Fin
  *
- * AccionesProductos
+ * AccionesMenus
  * Inicio
  *   Repetir
  *       leerYValidarOpcionSubMenu2*
@@ -247,6 +247,112 @@
 
 package Main;
 
-public class BurguerDonaldStore {
+import Clases.ValidacionesBurguerDonald;
 
+import java.util.Scanner;
+
+public class BurguerDonaldStore {
+    public static void main(String[]args){
+        Scanner teclado = new Scanner(System.in);
+        ValidacionesBurguerDonald validacion = new ValidacionesBurguerDonald();
+        int opcionMenu, opcionSubMenu1, opcionSubMenu2, opcionSubMenu3, opcionSubMenu4;
+        int id;
+        do{
+            //leerYValidarOpcionMenu *
+            opcionMenu = validacion.leerYValidarOpcionMenu();
+            //Si opcionMenu != 0
+            if(opcionMenu != 0) {
+                switch(opcionMenu) {//Segun(opcionMenu)
+                    case 1://para opcionMenu ==1
+                    //AccionesProductos
+
+                            do { //Repetir
+                                //leerYValidarOpcionSubMenu1 *
+                                opcionSubMenu1 = validacion.leerYValidarOpcionSubMenu1();
+                                if(opcionSubMenu1 != 0) {//Si opcionSubMenu1 != 0
+                                    switch(opcionSubMenu1) {//Segun(opcionSubMenu1)
+                                        case 1://para opcionSubMenu1 ==1
+                                        //Consultas
+                                               do { //Repetir
+                                                   //leerYValidarSubMenu3 *
+                                                   opcionSubMenu3 = validacion.leerYValidarOpcionSubMenu3();
+                                                           if(opcionSubMenu3 != 0) {//Si opcionSubMenu3 != 0
+                                                               switch(opcionSubMenu3) {//Segun(opcionSubMenu3)
+                                                                   case 1: //para opcionSubMenu3 ==1
+                                                                   //mostrarProductosAlmacen *
+                                                                       break;
+                                                                   case 2: //para opcionSubMenu3 == 2
+                                                                   //MostrarProductosPorTipo
+                                                                       break;
+                                                                   case 3: //para opcionSubMenu3 ==3
+                                                                   //mostrarProductosVeganos *
+                                                                       break;
+                                                               }//Fin_segun
+                                                           }//Fin_si
+                                               }while(opcionSubMenu3 != 0); //Mientras opcionSubMenu3 != 0
+                                            break;
+                                        case 2://para opcionSubMenu1 ==2
+                                            //ModificacionProducto
+                                            //leerYValidarId*
+                                            id = validacion.leerYValidarId();
+                                            if(id < 0) {//Si el producto existe
+                                                //LeerValidarProducto*
+                                                validacion.leerYValidarProductoModificado();
+                                                //modificarProducto* (es una insercion)
+
+                                                //Sino
+                                                //MensajeExplicatorio1
+                                            }//Fin_si
+                                            break;
+                                        case 3://para opcionSubMenu1 ==3
+                                        //ModificacionStock
+                                            break;
+                                        case 4://para opcionSubMenu1 ==4
+                                        //InsercionProducto
+                                            break;
+                                        case 5://para opcionSubMenu1 ==5
+                                        //EliminacionProducto
+                                            break;
+                                        case 6://para opcionSubMenu1 ==6
+                                        //OrdenarListaProducto
+                                            break;
+                                    }//Fin_Segun
+                                }//Fin_si
+                            }while(opcionSubMenu1 != 0);//Mientras opcionSubMenu1 != 0
+                        break;
+                    case 2://para opcionMenu ==2
+                    //AccionesMenus
+
+                            do { //Repetir
+                                //leerYValidarOpcionSubMenu2 *
+                                opcionSubMenu2 = validacion.leerYValidarOpcionSubMenu2();
+                                if(opcionSubMenu2 !=0) {//Si opcionSubMenu2 != 0
+                                    switch(opcionSubMenu2) {//Segun(opcionSubMenu2)
+                                        case 1://para opcionSubMenu2 ==1
+                                        //mostrarMenus *
+                                            break;
+                                        //para opcionSubMenu2 == 2
+                                        case 2:
+                                        //ModificacionMenu
+                                            break;
+                                        case 3://para opcionSubMenu2 ==3
+                                        //CanjeoMenu
+                                            break;
+                                        case 4://para opcionSubMenu2 ==4
+                                        //InsercionMenu
+                                            break;
+                                        case 5://para opcionSubMenu2 ==5
+                                        //EliminacionMenu
+                                            break;
+                                        case 6://para opcionSubMenu2 ==6
+                                        //OrdenarListaMenu
+                                            break;
+                                    }//Fin_segun
+                                }//Fin_si
+                            }while(opcionSubMenu2 != 0); //Mientras opcionSubMenu2 != 0
+                        break;
+                }// Fin_segun
+            }//Fin_si
+        }while(opcionMenu != 0); //Mientras opcionMenu != 0
+    }
 }
