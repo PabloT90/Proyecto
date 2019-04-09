@@ -529,7 +529,7 @@ public class FuncionesProductos {
                 }else{
                     if(Integer.parseInt(separador1[0]) > Integer.parseInt(separador2[0])){
                         //Si el producto no sufre una posterior eliminación
-                        if((producto = obtenerProductoAlmacen(Integer.parseInt(separador1[0]))) != null) {
+                        if((producto = obtenerProductoAlmacen(Integer.parseInt(separador2[0]))) != null) {
                             bw.write(producto.toString());//Almacenamos el último movimiento del producto
                             bw.newLine();
                             bw.flush();
@@ -549,7 +549,7 @@ public class FuncionesProductos {
                             bw.newLine();
                             bw.flush();
                         }
-
+                        idActual = Integer.parseInt(separador2[0]);//Almacemos la id del producto actual
                         do{
                             registro2 = br2.readLine();
                             if(registro2 != null){
@@ -560,14 +560,14 @@ public class FuncionesProductos {
                     }
                 }
             }
-            //if(registro1 != null){
-                while(registro1 != null){
-                    bw.write(registro1);
-                    bw.newLine();
-                    bw.flush();
-                    registro1 = br1.readLine();
-                }
-            //}
+
+            while(registro1 != null){
+                bw.write(registro1);
+                bw.newLine();
+                bw.flush();
+                registro1 = br1.readLine();
+            }
+
             while(registro2 != null){
                 separador2 = registro2.split(",");
                 if((producto = obtenerProductoAlmacen(Integer.parseInt(separador2[0]))) != null) {
