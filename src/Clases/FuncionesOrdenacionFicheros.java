@@ -236,11 +236,11 @@ public class FuncionesOrdenacionFicheros {
         int numeroRegistros = numeroRegistrosFichero(direccionFichero);
 
         for(int longitudSecuencias = 1; longitudSecuencias < numeroRegistros; longitudSecuencias *= 2){
-            partirFicheroEnSecuencias(direccionFichero, "FicheroMezcla1.txt",
-                    "FicheroMezcla2.txt", longitudSecuencias);
+            partirFicheroEnSecuencias(direccionFichero, "src\\OrdenacionFicheros\\Fichero1.txt",
+                    "src\\OrdenacionFicheros\\Fichero2.txt", longitudSecuencias);
 
-            mezclaFicherosEnSecuencias("FicheroMezcla1.txt",
-                    "FicheroMezcla2.txt", direccionFichero, longitudSecuencias);
+            mezclaFicherosEnSecuencias("src\\OrdenacionFicheros\\Fichero1.txt",
+                    "src\\OrdenacionFicheros\\Fichero2.txt", direccionFichero, longitudSecuencias);
         }
     }
 }

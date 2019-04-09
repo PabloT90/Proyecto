@@ -97,7 +97,6 @@ public class FuncionesProductos {
     /**
      * Obtiene un tipo ImplStockProducto de un directorio.
      * @param ID ID del producto.
-     * @param direccion Dirección del directorio donde vamos a buscar el producto.
      * @return Asociado al nombre devuelve un tipo ImplStockProducto si se ha encontrado un producto con el mismo ID
      * en el almacén y null en caso contrario.
      */
@@ -234,6 +233,8 @@ public class FuncionesProductos {
         BufferedReader br2 = null;
         String registro1, registro2;
         String[] separador1 = null, separador2 = null;
+        FuncionesOrdenacionFicheros ordenacion = new FuncionesOrdenacionFicheros();
+        ordenacion.mezclaDirecta("src\\Ficheros\\Movimientos.txt");
 
         try{
             fr1 = new FileReader("src\\Ficheros\\AlmacenProductos.txt");
@@ -251,7 +252,9 @@ public class FuncionesProductos {
                     registro1 = br1.readLine();
                 }else{
                     if(Integer.parseInt(separador1[0]) > Integer.parseInt(separador2[0])){
-                        System.out.println(registro2);
+                        if(separador2[3].charAt(0) != '*') {
+                            System.out.println(registro2);
+                        }
                         registro2 = br2.readLine();
                     }else{
                         //Buscamos el movimiento más reciente del producto
@@ -260,8 +263,12 @@ public class FuncionesProductos {
                         if(producto != null){
                             System.out.println(producto);
                         }
+
+                        while(Integer.parseInt(separador2[0]) == Integer.parseInt(separador1[0])) {
+                            registro2 = br2.readLine();
+                            separador2 = registro2.split(",");
+                        }
                         registro1 = br1.readLine();
-                        registro2 = br2.readLine();
                     }
                 }
             }
@@ -273,7 +280,10 @@ public class FuncionesProductos {
 
             if(registro2 != null){
                 while((registro2 = br2.readLine()) != null){
-                    System.out.println(registro2);
+                    separador2 = registro2.split(",");
+                    if(separador2[3].charAt(0) != '*') {
+                        System.out.println(registro2);
+                    }
                 }
             }
         }catch (FileNotFoundException error1){
@@ -299,7 +309,6 @@ public class FuncionesProductos {
      * Cabecera: public void mostrarProductosVeganos()
      * Postcondiciones: Nada, solo se muestra por pantalla los productos veganos del almacén.
      * */
-
     /**
      * Permite mostrar todos los productos veganos del almacen
      * Postcondiciones: nada, solo se muestran todos los productos veganos del almacen.
@@ -312,6 +321,8 @@ public class FuncionesProductos {
         BufferedReader br2 = null;
         String registro1, registro2;
         String[] separador1 = null, separador2 = null;
+        FuncionesOrdenacionFicheros ordenacion = new FuncionesOrdenacionFicheros();
+        ordenacion.mezclaDirecta("src\\Ficheros\\Movimientos.txt");
 
         try{
             fr1 = new FileReader("src\\Ficheros\\AlmacenProductos.txt");
@@ -324,34 +335,47 @@ public class FuncionesProductos {
             while(registro1 != null && registro2 != null){//Mientras no haya ningún fin de fichero
                 separador1 = registro1.split(",");
                 separador2 = registro2.split(",");
-                if(Integer.parseInt(separador1[0]) < Integer.parseInt(separador2[0]) && Boolean.parseBoolean(separador1[5]) == true){
-                    System.out.println(registro1);
+                if(Integer.parseInt(separador1[0]) < Integer.parseInt(separador2[0])){
+                    if(Boolean.parseBoolean(separador1[5])) {
+                        System.out.println(registro1);
+                    }
                     registro1 = br1.readLine();
+
                 }else{
-                    if(Integer.parseInt(separador1[0]) > Integer.parseInt(separador2[0]) && Boolean.parseBoolean(separador2[5]) == true){
-                        System.out.println(registro2);
+                    if(Integer.parseInt(separador1[0]) > Integer.parseInt(separador2[0])){
+                        if(Boolean.parseBoolean(separador2[5]) && separador2[3].charAt(0) != '*') {
+                            System.out.println(registro2);
+                        }
                         registro2 = br2.readLine();
                     }else{
                         //Buscamos el movimiento más reciente del producto
                         producto = buscarEnMovimientos(Integer.parseInt(separador2[0]));
-                        //Si el último movimiento no es una eliminación
-                        if(producto != null && Boolean.parseBoolean(separador2[5]) == true){
+                        //Si el último movimiento no es una eliminación y es vegano.
+                        if(producto != null && Boolean.parseBoolean(separador2[5])){
                             System.out.println(producto);
                         }
+
+                        while(Integer.parseInt(separador2[0]) == Integer.parseInt(separador1[0])) {
+                            registro2 = br2.readLine();
+                            separador2 = registro2.split(",");
+                        }
                         registro1 = br1.readLine();
-                        registro2 = br2.readLine();
                     }
                 }
             }
             if(registro1 != null){
-                while((registro1 = br1.readLine()) != null && Boolean.parseBoolean(separador1[5]) == true){
-                    System.out.println(registro1);
+                while((registro1 = br1.readLine()) != null){
+                    if(Boolean.parseBoolean(separador1[5] )) {
+                        System.out.println(registro1);
+                    }
                 }
             }
 
             if(registro2 != null){
-                while((registro2 = br2.readLine()) != null && Boolean.parseBoolean(separador2[5]) == true){
-                    System.out.println(registro2);
+                while((registro2 = br2.readLine()) != null){
+                    if(Boolean.parseBoolean(separador2[5]) && separador2[3].charAt(0) != '*'){
+                        System.out.println(registro2);
+                    }
                 }
             }
         }catch (FileNotFoundException error1){

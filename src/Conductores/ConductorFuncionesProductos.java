@@ -11,59 +11,58 @@ public class ConductorFuncionesProductos {
         ImplStockProducto producto2 = new ImplStockProducto(54,EnumTipo.SANDWICH,7.8,"Modificacion","Esta es la prueba de una modificación.",false,90);
         ImplStockProducto producto3 = new ImplStockProducto(13,EnumTipo.COMPLEMENTO,45,"Pablo centrate","Un poquito.",false,22);
 
-        //insertarProducto
+        //insertarProducto (funciona)
         //funcion.insertarProducto(producto1);
 
-        //buscarEnAlmacen (Funciona)
-        System.out.println("buscarEnAlmacen:");
-        System.out.println(funcion.buscarEnAlmacen(3));
-        System.out.println(funcion.buscarEnAlmacen(12));
-        System.out.println(funcion.buscarEnAlmacen(29));
+        //buscarEnAlmacen (funciona)
+        //System.out.println("buscarEnAlmacen:");
+        //System.out.println(funcion.buscarEnAlmacen(3));
+        //System.out.println(funcion.buscarEnAlmacen(12));
+        //System.out.println(funcion.buscarEnAlmacen(29));
+        //System.out.println("Fin buscar en almacen.");
 
         //buscarEnMovimientos (funciona)
-        System.out.println("buscarEnMovimientos:");
-        System.out.println(funcion.buscarEnMovimientos(3));
-        System.out.println(funcion.buscarEnMovimientos(4));
-        System.out.println(funcion.buscarEnMovimientos(7));
-        System.out.println("--------");
+        //System.out.println("buscarEnMovimientos:");
+        //System.out.println(funcion.buscarEnMovimientos(3));
+        //System.out.println(funcion.buscarEnMovimientos(4));
+        //System.out.println(funcion.buscarEnMovimientos(27));
+        //System.out.println("----Fin buscarEnMovimientos");
 
-        //mostrarProductosAlmacen (Funciona, aunque si hay ID en ambos archivos muestra el de Movimiento)
-        System.out.println("Mostrar todos los productos del almacen");
-        funcion.mostrarProductosAlmacen();
-        System.out.println("---Fin Almacen-----");
+        //mostrarProductosAlmacen (funciona)
+        //System.out.println("Mostrar todos los productos del almacen");
+        //funcion.mostrarProductosAlmacen();
+        //System.out.println("---Fin Almacen-----");
 
-        //mostrarProductosVeganos (No funciona del todo)
-        System.out.println("Mostrar los productos veganos.");
-        funcion.mostrarProductosVeganos();
-        System.out.println("----Fin veganos---");
+        //mostrarProductosVeganos (funciona)
+        //System.out.println("Mostrar los productos veganos.");
+        //funcion.mostrarProductosVeganos();
+        //System.out.println("----Fin veganos---");
 
-        //posicionProducto
+        //posicionProducto (no existe)
         //System.out.println(funcion.posicionProducto("src\\Ficheros\\Movimientos.txt", 57));
 
-        //eliminarProductoFichero
+        //eliminarProductoFichero (no existe)
         //System.out.println(funcion.eliminarProductoFichero("src\\Ficheros\\Movimientos.txt", 56));
         //System.out.println(funcion.eliminarProductoFichero("src\\Ficheros\\Movimientos.txt", 55));
 
-        //eliminarProducto
+        //eliminarProducto(funciona)
         //System.out.println(funcion.eliminarProducto(1));
         //System.out.println(funcion.eliminarProducto(2));
         //System.out.println(funcion.eliminarProducto(3));
-
         //System.out.println(funcion.eliminarProducto(4));
-        //System.out.println(funcion.eliminarProducto(5));
+        //System.out.println(funcion.eliminarProducto(34));
         //System.out.println(funcion.eliminarProducto(6));
 
-        //modificarProducto (Funciona)
+        //modificarProducto (no existe)
         //System.out.println(funcion.modificarProducto(producto2));
         //System.out.println(funcion.modificarProducto(producto3));
 
-        //productoEliminado(Funciona)
-        System.out.println(funcion.productoEliminado(1)+ "Debe salir true");
-        System.out.println(funcion.productoEliminado(2)+ "Debe salir false");
+        //productoEliminado (funciona)
+        //System.out.println(funcion.productoEliminado(1));
+        //System.out.println(funcion.productoEliminado(2));
 
-        //eliminarProducto
-        System.out.println(funcion.eliminarProducto(3));
-        System.out.println(funcion.eliminarProducto(27));
-        System.out.println(funcion.eliminarProducto(11));
+        //ObtenerProdcutoAlmacen (funciona)
+        //System.out.println(funcion.obtenerProductoAlmacen(2));
+        //System.out.println(funcion.obtenerProductoAlmacen(29));
     }
 }

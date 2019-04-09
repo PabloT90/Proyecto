@@ -6,26 +6,23 @@ public class ConductorFuncionesOrdenacionFicheros {
     public static void main (String[] args){
         FuncionesOrdenacionFicheros funcion = new FuncionesOrdenacionFicheros();
 
-        //partirFicheroEnSecuencias
-        //funcion.partirFicheroEnSecuencias("FicheroPrueba.txt", "FicheroSecuencias1.txt",
-          //      "FicheroSecuencias2.txt", 3);
-        /*funcion.partirFicheroEnSecuencias("..\\Presentaciones\\FicheroPrueba.txt", "..\\Pablo\\FicheroSecuencias1.txt",
-                "..\\Presentaciones\\FicheroSecuencias2.txt", 3);*///Error en la dirección del primer nuevo fichero
-        /*funcion.partirFicheroEnSecuencias("..\\Presentaciones\\FicheroPrueba.txt", "..\\Presentaciones\\FicheroSecuencias1.txt",
-                "..\\Presentaciones\\FicheroSecuencias2.txt", 2);*/
+        //partirFicheroEnSecuencias (funciona)
+        /*funcion.partirFicheroEnSecuencias("src\\OrdenacionFicheros\\Principal.txt",
+                "src\\OrdenacionFicheros\\Fichero1.txt",
+                "src\\OrdenacionFicheros\\Fichero2.txt", 3);*/
 
-        //mezclaFicherosEnSecuencias
-        //funcion.mezclaFicherosEnSecuencias("FicheroSecuencias1.txt",
-          //      "FicheroSecuencias2.txt", "FicheroEnSecuencias.txt", 2);
+        //mezclaFicherosEnSecuencias (funciona)
+        /*funcion.mezclaFicherosEnSecuencias("src\\OrdenacionFicheros\\Principal.txt",
+                "src\\OrdenacionFicheros\\Fichero1.txt",
+                "src\\OrdenacionFicheros\\Fichero2.txt", 3);*/
 
-        /*funcion.mezclaFicherosEnSecuencias("..\\Presentaciones\\FicheroSecuencias1.txt",
-                "..\\Presentaciones\\FicheroSecuencias2.txt", "..\\Presentaciones\\FicheroEnSecuencias.txt", 1);*/
+        //numeroRegistrosFichero (funciona)
+        System.out.println(funcion.numeroRegistrosFichero("src\\OrdenacionFicheros\\Fichero1.txt"));
+        System.out.println(funcion.numeroRegistrosFichero("src\\OrdenacionFicheros\\Fichero2.txt"));
 
-        //numeroRegistrosFichero
-        //System.out.println(funcion.numeroRegistrosFichero("FicheroEnSecuencias.txt"));
-        //System.out.println(funcion.numeroRegistrosFichero("FicheroSecuencias1.txt"));
+        //mezclaDirecta (funciona)
+        funcion.mezclaDirecta("src\\OrdenacionFicheros\\Principal.txt");
 
-        //mezclaDirecta
-        funcion.mezclaDirecta("src\\Ficheros\\Movimientos.txt");
+
     }
 }
