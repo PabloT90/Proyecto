@@ -60,5 +60,10 @@ public class ConductorFuncionesProductos {
         //productoEliminado(Funciona)
         System.out.println(funcion.productoEliminado(1)+ "Debe salir true");
         System.out.println(funcion.productoEliminado(2)+ "Debe salir false");
+
+        //eliminarProducto
+        System.out.println(funcion.eliminarProducto(3));
+        System.out.println(funcion.eliminarProducto(27));
+        System.out.println(funcion.eliminarProducto(11));
     }
 }

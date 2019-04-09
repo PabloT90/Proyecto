@@ -102,6 +102,7 @@ public class FuncionesOrdenacionFicheros {
         BufferedReader br1 = null, br2 = null;
         FileWriter fw = null;
         BufferedWriter bw = null;
+        String[] partesRegistro1 = null, partesRegistro2 = null;
 
         try{
             fr1 = new FileReader(fichero1);
@@ -116,7 +117,9 @@ public class FuncionesOrdenacionFicheros {
             while(registro1 != null || registro2 != null){//Mientras alguno de los ficheros no haya alcanzado el fin de fichero
                 //Almacenamos los datos en secuencias en el nuevo fichero
                 while(contadorSecuencia1 <= longitud && contadorSecuencia2 <= longitud && registro1 != null && registro2 != null) {
-                    if (Integer.parseInt(registro1) <= Integer.parseInt(registro2)) {//Insertamos los datos en orden ascendente
+                    partesRegistro1 = registro1.split(",");
+                    partesRegistro2 = registro2.split(",");
+                    if (Integer.parseInt(partesRegistro1[0]) <= Integer.parseInt(partesRegistro2[0])) {//Insertamos los datos en orden ascendente
                         bw.write(registro1);
                         bw.newLine();
                         bw.flush();
