@@ -561,13 +561,13 @@ public class FuncionesProductos {
                 }
             }
             //if(registro1 != null){
-                while((registro1 = br1.readLine()) != null){
+                while(registro1 != null){
                     bw.write(registro1);
                     bw.newLine();
                     bw.flush();
+                    registro1 = br1.readLine();
                 }
             //}
-            registro2 = br2.readLine();
             while(registro2 != null){
                 separador2 = registro2.split(",");
                 if((producto = obtenerProductoAlmacen(Integer.parseInt(separador2[0]))) != null) {
