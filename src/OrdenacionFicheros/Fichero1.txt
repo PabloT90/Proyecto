@@ -1,2 +1,4 @@
-25,COMPLEMENTO,7.8,Luaneee,Kusmi.,false,6
-25,COMPLEMENTO,7.8,Luaneee,Kusmi.,false,7
+6,BEBIDA,7.8,Luaneee,Kusmi.,false,23
+6,DESAYUNO,7.8,*Luaneee,Kusmi.,false,56561
+67,COMPLEMENTO,7.8,Luaneee,Kusmi.,false,99
+67,COMPLEMENTO,7.8,Luaneee,Kusmi.,false,102

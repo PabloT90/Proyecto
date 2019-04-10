@@ -709,9 +709,62 @@ public class FuncionesProductos {
     }
 
     /*
-    * Interfaz
-    * Nombre:
-    * Comentario:
-    * Cabecera:
-    * */
+     * Interfaz
+     * Nombre: incrementarStock
+     * Comentario: Esta función permite incrementar el stock de un producto.
+     * Cabecera: public int incrementarStock(int idProducto, int incremento)
+     * Entrada:
+     *   -entero idProducto
+     *   -entero incremento
+     * Salida:
+     *   -entero validez
+     * Precondiciones:
+     *   -incremento debe ser mayor que 0.
+     * Postcondiciones: La función devuelve un número entero asociado al nombre, 0 si se
+     * ha conseguido incrementar el stock del producto o -1 si no se ha encontrado el
+     * producto en el almacén.
+     * */
+    public int incrementarStock(int idProducto, int incremento){
+        int validez = -1;
+        ImplStockProducto producto = null;
+
+        if((producto = obtenerProductoAlmacen(idProducto)) != null){
+            validez = 0;
+            producto.setStock(producto.getStock() + incremento);
+            insertarProducto(producto);
+        }
+        return validez;
+    }
+
+    /*
+     * Interfaz
+     * Nombre: decrementarStock
+     * Comentario: Esta función permite decrementar el stock de un producto.
+     * Cabecera: public int decrementarStock(int idProducto, int decremento)
+     * Entrada:
+     *   -entero idProducto
+     *   -entero decremento
+     * Salida:
+     *   -entero validez
+     * Precondiciones:
+     *   -incremento debe ser mayor que 0.
+     * Postcondiciones: La función devuelve un número entero asociado al nombre, 0 si se
+     * ha conseguido decrementar el stock del producto, -1 si no se ha encontrado el
+     * producto en el almacén o -2 si decremento es mayor que el stock actual del producto.
+     * */
+    public int decrementarStock(int idProducto, int decremento){
+        int validez = -1;
+        ImplStockProducto producto = null;
+
+        if((producto = obtenerProductoAlmacen(idProducto)) != null){
+            if(producto.getStock() >= decremento){
+                validez = 0;
+                producto.setStock(producto.getStock() - decremento);
+                insertarProducto(producto);
+            }else{
+                validez = -2;
+            }
+        }
+        return validez;
+    }
 }

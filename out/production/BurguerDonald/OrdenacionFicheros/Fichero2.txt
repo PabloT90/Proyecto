@@ -1,0 +1,2 @@
+67,COMPLEMENTO,7.8,Luaneee,Kusmi.,false,102
+145,BEBIDA,7.8,Luaneee,Kusmi.,false,10

@@ -62,5 +62,14 @@ public class ConductorFuncionesProductos {
         //funcion.mostrarProductosPorTipo(EnumTipo.COMPLEMENTO);
         //funcion.mostrarProductosPorTipo(EnumTipo.DESAYUNO);
         //funcion.mostrarProductosPorTipo(EnumTipo.POSTRE);
+
+        //incrementarStock
+        System.out.println(funcion.incrementarStock(67, 3));
+        System.out.println(funcion.incrementarStock(222, 3));
+
+        //decrementarStock
+        System.out.println(funcion.decrementarStock(145, 11));
+        System.out.println(funcion.decrementarStock(6, 9));
+        System.out.println(funcion.decrementarStock(23, 4));
     }
 }
