@@ -672,15 +672,15 @@ public class FuncionesProductos {
             }
 
 
-            if(registro2 != null){
-                while(registro2 != null){
-                    separador2 = registro2.split(",");
-                    if(separador2[1].equals(tipo.toString()) && separador2[3].charAt(0) != '*'){
-                        System.out.println(registro2);
-                    }
-                    registro2 = br2.readLine();
+
+            while(registro2 != null){
+                separador2 = registro2.split(",");
+                if(separador2[1].equals(tipo.toString()) && separador2[3].charAt(0) != '*'){
+                    System.out.println(registro2);
                 }
+                registro2 = br2.readLine();
             }
+
         }catch (FileNotFoundException error1){
             error1.printStackTrace();
         }catch (IOException error2){
