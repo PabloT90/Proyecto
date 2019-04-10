@@ -264,9 +264,11 @@ public class FuncionesProductos {
                             System.out.println(producto);
                         }
 
-                        while(Integer.parseInt(separador2[0]) == Integer.parseInt(separador1[0])) {
+                        while(registro2 != null && Integer.parseInt(separador2[0]) == Integer.parseInt(separador1[0])) {
                             registro2 = br2.readLine();
-                            separador2 = registro2.split(",");
+                            if(registro2 != null) {
+                                separador2 = registro2.split(",");
+                            }
                         }
                         registro1 = br1.readLine();
                     }

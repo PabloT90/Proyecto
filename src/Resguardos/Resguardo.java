@@ -185,4 +185,19 @@ public class Resguardo {
         System.out.println("En resguardo.");
     }
 
+    /*
+     * Interfaz
+     * Nombre: mostrarProductosPorTipo
+     * Comentario: Esta función nos permite mostrar por pantalla los productos
+     * de un tipo determinado.
+     * Cabecera: public void mostrarProductosPorTipo(EnumTipo tipo)
+     * Entrada:
+     *   -EnumTipo tipo
+     * Postcondiciones: Nada, solo se muestra por pantalla los productos de un tipo
+     * determinado del almacén.
+     * */
+    public void mostrarProductosPorTipo(EnumTipo tipo){
+          System.out.println("En resguardo.");
+    }
+
 }

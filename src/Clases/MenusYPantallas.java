@@ -17,8 +17,8 @@ public class MenusYPantallas {
         System.out.println("Elige una de las siguientes opciones:");
         System.out.println();
         System.out.println("0 --> Finalizar el programa.");
-        System.out.println("1 --> Acciones sobre men\u00fas.");
-        System.out.println("2 --> Acciones sobre productos.");
+        System.out.println("1 --> Acciones sobre productos.");
+        System.out.println("2 --> Acciones sobre men\u00fas.");
         System.out.println();
     }
 
