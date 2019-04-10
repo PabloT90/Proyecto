@@ -66,6 +66,12 @@ public class ConductorFuncionesProductos {
         //System.out.println(funcion.obtenerProductoAlmacen(29));
 
         //sincronizarAlmacen
-        funcion.sincronizarAlmacen();
+        //funcion.sincronizarAlmacen();
+
+        //mostrarProductosPorTipo
+        funcion.mostrarProductosPorTipo(EnumTipo.BEBIDA);
+        funcion.mostrarProductosPorTipo(EnumTipo.COMPLEMENTO);
+        funcion.mostrarProductosPorTipo(EnumTipo.DESAYUNO);
+        funcion.mostrarProductosPorTipo(EnumTipo.POSTRE);
     }
 }

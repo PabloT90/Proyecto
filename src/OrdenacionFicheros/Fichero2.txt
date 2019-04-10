@@ -1,4 +1,2 @@
-66,BEBIDA,1.5,Nuevo ,pco cara.,true,56
-66,BEBIDA,1.5,Nuevo Actu,pco cara.,true,56
-66,BEBIDA,1.5,*Nuevo ,pco cara.,true,56
 88,BEBIDA,6.6,Nuevo Visualizable ,Nueva insercion,false,22
+89,DESAYUNO,1.54,Modi,Pizza gratinosa Actu.,false,230

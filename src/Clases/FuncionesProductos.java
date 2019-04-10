@@ -363,21 +363,24 @@ public class FuncionesProductos {
                     }
                 }
             }
-            if(registro1 != null){
-                while((registro1 = br1.readLine()) != null){
-                    if(Boolean.parseBoolean(separador1[5] )) {
-                        System.out.println(registro1);
-                    }
+
+            while(registro1 != null){
+                separador1 = registro1.split(",");
+                if(Boolean.parseBoolean(separador1[5] )) {
+                    System.out.println(registro1);
                 }
+                registro1 = br1.readLine();
             }
 
-            if(registro2 != null){
-                while((registro2 = br2.readLine()) != null){
-                    if(Boolean.parseBoolean(separador2[5]) && separador2[3].charAt(0) != '*'){
-                        System.out.println(registro2);
-                    }
+
+            while(registro2 != null){
+                separador2 = registro2.split(",");
+                if(Boolean.parseBoolean(separador2[5]) && separador2[3].charAt(0) != '*'){
+                    System.out.println(registro2);
                 }
+                registro2 = br2.readLine();
             }
+
         }catch (FileNotFoundException error1){
             error1.printStackTrace();
         }catch (IOException error2){
@@ -598,6 +601,102 @@ public class FuncionesProductos {
             error1.printStackTrace();
         }catch (IOException error2){
             error2.printStackTrace();
+        }
+    }
+
+    /*
+    * Interfaz
+    * Nombre: mostrarProductosPorTipo
+    * Comentario: Esta función nos permite mostrar por pantalla los productos
+    * de un tipo determinado.
+    * Cabecera: public void mostrarProductosPorTipo(EnumTipo tipo)
+    * Entrada:
+    *   -EnumTipo tipo
+    * Postcondiciones: Nada, solo se muestra por pantalla los productos de un tipo
+    * determinado del almacén.
+    * */
+    public void mostrarProductosPorTipo(EnumTipo tipo){
+        ImplStockProducto producto = null;
+        FileReader fr1 = null;
+        BufferedReader br1 = null;
+        FileReader fr2 = null;
+        BufferedReader br2 = null;
+        String registro1, registro2;
+        String[] separador1 = null, separador2 = null;
+        FuncionesOrdenacionFicheros ordenacion = new FuncionesOrdenacionFicheros();
+        ordenacion.mezclaDirecta("src\\Ficheros\\Movimientos.txt");
+
+        try{
+            fr1 = new FileReader("src\\Ficheros\\AlmacenProductos.txt");
+            br1 = new BufferedReader(fr1);
+            fr2 = new FileReader("src\\Ficheros\\Movimientos.txt");
+            br2 = new BufferedReader(fr2);
+
+            registro1 = br1.readLine();
+            registro2 = br2.readLine();
+            while(registro1 != null && registro2 != null){//Mientras no haya ningún fin de fichero
+                separador1 = registro1.split(",");
+                separador2 = registro2.split(",");
+                if(Integer.parseInt(separador1[0]) < Integer.parseInt(separador2[0])){
+                    if(separador1[1].equals(tipo.toString())) {
+                        System.out.println(registro1);
+                    }
+                    registro1 = br1.readLine();
+
+                }else{
+                    if(Integer.parseInt(separador1[0]) > Integer.parseInt(separador2[0])){
+                        if(separador2[1].equals(tipo.toString()) && separador2[3].charAt(0) != '*') {
+                            System.out.println(registro2);
+                        }
+                        registro2 = br2.readLine();
+                    }else{
+                        //Buscamos el movimiento más reciente del producto
+                        producto = buscarEnMovimientos(Integer.parseInt(separador2[0]));
+                        //Si el último movimiento no es una eliminación y es vegano.
+                        if(producto != null && producto.getProductoTipo() == tipo){
+                            System.out.println(producto);
+                        }
+
+                        while(Integer.parseInt(separador2[0]) == Integer.parseInt(separador1[0])) {
+                            registro2 = br2.readLine();
+                            separador2 = registro2.split(",");
+                        }
+                        registro1 = br1.readLine();
+                    }
+                }
+            }
+
+            while(registro1 != null){
+                separador1 = registro1.split(",");
+                if(separador1[1].equals(tipo.toString())) {
+                    System.out.println(registro1);
+                }
+                registro1 = br1.readLine();
+            }
+
+
+            if(registro2 != null){
+                while(registro2 != null){
+                    separador2 = registro2.split(",");
+                    if(separador2[1].equals(tipo.toString()) && separador2[3].charAt(0) != '*'){
+                        System.out.println(registro2);
+                    }
+                    registro2 = br2.readLine();
+                }
+            }
+        }catch (FileNotFoundException error1){
+            error1.printStackTrace();
+        }catch (IOException error2){
+            error2.printStackTrace();
+        }finally {
+            try{
+                br1.close();
+                fr1.close();
+                br2.close();
+                fr2.close();
+            }catch (IOException error){
+                error.printStackTrace();
+            }
         }
     }
 }

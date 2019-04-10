@@ -297,7 +297,7 @@ public class BurguerDonaldStore {
                                             id = validacion.leerYValidarId();
                                             if(id < 0) {//Si el producto existe
                                                 //LeerValidarProducto*
-                                                validacion.leerYValidarProductoModificado();
+                                                //validacion.leerYValidarProductoModificado();
                                                 //modificarProducto* (es una insercion)
 
                                                 //Sino
