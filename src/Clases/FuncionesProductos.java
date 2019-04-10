@@ -767,4 +767,180 @@ public class FuncionesProductos {
         }
         return validez;
     }
+
+    /*
+    * Interfaz
+    * Nombre: existenProductos
+    * Comentario: Esta función nos permite saber si en el almacén existen productos
+    * de un tipo determinado.
+    * Cabecera: public boolean existenProductos(EnumTipo tipo)
+    * Entrada:
+    *   -EnumTipo tipo
+    * Salida:
+    *   -booleano resultado
+    * Postcondiciones: La función devuelve un valor booleano asociado al nombre, verdadero
+    * si en el almacén existen productos de ese tipo determinado o -1 en caso contrario.
+    * */
+    public boolean existenProductos(EnumTipo tipo){
+        boolean resultado = false;
+        ImplStockProducto producto = null;
+        FileReader fr1 = null;
+        BufferedReader br1 = null;
+        FileReader fr2 = null;
+        BufferedReader br2 = null;
+        String registro1, registro2;
+        String[] separador1 = null, separador2 = null;
+        FuncionesOrdenacionFicheros ordenacion = new FuncionesOrdenacionFicheros();
+        ordenacion.mezclaDirecta("src\\Ficheros\\Movimientos.txt");
+        int idActual = 0;
+
+        try{
+            fr1 = new FileReader("src\\Ficheros\\AlmacenProductos.txt");
+            br1 = new BufferedReader(fr1);
+            fr2 = new FileReader("src\\Ficheros\\Movimientos.txt");
+            br2 = new BufferedReader(fr2);
+
+            registro1 = br1.readLine();
+            registro2 = br2.readLine();
+            //Mientras no haya ningún fin de fichero y no se haya encontrado un producto del tipo especificado
+            while(registro1 != null && registro2 != null && !resultado){
+                separador1 = registro1.split(",");
+                separador2 = registro2.split(",");
+                if(Integer.parseInt(separador1[0]) < Integer.parseInt(separador2[0])){
+                    if(separador1[1].equals(tipo.toString())) {
+                        resultado = true;
+                    }else{
+                        registro1 = br1.readLine();
+                    }
+                }else{
+                    if(Integer.parseInt(separador1[0]) > Integer.parseInt(separador2[0])){
+                        if(separador2[1].equals(tipo.toString()) && separador2[3].charAt(0) != '*') {
+                            resultado = true;
+                        }else{
+                            registro2 = br2.readLine();
+                        }
+                    }else{
+                        //Buscamos el movimiento más reciente del producto
+                        producto = buscarEnMovimientos(Integer.parseInt(separador2[0]));
+                        //Si el último movimiento no es una eliminación y es del mismo tipo.
+                        if(producto != null && producto.getProductoTipo() == tipo){
+                            resultado = true;
+                        }else{
+                            while(registro2 != null && Integer.parseInt(separador2[0]) == Integer.parseInt(separador1[0])) {
+                                registro2 = br2.readLine();
+                                if(registro2 != null)
+                                    separador2 = registro2.split(",");
+                            }
+                            registro1 = br1.readLine();
+                        }
+                    }
+                }
+            }
+            if(!resultado) {//Si aún no se ha encontrado un producto del tipo especificado
+                while (registro1 != null && !resultado) {
+                    separador1 = registro1.split(",");
+                    if (separador1[1].equals(tipo.toString())) {
+                        resultado = true;
+                    }else{
+                        registro1 = br1.readLine();
+                    }
+                }
+
+                while (registro2 != null && !resultado) {
+                    //Buscamos el movimiento más reciente del producto
+                    producto = buscarEnMovimientos(Integer.parseInt(separador2[0]));
+                    //Si el último movimiento no es una eliminación y es vegano.
+                    if (producto != null && producto.getProductoTipo() == tipo) {
+                        resultado = true;
+                    }else{
+                        idActual = Integer.parseInt(separador2[0]);
+                        while (registro2 != null && Integer.parseInt(separador2[0]) == idActual) {
+                            registro2 = br2.readLine();
+                            if (registro2 != null)
+                                separador2 = registro2.split(",");
+                        }
+                    }
+                }
+            }
+        }catch (FileNotFoundException error1){
+            error1.printStackTrace();
+        }catch (IOException error2){
+            error2.printStackTrace();
+        }finally {
+            try{
+                br1.close();
+                fr1.close();
+                br2.close();
+                fr2.close();
+            }catch (IOException error){
+                error.printStackTrace();
+            }
+        }
+        return resultado;
+    }
+
+    /*
+    * Interfaz
+    * Nombre: almacenVacio
+    * Comentario: Esta función nos permite verificar si el almacén no contiene
+    * ningún producto.
+    * Cabecera: public boolean almacenVacio()
+    * Salida:
+    *   -booleano vacio
+    * Postcondiciones: La función devuelve un valor booleano asociado al nombre, verdadero
+    * si el almacén se encuentra vacío o falso en caso contrario.
+    * */
+    public boolean almacenVacio(){
+        boolean vacio = true;
+        ImplStockProducto producto = null;
+        FileReader fr1 = null, fr2 = null;
+        BufferedReader br1 = null, br2 = null;
+        String registro = " ";
+        String[] separador = null;
+        int idActual = 0;
+
+        try{
+            fr1 = new FileReader("src\\Ficheros\\AlmacenProductos.txt");
+            br1 = new BufferedReader(fr1);
+            fr2 = new FileReader("src\\Ficheros\\Movimientos.txt");
+            br2 = new BufferedReader(fr2);
+            //Si el fichero maestro no se encuentra vacío
+            if(br1.readLine() != null){
+                vacio = false;
+            }else{
+                if((registro = br2.readLine()) != null){//Si el fichero de movimientos no se encuentra vacío
+                    while(registro != null && vacio){
+                        separador = registro.split(",");
+                        //Buscamos el movimiento más reciente del producto
+                        producto = buscarEnMovimientos(Integer.parseInt(separador[0]));
+                        //Si el último movimiento no es una eliminación.
+                        if(producto != null){
+                            vacio = false;
+                        }else{
+                            idActual = Integer.parseInt(separador[0]);
+                            while(registro != null && Integer.parseInt(separador[0]) == idActual) {
+                                registro = br2.readLine();
+                                if(registro != null)
+                                    separador = registro.split(",");
+                            }
+                        }
+                    }
+                }
+            }
+        }catch (FileNotFoundException error1){
+            error1.printStackTrace();
+        }catch (IOException error2){
+            error2.printStackTrace();
+        }finally {
+            try{
+                br1.close();
+                fr1.close();
+                br2.close();
+                fr2.close();
+            }catch (IOException error){
+                error.printStackTrace();
+            }
+        }
+        return vacio;
+    }
 }

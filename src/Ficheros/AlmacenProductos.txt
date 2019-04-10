@@ -1,3 +1,0 @@
-6,BEBIDA,7.8,Luaneee,Kusmi.,false,56561
-7,BEBIDA,7.8,Luaneee,Kusmi.,false,56561
-23,POSTRE,7.8,Luaneee,Kusmi.,true,5

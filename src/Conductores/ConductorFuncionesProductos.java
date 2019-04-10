@@ -71,5 +71,16 @@ public class ConductorFuncionesProductos {
         System.out.println(funcion.decrementarStock(145, 11));
         System.out.println(funcion.decrementarStock(6, 9));
         System.out.println(funcion.decrementarStock(23, 4));
+
+        //existenProductos
+        //System.out.println(funcion.existenProductos(EnumTipo.SANDWICH));
+        //System.out.println(funcion.existenProductos(EnumTipo.BEBIDA));
+        //System.out.println(funcion.existenProductos(EnumTipo.COMPLEMENTO));
+        //System.out.println(funcion.existenProductos(EnumTipo.ENSALADA));
+        //System.out.println(funcion.existenProductos(EnumTipo.POSTRE));
+        //System.out.println(funcion.existenProductos(EnumTipo.DESAYUNO));
+
+        //almacenVacio
+        System.out.println(funcion.almacenVacio());
     }
 }
