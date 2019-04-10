@@ -354,11 +354,13 @@ public class FuncionesProductos {
                         if(producto != null && Boolean.parseBoolean(separador2[5])){
                             System.out.println(producto);
                         }
-
-                        while(Integer.parseInt(separador2[0]) == Integer.parseInt(separador1[0])) {
+                        
+                        do{
                             registro2 = br2.readLine();
-                            separador2 = registro2.split(",");
-                        }
+                            if(registro2 != null){
+                                separador2 = registro2.split(",");
+                            }
+                        }while(Integer.parseInt(separador2[0]) == Integer.parseInt(separador1[0]));
                         registro1 = br1.readLine();
                     }
                 }
@@ -671,8 +673,6 @@ public class FuncionesProductos {
                 registro1 = br1.readLine();
             }
 
-
-
             while(registro2 != null){
                 separador2 = registro2.split(",");
                 if(separador2[1].equals(tipo.toString()) && separador2[3].charAt(0) != '*'){
@@ -696,4 +696,11 @@ public class FuncionesProductos {
             }
         }
     }
+
+    /*
+    * Interfaz
+    * Nombre:
+    * Comentario:
+    * Cabecera:
+    * */
 }

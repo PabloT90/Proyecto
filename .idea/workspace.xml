@@ -17,7 +17,7 @@
         <entry file="file://$PROJECT_DIR$/src/Conductores/ConductorFuncionesProductos.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="235">
-              <caret line="68" column="37" lean-forward="true" selection-start-line="68" selection-start-column="37" selection-end-line="68" selection-end-column="37" />
+              <caret line="63" column="57" lean-forward="true" selection-start-line="63" selection-start-column="57" selection-end-line="63" selection-end-column="57" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -58,8 +58,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Clases/FuncionesProductos.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="109">
-              <caret line="548" column="41" lean-forward="true" selection-start-line="548" selection-start-column="41" selection-end-line="548" selection-end-column="41" />
+            <state relative-caret-position="245">
+              <caret line="356" column="24" selection-start-line="356" selection-start-column="24" selection-end-line="356" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -137,10 +137,10 @@
         <option value="$PROJECT_DIR$/src/Ficheros/Movimientos.txt" />
         <option value="$PROJECT_DIR$/src/Ficheros/MaestroActualizado.txt" />
         <option value="$PROJECT_DIR$/src/Ficheros/AlmacenProductos.txt" />
-        <option value="$PROJECT_DIR$/src/Clases/FuncionesProductos.java" />
         <option value="$PROJECT_DIR$/src/Resguardos/Resguardo.java" />
         <option value="$PROJECT_DIR$/src/Clases/ValidacionesBurguerDonald.java" />
         <option value="$PROJECT_DIR$/src/Main/BurguerDonaldStore.java" />
+        <option value="$PROJECT_DIR$/src/Clases/FuncionesProductos.java" />
       </list>
     </option>
   </component>
@@ -418,7 +418,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Conductores/ConductorFuncionesProductos.java</url>
-          <line>43</line>
+          <line>41</line>
           <properties />
           <option name="timeStamp" value="25" />
         </line-breakpoint>
@@ -570,7 +570,7 @@
     <entry file="file://$PROJECT_DIR$/src/Conductores/ConductorFuncionesProductos.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="235">
-          <caret line="68" column="37" lean-forward="true" selection-start-line="68" selection-start-column="37" selection-end-line="68" selection-end-column="37" />
+          <caret line="63" column="57" lean-forward="true" selection-start-line="63" selection-start-column="57" selection-end-line="63" selection-end-column="57" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -605,8 +605,8 @@
     <entry file="file://$PROJECT_DIR$/../Proyecto - v1/src/Resguardos/Resguardo.java" />
     <entry file="file://$PROJECT_DIR$/src/Clases/FuncionesProductos.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="548" column="41" lean-forward="true" selection-start-line="548" selection-start-column="41" selection-end-line="548" selection-end-column="41" />
+        <state relative-caret-position="245">
+          <caret line="356" column="24" selection-start-line="356" selection-start-column="24" selection-end-line="356" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
