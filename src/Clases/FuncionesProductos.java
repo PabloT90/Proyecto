@@ -354,13 +354,13 @@ public class FuncionesProductos {
                         if(producto != null && Boolean.parseBoolean(separador2[5])){
                             System.out.println(producto);
                         }
-                        
+
                         do{
                             registro2 = br2.readLine();
                             if(registro2 != null){
                                 separador2 = registro2.split(",");
                             }
-                        }while(Integer.parseInt(separador2[0]) == Integer.parseInt(separador1[0]));
+                        }while(registro2 != null && Integer.parseInt(separador2[0]) == Integer.parseInt(separador1[0]));
                         registro1 = br1.readLine();
                     }
                 }
