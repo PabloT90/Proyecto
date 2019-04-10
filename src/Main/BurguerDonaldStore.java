@@ -178,8 +178,13 @@
  *
  * InsercionProducto
  * Inicio
- *   leerYValidarProducto*
- *   insertarProducto*
+ *   leerYValidarId*
+ *   Si el producto existe
+ *       LeerValidarProducto*
+ *       insertarProducto*
+ *   Sino
+ *       MensajeExplicatorio1
+ *   Fin_si
  * Fin
  *
  * EliminacionProducto
@@ -247,7 +252,10 @@
 
 package Main;
 
+import Clases.FuncionesProductos;
+import Clases.ImplStockProducto;
 import Clases.ValidacionesBurguerDonald;
+import Resguardos.Resguardo;
 
 import java.util.Scanner;
 
@@ -255,8 +263,12 @@ public class BurguerDonaldStore {
     public static void main(String[]args){
         Scanner teclado = new Scanner(System.in);
         ValidacionesBurguerDonald validacion = new ValidacionesBurguerDonald();
+        FuncionesProductos fp = new FuncionesProductos();
+        ImplStockProducto producto = null;
+        Resguardo resguardo = new Resguardo();
         int opcionMenu, opcionSubMenu1, opcionSubMenu2, opcionSubMenu3, opcionSubMenu4;
         int id;
+
         do{
             //leerYValidarOpcionMenu *
             opcionMenu = validacion.leerYValidarOpcionMenu();
@@ -266,55 +278,104 @@ public class BurguerDonaldStore {
                     case 1://para opcionMenu ==1
                     //AccionesProductos
 
-                            do { //Repetir
-                                //leerYValidarOpcionSubMenu1 *
-                                opcionSubMenu1 = validacion.leerYValidarOpcionSubMenu1();
-                                if(opcionSubMenu1 != 0) {//Si opcionSubMenu1 != 0
-                                    switch(opcionSubMenu1) {//Segun(opcionSubMenu1)
-                                        case 1://para opcionSubMenu1 ==1
-                                        //Consultas
-                                               do { //Repetir
-                                                   //leerYValidarSubMenu3 *
-                                                   opcionSubMenu3 = validacion.leerYValidarOpcionSubMenu3();
-                                                           if(opcionSubMenu3 != 0) {//Si opcionSubMenu3 != 0
-                                                               switch(opcionSubMenu3) {//Segun(opcionSubMenu3)
-                                                                   case 1: //para opcionSubMenu3 ==1
-                                                                   //mostrarProductosAlmacen *
-                                                                       break;
-                                                                   case 2: //para opcionSubMenu3 == 2
-                                                                   //MostrarProductosPorTipo
-                                                                       break;
-                                                                   case 3: //para opcionSubMenu3 ==3
-                                                                   //mostrarProductosVeganos *
-                                                                       break;
-                                                               }//Fin_segun
-                                                           }//Fin_si
-                                               }while(opcionSubMenu3 != 0); //Mientras opcionSubMenu3 != 0
-                                            break;
+                        do { //Repetir
+                            //leerYValidarOpcionSubMenu1 *
+                            opcionSubMenu1 = validacion.leerYValidarOpcionSubMenu1();
+                            if(opcionSubMenu1 != 0) {//Si opcionSubMenu1 != 0
+                                switch(opcionSubMenu1) {//Segun(opcionSubMenu1)
+                                    case 1://para opcionSubMenu1 ==1
+                                        // Consultas
+                                        do { //Repetir
+                                            //leerYValidarSubMenu3 *
+                                            opcionSubMenu3 = validacion.leerYValidarOpcionSubMenu3();
+                                            if(opcionSubMenu3 != 0) {//Si opcionSubMenu3 != 0
+                                                switch(opcionSubMenu3) {//Segun(opcionSubMenu3)
+                                                    case 1: //para opcionSubMenu3 ==1
+                                                        // mostrarProductosAlmacen *
+                                                        //resguardo.mostrarProductosAlmacen();
+                                                        fp.mostrarProductosAlmacen();
+                                                        break;
+                                                        case 2: //para opcionSubMenu3 == 2
+                                                            //MostrarProductosPorTipo
+                                                            break;
+                                                            case 3: //para opcionSubMenu3 ==3
+                                                                //mostrarProductosVeganos *
+                                                                //resguardo.mostrarProductosVeganos();
+                                                                fp.mostrarProductosVeganos();
+                                                                break;
+                                                }//Fin_segun
+                                            }//Fin_si
+                                        }while(opcionSubMenu3 != 0); //Mientras opcionSubMenu3 != 0
+                                        break;
                                         case 2://para opcionSubMenu1 ==2
                                             //ModificacionProducto
                                             //leerYValidarId*
                                             id = validacion.leerYValidarId();
+
                                             if(id < 0) {//Si el producto existe
                                                 //LeerValidarProducto*
-                                                validacion.leerYValidarProductoModificado();
-                                                //modificarProducto* (es una insercion)
+                                                producto = validacion.leerYValidarProductoModificado(id);
 
-                                                //Sino
+                                                //modificarProducto* (es una insercion)
+                                                //resguardo.insertarProducto(producto);
+                                                fp.insertarProducto(producto);
+                                            }else {//Sino
                                                 //MensajeExplicatorio1
-                                            }//Fin_si
+                                                System.out.println("No ha sido posible modificar el producto.");
+                                            }//fin_si
                                             break;
                                         case 3://para opcionSubMenu1 ==3
-                                        //ModificacionStock
+                                            //ModificacionStock
+                                            do {//Repetir
+                                                //leerYValidarOpcionSubMenu4*
+                                                opcionSubMenu4 = validacion.leerYValidarOpcionSubMenu4();
+                                                if(opcionSubMenu4 != 0) {//Si opcionMenu4 != 0
+                                                    switch(opcionSubMenu4) {//Segun (opcionMenu4)
+                                                        case 1://para opcionMenu4 == 1
+                                                            //IncrementoStock
+
+                                                            break;
+                                                            case 2://para opcionMenu4 == 2
+                                                            //DecrementoStock
+
+                                                                break;
+                                                    }//Fin_segun
+                                                }//Fin_si
+                                            }while(opcionSubMenu4 != 0);//Mientras opcionMenu4 != 0
                                             break;
                                         case 4://para opcionSubMenu1 ==4
-                                        //InsercionProducto
+                                            //InsercionProducto
+                                            //leerYValidarId*
+                                            id = validacion.leerYValidarId();
+                                            if(fp.obtenerProductoAlmacen(id) != null) {//Si el producto existe
+                                                //LeerValidarProducto*
+                                                producto = validacion.leerYValidarNuevoProducto(id);
+                                                
+                                                //minsertarProducto*
+                                                //resguardo.insertarProducto(producto);
+                                                fp.insertarProducto(producto);
+                                            }else{//Sino
+                                                //MensajeExplicatorio1
+                                                System.out.println("No se ha podido insertar.");
+                                            }//Fin_si
                                             break;
                                         case 5://para opcionSubMenu1 ==5
-                                        //EliminacionProducto
+                                            //EliminacionProducto
+                                            //leerYValdarId*
+                                            id = validacion.leerYValidarId();
+
+                                            if(fp.obtenerProductoAlmacen(id) != null) {//Si existe el producto
+                                                //eliminarProducto*
+                                                //resguardo.eliminarProducto(id);
+                                                fp.eliminarProducto(id);
+                                            }else{//Sino
+                                                //MensajeExplicatorio
+                                                System.out.println("No ha sido posible eliminar el producto");
+                                            }//Fin_si
                                             break;
                                         case 6://para opcionSubMenu1 ==6
-                                        //OrdenarListaProducto
+                                            //OrdenarListaProducto
+
                                             break;
                                     }//Fin_Segun
                                 }//Fin_si
