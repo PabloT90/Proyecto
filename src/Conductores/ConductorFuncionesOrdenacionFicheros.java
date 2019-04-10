@@ -23,6 +23,5 @@ public class ConductorFuncionesOrdenacionFicheros {
         //mezclaDirecta (funciona)
         funcion.mezclaDirecta("src\\OrdenacionFicheros\\Principal.txt");
 
-
     }
 }

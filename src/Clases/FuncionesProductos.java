@@ -624,6 +624,7 @@ public class FuncionesProductos {
         String[] separador1 = null, separador2 = null;
         FuncionesOrdenacionFicheros ordenacion = new FuncionesOrdenacionFicheros();
         ordenacion.mezclaDirecta("src\\Ficheros\\Movimientos.txt");
+        int idActual = 0;
 
         try{
             fr1 = new FileReader("src\\Ficheros\\AlmacenProductos.txt");
@@ -675,11 +676,18 @@ public class FuncionesProductos {
             }
 
             while(registro2 != null){
-                separador2 = registro2.split(",");
-                if(separador2[1].equals(tipo.toString()) && separador2[3].charAt(0) != '*'){
-                    System.out.println(registro2);
+                //Buscamos el movimiento más reciente del producto
+                producto = buscarEnMovimientos(Integer.parseInt(separador2[0]));
+                //Si el último movimiento no es una eliminación y es vegano.
+                if(producto != null && producto.getProductoTipo() == tipo){
+                    System.out.println(producto);
                 }
-                registro2 = br2.readLine();
+                idActual = Integer.parseInt(separador2[0]);
+                while(registro2 != null && Integer.parseInt(separador2[0]) == idActual) {
+                    registro2 = br2.readLine();
+                    if(registro2 != null)
+                        separador2 = registro2.split(",");
+                }
             }
 
         }catch (FileNotFoundException error1){
