@@ -35,7 +35,7 @@ public class ConductorFuncionesProductos {
 
         //mostrarProductosVeganos (funciona)
         //System.out.println("Mostrar los productos veganos.");
-        //funcion.mostrarProductosVeganos();
+        funcion.mostrarProductosVeganos();
         //System.out.println("----Fin veganos---");
 
         //eliminarProducto(funciona)
@@ -58,9 +58,9 @@ public class ConductorFuncionesProductos {
         //funcion.sincronizarAlmacen();
 
         //mostrarProductosPorTipo
-        funcion.mostrarProductosPorTipo(EnumTipo.BEBIDA);
-        funcion.mostrarProductosPorTipo(EnumTipo.COMPLEMENTO);
-        funcion.mostrarProductosPorTipo(EnumTipo.DESAYUNO);
-        funcion.mostrarProductosPorTipo(EnumTipo.POSTRE);
+        //funcion.mostrarProductosPorTipo(EnumTipo.BEBIDA);
+        //funcion.mostrarProductosPorTipo(EnumTipo.COMPLEMENTO);
+        //funcion.mostrarProductosPorTipo(EnumTipo.DESAYUNO);
+        //funcion.mostrarProductosPorTipo(EnumTipo.POSTRE);
     }
 }

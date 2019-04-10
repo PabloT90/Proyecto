@@ -1,4 +1,3 @@
-66,BEBIDA,1.5,Nuevo ,pco cara.,true,56
-66,BEBIDA,1.5,Nuevo Actu,pco cara.,true,56
-66,BEBIDA,1.5,*Nuevo ,pco cara.,true,56
-88,BEBIDA,6.6,Nuevo Visualizable ,Nueva insercion,false,22
+6,BEBIDA,7.8,Luaneee,Kusmi.,false,56561
+6,BEBIDA,7.8,hola,Kusmi.,false,56561
+88,BEBIDA,6.6,Nuevo Visualizable ,Nueva insercion,true,22

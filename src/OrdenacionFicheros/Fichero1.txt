@@ -1,4 +1,4 @@
-1,BEBIDA,1.5,*Esto no debe salir ,pco cara.,true,56
-3,COMPLEMENTO,454,A ver si cuela,No pasa nada777.,false,44
+3,COMPLEMENTO,454.0,A ver si cuela,No pasa nada777.,false,44
 4,DESAYUNO,1.54,Pobre pablo,Pizza gratinosa Actu.,false,230
 5,BEBIDA,2.5,*Pepsi,Un poco cara.,true,200
+6,BEBIDA,7.8,Luaneee,Kusmi.,false,56561
