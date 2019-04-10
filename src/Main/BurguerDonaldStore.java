@@ -316,6 +316,9 @@ public class BurguerDonaldStore {
                                                 //LeerValidarProducto*
                                                 producto = validacion.leerYValidarProductoModificado(id);
 
+                                                validacion.leerYValidarProductoModificado();
+                                                //modificarProducto* (es una insercion)
+
                                                 //modificarProducto* (es una insercion)
                                                 //resguardo.insertarProducto(producto);
                                                 fp.insertarProducto(producto);
