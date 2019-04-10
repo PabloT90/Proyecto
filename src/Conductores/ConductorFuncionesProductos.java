@@ -38,13 +38,6 @@ public class ConductorFuncionesProductos {
         //funcion.mostrarProductosVeganos();
         //System.out.println("----Fin veganos---");
 
-        //posicionProducto (no existe)
-        //System.out.println(funcion.posicionProducto("src\\Ficheros\\Movimientos.txt", 57));
-
-        //eliminarProductoFichero (no existe)
-        //System.out.println(funcion.eliminarProductoFichero("src\\Ficheros\\Movimientos.txt", 56));
-        //System.out.println(funcion.eliminarProductoFichero("src\\Ficheros\\Movimientos.txt", 55));
-
         //eliminarProducto(funciona)
         //System.out.println(funcion.eliminarProducto(1));
         //System.out.println(funcion.eliminarProducto(2));
@@ -52,10 +45,6 @@ public class ConductorFuncionesProductos {
         //System.out.println(funcion.eliminarProducto(4));
         //System.out.println(funcion.eliminarProducto(34));
         //System.out.println(funcion.eliminarProducto(6));
-
-        //modificarProducto (no existe)
-        //System.out.println(funcion.modificarProducto(producto2));
-        //System.out.println(funcion.modificarProducto(producto3));
 
         //productoEliminado (funciona)
         //System.out.println(funcion.productoEliminado(1));
@@ -66,6 +55,12 @@ public class ConductorFuncionesProductos {
         //System.out.println(funcion.obtenerProductoAlmacen(29));
 
         //sincronizarAlmacen
-        funcion.sincronizarAlmacen();
+        //funcion.sincronizarAlmacen();
+
+        //mostrarProductosPorTipo
+        funcion.mostrarProductosPorTipo(EnumTipo.BEBIDA);
+        funcion.mostrarProductosPorTipo(EnumTipo.COMPLEMENTO);
+        funcion.mostrarProductosPorTipo(EnumTipo.DESAYUNO);
+        funcion.mostrarProductosPorTipo(EnumTipo.POSTRE);
     }
 }
