@@ -248,6 +248,20 @@
  *   leerYValidarTipoProducto*
  *   mostrarProductosTipo*
  * Fin
+ *
+ * IncrementarStock
+ * Inicio
+ *   leerYValidarId*
+ *   leerYValidarStock*
+ *   incrementarStock*
+ * Fin
+ *
+ * DecrementarStock
+ * Inicio
+ *   leerYValidarId*
+ *   leerYValidarStock*
+ *   decrementarStock*
+ * Fin
  * */
 
 package Main;
@@ -270,6 +284,7 @@ public class BurguerDonaldStore {
         EnumTipo tipo = null;
         int opcionMenu, opcionSubMenu1, opcionSubMenu2, opcionSubMenu3, opcionSubMenu4;
         int id;
+        int stock;
 
         do{
             //leerYValidarOpcionMenu *
@@ -309,8 +324,8 @@ public class BurguerDonaldStore {
                                                         //resguardo.mostrarProductosVeganos();
                                                         fp.mostrarProductosVeganos();
                                                     break;
-                                                }//Fin_segun
-                                            }//Fin_si
+                                                }
+                                            }
                                         }while(opcionSubMenu3 != 0); //Mientras opcionSubMenu3 != 0
                                     break;
                                     case 2://para opcionSubMenu1 ==2
@@ -325,11 +340,12 @@ public class BurguerDonaldStore {
                                             //modificarProducto* (es una insercion)
                                             //resguardo.insertarProducto(producto);
                                             fp.insertarProducto(producto);
-                                        }else {//Sino
+                                        }else {
                                             //MensajeExplicatorio1
                                             System.out.println("No ha sido posible modificar el producto.");
-                                        }//fin_si
+                                        }
                                         break;
+
                                         case 3://para opcionSubMenu1 ==3
                                             //ModificacionStock
                                             do {//Repetir
@@ -339,13 +355,24 @@ public class BurguerDonaldStore {
                                                     switch(opcionSubMenu4) {//Segun (opcionMenu4)
                                                         case 1://para opcionMenu4 == 1
                                                             //IncrementoStock
-
+                                                            //LeerYValidarID*
+                                                            id = validacion.leerYValidarId();
+                                                            //LeerValidarStock*
+                                                            stock = validacion.leerYValidarStock();
+                                                            //incrementarStock*
+                                                            fp.incrementarStock(id,stock);
                                                         break;
                                                         case 2://para opcionMenu4 == 2
-                                                            // DecrementoStock
+                                                            //DecrementoStock
+                                                            //LeerYValidarID*
+                                                            id = validacion.leerYValidarId();
+                                                            //LeerValidarStock*
+                                                            stock = validacion.leerYValidarStock();
+                                                            //decrementarStock*
+                                                            fp.decrementarStock(id,stock);
                                                         break;
-                                                    }//Fin_segun
-                                                }//Fin_si
+                                                    }
+                                                }
                                             }while(opcionSubMenu4 != 0);//Mientras opcionMenu4 != 0
                                         break;
                                         case 4://para opcionSubMenu1 ==4
@@ -360,10 +387,10 @@ public class BurguerDonaldStore {
                                                 //insertarProducto*
                                                 //resguardo.insertarProducto(producto);
                                                 fp.insertarProducto(producto);
-                                            }else{//Sino
+                                            }else{
                                                 //MensajeExplicatorio1
                                                 System.out.println("No se ha podido insertar.");
-                                            }//Fin_si
+                                            }
                                         break;
                                         case 5://para opcionSubMenu1 ==5
                                             //EliminacionProducto
@@ -377,15 +404,15 @@ public class BurguerDonaldStore {
                                             }else{//Sino
                                                 //MensajeExplicatorio
                                                 System.out.println("No ha sido posible eliminar el producto");
-                                            }//Fin_si
+                                            }
                                         break;
                                         case 6://para opcionSubMenu1 ==6
                                             //SincronizarListaProducto
                                             //resguardo.sincronizarAlmacen();
                                             fp.sincronizarAlmacen();
                                         break;
-                                    }//Fin_Segun
-                                }//Fin_si
+                                    }
+                                }
                             }while(opcionSubMenu1 != 0);//Mientras opcionSubMenu1 != 0
                         break;
                     case 2://para opcionMenu ==2
@@ -396,7 +423,7 @@ public class BurguerDonaldStore {
                             if(opcionSubMenu2 !=0) {//Si opcionSubMenu2 != 0
                                 switch(opcionSubMenu2) {//Segun(opcionSubMenu2)
                                     case 1://para opcionSubMenu2 ==1
-                                        // mostrarMenus *
+                                        //mostrarMenus *
                                         break;
                                         //para opcionSubMenu2 == 2
                                     case 2:
@@ -414,12 +441,12 @@ public class BurguerDonaldStore {
                                     case 6://para opcionSubMenu2 ==6
                                         //OrdenarListaMenu
                                         break;
-                                }//Fin_segun
-                            }//Fin_si
+                                }
+                            }
                         }while(opcionSubMenu2 != 0); //Mientras opcionSubMenu2 != 0
                     break;
-                }// Fin_segun
-            }//Fin_si
+                }
+            }
         }while(opcionMenu != 0); //Mientras opcionMenu != 0
     }
 }
