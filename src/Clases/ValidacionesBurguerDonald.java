@@ -594,8 +594,9 @@ public class ValidacionesBurguerDonald {
         ImplMenu menu = null;
         Scanner teclado = new Scanner(System.in);
         int idMenu = 0;
+        double precio =0;
         String nombre = " ", descripcion = " ";
-        ImplProducto[] productos;
+        int[] productos;
 
         idMenu = leerYValidarId();
         System.out.println("Introduce el nombre del men\u00fa.");
@@ -603,8 +604,9 @@ public class ValidacionesBurguerDonald {
         System.out.println("Introduce la descripci\u00f3n del men\u00fa.");
         descripcion = teclado.nextLine();
         productos = leerYValidarListaProductos();
+        precio = leerYValidarPrecio();
 
-        menu = new ImplMenu(idMenu, nombre, descripcion, productos);
+        menu = new ImplMenu(idMenu, nombre, descripcion, productos, precio);
 
         return menu;
     }
@@ -628,10 +630,9 @@ public class ValidacionesBurguerDonald {
      * Obtiene un array del tipo ImplProducto válido para un menú.
      * @return Asociado al nombre devuelve un array del tipo ImplProducto, que es una lista de productos válida para un menú.
      */
-    public ImplProducto[] leerYValidarListaProductos(){
-        ImplProducto[] productos = new ImplProducto[1];
-        char respuesta = ' ';
-        ImplProducto[] aux = null;
+    public int[] leerYValidarListaProductos(){
+        int[] productos = new int[1];
+        char respuesta;
 
         do{
             productos[productos.length-1] = leerYValidarProductoDelAlmacen();
@@ -667,9 +668,9 @@ public class ValidacionesBurguerDonald {
      * @param productos Array de productos.
      * @return Asociado al nombre devuelve un array del tipo ImplProducto, que es una lista válida para un menú.
      */
-    public ImplProducto[] aumentarTamano(ImplProducto[] productos){
-        ImplProducto[] aux = null;
-        aux = new ImplProducto[productos.length+1];
+    public int[] aumentarTamano(int[] productos){
+        int[] aux = null;
+        aux = new int[productos.length+1];
         System.arraycopy(productos, 0, aux, 0, productos.length);
         productos = aux;
         return productos;
@@ -693,7 +694,7 @@ public class ValidacionesBurguerDonald {
      * @return Asociado al nombre devuelve 's' o 'n'.
      */
     public char leerYValidarRespuestaInsercion(){
-        char respuesta = ' ';
+        char respuesta;
         Scanner teclado = new Scanner(System.in);
 
         do{
@@ -722,12 +723,11 @@ public class ValidacionesBurguerDonald {
      * Obtiene un tipo ImplProducto válido para el almacén de productos.
      * @return Asociado al nombre devuelve un producto del almacén.
      */
-    public ImplProducto leerYValidarProductoDelAlmacen(){
-        ImplProducto producto = null;
-        ImplStockProducto productoConStock = null;
+    public int leerYValidarProductoDelAlmacen(){
+        ImplStockProducto productoConStock;
         Scanner teclado = new Scanner(System.in);
         FuncionesProductos funcion = new FuncionesProductos();
-        int idProducto = 0;
+        int idProducto;
         //!!!Si la clase StockProducto tuviera una función obtenerProducto sin stock sería más limpio el código!!!!!!
         do{
             System.out.println("Lista de productos:");
@@ -737,9 +737,7 @@ public class ValidacionesBurguerDonald {
             productoConStock = funcion.obtenerProductoAlmacen(idProducto);
         }while(productoConStock == null);//Si el id no coincide con ninguno de los productos del almacén
 
-        producto = new ImplProducto(productoConStock.getProductoId(), productoConStock.getProductoTipo(), productoConStock.getProductoPrecio(), productoConStock.getProductoNombre(),
-                productoConStock.getProductoDescripcion(), productoConStock.getProductoVegano());
-        return producto;
+        return idProducto;
     }
 
 }

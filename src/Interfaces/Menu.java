@@ -5,14 +5,15 @@
 *   -Id entero, consultable y modificable.
 *   -nombre Cadena, consultable y modificable.
 *   -Descripcion Cadena, consultable y modificable.
-*   -Productos ImplProducto[], consultable y modificable.
-* Propiedades Derivadas:
-*   -PrecioMenu real, consultable y modificable.
+*   -Productos int[], consultable y modificable.
+*   -Precio double, consultable y modificable.
+* Propiedades Derivadas: nada.
 * Propiedades Compartidas: Nada.
 *
 * Requisitos:
 *   -id debe ser igual o mayor que 0.
 *   -productos no debe contener ningún elemento nulo.
+*   -precio debe ser superior a 0.
 *
 * Interfaz
 * public int getId()
@@ -24,7 +25,8 @@
 * public String getDescripcion()
 * public void setDescripcion(String descripcion)
 *
-* public double getPrecioMenu()
+* public double getPrecio()
+* public void setPrecio(double precio)
 * */
 
 package Interfaces;
@@ -39,5 +41,6 @@ public interface Menu {
     public String getDescripcion();
     public void setDescripcion(String descripcion);
 
-    public double getPrecioMenu();
+    public double getPrecio();
+    public void setPrecio(double precio);
 }

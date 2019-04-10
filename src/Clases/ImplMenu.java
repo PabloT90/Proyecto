@@ -5,15 +5,15 @@
  *   -Id entero, consultable y modificable.
  *   -Nombre Cadena, consultable y modificable.
  *   -Descripcion Cadena, consultable y modificable.
- *   -Productos ImplProducto[], consultable y modificable.
- * Propiedades Derivadas:
- *   -PrecioMenu real, consultable y modificable.
+ *   -Precio real, consultable y modificable.
+ *   -Productos int[], consultable y modificable.
+ * Propiedades Derivadas: nada.
  * Propiedades Compartidas: Nada.
  *
  * Requisitos:
  *   -id debe ser igual o mayor que 0.
  *   -productos no debe contener ningún elemento nulo.
- *
+ *   -precio debe ser mayor a 0.
  * Interfaz
  * public int getId()
  * public void setId(int id)
@@ -24,7 +24,8 @@
  * public String getDescripcion()
  * public void setDescripcion(String descripcion)
  *
- * public double getPrecioMenu()
+ * public double getPrecio()
+ * public void setPrecio(double precio)
  *
  * Funciones añadidas:
  * public ImplProducto[] getProductos()
@@ -46,7 +47,8 @@ public class ImplMenu implements Menu, Cloneable, Comparable<ImplMenu> {
     private int id;
     private String nombre;
     private String descripcion;
-    private ImplProducto[] productos;
+    private double precio;
+    private int[] productos;
 
     //Constructor por defecto
 
@@ -57,9 +59,9 @@ public class ImplMenu implements Menu, Cloneable, Comparable<ImplMenu> {
         ImplProducto producto = new ImplProducto();
         id = 0;
         descripcion = "DEFAULT";
+        precio = 0.1;
         nombre = "DEFAULT";
-        productos = new ImplProducto[1];
-        productos[0] = producto;//productos no debe contener ningún valor nulo.
+        productos = null;
     }
 
     //Constructor con parámetros
@@ -70,12 +72,14 @@ public class ImplMenu implements Menu, Cloneable, Comparable<ImplMenu> {
      * @param nombre Nombre del menu.
      * @param descripcion Breve descripcion del menu.
      * @param productos Productos que componen el menu.
+     * @param precio Precio que queremos poner.
      */
-    public ImplMenu(int id,String nombre, String descripcion, ImplProducto[] productos){
+    public ImplMenu(int id,String nombre, String descripcion, int[] productos, double precio){
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.productos = productos;
+        this.precio = precio;
     }
 
     //Constructor de copia
@@ -89,6 +93,7 @@ public class ImplMenu implements Menu, Cloneable, Comparable<ImplMenu> {
         nombre = otro.getNombre();
         descripcion = otro.getDescripcion();
         productos = otro.getProductos();
+        precio = otro.getPrecio();
     }
 
     //Get Y Set
@@ -141,13 +146,16 @@ public class ImplMenu implements Menu, Cloneable, Comparable<ImplMenu> {
      * Obtiene el precio del menu
      * @return asociado al nombre devuelve el precio del menu.
      */
-    public double getPrecioMenu(){
-        double precio = 0.0;
-        //Sumamos el precio de todos los productos
-        for(int i = 0; i < productos.length; i++){
-            precio += productos[i].getPrecio();
-        }
+    public double getPrecio(){
         return precio;
+    }
+
+    /**
+     * Establece el precio del menu.
+     * @param precio Precio que queremos poner.
+     */
+    public void setPrecio(double precio){
+        this.precio = precio;
     }
 
     //Funciones añadidas
@@ -156,14 +164,14 @@ public class ImplMenu implements Menu, Cloneable, Comparable<ImplMenu> {
      * Obtiene los productos del menu
      * @return asociado al nombre manda un array con los productos que contiene el menu
      */
-    public ImplProducto[] getProductos(){
+    public int[] getProductos(){
         return productos;
     }
     /**
      *  Establece los productos que contiene el menu
      * @param productos Array de productos para el menu
      */
-    public void setProductos(ImplProducto[] productos){
+    public void setProductos(int[] productos){
         this.productos = productos;
     }
 
@@ -219,7 +227,7 @@ public class ImplMenu implements Menu, Cloneable, Comparable<ImplMenu> {
 	 */
     @Override
     public String toString(){
-        return getId()+","+getNombre()+","+getDescripcion()+","+getPrecioMenu();
+        return getId()+","+getNombre()+","+getDescripcion()+","+getPrecio();
     }
 
     //toStringBonito
@@ -227,7 +235,7 @@ public class ImplMenu implements Menu, Cloneable, Comparable<ImplMenu> {
      * Es un toString que muestra los datos de manera mas legible para el usuario.
      */
     public String toStringBonito(){
-        return "ID: "+getId()+"  |Nombre: "+getNombre()+"  |Descripcion: "+getDescripcion()+"  |Precio:"+getPrecioMenu();
+        return "ID: "+getId()+"  |Nombre: "+getNombre()+"  |Descripcion: "+getDescripcion()+"  |Precio:"+getPrecio();
     }
 
     /**

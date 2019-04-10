@@ -60,8 +60,8 @@ public class ConductorValidacionesBurguerDonald {
         //System.out.println(funcion.leerYValidarRespuestaStock(producto1));
 
         //leerYValidarProductoModificado
-        System.out.println(funcion.leerYValidarProductoModificado(54));
-        System.out.println(funcion.leerYValidarProductoModificado(55));
+        //System.out.println(funcion.leerYValidarProductoModificado(54));
+        //System.out.println(funcion.leerYValidarProductoModificado(55));
 
         //leerYValidarProductoDelAlmacen
         //System.out.println(funcion.leerYValidarProductoDelAlmacen());
@@ -75,6 +75,11 @@ public class ConductorValidacionesBurguerDonald {
         //for(int i = 0; i < listaProductos.length; i++){
             //System.out.println(listaProductos[i]);
         //}
+
+        //LeerYValidarNuevoMenu (funciona pero)
+        //Cuando muestra los productos el primero lo ignora.
+        //Supongo que en el toString debemos mostrar el ID de los productos. Esto es facil.
+        System.out.println(funcion.leerYValidarNuevoMenu());
 
         //leerYValidarNuevoMenu //-------------------Pendiente--------------------------------
         //System.out.println(funcion.leerYValidarNuevoMenu());
