@@ -16,7 +16,7 @@ public class ConductorFuncionesMenus {
 
         //insertarMenu
         funcion.insertarMenu(menu1);
-        funcion.insertarMenu(menu2);
+        //funcion.insertarMenu(menu2);
 
         //menuEliminado
         //System.out.println(funcion.menuEliminado(1));
