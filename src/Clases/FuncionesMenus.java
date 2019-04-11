@@ -21,16 +21,16 @@ public class FuncionesMenus {
         ObjectOutputStream oos = null;
         File fichero = new File("src\\Ficheros\\MovimientosMenu.dat");
         try{
-            if(!fichero.exists()) {
-                fos = new FileOutputStream(fichero);
-                oos = new ObjectOutputStream(fos);
-                oos.writeObject(menu);//Insertamos el nuevo producto en el almacén
-                oos.close();
-            }else {
+            if(fichero.exists()) {
                 fos = new FileOutputStream(fichero, true);
                 moos = new MyObjectOutputStream(fos);
-                moos.writeObject(menu);
+                moos.writeObject(menu);//Insertamos el nuevo producto en el almacén
                 moos.close();
+            }else {
+                fos = new FileOutputStream(fichero);
+                oos = new ObjectOutputStream(fos);
+                oos.writeObject(menu);
+                oos.close();
             }
         } catch(IOException error){
             error.printStackTrace();
@@ -141,6 +141,7 @@ public class FuncionesMenus {
             fis = new FileInputStream("src\\Ficheros\\MovimientosMenu.dat");
             ois = new ObjectInputStream(fis);
             //Mientras no sea fin de fichero y no se haya encontrado el producto.
+
             while ((menu = (ImplMenu) ois.readObject()) != null && !encontrado) {
                 if(menu.getId() == id){
                     encontrado = true;
@@ -199,7 +200,6 @@ public class FuncionesMenus {
         }catch (ClassNotFoundException error1) {
             error1.printStackTrace();
         }catch(EOFException error){
-            return ret;
         }catch (IOException error2){
             error2.printStackTrace();
         }finally{

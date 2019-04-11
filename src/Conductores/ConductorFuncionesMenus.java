@@ -12,12 +12,13 @@ public class ConductorFuncionesMenus {
         ImplProducto producto2 = new ImplProducto(1, EnumTipo.BEBIDA, 1, "Pepsi","Bebida refrescante", true);
         int[] productos = {66, 69};
         ImplMenu menu1 = new ImplMenu(1, "ParaPa", "Esto es una descripcion.", productos, 3.5);
+        ImplMenu menu2 = new ImplMenu(1, "*ParaPa", "Esto es una descripcion.", productos, 3.5);
 
         //insertarMenu
         funcion.insertarMenu(menu1);
 
         //menuEliminado
-        //funcion.menuEliminado(1);
+        System.out.println(funcion.menuEliminado(1));
 
     }
 }
