@@ -47,7 +47,7 @@ public class FuncionesMenus {
     * Postcondiciones: La función devuelve un tipo ImplMenu asociado al nombre, que es
     * el menú con misma id en la lista o null si el menú con esa id no se encuentra en la lista.
     * */
-    public ImplMenu obtenerMenu(int idMenu){
+    /*public ImplMenu obtenerMenu(int idMenu){
         ImplMenu menu = null;
         FileInputStream fis = null;
         ObjectInputStream ois = null;
@@ -57,7 +57,7 @@ public class FuncionesMenus {
         if(menu == null && !productoEliminado(idMenu)) //Si no se ha encontrado en el fichero de mov y no se ha marcado como eliminado.
             menu = buscarEnListaMenus(idMenu);
         return menu;
-    }
+    }*/
 
     /*
      * Interfaz

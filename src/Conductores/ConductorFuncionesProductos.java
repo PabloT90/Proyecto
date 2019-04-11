@@ -64,13 +64,13 @@ public class ConductorFuncionesProductos {
         //funcion.mostrarProductosPorTipo(EnumTipo.POSTRE);
 
         //incrementarStock
-        System.out.println(funcion.incrementarStock(67, 3));
-        System.out.println(funcion.incrementarStock(222, 3));
+        //System.out.println(funcion.incrementarStock(67, 3));
+        //System.out.println(funcion.incrementarStock(222, 3));
 
         //decrementarStock
-        System.out.println(funcion.decrementarStock(145, 11));
-        System.out.println(funcion.decrementarStock(6, 9));
-        System.out.println(funcion.decrementarStock(23, 4));
+        //System.out.println(funcion.decrementarStock(145, 11));
+        //System.out.println(funcion.decrementarStock(6, 9));
+        //System.out.println(funcion.decrementarStock(23, 4));
 
         //existenProductos
         //System.out.println(funcion.existenProductos(EnumTipo.SANDWICH));
@@ -81,6 +81,6 @@ public class ConductorFuncionesProductos {
         //System.out.println(funcion.existenProductos(EnumTipo.DESAYUNO));
 
         //almacenVacio
-        System.out.println(funcion.almacenVacio());
+        //System.out.println(funcion.almacenVacio());
     }
 }

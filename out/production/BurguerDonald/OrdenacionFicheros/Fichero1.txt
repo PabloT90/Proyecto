@@ -1,4 +1,2 @@
-67,COMPLEMENTO,7.8,Luaneee,Kusmi.,false,120
-67,COMPLEMENTO,7.8,Luaneee,Kusmi.,false,123
-67,COMPLEMENTO,7.8,*Luaneee,Kusmi.,false,126
-67,COMPLEMENTO,7.8,*Luaneee,Kusmi.,false,129
+71,COMPLEMENTO,7.8,Luaneee,Kusmi.,false,120
+76,POSTRE,7.8,pablo,asun apruebanos por el amor de jesus.,false,120

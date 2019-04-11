@@ -274,19 +274,18 @@ public class FuncionesProductos {
                     }
                 }
             }
-            if(registro1 != null){
-                while((registro1 = br1.readLine()) != null){
-                    System.out.println(registro1);
-                }
+
+            while(registro1 != null){
+                System.out.println(registro1);
+                registro1 = br1.readLine();
             }
 
-            if(registro2 != null){
-                while((registro2 = br2.readLine()) != null){
-                    separador2 = registro2.split(",");
-                    if(separador2[3].charAt(0) != '*') {
-                        System.out.println(registro2);
-                    }
+            while(registro2 != null){
+                separador2 = registro2.split(",");
+                if(separador2[3].charAt(0) != '*'){
+                    System.out.println(registro2);
                 }
+                registro2 = br2.readLine();
             }
         }catch (FileNotFoundException error1){
             error1.printStackTrace();
@@ -424,8 +423,12 @@ public class FuncionesProductos {
             //Recorremos el fichero de movimiento.
             while((registro = br1.readLine()) != null) {
                 partesRegistro = registro.split(",");//Separamos el registro en campos
-                if(partesRegistro[3].charAt(0) == '*' && Integer.parseInt(partesRegistro[0]) == ID){ //Comprueba que este marcado como eliminado ('*')
-                    ret = true;
+                if (Integer.parseInt(partesRegistro[0]) == ID) {//Comprueba que este marcado como eliminado ('*')
+                    if (partesRegistro[3].charAt(0) == '*') {
+                        ret = true;
+                    } else {
+                        ret = false;
+                    }
                 }
             }
         }catch (FileNotFoundException error1){
