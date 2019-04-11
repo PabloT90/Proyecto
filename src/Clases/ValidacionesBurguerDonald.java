@@ -728,7 +728,6 @@ public class ValidacionesBurguerDonald {
         Scanner teclado = new Scanner(System.in);
         FuncionesProductos funcion = new FuncionesProductos();
         int idProducto;
-        //!!!Si la clase StockProducto tuviera una función obtenerProducto sin stock sería más limpio el código!!!!!!
         do{
             System.out.println("Lista de productos:");
             funcion.mostrarProductosAlmacen();
