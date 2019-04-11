@@ -43,7 +43,9 @@ package Clases;
 
 import Interfaces.Menu;
 
-public class ImplMenu implements Menu, Cloneable, Comparable<ImplMenu> {
+import java.io.Serializable;
+
+public class ImplMenu implements Menu, Cloneable, Comparable<ImplMenu>, Serializable {
     private int id;
     private String nombre;
     private String descripcion;

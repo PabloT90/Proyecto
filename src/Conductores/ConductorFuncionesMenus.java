@@ -1,6 +1,7 @@
 package Conductores;
 
 import Clases.FuncionesMenus;
+import Clases.ImplMenu;
 import Clases.ImplProducto;
 import Enums.EnumTipo;
 
@@ -9,12 +10,11 @@ public class ConductorFuncionesMenus {
         FuncionesMenus funcion = new FuncionesMenus();
         ImplProducto producto1 = new ImplProducto(1, EnumTipo.BEBIDA, 1.50, "CocaCola","Bebida refrescante", true);
         ImplProducto producto2 = new ImplProducto(1, EnumTipo.BEBIDA, 1, "Pepsi","Bebida refrescante", true);
-        ImplProducto[] productos = {producto1, producto2};
+        int[] productos = {66, 69};
+        ImplMenu menu1 = new ImplMenu(1, "ParaPa", "Esto es una descripcion.", productos, 3.5);
 
-        //incrementarArrayProductos
-        System.out.println("productos.length --> "+productos.length);
-        funcion.incrementarArrayProductos(2, productos);
-        System.out.println("productos.length --> "+productos.length);
+        //insertarMenu
+        funcion.insertarMenu(menu1);
 
     }
 }
