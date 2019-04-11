@@ -141,7 +141,7 @@ public class FuncionesMenus {
      * contrario la función devuelve null.
      * */
     public ImplMenu buscarEnMovimientos(int id){
-        ImplMenu menu = null;
+        ImplMenu menu = null, registro = null;
         FileInputStream fis = null;
         ObjectInputStream ois = null;
         boolean encontrado = false;
@@ -151,9 +151,14 @@ public class FuncionesMenus {
             ois = new ObjectInputStream(fis);
             //Mientras no sea fin de fichero y no se haya encontrado el producto.
 
-            while (!encontrado && (menu = (ImplMenu) ois.readObject()) != null) {
-                if(menu.getId() == id){
-                    encontrado = true;
+            while (true) {
+                registro = (ImplMenu) ois.readObject();
+                if(registro.getId() == id){
+                    if(registro.getNombre().charAt(0) != '*'){//Si el movimiento no es de eliminación
+                        menu = registro;
+                    }else{
+                        menu = null;
+                    }
                 }
             }
         }catch(FileNotFoundException error1) {
@@ -171,22 +176,19 @@ public class FuncionesMenus {
                 error.printStackTrace();
             }
         }
-        if(menu.getId() != id){
-            menu = null;
-        }
 
         return menu;
     }
 
     /*
-     * ProductoEliminado
+     * menuEliminado
      * Comentario: comprueba si un menú esta marcado como eliminado o no.
      * Entrada: entero ID.
      * Precondiciones: no hay.
      * Salida: boolean ret.
      * Postcondiciones: Asociado al nombre devuelve un boolean. True en caso que el ultimo registro con esa ID sea marcado
      * como eliminado. False en caso contrario.
-     * Cabecera: public boolean menuEliminado(int ID)
+     * Cabecera: public boolean menuEliminado(int id)
      * */
     public boolean menuEliminado(int id){
         boolean ret = false;
@@ -225,4 +227,44 @@ public class FuncionesMenus {
         return ret;
     }
 
+    /*
+     * Interfaz
+     * Nombre: eliminarMenu (Actu) (Funciona)
+     * Comentario: Esta función nos permite eliminar un menú de la lista de menús.
+     * Cabecera: public int eliminarMenu(int id)
+     * Entrada:
+     *   -entero id
+     * Salida:
+     *   -entero validez
+     * Postcondiciones: La función devuelve un número entero asociado al nombre, 0 si se
+     * ha conseguido eliminar el menú o -1 si no se encuentre el menú en la lista de menús.
+     * */
+    public int eliminarMenu(int id){
+        int validez = -1;
+        ImplMenu menu = null;
+        FileOutputStream fos = null;
+        MyObjectOutputStream oos = null;
+
+        //Si el menú existe
+        if((menu = obtenerMenu(id)) != null){
+            validez = 0;
+            menu.setNombre("*"+menu.getNombre());
+
+            try{
+                fos = new FileOutputStream("src\\Ficheros\\MovimientosMenu.dat", true);
+                oos = new MyObjectOutputStream(fos);
+                oos.writeObject(menu);
+            }catch (IOException error1){
+                error1.printStackTrace();
+            }finally {
+                try{
+                    oos.close();
+                    fos.close();
+                }catch (IOException error){
+                    error.printStackTrace();
+                }
+            }
+        }
+        return validez;
+    }
 }

@@ -21,11 +21,14 @@ public class ConductorFuncionesMenus {
         //menuEliminado
         //System.out.println(funcion.menuEliminado(1));
 
+        //eliminarMenu
+        System.out.println(funcion.eliminarMenu(3));
+
         //buscarEnListaMenus No funciona del todo
         //System.out.println(funcion.buscarEnListaMenus(3));
 
         //buscarMovimientosMenu
-        System.out.println(funcion.buscarEnMovimientos(4));
+        System.out.println(funcion.buscarEnMovimientos(1));
 
         //obtenerMenu
         System.out.println(funcion.obtenerMenu(3));
