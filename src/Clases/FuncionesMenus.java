@@ -16,18 +16,26 @@ public class FuncionesMenus {
      * de la lista de menús.
      * */
     public void insertarMenu(ImplMenu menu){
+        MyObjectOutputStream moos = null;
         FileOutputStream fos = null;
         ObjectOutputStream oos = null;
-
+        File fichero = new File("src\\Ficheros\\MovimientosMenu.dat");
         try{
-            fos = new FileOutputStream("src\\Ficheros\\MovimientosMenu.txt", true);
-            oos = new ObjectOutputStream(fos);
-            oos.writeObject(menu);//Insertamos el nuevo producto en el almacén
+            if(!fichero.exists()) {
+                fos = new FileOutputStream(fichero);
+                oos = new ObjectOutputStream(fos);
+                oos.writeObject(menu);//Insertamos el nuevo producto en el almacén
+                oos.close();
+            }else {
+                fos = new FileOutputStream(fichero, true);
+                moos = new MyObjectOutputStream(fos);
+                moos.writeObject(menu);
+                moos.close();
+            }
         } catch(IOException error){
             error.printStackTrace();
         }finally {
-            try{
-                oos.close();
+            try {
                 fos.close();
             }catch (IOException error){
                 error.printStackTrace();
@@ -130,7 +138,7 @@ public class FuncionesMenus {
         boolean encontrado = false;
 
         try{
-            fis = new FileInputStream("src\\Ficheros\\MovimientosMenus.txt");
+            fis = new FileInputStream("src\\Ficheros\\MovimientosMenu.dat");
             ois = new ObjectInputStream(fis);
             //Mientras no sea fin de fichero y no se haya encontrado el producto.
             while ((menu = (ImplMenu) ois.readObject()) != null && !encontrado) {
@@ -138,8 +146,10 @@ public class FuncionesMenus {
                     encontrado = true;
                 }
             }
-        }catch(FileNotFoundException error1){
+        }catch(FileNotFoundException error1) {
             error1.printStackTrace();
+        }catch(EOFException error4) {
+            System.out.println("Fin del fichero");
         }catch(IOException error2){
             error2.printStackTrace();
         }catch(ClassNotFoundException error3){
@@ -154,4 +164,53 @@ public class FuncionesMenus {
         }
         return menu;
     }
+
+    /*
+     * ProductoEliminado
+     * Comentario: comprueba si un menú esta marcado como eliminado o no.
+     * Entrada: entero ID.
+     * Precondiciones: no hay.
+     * Salida: boolean ret.
+     * Postcondiciones: Asociado al nombre devuelve un boolean. True en caso que el ultimo registro con esa ID sea marcado
+     * como eliminado. False en caso contrario.
+     * Cabecera: public boolean menuEliminado(int ID)
+     * */
+    public boolean menuEliminado(int id){
+        boolean ret = false;
+        ImplMenu menu = null;
+        FileInputStream fis = null;
+        ObjectInputStream ois = null;
+
+        try{
+            fis = new FileInputStream("src\\Ficheros\\MovimientosMenu.dat");
+            ois = new ObjectInputStream(fis);
+
+            //Recorremos el fichero de movimiento.
+            while(true) {
+                menu = (ImplMenu)ois.readObject();
+                if(menu.getId() == id){
+                   if(menu.getNombre().charAt(0) == '*'){
+                       ret = true;
+                   }else{
+                       ret = false;
+                   }
+                }
+            }
+        }catch (ClassNotFoundException error1) {
+            error1.printStackTrace();
+        }catch(EOFException error){
+            return ret;
+        }catch (IOException error2){
+            error2.printStackTrace();
+        }finally{
+            try{ //Cerramos los streams
+                ois.close();
+                fis.close();
+            }catch (IOException error){
+                error.printStackTrace();
+            }
+        }
+        return ret;
+    }
+
 }

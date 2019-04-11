@@ -16,5 +16,8 @@ public class ConductorFuncionesMenus {
         //insertarMenu
         funcion.insertarMenu(menu1);
 
+        //menuEliminado
+        //funcion.menuEliminado(1);
+
     }
 }
