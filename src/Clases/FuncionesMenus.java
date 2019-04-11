@@ -151,7 +151,7 @@ public class FuncionesMenus {
             ois = new ObjectInputStream(fis);
             //Mientras no sea fin de fichero y no se haya encontrado el producto.
 
-            while ((menu = (ImplMenu) ois.readObject()) != null && !encontrado) {
+            while (!encontrado && (menu = (ImplMenu) ois.readObject()) != null) {
                 if(menu.getId() == id){
                     encontrado = true;
                 }

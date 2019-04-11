@@ -28,7 +28,7 @@ public class ConductorFuncionesMenus {
         System.out.println(funcion.buscarEnMovimientos(4));
 
         //obtenerMenu
-        System.out.println(funcion.obtenerMenu(1));
+        System.out.println(funcion.obtenerMenu(3));
 
     }
 }
