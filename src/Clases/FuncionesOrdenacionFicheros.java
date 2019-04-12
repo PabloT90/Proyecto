@@ -22,6 +22,13 @@ public class FuncionesOrdenacionFicheros {
     *   -longitud debe ser mayor que 0.
     * Postcondiciones: Se han creado dos nuevos ficheros con la información partida en secuencias de un fichero origen.
     * */
+    /**
+     * Parte los datos de un fichero en secuencias dentro de dos nuevos ficheros.
+     * @param fichero Dirección del fichero del que se va a partir la información.
+     * @param ficheroNuevo1 Dirección del primer nuevo fichero.
+     * @param ficheroNuevo2 Dirección del segundo nuevo fichero.
+     * @param longitud Longitud de la secuencia.
+     */
     public void partirFicheroEnSecuencias(String fichero, String ficheroNuevo1, String ficheroNuevo2, int longitud){
         int contadorSecuencia = 1;
         String registro = " ";
@@ -95,6 +102,13 @@ public class FuncionesOrdenacionFicheros {
     *   -longitud debe ser mayor que 0.
     * Postcondiciones: En un fichero se ha almacenado la información partida en secuencias de dos ficheros origen.
     * */
+    /**
+     * Mezcla la información de 2 ficheros en secuencias, originando un nuevo fichero con la información de ambos.
+     * @param fichero1 Dirección del primer fichero.
+     * @param fichero2 Dirección del segundo fichero.
+     * @param ficheroNuevo Dirección del nuevo fichero.
+     * @param longitud Longitud de la secuencia.
+     */
     public void mezclaFicherosEnSecuencias(String fichero1, String fichero2, String ficheroNuevo, int longitud){
         int contadorSecuencia1 = 1, contadorSecuencia2 = 1;
         String registro1 = " ", registro2 = " ";
@@ -189,6 +203,11 @@ public class FuncionesOrdenacionFicheros {
     * Postcondiciones: La función devuelve un número entero asociado al nombre,
     * que es el número de registros que almacena el fichero.
     * */
+    /**
+     * Obtiene el número de registros de un fichero.
+     * @param direccionFichero Dirección del fichero.
+     * @return Numero de registros del fichero.
+     */
     public int numeroRegistrosFichero(String direccionFichero){
         int numeroRegistros = 0;
         String registro = " ";
@@ -222,7 +241,7 @@ public class FuncionesOrdenacionFicheros {
     /*
     * Interfaz
     * Nombre: mezclaDirecta
-    * Comentario: Esta función permite ordenar de manera ascendente un fichero que almacena números enteros.
+    * Comentario: Esta función permite ordenar de manera ascendente un fichero que almacena objetos ImplStockProducto.
     * Cabecera: public void mezclaDirecta(String direccionFichero)
     * Entrada:
     *   -Cadena direccionFichero //Es la dirección(Path) del fichero.
@@ -232,6 +251,10 @@ public class FuncionesOrdenacionFicheros {
     * Postcondiciones: Se han ordenado los registros del fichero en orden ascendente, según el valor de los enteros
     * que almacena.
     * */
+    /**
+     * Ordena de manera ascendente un fichero que almacena números enteros.
+     * @param direccionFichero Dirección del fichero.
+     */
     public void mezclaDirecta(String direccionFichero){
         int numeroRegistros = numeroRegistrosFichero(direccionFichero);
 
@@ -262,6 +285,13 @@ public class FuncionesOrdenacionFicheros {
      *   -longitud debe ser mayor que 0.
      * Postcondiciones: En un fichero se ha almacenado la información partida en secuencias de dos ficheros origen.
      * */
+    /**
+     * Mezcla la información de 2 ficheros en secuencias, originando un nuevo fichero con la información de ambos.
+     * @param fichero1 Path del primer fichero.
+     * @param fichero2 Path del segundo fichero.
+     * @param ficheroNuevo Path del nuevo fichero.
+     * @param longitud Longitud de la secuencia.
+     */
     public void mezclaFicherosEnSecuencias2(String fichero1, String fichero2, String ficheroNuevo, int longitud){
         int contadorSecuencia1 = 1, contadorSecuencia2 = 1, saltoExcepcion = 1;
         FileInputStream fis1 = null, fis2 = null;
@@ -372,6 +402,13 @@ public class FuncionesOrdenacionFicheros {
      *   -longitud debe ser mayor que 0.
      * Postcondiciones: Se han creado dos nuevos ficheros con la información partida en secuencias de un fichero origen.
      * */
+    /**
+     * Parte los datos de un fichero en secuencias dentro de 2 ficheros recibidos como parámetros.
+     * @param fichero Path del fichero a partir.
+     * @param ficheroNuevo1 Path del primer fichero.
+     * @param ficheroNuevo2 Path del segundo fichero.
+     * @param longitud Longitud de la secuencia.
+     */
     public void partirFicheroEnSecuencias2(String fichero, String ficheroNuevo1, String ficheroNuevo2, int longitud) {
         int contadorSecuencia = 1;
         ImplMenu menu = null;
@@ -427,7 +464,7 @@ public class FuncionesOrdenacionFicheros {
     /*
      * Interfaz
      * Nombre: mezclaDirecta (Pablo modifica la interfaz)
-     * Comentario: Esta función permite ordenar de manera ascendente un fichero que almacena números enteros.
+     * Comentario: Esta función permite ordenar de manera ascendente un fichero que almacena objetos ImplMenu.
      * Cabecera: public void mezclaDirecta(String direccionFichero)
      * Entrada:
      *   -Cadena direccionFichero //Es la dirección(Path) del fichero.
@@ -437,6 +474,10 @@ public class FuncionesOrdenacionFicheros {
      * Postcondiciones: Se han ordenado los registros del fichero en orden ascendente, según el valor de los enteros
      * que almacena.
      * */
+    /**
+     * Ordena de manera ascendente un fichero que almacena números enteros.
+     * @param direccionFichero
+     */
     public void mezclaDirecta2(String direccionFichero){
         int numeroRegistros = numeroRegistrosFichero2(direccionFichero);
 
@@ -464,6 +505,11 @@ public class FuncionesOrdenacionFicheros {
      * Postcondiciones: La función devuelve un número entero asociado al nombre,
      * que es el número de registros que almacena el fichero.
      * */
+    /**
+     * Obtiene el número de registros de un fichero.
+     * @param direccionFichero Path del fichero.
+     * @return Número de registros del fichero.
+     */
     public int numeroRegistrosFichero2(String direccionFichero) {
         int numeroRegistros = 0;
         //ImplMenu menu = null;

@@ -164,6 +164,11 @@ public class FuncionesProductos {
      * se ha encontrado un producto con la misma id en el fichero de movimientos, en caso
      * contrario la función devuelve null.
      * */
+    /**
+     * Busca un producto en el archivo de movimientos que coincida con la ID recibida.
+     * @param id ID que queremos buscar.
+     * @return Null en caso de no encontrarlo. ImplProducto en caso contrario.
+     */
     public ImplStockProducto buscarEnMovimientos(int id){
         ImplStockProducto producto = null;
         int stock = 0;
@@ -407,6 +412,11 @@ public class FuncionesProductos {
     * como eliminado. False en caso contrario.
     * Cabecera: public boolean productoEliminado(int ID)
     * */
+    /**
+     * Comprueba si un producto está marcado como eliminado o no.
+     * @param ID ID del producto a comprobar.
+     * @return True en caso de estar eliminado. False en caso contrario.
+     */
     public boolean productoEliminado(int ID){
         boolean ret = false;
 
@@ -458,6 +468,11 @@ public class FuncionesProductos {
     * Postcondiciones: La función devuelve un número entero asociado al nombre, 0 si se
     * ha conseguido eliminar el producto o -1 si no se encuentre el producto en el almacén.
     * */
+    /**
+     * Elimina un producto del almacén.
+     * @param id ID del producto a eliminar.
+     * @return 0 si se ha eliminado. -1 si no se ha podido eliminar.
+     */
     public int eliminarProducto(int id){
         int validez = -1;
         ImplStockProducto producto = null;
@@ -619,6 +634,10 @@ public class FuncionesProductos {
      * Postcondiciones: Nada, solo se muestra por pantalla los productos de un tipo
      * determinado del almacén.
      * */
+    /**
+     * Muestra los productos de un tipo determinado.
+     * @param tipo Tipo del que queremos hacer una busqueda.
+     */
     public void mostrarProductosPorTipo(EnumTipo tipo){
         ImplStockProducto producto = null;
         FileReader fr1 = null;
@@ -727,6 +746,12 @@ public class FuncionesProductos {
      * ha conseguido incrementar el stock del producto o -1 si no se ha encontrado el
      * producto en el almacén.
      * */
+    /**
+     * Incrementa el stock de un producto.
+     * @param idProducto ID del producto a incrementar.
+     * @param incremento Unidades a sumar.
+     * @return 0 si se ha conseguido incrementar. -1 en caso contrario.
+     */
     public int incrementarStock(int idProducto, int incremento){
         int validez = -1;
         ImplStockProducto producto = null;
@@ -755,6 +780,14 @@ public class FuncionesProductos {
      * ha conseguido decrementar el stock del producto, -1 si no se ha encontrado el
      * producto en el almacén o -2 si decremento es mayor que el stock actual del producto.
      * */
+    /**
+     * Decrementa el stock de un producto.
+     * @param idProducto ID del producto a decrementar.
+     * @param decremento Numero de unidades a restar.
+     * @return 0 si se ha conseguido decrementar.
+     *        -1 si no se ha encontrado el producto.
+     *        -2 si el decremento en mayor que el stock actual del producto.
+     */
     public int decrementarStock(int idProducto, int decremento){
         int validez = -1;
         ImplStockProducto producto = null;
@@ -784,6 +817,11 @@ public class FuncionesProductos {
     * Postcondiciones: La función devuelve un valor booleano asociado al nombre, verdadero
     * si en el almacén existen productos de ese tipo determinado o -1 en caso contrario.
     * */
+    /**
+     * Permite conocer ei en el almacén existen productos de un tipo determinado.
+     * @param tipo Tipo del que queremos saber si existen productos.
+     * @return True en caso de que existan. False en caso contrario.
+     */
     public boolean existenProductos(EnumTipo tipo){
         boolean resultado = false;
         ImplStockProducto producto = null;
@@ -893,6 +931,10 @@ public class FuncionesProductos {
     * Postcondiciones: La función devuelve un valor booleano asociado al nombre, verdadero
     * si el almacén se encuentra vacío o falso en caso contrario.
     * */
+    /**
+     * Permite saber si el almacén está vacío o no.
+     * @return True en caso de estar vacio. False en caso contrario.
+     */
     public boolean almacenVacio(){
         boolean vacio = true;
         ImplStockProducto producto = null;

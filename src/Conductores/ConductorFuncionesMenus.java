@@ -14,7 +14,7 @@ public class ConductorFuncionesMenus {
         ImplMenu menu1 = new ImplMenu(19, "ParaPa", "El 19.", productos, 3.5);
         ImplMenu menu2 = new ImplMenu(4, "Nononono", "El 4.", productos, 9.5);
         ImplMenu menu3 = new ImplMenu(23, "*Nueeevo", "El 23.", productos, 9.5);
-        ImplMenu menu4 = new ImplMenu(4, "Nononono", "El 4.", productos, 9.5);
+        ImplMenu menu4 = new ImplMenu(4, "Pato", "El 4.", productos, 9.5);
         ImplMenu menu5 = new ImplMenu(22, "Nueevo", "El 22.", productos, 9.5);
 
         //insertarMenu
@@ -42,7 +42,7 @@ public class ConductorFuncionesMenus {
         //sincronizarListaMenus
         //funcion.sincronizarListaMenus();
 
-        //mostrarListaMenus
+        //mostrarListaMenus (funciona)
         funcion.mostrarListaMenus();
 
     }

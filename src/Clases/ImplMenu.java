@@ -42,8 +42,8 @@
 package Clases;
 
 import Interfaces.Menu;
-
 import java.io.Serializable;
+import java.util.Arrays;
 
 public class ImplMenu implements Menu, Cloneable, Comparable<ImplMenu>, Serializable {
     private int id;
@@ -229,7 +229,7 @@ public class ImplMenu implements Menu, Cloneable, Comparable<ImplMenu>, Serializ
 	 */
     @Override
     public String toString(){
-        return getId()+","+getNombre()+","+getDescripcion()+","+getPrecio();
+        return getId()+","+getNombre()+","+getDescripcion()+","+ Arrays.toString(getProductos()) +","+getPrecio();
     }
 
     //toStringBonito
@@ -237,7 +237,7 @@ public class ImplMenu implements Menu, Cloneable, Comparable<ImplMenu>, Serializ
      * Es un toString que muestra los datos de manera mas legible para el usuario.
      */
     public String toStringBonito(){
-        return "ID: "+getId()+"  |Nombre: "+getNombre()+"  |Descripcion: "+getDescripcion()+"  |Precio:"+getPrecio();
+        return "ID: "+getId()+"  |Nombre: "+getNombre()+"  |Descripcion: "+getDescripcion()+"  |Productos: "+Arrays.toString(getProductos())+"  |Precio:"+getPrecio();
     }
 
     /**
