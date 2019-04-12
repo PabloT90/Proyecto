@@ -1,6 +1,7 @@
 package Clases;
 
 import Enums.EnumTipo;
+import com.sun.istack.internal.Pool;
 
 import java.io.*;
 
@@ -276,106 +277,114 @@ public class FuncionesMenus {
     * Cabecera: public void sincronizarListaMenus()
     * Postcondiciones: La función sincroniza los ficheros de menús en uno solo.
     * */
-    /*public void sincronizarListaMenus(){
-        ImplMenu menu = null;
+    public void sincronizarListaMenus() {
+        ImplMenu menu1 = null, menu2 = null;
         FileInputStream fis1 = null, fis2 = null;
         ObjectInputStream ois1 = null, ois2 = null;
         FileOutputStream fos = null;
         ObjectOutputStream oos = null;
-        int idActual = 0;
+        int idActual = 0, saltoExcepcion = 0;
         FuncionesOrdenacionFicheros ordenacion = new FuncionesOrdenacionFicheros();
-        ordenacion.mezclaDirecta("src\\Ficheros\\Movimientos.txt");
+        ordenacion.mezclaDirecta2("src\\Ficheros\\MovimientosMenu.dat");
 
-        try{
-            fr1 = new FileReader(ficheroMaestro);
-            br1 = new BufferedReader(fr1);
-            fr2 = new FileReader(ficheroMovimiento);
-            br2 = new BufferedReader(fr2);
-            fw = new FileWriter(ficheroMaestroActualizado);
-            bw = new BufferedWriter(fw);
+        try {
+            fos = new FileOutputStream("src\\Ficheros\\MaestroActualizado.dat");
+            oos = new ObjectOutputStream(fos);
+            fis2 = new FileInputStream("src\\Ficheros\\MovimientosMenu.dat");
+            ois2 = new ObjectInputStream(fis2);
+            fis1 = new FileInputStream("src\\Ficheros\\ListaMenus.dat");
+            ois1 = new ObjectInputStream(fis1);//Si el fichero se encuentra vacío directamente nos salta la excepción
 
-            registro1 = br1.readLine();
-            registro2 = br2.readLine();
-            while(registro1 != null && registro2 != null){//Mientras no haya ningún fin de fichero
-                separador1 = registro1.split(",");
-                separador2 = registro2.split(",");
-                if(Integer.parseInt(separador1[0]) < Integer.parseInt(separador2[0])){
-                    bw.write(registro1);
-                    bw.newLine();
-                    bw.flush();
-                    registro1 = br1.readLine();
-                }else{
-                    if(Integer.parseInt(separador1[0]) > Integer.parseInt(separador2[0])){
+            menu1 = (ImplMenu) ois1.readObject();
+            saltoExcepcion = 2;
+            menu2 = (ImplMenu) ois2.readObject();
+            while (true) {//Mientras no haya ningún fin de fichero
+                if (menu1.getId() < menu2.getId()) {
+                    oos.writeObject(menu1);
+                    saltoExcepcion = 1;
+                    menu1 = (ImplMenu) ois1.readObject();
+                } else {
+                    if (menu1.getId() > menu2.getId()) {
                         //Si el producto no sufre una posterior eliminación
-                        if((producto = obtenerProductoAlmacen(Integer.parseInt(separador2[0]))) != null) {
-                            bw.write(producto.toString());//Almacenamos el último movimiento del producto
-                            bw.newLine();
-                            bw.flush();
+                        if ((menu2 = obtenerMenu(menu2.getId())) != null) {
+                            oos.writeObject(menu2);
                         }
-                        idActual =  Integer.parseInt(separador2[0]);//Almacemos la id del producto actual
-                        do{
-                            registro2 = br2.readLine();
-                            if(registro2 != null){
-                                separador2 = registro2.split(",");
-                            }
-                        }while(registro2 != null && Integer.parseInt(separador2[0]) == idActual);
-                    }else{
+                        saltoExcepcion = 2;
+                        idActual = menu2.getId();//Almacemos la id del producto actual
+                        do {
+                            menu2 = (ImplMenu) ois2.readObject();
+                        } while (menu2.getId() == idActual);//Mientras sea un registro con el mismo id
+                    } else {
                         //Buscamos el movimiento más reciente del producto
-                        //Si el último movimiento no es una eliminación y es vegano.
-                        if((producto = buscarEnMovimientos(Integer.parseInt(separador2[0]))) != null){
-                            bw.write(producto.toString());
-                            bw.newLine();
-                            bw.flush();
+                        //Si el último movimiento no es una eliminación.
+                        if ((menu2 = buscarEnMovimientos(menu2.getId())) != null) {
+                            oos.writeObject(menu2);
                         }
-                        idActual = Integer.parseInt(separador2[0]);//Almacemos la id del producto actual
-                        do{
-                            registro2 = br2.readLine();
-                            if(registro2 != null){
-                                separador2 = registro2.split(",");
-                            }
-                        }while(registro2 != null && Integer.parseInt(separador2[0]) == idActual);
-                        registro1 = br1.readLine();
+                        saltoExcepcion = 2;
+                        idActual = menu2.getId();//Almacemos la id del producto actual
+                        do {
+                            menu2 = (ImplMenu) ois2.readObject();
+                        } while (menu2.getId() == idActual);//Mientras sea un registro con el mismo id
+                        saltoExcepcion = 1;
+                        menu1 = (ImplMenu) ois1.readObject();
                     }
                 }
             }
-
-            while(registro1 != null){
-                bw.write(registro1);
-                bw.newLine();
-                bw.flush();
-                registro1 = br1.readLine();
-            }
-
-            while(registro2 != null){
-                separador2 = registro2.split(",");
-                if((producto = obtenerProductoAlmacen(Integer.parseInt(separador2[0]))) != null) {
-                    bw.write(producto.toString());//Almacenamos el último movimiento del producto
-                    bw.newLine();
-                    bw.flush();
-                }
-                idActual =  Integer.parseInt(separador2[0]);//Almacemos la id del producto actual
-                do{
-                    registro2 = br2.readLine();
-                    if(registro2 != null){
-                        separador2 = registro2.split(",");
-                    }
-                }while(registro2 != null && Integer.parseInt(separador2[0]) == idActual);
-            }
-            br1.close();//Cerramos los streams
-            fr1.close();
-            br2.close();
-            fr2.close();
-            fw.close();
-            bw.close();
-
-            //Eliminamos los ficheros del maestro y el de movimientos
-            ficheroMaestro.delete();
-            ficheroMovimiento.delete();
-            ficheroMaestroActualizado.renameTo(aux = new File ("src\\Ficheros\\AlmacenProductos.txt"));
-        }catch (FileNotFoundException error1){
+        } catch (FileNotFoundException error1) {
             error1.printStackTrace();
+        }catch (EOFException error){
+            try{
+                if(saltoExcepcion == 0){//Si la lista de menús estaba vacía
+                    if ((menu2 = buscarEnMovimientos(menu2.getId())) != null) {
+                        oos.writeObject(menu2);
+                    }
+                    idActual = menu2.getId();//Almacemos la id del producto actual
+                    do {
+                        menu2 = (ImplMenu) ois2.readObject();
+                    } while (menu2.getId() == idActual);//Mientras sea un registro con el mismo id
+                }else{
+                    if(saltoExcepcion == 1){
+                        if ((menu2 = buscarEnMovimientos(menu2.getId())) != null) {
+                            oos.writeObject(menu2);
+                        }
+                        idActual = menu2.getId();//Almacemos la id del producto actual
+                        do {
+                            menu2 = (ImplMenu) ois2.readObject();
+                        } while (menu2.getId() == idActual);//Mientras sea un registro con el mismo id
+                    }else{
+                        while(true){
+                            oos.writeObject(menu1);
+                            menu1 = (ImplMenu) ois1.readObject();
+                        }
+                    }
+                }
+            }catch (FileNotFoundException error1) {
+                error1.printStackTrace();
+            }catch (EOFException error4){
+            }catch (IOException error2){
+                error2.printStackTrace();
+            }catch (ClassNotFoundException error3){
+                error3.printStackTrace();
+            }
         }catch (IOException error2){
             error2.printStackTrace();
+        }catch (ClassNotFoundException error3){
+            error3.printStackTrace();
+        }finally {
+            //try{
+                //ois1.close();
+               // fis1.close();
+               // ois2.close();
+                //fis2.close();
+               // oos.close();
+               // fos.close();
+          //  }catch (IOException error){
+              //  error.printStackTrace();
+            //}
         }
-    }*/
+        //Eliminamos los ficheros del maestro y el de movimientos
+        //ficheroMaestro.delete();
+        //ficheroMovimiento.delete();
+        //ficheroMaestroActualizado.renameTo(aux = new File ("src\\Ficheros\\AlmacenProductos.txt"));
+    }
 }
