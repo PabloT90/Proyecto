@@ -1,8 +1,6 @@
 package Clases;
 
 import Enums.EnumTipo;
-import com.sun.istack.internal.Pool;
-
 import java.io.*;
 
 public class FuncionesMenus {
@@ -394,5 +392,81 @@ public class FuncionesMenus {
         maestro.delete();
         movimientos.delete();
         maestroActualizado.renameTo(aux = new File ("src\\Ficheros\\ListaMenus.dat"));
+    }
+
+    /*
+     * Permite conocer si el fichero de movimiento esta vacío, no existe o si tiene algún registro.
+     * Cabecera: public int ficheroMovimientoVacio()
+     * Salida: entero ret.
+     * Postcondiciones: Asociado al nombre devuelve 0 si estí vacío, -1 si tiene algún registro o -2 si no existe.
+     * */
+    public int ficheroMovimientoVacio(){
+        int ret = -1;
+        FileInputStream fis = null;
+        ObjectInputStream ois = null;
+        File fichero = new File("src\\Ficheros\\MovimientosMenu.dat");
+        FileOutputStream fos = null;
+        if(!fichero.exists()){
+            ret = -2;
+        }else{
+            try {
+                fis = new FileInputStream(fichero);
+                ois = new ObjectInputStream(fis);
+            }catch(FileNotFoundException error1) {
+                error1.printStackTrace();
+            }catch(EOFException error2){
+                ret = 0;
+            }catch(IOException error){
+                error.printStackTrace();
+            }finally{
+                try {
+                    if(ret != 0) {
+                        ois.close();
+                    }
+                    fis.close();
+                }catch(IOException error4){
+                    error4.printStackTrace();
+                }
+            }
+        }
+        return ret;
+    }
+
+    /*
+     * Permite conocer si el fichero maestro está vacío, no existe o si tiene algún registro.
+     * Cabecera: public int ficheroMaestroVacio()
+     * Salida: entero ret.
+     * Postcondiciones: Asociado al nombre devuelve 0 si está vacío, -1 si tiene algún registro o -2 si no existe.
+     * */
+    public int ficheroMaestroVacio(){
+        int ret = -1;
+        FileInputStream fis = null;
+        ObjectInputStream ois = null;
+        File fichero = new File("src\\Ficheros\\Maestro.dat");
+        FileOutputStream fos = null;
+        if(!fichero.exists()){
+            ret = -2;
+        }else{
+            try {
+                fis = new FileInputStream(fichero);
+                ois = new ObjectInputStream(fis);
+            }catch(FileNotFoundException error1) {
+                error1.printStackTrace();
+            }catch(EOFException error2){
+                ret = 0;
+            }catch(IOException error){
+                error.printStackTrace();
+            }finally{
+                try {
+                    if(ret != 0) {
+                        ois.close();
+                    }
+                    fis.close();
+                }catch(IOException error4){
+                    error4.printStackTrace();
+                }
+            }
+        }
+        return ret;
     }
 }
