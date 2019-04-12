@@ -377,16 +377,20 @@ public class FuncionesMenus {
         }catch (ClassNotFoundException error3){
             error3.printStackTrace();
         }finally {
-            //try{
-                //ois1.close();
-               // fis1.close();
-               // ois2.close();
-                //fis2.close();
-               // oos.close();
-               // fos.close();
-          //  }catch (IOException error){
-              //  error.printStackTrace();
-            //}
+            try{
+                if(ficheroVacio("src\\Ficheros\\ListaMenus.dat") == -1){
+                    ois1.close();
+                }
+                fis1.close();
+                if(ficheroVacio("src\\Ficheros\\MovimientosMenu.dat") == -1){
+                    ois2.close();
+                }
+                fis2.close();
+                oos.close();
+                fos.close();
+            }catch (IOException error){
+                error.printStackTrace();
+            }
         }
         //Eliminamos los ficheros del maestro y el de movimientos
         maestro.delete();
