@@ -268,7 +268,7 @@ public class FuncionesOrdenacionFicheros {
         ObjectInputStream ois1 = null, ois2 = null;
         FileOutputStream fos = null;
         ObjectOutputStream oos = null;
-        MyObjectOutputStream moos = null;
+        //MyObjectOutputStream moos = null;
         ImplMenu menu1 = null, menu2 = null;
 
         try{
@@ -299,15 +299,15 @@ public class FuncionesOrdenacionFicheros {
                 }
                 //Almacenamos los registros de secuencias restantes
                 for(;contadorSecuencia1 <= longitud; contadorSecuencia1++){
+                    oos.writeObject(menu1);
                     saltoExcepcion = 1;
                     menu1 = (ImplMenu) ois1.readObject();
-                    oos.writeObject(menu1);
                 }
 
                 for(;contadorSecuencia2 <= longitud; contadorSecuencia2++){
+                    oos.writeObject(menu2);
                     saltoExcepcion = 2;
                     menu2 = (ImplMenu) ois2.readObject();
-                    oos.writeObject(menu2);
                 }
 
                 //Actualizamos los contadores de secuencia
@@ -317,6 +317,26 @@ public class FuncionesOrdenacionFicheros {
         }catch(ClassNotFoundException error1) {
             error1.printStackTrace();
         }catch (EOFException error){
+            try{
+                if(saltoExcepcion == 1){
+                    while(true){
+                        oos.writeObject(menu2);
+                        menu2 = (ImplMenu) ois2.readObject();
+                    }
+                }else{
+                    while(true){
+                        oos.writeObject(menu1);
+                        menu1 = (ImplMenu) ois1.readObject();
+                    }
+                }
+            }catch (FileNotFoundException error1) {
+                error1.printStackTrace();
+            }catch (EOFException error4){
+            }catch (IOException error2){
+                error2.printStackTrace();
+            }catch (ClassNotFoundException error3){
+                error3.printStackTrace();
+            }
         }catch(IOException error2){
             error2.printStackTrace();
         }finally {
@@ -329,38 +349,6 @@ public class FuncionesOrdenacionFicheros {
                 fos.close();
             }catch(IOException error1){
                 error1.printStackTrace();
-            }
-        }
-
-        try{
-            fos = new FileOutputStream(ficheroNuevo, true);
-            moos = new MyObjectOutputStream(fos);
-
-            if(saltoExcepcion == 1){
-                fis1 = new FileInputStream(fichero2);
-            }else{
-                fis1 = new FileInputStream(fichero1);
-            }
-            ois1 = new ObjectInputStream(fis1);
-
-            while(true){
-                menu1 = (ImplMenu) ois1.readObject();
-                moos.writeObject(menu1);
-            }
-        }catch (FileNotFoundException error1) {
-            error1.printStackTrace();
-        }catch (EOFException error){
-        }catch (IOException error2){
-            error2.printStackTrace();
-        }catch (ClassNotFoundException error3){
-            error3.printStackTrace();
-        }finally {
-            try{
-                moos.close();
-                oos.close();
-                ois1.close();
-            }catch (IOException error){
-                error.printStackTrace();
             }
         }
     }

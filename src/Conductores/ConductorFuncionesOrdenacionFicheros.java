@@ -30,19 +30,19 @@ public class ConductorFuncionesOrdenacionFicheros {
         System.out.println("Menus");
         FuncionesMenus funciones = new FuncionesMenus();
         int[] productos = {66, 69};
-        ImplMenu menu1 = new ImplMenu(1, "trabajo", "El primero", productos, 3.5);
-        ImplMenu menu2 = new ImplMenu(2, "trabajo", "El segundo", productos, 3.5);
-        ImplMenu menu3 = new ImplMenu(3, "trabajo", "El tercero.", productos, 3.5);
-        ImplMenu menu4 = new ImplMenu(4, "trabajo", "El cuarto.", productos, 3.5);
-        ImplMenu menu5 = new ImplMenu(5, "trabajo", "El quinto.", productos, 3.5);
+        ImplMenu menu1 = new ImplMenu(16, "trabajo", "El 16", productos, 3.5);
+        ImplMenu menu2 = new ImplMenu(18, "trabajo", "El 18", productos, 3.5);
+        ImplMenu menu3 = new ImplMenu(6, "trabajo", "El 6.", productos, 3.5);
+        ImplMenu menu4 = new ImplMenu(74, "trabajo", "El 74.", productos, 3.5);
+        ImplMenu menu5 = new ImplMenu(14, "trabajo", "El 14.", productos, 3.5);
         try {
             FileOutputStream fos = new FileOutputStream("src\\OrdenacionFicheros\\Principal.dat");
             ObjectOutputStream oos =  new ObjectOutputStream(fos);
-            oos.writeObject(menu5);
-            oos.writeObject(menu4);
             oos.writeObject(menu1);
             oos.writeObject(menu2);
             oos.writeObject(menu3);
+            oos.writeObject(menu4);
+            oos.writeObject(menu5);
             oos.close();
             fos.close();
         }catch(FileNotFoundException error){
@@ -53,20 +53,20 @@ public class ConductorFuncionesOrdenacionFicheros {
         }
 
         //partirFicheroEnSecuencias
-        funcion.partirFicheroEnSecuencias2("src\\OrdenacionFicheros\\Principal.dat",
+        /*funcion.partirFicheroEnSecuencias2("src\\OrdenacionFicheros\\Principal.dat",
                 "src\\OrdenacionFicheros\\Fichero1.dat",
-                "src\\OrdenacionFicheros\\Fichero2.dat", 1);
+                "src\\OrdenacionFicheros\\Fichero2.dat", 1);*/
 
         //MezclaFicherosEnSecuencias
-        funcion.mezclaFicherosEnSecuencias2("src\\OrdenacionFicheros\\Fichero1.dat",
+        /*funcion.mezclaFicherosEnSecuencias2("src\\OrdenacionFicheros\\Fichero1.dat",
                 "src\\OrdenacionFicheros\\Fichero2.dat",
-                "src\\OrdenacionFicheros\\Principal.dat", 1);
+                "src\\OrdenacionFicheros\\Principal.dat", 1);*/
 
         //NumeroRegistrosFichero (funciona)
         //System.out.println(funcion.numeroRegistrosFichero2("src\\OrdenacionFicheros\\Principal.dat"));
         //System.out.println(funcion.numeroRegistrosFichero2("src\\OrdenacionFicheros\\Fichero2.dat"));
 
-        //funcion.mezclaDirecta2("src\\OrdenacionFicheros\\Principal.dat");
+        funcion.mezclaDirecta2("src\\OrdenacionFicheros\\Principal.dat");
 
     }
 }
