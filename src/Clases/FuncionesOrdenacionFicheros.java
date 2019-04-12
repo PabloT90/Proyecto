@@ -340,10 +340,10 @@ public class FuncionesOrdenacionFicheros {
             moos = new MyObjectOutputStream(fos);
 
             if(saltoExcepcion == 1){
-                fis1 = new FileInputStream(fichero1);
+                fis1 = new FileInputStream(fichero2);
                 ois1 = new ObjectInputStream(fis1);
             }else{
-                fis1 = new FileInputStream(fichero2);
+                fis1 = new FileInputStream(fichero1);
                 ois1 = new ObjectInputStream(fis1);
             }
 
