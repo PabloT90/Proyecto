@@ -299,15 +299,15 @@ public class FuncionesOrdenacionFicheros {
                 }
                 //Almacenamos los registros de secuencias restantes
                 for(;contadorSecuencia1 <= longitud; contadorSecuencia1++){
-                    oos.writeObject(menu1);
                     saltoExcepcion = 1;
                     menu1 = (ImplMenu) ois1.readObject();
+                    oos.writeObject(menu1);
                 }
 
                 for(;contadorSecuencia2 <= longitud; contadorSecuencia2++){
-                    oos.writeObject(menu2);
                     saltoExcepcion = 2;
                     menu2 = (ImplMenu) ois2.readObject();
+                    oos.writeObject(menu2);
                 }
 
                 //Actualizamos los contadores de secuencia

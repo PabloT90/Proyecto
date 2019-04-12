@@ -25,7 +25,8 @@ public class ConductorFuncionesOrdenacionFicheros {
         //System.out.println(funcion.numeroRegistrosFichero("src\\OrdenacionFicheros\\Fichero2.txt"));
 
         //mezclaDirecta (funciona)
-        funcion.mezclaDirecta("src\\OrdenacionFicheros\\Principal.txt");
+        //funcion.mezclaDirecta("src\\OrdenacionFicheros\\Principal.txt");
+
         System.out.println("Menus");
         FuncionesMenus funciones = new FuncionesMenus();
         int[] productos = {66, 69};
@@ -51,20 +52,21 @@ public class ConductorFuncionesOrdenacionFicheros {
             error3.printStackTrace();
         }
 
-        //MezclaFicherosEnSecuencias
-        /*funcion.mezclaFicherosEnSecuencias("src\\OrdenacionFicheros\\Principal.dat",
+        //partirFicheroEnSecuencias
+        funcion.partirFicheroEnSecuencias2("src\\OrdenacionFicheros\\Principal.dat",
                 "src\\OrdenacionFicheros\\Fichero1.dat",
-                "src\\OrdenacionFicheros\\Fichero2.dat", 3);*/
+                "src\\OrdenacionFicheros\\Fichero2.dat", 1);
 
-        funcion.partirFicheroEnSecuencias("src\\OrdenacionFicheros\\Principal.dat",
-                "src\\OrdenacionFicheros\\Fichero1.dat",
-                "src\\OrdenacionFicheros\\Fichero2.dat", 3);
+        //MezclaFicherosEnSecuencias
+        funcion.mezclaFicherosEnSecuencias2("src\\OrdenacionFicheros\\Fichero1.dat",
+                "src\\OrdenacionFicheros\\Fichero2.dat",
+                "src\\OrdenacionFicheros\\Principal.dat", 1);
 
         //NumeroRegistrosFichero (funciona)
-        //System.out.println(funcion.numeroRegistrosFichero("src\\OrdenacionFicheros\\Principal.dat"));
-        //System.out.println(funcion.numeroRegistrosFichero("src\\OrdenacionFicheros\\Fichero2.dat"));
+        //System.out.println(funcion.numeroRegistrosFichero2("src\\OrdenacionFicheros\\Principal.dat"));
+        //System.out.println(funcion.numeroRegistrosFichero2("src\\OrdenacionFicheros\\Fichero2.dat"));
 
-        //funcion.mezclaDirecta("src\\OrdenacionFicheros\\Principal.dat");
+        //funcion.mezclaDirecta2("src\\OrdenacionFicheros\\Principal.dat");
 
     }
 }
