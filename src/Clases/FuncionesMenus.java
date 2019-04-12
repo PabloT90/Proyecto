@@ -283,16 +283,19 @@ public class FuncionesMenus {
         ObjectInputStream ois1 = null, ois2 = null;
         FileOutputStream fos = null;
         ObjectOutputStream oos = null;
+        File movimientos = new File("src\\Ficheros\\MovimientosMenu.dat");
+        File maestroActualizado = new File("src\\Ficheros\\MaestroActualizado.dat");
+        File maestro = new File("src\\Ficheros\\ListaMenus.dat"), aux = null;
         int idActual = 0, saltoExcepcion = 0;
         FuncionesOrdenacionFicheros ordenacion = new FuncionesOrdenacionFicheros();
         ordenacion.mezclaDirecta2("src\\Ficheros\\MovimientosMenu.dat");
 
         try {
-            fos = new FileOutputStream("src\\Ficheros\\MaestroActualizado.dat");
+            fos = new FileOutputStream(maestroActualizado);
             oos = new ObjectOutputStream(fos);
-            fis2 = new FileInputStream("src\\Ficheros\\MovimientosMenu.dat");
+            fis2 = new FileInputStream(movimientos);
             ois2 = new ObjectInputStream(fis2);
-            fis1 = new FileInputStream("src\\Ficheros\\ListaMenus.dat");
+            fis1 = new FileInputStream(maestro);
             ois1 = new ObjectInputStream(fis1);//Si el fichero se encuentra vacío directamente nos salta la excepción
 
             menu1 = (ImplMenu) ois1.readObject();
@@ -335,15 +338,8 @@ public class FuncionesMenus {
         }catch (EOFException error){
             try{
                 if(saltoExcepcion == 0){//Si la lista de menús estaba vacía
-                    if ((menu2 = buscarEnMovimientos(menu2.getId())) != null) {
-                        oos.writeObject(menu2);
-                    }
-                    idActual = menu2.getId();//Almacemos la id del producto actual
-                    do {
-                        menu2 = (ImplMenu) ois2.readObject();
-                    } while (menu2.getId() == idActual);//Mientras sea un registro con el mismo id
-                }else{
-                    if(saltoExcepcion == 1){
+                    menu2 = (ImplMenu) ois2.readObject();
+                    while (true) {
                         if ((menu2 = buscarEnMovimientos(menu2.getId())) != null) {
                             oos.writeObject(menu2);
                         }
@@ -351,6 +347,18 @@ public class FuncionesMenus {
                         do {
                             menu2 = (ImplMenu) ois2.readObject();
                         } while (menu2.getId() == idActual);//Mientras sea un registro con el mismo id
+                    }
+                }else{
+                    if(saltoExcepcion == 1){
+                        while(true) {
+                            if ((menu2 = buscarEnMovimientos(menu2.getId())) != null) {
+                                oos.writeObject(menu2);
+                            }
+                            idActual = menu2.getId();//Almacemos la id del producto actual
+                            do {
+                                menu2 = (ImplMenu) ois2.readObject();
+                            } while (menu2.getId() == idActual);//Mientras sea un registro con el mismo id
+                        }
                     }else{
                         while(true){
                             oos.writeObject(menu1);
@@ -383,8 +391,8 @@ public class FuncionesMenus {
             //}
         }
         //Eliminamos los ficheros del maestro y el de movimientos
-        //ficheroMaestro.delete();
-        //ficheroMovimiento.delete();
-        //ficheroMaestroActualizado.renameTo(aux = new File ("src\\Ficheros\\AlmacenProductos.txt"));
+        maestro.delete();
+        movimientos.delete();
+        maestroActualizado.renameTo(aux = new File ("src\\Ficheros\\ListaMenus.dat"));
     }
 }

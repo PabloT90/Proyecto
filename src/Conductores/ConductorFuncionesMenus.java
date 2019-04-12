@@ -11,11 +11,11 @@ public class ConductorFuncionesMenus {
         ImplProducto producto1 = new ImplProducto(1, EnumTipo.BEBIDA, 1.50, "CocaCola","Bebida refrescante", true);
         ImplProducto producto2 = new ImplProducto(1, EnumTipo.BEBIDA, 1, "Pepsi","Bebida refrescante", true);
         int[] productos = {66, 69};
-        ImplMenu menu1 = new ImplMenu(1, "ParaPa", "El 1.", productos, 3.5);
+        ImplMenu menu1 = new ImplMenu(19, "ParaPa", "El 1.", productos, 3.5);
         ImplMenu menu2 = new ImplMenu(4, "Nononono", "El 4.", productos, 9.5);
-        ImplMenu menu3 = new ImplMenu(23, "Nueeevo", "El 23.", productos, 9.5);
+        ImplMenu menu3 = new ImplMenu(23, "*Nueeevo", "El 23.", productos, 9.5);
         ImplMenu menu4 = new ImplMenu(4, "Nononono", "El 4.", productos, 9.5);
-        ImplMenu menu5 = new ImplMenu(22, "Nononono", "El 22.", productos, 9.5);
+        ImplMenu menu5 = new ImplMenu(22, "Nueevo", "El 22.", productos, 9.5);
 
         //insertarMenu
         funcion.insertarMenu(menu1);
