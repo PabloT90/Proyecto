@@ -243,4 +243,264 @@ public class FuncionesOrdenacionFicheros {
                     "src\\OrdenacionFicheros\\Fichero2.txt", direccionFichero, longitudSecuencias);
         }
     }
+
+    /*
+     * Interfaz
+     * Nombre: mezclaFicherosEnSecuencias2
+     * Comentario: Esta función permite mezclar la información de dos ficheros en secuencias, originando un nuevo fichero
+     * con la información de ambos. Esta función no modifica el estado(datos) de los ficheros originales.
+     * Cabecera: public void mezclaFicherosEnSecuencias2(String fichero1, String fichero2, String ficheroNuevo, int longitud)
+     * Entrada:
+     *   -Cadena fichero1 //Dirección del primer fichero.
+     *   -Cadena fichero2 //Dirección del segundo fichero.
+     *   -Cadena ficheroNuevo //Dirección del nuevo fichero.
+     *   -entero longitud //Longitud de la secuencia
+     * Precondiciones:
+     *   -fichero1 debe apuntar a un fichero existente.
+     *   -fichero2 debe apuntar a un fichero existente.
+     *   -ficheroNuevo debe ser una dirección(Path) correcta para el nuevo fichero.
+     *   -longitud debe ser mayor que 0.
+     * Postcondiciones: En un fichero se ha almacenado la información partida en secuencias de dos ficheros origen.
+     * */
+    public void mezclaFicherosEnSecuencias2(String fichero1, String fichero2, String ficheroNuevo, int longitud){
+        int contadorSecuencia1 = 1, contadorSecuencia2 = 1, saltoExcepcion = 1;
+        FileInputStream fis1 = null, fis2 = null;
+        ObjectInputStream ois1 = null, ois2 = null;
+        FileOutputStream fos = null;
+        ObjectOutputStream oos = null;
+        MyObjectOutputStream moos = null;
+        ImplMenu menu1 = null, menu2 = null;
+
+        try{
+            fis1 = new FileInputStream(fichero1);
+            ois1 = new ObjectInputStream(fis1);
+            fis2 = new FileInputStream(fichero2);
+            ois2 = new ObjectInputStream(fis2);
+            fos = new FileOutputStream(ficheroNuevo);
+            oos = new ObjectOutputStream(fos);
+
+            menu1 = (ImplMenu) ois1.readObject();
+            saltoExcepcion = 2;//No permite saber en que lectura salta la excepción de fin de fichero
+            menu2 = (ImplMenu) ois2.readObject();
+            while(true){
+                //Almacenamos los datos en secuencias en el nuevo fichero
+                while(contadorSecuencia1 <= longitud && contadorSecuencia2 <= longitud) {
+                    if (menu1.getId() <= menu2.getId()) {//Insertamos los datos en orden ascendente
+                        oos.writeObject(menu1);
+                        saltoExcepcion = 1;
+                        menu1 = (ImplMenu) ois1.readObject();
+                        contadorSecuencia1++;
+                    } else {
+                        oos.writeObject(menu2);
+                        saltoExcepcion = 2;
+                        menu2 = (ImplMenu) ois2.readObject();
+                        contadorSecuencia2++;
+                    }
+                }
+                //Almacenamos los registros de secuencias restantes
+                if(contadorSecuencia1 <= longitud){
+                    for(;contadorSecuencia1 <= longitud; contadorSecuencia1++){
+                        oos.writeObject(menu1);
+                        saltoExcepcion = 1;
+                        menu1 = (ImplMenu) ois1.readObject();
+                    }
+                }else{
+                    //if(registro2 != null){
+                        for(;contadorSecuencia2 <= longitud; contadorSecuencia2++){
+                            oos.writeObject(menu2);
+                            saltoExcepcion = 2;
+                            menu2 = (ImplMenu) ois2.readObject();
+                        }
+                    //}
+                }
+                //Actualizamos los contadores de secuencia
+                contadorSecuencia1 = 1;
+                contadorSecuencia2 = 1;
+            }
+        }catch(ClassNotFoundException error1) {
+            error1.printStackTrace();
+        }catch (EOFException error){
+        }catch(IOException error2){
+            error2.printStackTrace();
+        }finally {
+            try{
+                ois1.close();
+                fis1.close();
+                ois2.close();
+                fis2.close();
+                oos.close();
+                fos.close();
+            }catch(IOException error1){
+                error1.printStackTrace();
+            }
+        }
+
+        try{
+            fos = new FileOutputStream(ficheroNuevo, true);
+            moos = new MyObjectOutputStream(fos);
+
+            if(saltoExcepcion == 1){
+                fis1 = new FileInputStream(fichero1);
+                ois1 = new ObjectInputStream(fis1);
+            }else{
+                fis1 = new FileInputStream(fichero2);
+                ois1 = new ObjectInputStream(fis1);
+            }
+
+            while(true){
+                menu1 = (ImplMenu) ois1.readObject();
+                moos.writeObject(menu1);
+            }
+        }catch (FileNotFoundException error1) {
+            error1.printStackTrace();
+        }catch (EOFException error){
+        }catch (IOException error2){
+            error2.printStackTrace();
+        }catch (ClassNotFoundException error3){
+            error3.printStackTrace();
+        }
+    }
+
+    /*
+     * Interfaz
+     * Nombre: partirFicheroEnSecuencias2 (Pablo modifica la interfaz)
+     * Comentario: Esta función permite partir(distribuir) los datos de un fichero en
+     * secuencias dentro de dos nuevos ficheros. Esta función no modifica el estado del fichero
+     * de origen.
+     * Cabecera: public void partirFicheroEnSecuencias2(String fichero, String ficheroNuevo1, String ficheroNuevo2, int longitud)
+     * Entrada:
+     *   -Cadena fichero //Dirección del fichero del que se va a partir la información.
+     *   -Cadena ficheroNuevo1   //Dirección del primer nuevo fichero.
+     *   -Cadena ficheroNuevo2   //Dirección del segundo nuevo fichero.
+     *   -entero longitud    //longitud de la secuencia
+     * Precondiciones:
+     *   -fichero debe apuntar a un fichero existente.
+     *   -ficheroNuevo1 debe ser una dirección(Path) correcta para el nuevo fichero.
+     *   -ficheroNuevo2 debe ser una dirección(Path) correcta para el nuevo fichero.
+     *   -longitud debe ser mayor que 0.
+     * Postcondiciones: Se han creado dos nuevos ficheros con la información partida en secuencias de un fichero origen.
+     * */
+    public void partirFicheroEnSecuencias2(String fichero, String ficheroNuevo1, String ficheroNuevo2, int longitud) {
+        int contadorSecuencia = 1;
+        ImplMenu menu = null;
+        FileInputStream fis = null;
+        ObjectInputStream ois = null;
+        FileOutputStream fos1 = null, fos2 = null;
+        ObjectOutputStream oos1 = null, oos2 = null;
+
+        try {
+            fis = new FileInputStream(fichero);
+            ois = new ObjectInputStream(fis);
+            fos1 = new FileOutputStream(ficheroNuevo1);
+            oos1 = new ObjectOutputStream(fos1);
+            fos2 = new FileOutputStream(ficheroNuevo2);
+            oos2 = new ObjectOutputStream(fos2);
+
+            while (true) {
+                menu = (ImplMenu) ois.readObject();
+
+                if (contadorSecuencia <= longitud) {//Si contadorSecuencia es menor o igual que la longitud.
+                    oos1.writeObject(menu);
+                } else {
+                    oos2.writeObject(menu);
+                }
+
+                if (contadorSecuencia >= longitud * 2) {//Si contadorSecuencia es mayor o igual que el doble de la longitud
+                    contadorSecuencia = 1;
+                } else {
+                    contadorSecuencia++;
+                }
+            }
+        }catch (FileNotFoundException error1) {
+            error1.printStackTrace();   //printStackTrace nos muestra porque salto la excepción.
+        }catch (EOFException error){
+        }catch (IOException error2) {
+            error2.printStackTrace();
+        }catch (ClassNotFoundException error3) {
+            error3.printStackTrace();
+        }finally{
+            try{
+                ois.close();
+                fis.close();
+                oos1.close();
+                fos1.close();
+                oos2.close();
+                fos2.close();
+            }catch(IOException error1){
+                error1.printStackTrace();
+            }
+        }
+    }
+
+    /*
+     * Interfaz
+     * Nombre: mezclaDirecta (Pablo modifica la interfaz)
+     * Comentario: Esta función permite ordenar de manera ascendente un fichero que almacena números enteros.
+     * Cabecera: public void mezclaDirecta(String direccionFichero)
+     * Entrada:
+     *   -Cadena direccionFichero //Es la dirección(Path) del fichero.
+     * Precondiciones:
+     *   -La dirección debe apuntar a un fichero existente.
+     *   -El fichero solo almacena números enteros.
+     * Postcondiciones: Se han ordenado los registros del fichero en orden ascendente, según el valor de los enteros
+     * que almacena.
+     * */
+    public void mezclaDirecta2(String direccionFichero){
+        int numeroRegistros = numeroRegistrosFichero(direccionFichero);
+
+        for(int longitudSecuencias = 1; longitudSecuencias < numeroRegistros; longitudSecuencias *= 2){
+            partirFicheroEnSecuencias(direccionFichero, "src\\OrdenacionFicheros\\Fichero1.dat",
+                    "src\\OrdenacionFicheros\\Fichero2.dat", longitudSecuencias);
+
+            mezclaFicherosEnSecuencias("src\\OrdenacionFicheros\\Fichero1.dat",
+                    "src\\OrdenacionFicheros\\Fichero2.dat", direccionFichero, longitudSecuencias);
+        }
+    }
+
+    /*
+     * Interfaz
+     * Nombre: numeroRegistrosFichero2 (Pablo modifica la interfaz)
+     * Comentario: Esta función permite obtener el número de registros almacenados en
+     * un fichero.
+     * Cabecera: public int numeroRegistrosFichero(String direccionFichero)
+     * Entrada:
+     *   -Cadena direccionFichero //Es la dirección(Path) del fichero.
+     * Salida:
+     *   -entero numeroRegistros
+     * Precondiciones:
+     *   -La dirección debe apuntar a un fichero existente.
+     * Postcondiciones: La función devuelve un número entero asociado al nombre,
+     * que es el número de registros que almacena el fichero.
+     * */
+    public int numeroRegistrosFichero2(String direccionFichero) {
+        int numeroRegistros = 0;
+        //ImplMenu menu = null;
+        FileInputStream fis = null;
+        ObjectInputStream ois = null;
+
+        try {
+            fis = new FileInputStream(direccionFichero);
+            ois = new ObjectInputStream(fis);
+
+            while (true) {
+                ois.readObject();
+                numeroRegistros++;  //Incrementamos numeroRegistros
+            }
+        }catch (ClassNotFoundException error3){
+            error3.printStackTrace();
+        }catch(FileNotFoundException error1) {
+            error1.printStackTrace();
+        }catch (EOFException error){
+        }catch (IOException error2){
+            error2.printStackTrace();
+        }finally {
+            try{
+                ois.close();
+                fis.close();
+            }catch (IOException error1){
+                error1.printStackTrace();
+            }
+        }
+        return numeroRegistros;
+    }
 }
