@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3ab907e1-48bf-4659-a794-507be8868556" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/out/production/BurguerDonald/Ficheros/AlmacenProductos.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BurguerDonald/Ficheros/Movimientos.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BurguerDonald/Ficheros/MovimientosMenu.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BurguerDonald/OrdenacionFicheros/Fichero1.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BurguerDonald/OrdenacionFicheros/Fichero1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BurguerDonald/OrdenacionFicheros/Fichero2.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BurguerDonald/OrdenacionFicheros/Fichero2.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BurguerDonald/OrdenacionFicheros/Principal.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BurguerDonald/OrdenacionFicheros/Principal.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BurguerDonald/Resguardos/Resguardo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Clases/FuncionesOrdenacionFicheros.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Clases/FuncionesOrdenacionFicheros.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -67,8 +58,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Clases/FuncionesOrdenacionFicheros.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="504">
-              <caret line="364" column="29" selection-start-line="364" selection-start-column="29" selection-end-line="364" selection-end-column="29" />
+            <state relative-caret-position="-3">
+              <caret line="304" column="17" lean-forward="true" selection-start-line="304" selection-start-column="17" selection-end-line="304" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -169,12 +160,12 @@
         <option value="$PROJECT_DIR$/src/Ficheros/MovimientosMenu.dat" />
         <option value="$PROJECT_DIR$/src/Conductores/ConductorFuncionesMenus.java" />
         <option value="$PROJECT_DIR$/src/Clases/FuncionesMenus.java" />
-        <option value="$PROJECT_DIR$/src/Clases/FuncionesOrdenacionFicheros.java" />
         <option value="$PROJECT_DIR$/src/Conductores/ConductorFuncionesOrdenacionFicheros.java" />
+        <option value="$PROJECT_DIR$/src/Clases/FuncionesOrdenacionFicheros.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="947" />
     <option name="width" value="426" />
     <option name="height" value="735" />
@@ -259,7 +250,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555063130960" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555063576192" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
@@ -369,7 +360,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1376" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1376" height="744" extended-state="7" />
+    <editor active="true" />
     <layout>
       <window_info id="UI Designer" order="0" />
       <window_info id="Capture Tool" order="1" />
@@ -840,8 +832,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Clases/FuncionesOrdenacionFicheros.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="364" column="29" selection-start-line="364" selection-start-column="29" selection-end-line="364" selection-end-column="29" />
+        <state relative-caret-position="-3">
+          <caret line="304" column="17" lean-forward="true" selection-start-line="304" selection-start-column="17" selection-end-line="304" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -925,6 +917,7 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>

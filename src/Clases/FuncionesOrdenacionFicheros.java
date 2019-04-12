@@ -298,21 +298,18 @@ public class FuncionesOrdenacionFicheros {
                     }
                 }
                 //Almacenamos los registros de secuencias restantes
-                if(contadorSecuencia1 <= longitud){
-                    for(;contadorSecuencia1 <= longitud; contadorSecuencia1++){
-                        oos.writeObject(menu1);
-                        saltoExcepcion = 1;
-                        menu1 = (ImplMenu) ois1.readObject();
-                    }
-                }else{
-                    //if(registro2 != null){
-                        for(;contadorSecuencia2 <= longitud; contadorSecuencia2++){
-                            oos.writeObject(menu2);
-                            saltoExcepcion = 2;
-                            menu2 = (ImplMenu) ois2.readObject();
-                        }
-                    //}
+                for(;contadorSecuencia1 <= longitud; contadorSecuencia1++){
+                    oos.writeObject(menu1);
+                    saltoExcepcion = 1;
+                    menu1 = (ImplMenu) ois1.readObject();
                 }
+
+                for(;contadorSecuencia2 <= longitud; contadorSecuencia2++){
+                    oos.writeObject(menu2);
+                    saltoExcepcion = 2;
+                    menu2 = (ImplMenu) ois2.readObject();
+                }
+
                 //Actualizamos los contadores de secuencia
                 contadorSecuencia1 = 1;
                 contadorSecuencia2 = 1;
@@ -341,11 +338,10 @@ public class FuncionesOrdenacionFicheros {
 
             if(saltoExcepcion == 1){
                 fis1 = new FileInputStream(fichero2);
-                ois1 = new ObjectInputStream(fis1);
             }else{
                 fis1 = new FileInputStream(fichero1);
-                ois1 = new ObjectInputStream(fis1);
             }
+            ois1 = new ObjectInputStream(fis1);
 
             while(true){
                 menu1 = (ImplMenu) ois1.readObject();
@@ -454,13 +450,13 @@ public class FuncionesOrdenacionFicheros {
      * que almacena.
      * */
     public void mezclaDirecta2(String direccionFichero){
-        int numeroRegistros = numeroRegistrosFichero(direccionFichero);
+        int numeroRegistros = numeroRegistrosFichero2(direccionFichero);
 
         for(int longitudSecuencias = 1; longitudSecuencias < numeroRegistros; longitudSecuencias *= 2){
-            partirFicheroEnSecuencias(direccionFichero, "src\\OrdenacionFicheros\\Fichero1.dat",
+            partirFicheroEnSecuencias2(direccionFichero, "src\\OrdenacionFicheros\\Fichero1.dat",
                     "src\\OrdenacionFicheros\\Fichero2.dat", longitudSecuencias);
 
-            mezclaFicherosEnSecuencias("src\\OrdenacionFicheros\\Fichero1.dat",
+            mezclaFicherosEnSecuencias2("src\\OrdenacionFicheros\\Fichero1.dat",
                     "src\\OrdenacionFicheros\\Fichero2.dat", direccionFichero, longitudSecuencias);
         }
     }
