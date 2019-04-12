@@ -307,22 +307,22 @@ public class FuncionesMenus {
                 } else {
                     if (menu1.getId() > menu2.getId()) {
                         //Si el producto no sufre una posterior eliminación
+                        idActual = menu2.getId();//Almacemos la id del producto actual
                         if ((menu2 = obtenerMenu(menu2.getId())) != null) {
                             oos.writeObject(menu2);
                         }
                         saltoExcepcion = 2;
-                        idActual = menu2.getId();//Almacemos la id del producto actual
                         do {
                             menu2 = (ImplMenu) ois2.readObject();
                         } while (menu2.getId() == idActual);//Mientras sea un registro con el mismo id
                     } else {
                         //Buscamos el movimiento más reciente del producto
                         //Si el último movimiento no es una eliminación.
+                        idActual = menu2.getId();//Almacemos la id del producto actual
                         if ((menu2 = buscarEnMovimientos(menu2.getId())) != null) {
                             oos.writeObject(menu2);
                         }
                         saltoExcepcion = 2;
-                        idActual = menu2.getId();//Almacemos la id del producto actual
                         do {
                             menu2 = (ImplMenu) ois2.readObject();
                         } while (menu2.getId() == idActual);//Mientras sea un registro con el mismo id
@@ -338,10 +338,10 @@ public class FuncionesMenus {
                 if(saltoExcepcion == 0){//Si la lista de menús estaba vacía
                     menu2 = (ImplMenu) ois2.readObject();
                     while (true) {
+                        idActual = menu2.getId();//Almacemos la id del producto actual
                         if ((menu2 = buscarEnMovimientos(menu2.getId())) != null) {
                             oos.writeObject(menu2);
                         }
-                        idActual = menu2.getId();//Almacemos la id del producto actual
                         do {
                             menu2 = (ImplMenu) ois2.readObject();
                         } while (menu2.getId() == idActual);//Mientras sea un registro con el mismo id
@@ -349,10 +349,10 @@ public class FuncionesMenus {
                 }else{
                     if(saltoExcepcion == 1){
                         while(true) {
+                            idActual = menu2.getId();//Almacemos la id del producto actual
                             if ((menu2 = buscarEnMovimientos(menu2.getId())) != null) {
                                 oos.writeObject(menu2);
                             }
-                            idActual = menu2.getId();//Almacemos la id del producto actual
                             do {
                                 menu2 = (ImplMenu) ois2.readObject();
                             } while (menu2.getId() == idActual);//Mientras sea un registro con el mismo id
@@ -388,14 +388,15 @@ public class FuncionesMenus {
                 fis2.close();
                 oos.close();
                 fos.close();
+
+                //Eliminamos los ficheros del maestro y el de movimientos
+                maestro.delete();
+                movimientos.delete();
+                maestroActualizado.renameTo(aux = new File ("src\\Ficheros\\ListaMenus.dat"));
             }catch (IOException error){
                 error.printStackTrace();
             }
         }
-        //Eliminamos los ficheros del maestro y el de movimientos
-        maestro.delete();
-        movimientos.delete();
-        maestroActualizado.renameTo(aux = new File ("src\\Ficheros\\ListaMenus.dat"));
     }
 
     /*
