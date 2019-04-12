@@ -358,6 +358,14 @@ public class FuncionesOrdenacionFicheros {
             error2.printStackTrace();
         }catch (ClassNotFoundException error3){
             error3.printStackTrace();
+        }finally {
+            try{
+                moos.close();
+                oos.close();
+                ois1.close();
+            }catch (IOException error){
+                error.printStackTrace();
+            }
         }
     }
 
