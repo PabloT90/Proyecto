@@ -217,7 +217,7 @@ public class ImplStockProducto implements StockProducto, Cloneable{
      * @see java.lang.Object#hashCode()
      */
     public int hashCode(){
-        return getProductoId() * 7 + stock + 1 * 13;
+        return getProductoId() * 7 + stock + 13;
     }
 
     /** Criterio de igualdad: segun el id y el stock.

@@ -266,11 +266,10 @@
 
 package Main;
 
-import Clases.FuncionesProductos;
-import Clases.ImplStockProducto;
-import Clases.ValidacionesBurguerDonald;
+import Clases.*;
 import Enums.EnumTipo;
 import Resguardos.Resguardo;
+import Resguardos.ResguardoMenus;
 
 import java.util.Scanner;
 
@@ -280,7 +279,10 @@ public class BurguerDonaldStore {
         ValidacionesBurguerDonald validacion = new ValidacionesBurguerDonald();
         FuncionesProductos fp = new FuncionesProductos();
         ImplStockProducto producto = null;
+        ImplMenu menu = new ImplMenu();
+        FuncionesMenus fm = new FuncionesMenus();
         Resguardo resguardo = new Resguardo();
+        ResguardoMenus resguardoMenus = new ResguardoMenus();
         EnumTipo tipo = null;
         int opcionMenu, opcionSubMenu1, opcionSubMenu2, opcionSubMenu3, opcionSubMenu4;
         int id;
@@ -423,23 +425,71 @@ public class BurguerDonaldStore {
                             if(opcionSubMenu2 !=0) {//Si opcionSubMenu2 != 0
                                 switch(opcionSubMenu2) {//Segun(opcionSubMenu2)
                                     case 1://para opcionSubMenu2 ==1
-                                        //mostrarMenus *
+                                        //mostrarMenus*
+                                        //resguardoMenus.mostrarListaMenus();
+                                        fm.mostrarListaMenus();
                                         break;
-                                        //para opcionSubMenu2 == 2
-                                    case 2:
+                                    case 2: //para opcionSubMenu2 == 2
                                         //ModificacionMenu
+                                        //leerYValidarId*
+                                        id = validacion.leerYValidarId();
+                                        if(fm.obtenerMenu(id) != null) {//Si el menú existe
+                                            //leerYValidarMenu* //El ID se recibe como parametro
+                                            menu = validacion.leerYValidarNuevoMenu();
+                                            //modificarMenu*
+                                            //resguardoMenus.insertarMenu(menu);
+                                            fm.insertarMenu(menu);
+                                        }else{
+                                            //MensajeExplicatorio3
+                                            System.out.println("No ha sido posible modificar el menu.");
+                                        }
                                         break;
                                     case 3://para opcionSubMenu2 ==3
                                         //CanjeoMenu
+                                        //leerYValidarId*
+                                        id = validacion.leerYValidarId();
+                                        //Si el menú existe
+                                        if(fm.obtenerMenu(id) != null) {
+                                            if () {//Si el menú contiene algún producto sin stock
+                                                //MensajeExplicatorio4
+                                                System.out.println("Alguno de los productos del menu no tenia stock.");
+                                            } else {
+                                                //canjearMenu*
+                                            }
+                                        }else {
+                                            //MensajeExplicatorio3
+                                            System.out.println("No se ha podido canjear el menu.");
+                                        }
                                         break;
                                     case 4://para opcionSubMenu2 ==4
                                         //InsercionMenu
+                                        if(!fp.almacenVacio()) {//Si almacen de productos no esta vacio
+                                            //leerYValidarMenu*
+                                            menu = validacion.leerYValidarNuevoMenu();
+                                            //insertarMenu*
+                                            //resguardoMenus.insertarMenu(menu);
+                                            fm.insertarMenu(menu);
+                                        }else {//Sino
+                                            System.out.println("No se ha podido insertar el menu.");//MensajeExplicatorio5
+                                        }//Fin_si
                                         break;
                                     case 5://para opcionSubMenu2 ==5
                                         //EliminacionMenu
+                                        //leerYValidarId*
+                                        id = validacion.leerYValidarId();
+                                        if(fm.obtenerMenu(id) != null) {//Si el menú existe
+                                            //eliminarMenu*
+                                            //resguardoMenus.eliminarMenu(id);
+                                            fm.eliminarMenu(id);
+                                        }else {//Sino
+                                            //MensajeExplicatorio3
+                                            System.out.println("No se ha podido eliminar el menu");
+                                        }//Fin_si
                                         break;
                                     case 6://para opcionSubMenu2 ==6
                                         //OrdenarListaMenu
+                                        //resguardoMenus.sincronizarListaMenus();
+                                        fm.sincronizarListaMenus();
                                         break;
                                 }
                             }

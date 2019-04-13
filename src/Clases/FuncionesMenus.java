@@ -66,8 +66,6 @@ public class FuncionesMenus {
      */
     public ImplMenu obtenerMenu(int idMenu){
         ImplMenu menu = null;
-        FileInputStream fis = null;
-        ObjectInputStream ois = null;
         File fichero = new File("src\\Ficheros\\ListaMenus.dat");
 
         menu = buscarEnMovimientos(idMenu);//Buscamos en el fichero de movimientos
@@ -158,7 +156,6 @@ public class FuncionesMenus {
         ImplMenu menu = null, registro = null;
         FileInputStream fis = null;
         ObjectInputStream ois = null;
-        boolean encontrado = false;
 
         try{
             fis = new FileInputStream("src\\Ficheros\\MovimientosMenu.dat");
@@ -445,7 +442,7 @@ public class FuncionesMenus {
         FileInputStream fis = null;
         ObjectInputStream ois = null;
         File fichero = new File(direccion);
-        FileOutputStream fos = null;
+
         if(!fichero.exists()){
             ret = -2;
         }else{

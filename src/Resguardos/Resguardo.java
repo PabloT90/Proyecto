@@ -199,5 +199,4 @@ public class Resguardo {
     public void mostrarProductosPorTipo(EnumTipo tipo){
           System.out.println("En resguardo.");
     }
-
 }

@@ -298,7 +298,6 @@ public class FuncionesOrdenacionFicheros {
         ObjectInputStream ois1 = null, ois2 = null;
         FileOutputStream fos = null;
         ObjectOutputStream oos = null;
-        //MyObjectOutputStream moos = null;
         ImplMenu menu1 = null, menu2 = null;
 
         try{
@@ -476,7 +475,7 @@ public class FuncionesOrdenacionFicheros {
      * */
     /**
      * Ordena de manera ascendente un fichero que almacena números enteros.
-     * @param direccionFichero
+     * @param direccionFichero Path del fichero.
      */
     public void mezclaDirecta2(String direccionFichero){
         int numeroRegistros = numeroRegistrosFichero2(direccionFichero);
@@ -512,7 +511,6 @@ public class FuncionesOrdenacionFicheros {
      */
     public int numeroRegistrosFichero2(String direccionFichero) {
         int numeroRegistros = 0;
-        //ImplMenu menu = null;
         FileInputStream fis = null;
         ObjectInputStream ois = null;
 

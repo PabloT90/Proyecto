@@ -30,7 +30,7 @@ public class ConductorFuncionesMenus {
         //eliminarMenu
         //System.out.println(funcion.eliminarMenu(3));
 
-        //buscarEnListaMenus No funciona del todo
+        //buscarEnListaMenus
         //System.out.println(funcion.buscarEnListaMenus(3));
 
         //buscarMovimientosMenu
@@ -42,11 +42,14 @@ public class ConductorFuncionesMenus {
         //sincronizarListaMenus
         //funcion.sincronizarListaMenus();
 
-        //eliminarMenusPorProductoDeterminado
-        funcion.eliminarMenusPorProductoDeterminado(1);
-
         //mostrarListaMenus (funciona)
-        funcion.mostrarListaMenus();
+        //funcion.mostrarListaMenus();
+
+        //menuContieneProducto (funciona)
+        //System.out.println(funcion.menuContieneProducto(menu1,66));
+
+        //eliminarMenusPorProductoDeterminado
+        funcion.eliminarMenusPorProductoDeterminado(66);
 
     }
 }
