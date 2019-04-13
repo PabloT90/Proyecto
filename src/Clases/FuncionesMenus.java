@@ -2,6 +2,7 @@ package Clases;
 
 import Enums.EnumTipo;
 import java.io.*;
+import java.util.ArrayList;
 
 public class FuncionesMenus {
     /*
@@ -587,6 +588,161 @@ public class FuncionesMenus {
                     ois2.close();
                 }
                 fis2.close();
+            }catch (IOException error){
+                error.printStackTrace();
+            }
+        }
+    }
+
+    /*
+    * Interfaz
+    * Nombre: menuContieneProducto
+    * Comentario: Esta función nos permite verificar si un menú contiene un determinado
+    * producto.
+    * Cabecera: public boolean menuContieneProducto(ImplMenu menu, int id)
+    * Entrada:
+    *   -ImplMenu menu
+    *   -entero id
+    * Salida:
+    *   -booleano resultado
+    * Postcondiciones: La función devuelve un valor booleano asociado al nombre, verdadero
+    * si el menú contiene el producto y falso en caso contrario.
+    * */
+    public boolean menuContieneProducto(ImplMenu menu, int id){
+        boolean resultado = false;
+        int[] ids = menu.getProductos();
+
+        for(int i = 0; i < ids.length && !resultado; i++){
+            if(ids[i] == id){
+                resultado = true;
+            }
+        }
+
+        return resultado;
+    }
+
+    /*
+    * Interfaz
+    * Nombre: eliminarMenusPorProductoDeterminado
+    * Comentario: Esta función nos permite eliminar todas los menús de la lista de
+    * menús que contengan un producto determinado.
+    * Cabecera: public void eliminarMenusPorProductoDeterminado(int idProducto)
+    * Entrada:
+    *   -entero idProducto
+    * Postcondiciones: La función elimina todos los menús de la lista que contengan
+    * el mismo producto.
+    * */
+    public void eliminarMenusPorProductoDeterminado(int idProducto){
+        ImplMenu menu1 = null, menu2 = null;
+        FileInputStream fis1 = null, fis2 = null;
+        ObjectInputStream ois1 = null, ois2 = null;
+        int idActual = 0, saltoExcepcion = 0;
+        ArrayList<Integer> menusAEliminar = new ArrayList<Integer>();
+        FuncionesOrdenacionFicheros ordenacion = new FuncionesOrdenacionFicheros();
+        ordenacion.mezclaDirecta2("src\\Ficheros\\MovimientosMenu.dat");
+
+        try {
+            fis2 = new FileInputStream("src\\Ficheros\\MovimientosMenu.dat");
+            ois2 = new ObjectInputStream(fis2);
+            fis1 = new FileInputStream("src\\Ficheros\\ListaMenus.dat");
+            ois1 = new ObjectInputStream(fis1);//Si el fichero se encuentra vacío directamente nos salta la excepción
+
+            menu1 = (ImplMenu) ois1.readObject();
+            saltoExcepcion = 2;
+            menu2 = (ImplMenu) ois2.readObject();
+            while (true) {//Mientras no haya ningún fin de fichero
+                if (menu1.getId() < menu2.getId()) {
+                    if (menuContieneProducto(menu1, idProducto)){
+                        menusAEliminar.add(menu1.getId());
+                    }
+                    saltoExcepcion = 1;
+                    menu1 = (ImplMenu) ois1.readObject();
+                } else {
+                    if (menu1.getId() > menu2.getId()) {
+                        //Si el producto no sufre una posterior eliminación
+                        idActual = menu2.getId();//Almacemos la id del producto actual
+                        if ((menu2 = obtenerMenu(menu2.getId())) != null && menuContieneProducto(menu2, idProducto)) {
+                            menusAEliminar.add(menu2.getId());
+                        }
+                        saltoExcepcion = 2;
+                        do {
+                            menu2 = (ImplMenu) ois2.readObject();
+                        } while (menu2.getId() == idActual);//Mientras sea un registro con el mismo id
+                    } else {
+                        //Buscamos el movimiento más reciente del producto
+                        //Si el último movimiento no es una eliminación.
+                        idActual = menu2.getId();//Almacemos la id del producto actual
+                        if ((menu2 = buscarEnMovimientos(menu2.getId())) != null && menuContieneProducto(menu2, idProducto)) {
+                            menusAEliminar.add(menu2.getId());
+                        }
+                        saltoExcepcion = 2;
+                        do {
+                            menu2 = (ImplMenu) ois2.readObject();
+                        } while (menu2.getId() == idActual);//Mientras sea un registro con el mismo id
+                        saltoExcepcion = 1;
+                        menu1 = (ImplMenu) ois1.readObject();
+                    }
+                }
+            }
+        } catch (FileNotFoundException error1) {
+            error1.printStackTrace();
+        }catch (EOFException error){
+            try{
+                if(saltoExcepcion == 0){//Si la lista de menús estaba vacía
+                    menu2 = (ImplMenu) ois2.readObject();
+                    while (true) {
+                        idActual = menu2.getId();//Almacemos la id del producto actual
+                        if ((menu2 = buscarEnMovimientos(menu2.getId())) != null && menuContieneProducto(menu2, idProducto)) {
+                            menusAEliminar.add(menu2.getId());
+                        }
+                        do {
+                            menu2 = (ImplMenu) ois2.readObject();
+                        } while (menu2.getId() == idActual);//Mientras sea un registro con el mismo id
+                    }
+                }else{
+                    if(saltoExcepcion == 1){
+                        while(true) {
+                            idActual = menu2.getId();//Almacemos la id del producto actual
+                            if ((menu2 = buscarEnMovimientos(menu2.getId())) != null && menuContieneProducto(menu2, idProducto)) {
+                                menusAEliminar.add(menu2.getId());
+                            }
+                            do {
+                                menu2 = (ImplMenu) ois2.readObject();
+                            } while (menu2.getId() == idActual);//Mientras sea un registro con el mismo id
+                        }
+                    }else{
+                        while(true){
+                            menusAEliminar.add(menu1.getId());
+                            menu1 = (ImplMenu) ois1.readObject();
+                        }
+                    }
+                }
+            }catch (FileNotFoundException error1) {
+                error1.printStackTrace();
+            }catch (EOFException error4){
+            }catch (IOException error2){
+                error2.printStackTrace();
+            }catch (ClassNotFoundException error3){
+                error3.printStackTrace();
+            }
+        }catch (IOException error2){
+            error2.printStackTrace();
+        }catch (ClassNotFoundException error3){
+            error3.printStackTrace();
+        }finally {
+            try{
+                if(ficheroVacio("src\\Ficheros\\ListaMenus.dat") == -1){
+                    ois1.close();
+                }
+                fis1.close();
+                if(ficheroVacio("src\\Ficheros\\MovimientosMenu.dat") == -1){
+                    ois2.close();
+                }
+                fis2.close();
+
+                for(int i = 0;  i < menusAEliminar.size(); i++){
+                    eliminarMenu(menusAEliminar.get(i));
+                }
             }catch (IOException error){
                 error.printStackTrace();
             }
