@@ -502,7 +502,6 @@ public class FuncionesProductos {
         File ficheroMovimiento = new File("src\\Ficheros\\Movimientos.txt");
         File ficheroMaestro = new File("src\\Ficheros\\AlmacenProductos.txt");
         File ficheroMaestroActualizado = new File("src\\Ficheros\\MaestroActualizado.txt");
-        File aux = null;
         FileReader fr1 = null, fr2 = null;
         BufferedReader br1 = null, br2 = null;
         FileWriter fw = null;
@@ -598,13 +597,15 @@ public class FuncionesProductos {
             //Eliminamos los ficheros del maestro y el de movimientos
             ficheroMaestro.delete();
             ficheroMovimiento.delete();
-            ficheroMaestroActualizado.renameTo(aux = new File ("src\\Ficheros\\AlmacenProductos.txt"));
+            ficheroMaestroActualizado.renameTo(new File ("src\\Ficheros\\AlmacenProductos.txt"));
         }catch (FileNotFoundException error1){
             error1.printStackTrace();
         }catch (IOException error2){
             error2.printStackTrace();
         }
     }
+
+
 
     /*
      * Interfaz

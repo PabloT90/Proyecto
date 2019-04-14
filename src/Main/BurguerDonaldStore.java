@@ -450,7 +450,7 @@ public class BurguerDonaldStore {
                                         id = validacion.leerYValidarId();
                                         //Si el menú existe
                                         if(fm.obtenerMenu(id) != null) {
-                                            if () {//Si el menú contiene algún producto sin stock
+                                            if (true) {//Si el menú contiene algún producto sin stock
                                                 //MensajeExplicatorio4
                                                 System.out.println("Alguno de los productos del menu no tenia stock.");
                                             } else {
