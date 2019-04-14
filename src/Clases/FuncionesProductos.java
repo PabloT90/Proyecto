@@ -116,7 +116,7 @@ public class FuncionesProductos {
             br1 = new BufferedReader(fr1);
             registro = br1.readLine();
             //Mientras no sea fin de fichero, no se haya encontrado el producto y sea posible encontrarlo aún.
-            while (registro != null && producto == null && rangoValido == true) {
+            while (registro != null && producto == null && rangoValido) {
                 separador = registro.split(",");//Separamos el registro en campos
 
                 if (Integer.parseInt(separador[0]) == ID) {//Si los id's coinciden

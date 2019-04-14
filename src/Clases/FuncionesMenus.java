@@ -1,6 +1,5 @@
 package Clases;
 
-import Enums.EnumTipo;
 import java.io.*;
 import java.util.ArrayList;
 

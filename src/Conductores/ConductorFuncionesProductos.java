@@ -30,7 +30,7 @@ public class ConductorFuncionesProductos {
 
         //mostrarProductosAlmacen (funciona)
         //System.out.println("Mostrar todos los productos del almacen");
-        funcion.mostrarProductosAlmacen();
+        //funcion.mostrarProductosAlmacen();
         //System.out.println("---Fin Almacen-----");
 
         //mostrarProductosVeganos (funciona)
