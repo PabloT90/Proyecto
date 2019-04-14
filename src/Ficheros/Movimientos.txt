@@ -1,12 +1,1 @@
-67,COMPLEMENTO,7.8,Luaneee,Kusmi.,false,119
-69,ENSALADA,7.8,Luaneee,Kusmi.,false,119
-67,COMPLEMENTO,7.8,Luaneee,Kusmi.,false,118
-68,POSTRE,7.8,pablo,asun apruebanos por el amor de jesus.,false,119
-67,COMPLEMENTO,7.8,Luaneee,Kusmi.,false,117
-68,POSTRE,7.8,pablo,asun apruebanos por el amor de jesus.,false,118
-67,COMPLEMENTO,7.8,Luaneee,Kusmi.,false,116
-68,POSTRE,7.8,pablo,asun apruebanos por el amor de jesus.,false,117
-67,COMPLEMENTO,7.8,Luaneee,Kusmi.,false,115
-68,POSTRE,7.8,pablo,asun apruebanos por el amor de jesus.,false,116
-67,COMPLEMENTO,7.8,Luaneee,Kusmi.,false,114
-68,POSTRE,7.8,pablo,asun apruebanos por el amor de jesus.,false,115
+1,BEBIDA,12.0,producto1,p1,true,3

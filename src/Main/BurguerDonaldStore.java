@@ -179,7 +179,7 @@
  * InsercionProducto
  * Inicio
  *   leerYValidarId*
- *   Si el producto existe
+ *   Si el producto no existe
  *       LeerValidarProducto*
  *       insertarProducto*
  *   Sino
@@ -268,25 +268,24 @@ package Main;
 
 import Clases.*;
 import Enums.EnumTipo;
-import Resguardos.Resguardo;
-import Resguardos.ResguardoMenus;
 
-import java.util.Scanner;
+import java.io.File;
 
 public class BurguerDonaldStore {
     public static void main(String[]args){
-        Scanner teclado = new Scanner(System.in);
         ValidacionesBurguerDonald validacion = new ValidacionesBurguerDonald();
         FuncionesProductos fp = new FuncionesProductos();
-        ImplStockProducto producto = null;
-        ImplMenu menu = new ImplMenu();
+        ImplStockProducto producto;
+        ImplMenu menu;
         FuncionesMenus fm = new FuncionesMenus();
-        Resguardo resguardo = new Resguardo();
-        ResguardoMenus resguardoMenus = new ResguardoMenus();
-        EnumTipo tipo = null;
+        EnumTipo tipo;
         int opcionMenu, opcionSubMenu1, opcionSubMenu2, opcionSubMenu3, opcionSubMenu4;
         int id;
         int stock;
+        File almacen = new File("src\\Ficheros\\AlmacenProductos.txt");
+        File movimientosProductos = new File("src\\Ficheros\\Movimientos.txt");
+        File listaMenus = new File("src\\Ficheros\\ListaMenus.dat");
+        File movimientosMenus = new File("src\\Ficheros\\MovimientosMenu.dat");
 
         do{
             //leerYValidarOpcionMenu *
@@ -382,7 +381,7 @@ public class BurguerDonaldStore {
                                             //leerYValidarId*
                                             id = validacion.leerYValidarId();
 
-                                            if(fp.obtenerProductoAlmacen(id) != null) {//Si el producto existe
+                                            if(fp.obtenerProductoAlmacen(id) == null) {//Si el producto no existe
                                                 //LeerValidarProducto*
                                                 producto = validacion.leerYValidarNuevoProducto(id);
                                                 
@@ -428,7 +427,7 @@ public class BurguerDonaldStore {
                                         //mostrarMenus*
                                         //resguardoMenus.mostrarListaMenus();
                                         fm.mostrarListaMenus();
-                                        break;
+                                    break;
                                     case 2: //para opcionSubMenu2 == 2
                                         //ModificacionMenu
                                         //leerYValidarId*
@@ -443,24 +442,28 @@ public class BurguerDonaldStore {
                                             //MensajeExplicatorio3
                                             System.out.println("No ha sido posible modificar el menu.");
                                         }
-                                        break;
+                                    break;
                                     case 3://para opcionSubMenu2 ==3
                                         //CanjeoMenu
                                         //leerYValidarId*
                                         id = validacion.leerYValidarId();
                                         //Si el menú existe
-                                        if(fm.obtenerMenu(id) != null) {
-                                            if (true) {//Si el menú contiene algún producto sin stock
+                                        //menu = resguardoMenus.obtenerMenu(id);
+                                        menu = fm.obtenerMenu(id);
+                                        if(menu != null) {
+                                            if (fm.productoSinStock(id)) {//Si el menú contiene algún producto sin stock
                                                 //MensajeExplicatorio4
                                                 System.out.println("Alguno de los productos del menu no tenia stock.");
                                             } else {
                                                 //canjearMenu*
+                                                //resguardoMenus.canjeoMenu(menu);
+                                                fm.canjeoMenu(menu);
                                             }
-                                        }else {
+                                        }else{
                                             //MensajeExplicatorio3
-                                            System.out.println("No se ha podido canjear el menu.");
+                                            System.out.println("El menu no existe.");
                                         }
-                                        break;
+                                    break;
                                     case 4://para opcionSubMenu2 ==4
                                         //InsercionMenu
                                         if(!fp.almacenVacio()) {//Si almacen de productos no esta vacio
@@ -472,7 +475,7 @@ public class BurguerDonaldStore {
                                         }else {//Sino
                                             System.out.println("No se ha podido insertar el menu.");//MensajeExplicatorio5
                                         }//Fin_si
-                                        break;
+                                    break;
                                     case 5://para opcionSubMenu2 ==5
                                         //EliminacionMenu
                                         //leerYValidarId*
@@ -485,12 +488,12 @@ public class BurguerDonaldStore {
                                             //MensajeExplicatorio3
                                             System.out.println("No se ha podido eliminar el menu");
                                         }//Fin_si
-                                        break;
+                                    break;
                                     case 6://para opcionSubMenu2 ==6
                                         //OrdenarListaMenu
                                         //resguardoMenus.sincronizarListaMenus();
                                         fm.sincronizarListaMenus();
-                                        break;
+                                    break;
                                 }
                             }
                         }while(opcionSubMenu2 != 0); //Mientras opcionSubMenu2 != 0

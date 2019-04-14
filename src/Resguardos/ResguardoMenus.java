@@ -220,4 +220,47 @@ public class ResguardoMenus {
         System.out.println("En resguardo");
     }
 
+    /*
+     * Interfaz
+     * Nombre: productoSinStock
+     * Comentario: Esta función nos permite verificar si un menú contiene algún
+     * producto sin stock.
+     * Cabecera: public boolean productoSinStock(int idMenu)
+     * Entrada:
+     *   -entero idMenu
+     * Salida:
+     *   -booleano resultado
+     * Precondiciones:
+     *   -idMenu debe coincidir con algún id de la lista de menús.
+     *   -el menú debe contener productos existentes en el almacén.
+     * Postcondiciones: La función devuelve un valor booleano asociado al nombre, verdadero
+     * si el menú contiene algún producto sin stock y falso en caso contrario.
+     * */
+    public boolean productoSinStock(int idMenu){
+        System.out.println("En resguardo");
+        return true;
+    }
+
+    /*
+     * Interfaz
+     * Nombre: canjeoMenu
+     * Comentario: Esta función nos permite canjear los productos que contiene
+     * un menú, es decir, nos permite decrementar el stock de los productos del
+     * menú que se encuentran en el almacén.
+     * Cabecera: public int canjeoMenu(ImplMenu menu)
+     * Entrada:
+     *   -ImplMenu menu
+     * Salida:
+     *   -entero validez
+     * Precondiciones:
+     *   -idMenu debe coincidir con algún id de la lista de menús.
+     *   -el menú debe contener productos existentes en el almacén.
+     * Postcondiciones: La función devuelve un número entero asociado al nombre, 0 si
+     * se ha conseguido canjear el menú o -1 si el menú contiene algún producto sin stock.
+     * */
+    public int canjeoMenu(ImplMenu menu){
+        System.out.println("En resguardo");
+        return 1;
+    }
+
 }

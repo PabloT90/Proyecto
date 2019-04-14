@@ -278,18 +278,19 @@ public class FuncionesProductos {
                     }
                 }
             }
-
-            while(registro1 != null){
-                System.out.println(registro1);
-                registro1 = br1.readLine();
+            if(registro1 != null){
+                while((registro1 = br1.readLine()) != null){
+                    System.out.println(registro1);
+                }
             }
 
-            while(registro2 != null){
-                separador2 = registro2.split(",");
-                if(separador2[3].charAt(0) != '*'){
-                    System.out.println(registro2);
+            if(registro2 != null){
+                while((registro2 = br2.readLine()) != null){
+                    separador2 = registro2.split(",");
+                    if(separador2[3].charAt(0) != '*') {
+                        System.out.println(registro2);
+                    }
                 }
-                registro2 = br2.readLine();
             }
         }catch (FileNotFoundException error1){
             error1.printStackTrace();
@@ -328,6 +329,7 @@ public class FuncionesProductos {
         String[] separador1 = null, separador2 = null;
         FuncionesOrdenacionFicheros ordenacion = new FuncionesOrdenacionFicheros();
         ordenacion.mezclaDirecta("src\\Ficheros\\Movimientos.txt");
+        int idActual;
 
         try{
             fr1 = new FileReader("src\\Ficheros\\AlmacenProductos.txt");
@@ -348,10 +350,19 @@ public class FuncionesProductos {
 
                 }else{
                     if(Integer.parseInt(separador1[0]) > Integer.parseInt(separador2[0])){
-                        if(Boolean.parseBoolean(separador2[5]) && separador2[3].charAt(0) != '*') {
-                            System.out.println(registro2);
+                        //Buscamos el movimiento más reciente del producto
+                        producto = buscarEnMovimientos(Integer.parseInt(separador2[0]));
+                        //Si el último movimiento no es una eliminación y es vegano.
+                        if(producto != null && Boolean.parseBoolean(separador2[5])){
+                            System.out.println(producto);
                         }
-                        registro2 = br2.readLine();
+                        idActual = Integer.parseInt(separador2[0]);
+                        do{
+                            registro2 = br2.readLine();
+                            if(registro2 != null){
+                                separador2 = registro2.split(",");
+                            }
+                        }while(registro2 != null && Integer.parseInt(separador2[0]) == idActual);
                     }else{
                         //Buscamos el movimiento más reciente del producto
                         producto = buscarEnMovimientos(Integer.parseInt(separador2[0]));
