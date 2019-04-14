@@ -744,4 +744,36 @@ public class FuncionesMenus {
             }
         }
     }
+
+    /*
+    * Interfaz
+    * Nombre: productoSinStock
+    * Comentario: Esta función nos permite verificar si un menú contiene algún
+    * producto sin stock.
+    * Cabecera: public boolean productoSinStock(int idMenu)
+    * Entrada:
+    *   -entero idMenu
+    * Salida:
+    *   -booleano resultado
+    * Precondiciones:
+    *   -idMenu debe coincidir con algún id de la lista de menús.
+    *   -el menú debe contener productos existentes en el almacén.
+    * Postcondiciones: La función devuelve un valor booleano asociado al nombre, verdadero
+    * si el menú contiene algún producto sin stock y falso en caso contrario.
+    * */
+    public boolean productoSinStock(int idMenu){
+        boolean resultado = false;
+        ImplMenu menu = obtenerMenu(idMenu);
+        ImplStockProducto producto = null;
+        FuncionesProductos funcion = new FuncionesProductos();
+
+        for(int i = 0; i < menu.getProductos().length && !resultado; i++){
+            producto = funcion.obtenerProductoAlmacen(menu.getProductos()[i]);
+            if(producto.getStock() == 0){
+                resultado = true;
+            }
+        }
+
+        return resultado;
+    }
 }
