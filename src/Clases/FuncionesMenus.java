@@ -804,6 +804,7 @@ public class FuncionesMenus {
                 producto = funcion.obtenerProductoAlmacen(menu.getProductos()[i]);
                 funcion.decrementarStock(producto.getProductoId(), 1);
             }
+            validez = 0;
         }
 
         return validez;
