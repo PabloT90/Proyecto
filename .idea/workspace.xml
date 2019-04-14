@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3ab907e1-48bf-4659-a794-507be8868556" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Clases/FuncionesMenus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Clases/FuncionesMenus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Conductores/ConductorFuncionesMenus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Conductores/ConductorFuncionesMenus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Ficheros/ListaMenus.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Ficheros/MovimientosMenu.dat" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,8 +17,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Clases/FuncionesMenus.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-141">
-              <caret line="713" column="21" lean-forward="true" selection-start-line="713" selection-start-column="21" selection-end-line="713" selection-end-column="21" />
+            <state relative-caret-position="210">
+              <caret line="797" column="25" lean-forward="true" selection-start-line="797" selection-start-column="25" selection-end-line="797" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -31,13 +29,68 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Clases/FuncionesProductos.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
-              <caret line="7" selection-start-line="6" selection-end-line="7" />
+            <state relative-caret-position="9313">
+              <caret line="600" column="53" selection-start-line="600" selection-start-column="53" selection-end-line="600" selection-end-column="53" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/OrdenacionFicheros/Principal.dat">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Clases/FuncionesOrdenacionFicheros.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="173">
+              <caret line="297" selection-start-line="297" selection-end-line="297" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Conductores/ConductorFuncionesOrdenacionFicheros.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1088">
+              <caret line="68" column="8" selection-start-line="68" selection-start-column="8" selection-end-line="68" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/OrdenacionFicheros/Fichero1.dat">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Conductores/ConductorFuncionesMenus.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="646">
+              <caret line="41" column="31" selection-start-line="41" selection-start-column="31" selection-end-line="41" selection-end-column="31" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Ficheros/ListaMenus.dat">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Ficheros/AlmacenProductos.txt">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Ficheros/Movimientos.txt">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -53,11 +106,11 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/src/Resguardos/Resguardo.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/Clases/FuncionesOrdenacionFicheros.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/Resguardos/Resguardo.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/Clases/FuncionesProductos.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Main/BurguerDonaldStore.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/Clases/FuncionesMenus.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/Clases/FuncionesProductos.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -290,12 +343,13 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1376" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="UI Designer" order="0" />
       <window_info id="Capture Tool" order="1" />
       <window_info id="Image Layers" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="3" visible="true" weight="0.22991072" />
+      <window_info active="true" content_ui="combo" id="Project" order="3" visible="true" weight="0.36778116" />
       <window_info id="Structure" order="4" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
@@ -579,24 +633,17 @@
     <entry file="file://$PROJECT_DIR$/src/OrdenacionFicheros/Principal.dat">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Clases/FuncionesOrdenacionFicheros.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6831">
-          <caret line="297" selection-start-line="297" selection-end-line="297" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Conductores/ConductorFuncionesOrdenacionFicheros.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1472">
+        <state relative-caret-position="1088">
           <caret line="68" column="8" selection-start-line="68" selection-start-column="8" selection-end-line="68" selection-end-column="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Conductores/ConductorFuncionesMenus.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="48" column="10" selection-start-line="48" selection-start-column="10" selection-end-line="48" selection-end-column="10" />
+        <state relative-caret-position="646">
+          <caret line="41" column="31" selection-start-line="41" selection-start-column="31" selection-end-line="41" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -624,18 +671,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Clases/FuncionesProductos.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="7" selection-start-line="6" selection-end-line="7" />
+        <state relative-caret-position="9313">
+          <caret line="600" column="53" selection-start-line="600" selection-start-column="53" selection-end-line="600" selection-end-column="53" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Clases/FuncionesOrdenacionFicheros.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="297" selection-start-line="297" selection-end-line="297" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Clases/FuncionesMenus.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-141">
-          <caret line="713" column="21" lean-forward="true" selection-start-line="713" selection-start-column="21" selection-end-line="713" selection-end-column="21" />
+        <state relative-caret-position="210">
+          <caret line="797" column="25" lean-forward="true" selection-start-line="797" selection-start-column="25" selection-end-line="797" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

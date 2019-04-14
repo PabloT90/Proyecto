@@ -776,4 +776,36 @@ public class FuncionesMenus {
 
         return resultado;
     }
+
+    /*
+    * Interfaz
+    * Nombre: canjeoMenu
+    * Comentario: Esta función nos permite canjear los productos que contiene
+    * un menú, es decir, nos permite decrementar el stock de los productos del
+    * menú que se encuentran en el almacén.
+    * Cabecera: public int canjeoMenu(ImplMenu menu)
+    * Entrada:
+    *   -ImplMenu menu
+    * Salida:
+    *   -entero validez
+    * Precondiciones:
+    *   -idMenu debe coincidir con algún id de la lista de menús.
+    *   -el menú debe contener productos existentes en el almacén.
+    * Postcondiciones: La función devuelve un número entero asociado al nombre, 0 si
+    * se ha conseguido canjear el menú o -1 si el menú contiene algún producto sin stock.
+    * */
+    public int canjeoMenu(ImplMenu menu){
+        int validez = -1;
+        ImplStockProducto producto = null;
+        FuncionesProductos funcion = new FuncionesProductos();
+
+        if(!productoSinStock(menu.getId())){
+            for(int i = 0; i < menu.getProductos().length; i++){
+                producto = funcion.obtenerProductoAlmacen(menu.getProductos()[i]);
+                funcion.decrementarStock(producto.getProductoId(), 1);
+            }
+        }
+
+        return validez;
+    }
 }
