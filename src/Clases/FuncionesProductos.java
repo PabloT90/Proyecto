@@ -24,7 +24,6 @@ public class FuncionesProductos {
         BufferedWriter bw = null;
 
         try{
-            //fw = new FileWriter("F:\\Proyecto\\Proyecto\\src\\Ficheros\\Movimientos.txt", true);
             fw = new FileWriter("src\\Ficheros\\Movimientos.txt", true);
             bw = new BufferedWriter(fw);
             //Insertamos el nuevo producto en el almacén
@@ -475,31 +474,15 @@ public class FuncionesProductos {
      */
     public int eliminarProducto(int id){
         int validez = -1;
-        ImplStockProducto producto = null;
-        FileWriter fw = null;
-        BufferedWriter bw = null;
+        ImplStockProducto producto;
+
         //Si el producto existe
         if((producto = obtenerProductoAlmacen(id)) != null){
             validez = 0;
             producto.setProductoNombre("*"+producto.getProductoNombre());
 
-            try{
-                fw = new FileWriter("src\\Ficheros\\Movimientos.txt", true);
-                bw = new BufferedWriter(fw);
-
-                bw.write(producto.toString());
-                bw.newLine();
-                bw.flush();
-            }catch (IOException error1){
-                error1.printStackTrace();
-            }finally {
-                try{
-                    bw.close();
-                    fw.close();
-                }catch (IOException error){
-                    error.printStackTrace();
-                }
-            }
+            //Insertamos el producto con la marca de eliminado
+            insertarProducto(producto);
         }
         return validez;
     }
