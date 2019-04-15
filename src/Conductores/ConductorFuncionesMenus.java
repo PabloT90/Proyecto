@@ -38,10 +38,10 @@ public class ConductorFuncionesMenus {
         //System.out.println(funcion.obtenerMenu(3));
 
         //sincronizarListaMenus
-        funcion.sincronizarListaMenus();
+        //funcion.sincronizarListaMenus();
 
         //mostrarListaMenus (funciona)
-        //funcion.mostrarListaMenus();
+        funcion.mostrarListaMenus();
 
         //menuContieneProducto (funciona)
         //System.out.println(funcion.menuContieneProducto(menu1,66));

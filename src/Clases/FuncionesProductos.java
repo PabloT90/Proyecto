@@ -301,8 +301,8 @@ public class FuncionesProductos {
                 if(producto != null){
                     System.out.println(producto);
                 }
-                idActual = Integer.parseInt(separador2[0]); //Esto lo he añadido yo
-                while(registro2 != null && Integer.parseInt(separador2[0]) == idActual) { //== idActual lo he añadido yo.
+                idActual = Integer.parseInt(separador2[0]);
+                while(registro2 != null && Integer.parseInt(separador2[0]) == idActual) {
                     registro2 = br2.readLine();
                     if(registro2 != null) {
                         separador2 = registro2.split(",");
@@ -408,11 +408,19 @@ public class FuncionesProductos {
 
             while(registro2 != null){
                 separador2 = registro2.split(",");
-
-                if(Boolean.parseBoolean(separador2[5]) && separador2[3].charAt(0) != '*'){
-                    System.out.println(registro2);
+                //Buscamos el movimiento más reciente del producto
+                producto = obtenerProductoAlmacen(Integer.parseInt(separador2[0]));
+                //Si el último movimiento no es una eliminación y es vegano.
+                if(producto != null && Boolean.parseBoolean(separador2[5])){
+                    System.out.println(producto);
                 }
-                registro2 = br2.readLine();
+                idActual = Integer.parseInt(separador2[0]);
+                do{
+                    registro2 = br2.readLine();
+                    if(registro2 != null){
+                        separador2 = registro2.split(",");
+                    }
+                }while(registro2 != null && Integer.parseInt(separador2[0]) == idActual);
             }
         }catch (FileNotFoundException error1){
             error1.printStackTrace();

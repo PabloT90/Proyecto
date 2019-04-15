@@ -16,11 +16,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Clases/FuncionesMenus.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-375">
-              <caret line="245" column="23" selection-start-line="245" selection-start-column="15" selection-end-line="245" selection-end-column="23" />
+            <state relative-caret-position="246">
+              <caret line="488" selection-start-line="488" selection-end-line="488" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -31,8 +31,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Conductores/ConductorFuncionesMenus.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="800">
-              <caret line="40" column="8" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="8" />
+            <state relative-caret-position="873">
+              <caret line="43" column="8" lean-forward="true" selection-start-line="43" selection-start-column="8" selection-end-line="43" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -40,36 +40,34 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Clases/FuncionesProductos.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Clases/FuncionesOrdenacionFicheros.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="82">
-              <caret line="406" column="13" lean-forward="true" selection-start-line="406" selection-start-column="13" selection-end-line="406" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="218">
+              <caret line="533" selection-start-line="533" selection-end-line="533" />
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Ficheros/ListaMenus.dat">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Ficheros/MovimientosMenu.dat">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main/BurguerDonaldStore.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-4889">
+            <state relative-caret-position="71">
               <caret line="273" column="13" selection-start-line="273" selection-start-column="13" selection-end-line="273" selection-end-column="13" />
               <folding>
                 <element signature="e#0#22606#0" expanded="true" />
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Clases/FuncionesOrdenacionFicheros.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="12091">
-              <caret line="533" selection-start-line="533" selection-end-line="533" />
             </state>
           </provider>
         </entry>
@@ -102,7 +100,7 @@
     <setting file="file://$PROJECT_DIR$/src/Clases/FuncionesOrdenacionFicheros.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/Main/BurguerDonaldStore.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Clases/FuncionesMenus.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/Clases/FuncionesProductos.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Clases/FuncionesProductos.java" root0="SKIP_INSPECTION" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -134,11 +132,11 @@
         <option value="$PROJECT_DIR$/src/Resguardos/ResguardoMenus.java" />
         <option value="$PROJECT_DIR$/src/Main/BurguerDonaldStore.java" />
         <option value="$PROJECT_DIR$/../Proyecto - Terminado/src/Clases/FuncionesProductos.java" />
-        <option value="$PROJECT_DIR$/src/Ficheros/AlmacenProductos.txt" />
-        <option value="$PROJECT_DIR$/src/Ficheros/Movimientos.txt" />
         <option value="$PROJECT_DIR$/src/Clases/FuncionesProductos.java" />
-        <option value="$PROJECT_DIR$/src/Clases/FuncionesOrdenacionFicheros.java" />
+        <option value="$PROJECT_DIR$/src/Ficheros/Movimientos.txt" />
+        <option value="$PROJECT_DIR$/src/Ficheros/AlmacenProductos.txt" />
         <option value="$PROJECT_DIR$/src/Conductores/ConductorFuncionesMenus.java" />
+        <option value="$PROJECT_DIR$/src/Clases/FuncionesOrdenacionFicheros.java" />
       </list>
     </option>
   </component>
@@ -198,8 +196,8 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -318,15 +316,15 @@
       <window_info id="UI Designer" order="0" />
       <window_info id="Capture Tool" order="1" />
       <window_info id="Image Layers" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="3" visible="true" weight="0.1592262" />
+      <window_info content_ui="combo" id="Project" order="3" visible="true" weight="0.1592262" />
       <window_info id="Structure" order="4" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Terminal" order="0" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.32405892" />
-      <window_info anchor="bottom" id="Run" order="3" weight="0.11292962" />
-      <window_info anchor="bottom" id="Debug" order="4" weight="0.26350245" />
+      <window_info anchor="bottom" id="Run" order="3" weight="0.41571194" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.36988544" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="7" />
@@ -388,6 +386,12 @@
           <properties />
           <option name="timeStamp" value="55" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Clases/FuncionesOrdenacionFicheros.java</url>
+          <line>518</line>
+          <properties />
+          <option name="timeStamp" value="58" />
+        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/Clases/FuncionesProductos.java</url>
           <line>338</line>
@@ -395,6 +399,30 @@
             <option name="EMULATED" value="true" />
           </properties>
           <option name="timeStamp" value="56" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/Clases/FuncionesOrdenacionFicheros.java</url>
+          <line>511</line>
+          <properties class="Clases.FuncionesOrdenacionFicheros" method="numeroRegistrosFichero2">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="57" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/Clases/FuncionesMenus.java</url>
+          <line>480</line>
+          <properties class="Clases.FuncionesMenus" method="mostrarListaMenus">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="59" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/Clases/FuncionesOrdenacionFicheros.java</url>
+          <line>479</line>
+          <properties class="Clases.FuncionesOrdenacionFicheros" method="mezclaDirecta2">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="60" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -654,26 +682,19 @@
         <state relative-caret-position="-8320" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Ficheros/AlmacenProductos.txt">
+    <entry file="file://$PROJECT_DIR$/src/Clases/FuncionesProductos.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="1" column="14" selection-start-line="1" selection-start-column="14" selection-end-line="1" selection-end-column="14" />
+        <state relative-caret-position="148">
+          <caret line="405" column="43" lean-forward="true" selection-start-line="405" selection-start-column="43" selection-end-line="405" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Ficheros/Movimientos.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="1" selection-start-line="1" selection-end-line="1" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Ficheros/ListaMenus.dat">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main/BurguerDonaldStore.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4889">
+        <state relative-caret-position="71">
           <caret line="273" column="13" selection-start-line="273" selection-start-column="13" selection-end-line="273" selection-end-column="13" />
           <folding>
             <element signature="e#0#22606#0" expanded="true" />
@@ -682,43 +703,50 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Ficheros/Movimientos.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret lean-forward="true" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Ficheros/AlmacenProductos.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="33" selection-start-line="2" selection-start-column="33" selection-end-line="2" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Conductores/ConductorFuncionesMenus.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="800">
-          <caret line="40" column="8" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="8" />
+        <state relative-caret-position="873">
+          <caret line="43" column="8" lean-forward="true" selection-start-line="43" selection-start-column="8" selection-end-line="43" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Clases/FuncionesProductos.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="82">
-          <caret line="406" column="13" lean-forward="true" selection-start-line="406" selection-start-column="13" selection-end-line="406" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/src/Ficheros/ListaMenus.dat">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Ficheros/MovimientosMenu.dat">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Clases/FuncionesOrdenacionFicheros.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="12091">
-          <caret line="533" selection-start-line="533" selection-end-line="533" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Clases/FuncionesMenus.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-375">
-          <caret line="245" column="23" selection-start-line="245" selection-start-column="15" selection-end-line="245" selection-end-column="23" />
+        <state relative-caret-position="246">
+          <caret line="488" selection-start-line="488" selection-end-line="488" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Clases/FuncionesOrdenacionFicheros.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="533" selection-start-line="533" selection-end-line="533" />
         </state>
       </provider>
     </entry>
