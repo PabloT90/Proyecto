@@ -1,1 +1,1 @@
-1,BEBIDA,12.0,producto1,p1,false,34
+12,BEBIDA,12.0,pablo,nose,true,12

@@ -38,7 +38,7 @@ public class ConductorFuncionesMenus {
         //System.out.println(funcion.obtenerMenu(3));
 
         //sincronizarListaMenus
-        //funcion.sincronizarListaMenus();
+        funcion.sincronizarListaMenus();
 
         //mostrarListaMenus (funciona)
         //funcion.mostrarListaMenus();
@@ -51,7 +51,7 @@ public class ConductorFuncionesMenus {
 
         //System.out.println(funcion.productoSinStock(19));
 
-        System.out.println(funcion.canjeoMenu(menu1));
+        //System.out.println(funcion.canjeoMenu(menu1));
 
     }
 }

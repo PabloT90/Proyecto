@@ -1,1 +1,2 @@
-1,BEBIDA,12.0,producto1,p1,true,3
+12,BEBIDA,12.0,pablo,nose,true,12
+12,BEBIDA,12.0,mod,nose,true,12

@@ -1,1 +1,1 @@
-1,BEBIDA,12.0,modificado,p1,true,34
+12,BEBIDA,12.0,mod,nose,true,12
