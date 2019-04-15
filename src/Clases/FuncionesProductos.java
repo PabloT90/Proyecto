@@ -370,7 +370,7 @@ public class FuncionesProductos {
                         //Buscamos el movimiento más reciente del producto
                         producto = obtenerProductoAlmacen(Integer.parseInt(separador2[0]));
                         //Si el último movimiento no es una eliminación y es vegano.
-                        if(producto != null && Boolean.parseBoolean(separador2[5])){
+                        if(producto != null && producto.getProductoVegano()){
                             System.out.println(producto);
                         }
                         idActual = Integer.parseInt(separador2[0]);
@@ -384,7 +384,7 @@ public class FuncionesProductos {
                         //Buscamos el movimiento más reciente del producto
                         producto = obtenerProductoAlmacen(Integer.parseInt(separador2[0]));
                         //Si el último movimiento no es una eliminación y es vegano.
-                        if(producto != null && Boolean.parseBoolean(separador2[5])){
+                        if(producto != null && producto.getProductoVegano()){
                             System.out.println(producto);
                         }
 
@@ -411,7 +411,7 @@ public class FuncionesProductos {
                 //Buscamos el movimiento más reciente del producto
                 producto = obtenerProductoAlmacen(Integer.parseInt(separador2[0]));
                 //Si el último movimiento no es una eliminación y es vegano.
-                if(producto != null && Boolean.parseBoolean(separador2[5])){
+                if(producto != null && producto.getProductoVegano()){
                     System.out.println(producto);
                 }
                 idActual = Integer.parseInt(separador2[0]);

@@ -1,1 +1,2 @@
 12,BEBIDA,12.0,pablo,nose,true,12
+12,BEBIDA,12.0,*mod,nose,true,12

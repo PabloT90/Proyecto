@@ -7,11 +7,11 @@ public class FuncionesMenus {
     /*
      * Interfaz
      * Nombre: insertarMenu
-     * Comentario: Esta función permite insertar un menú en el archivo de movimiento de los menús.
+     * Comentario: Esta función permite insertar un menú en el archivo de movimiento de menús.
      * Cabecera: public void insertarMenu(ImplMenu menu)
      * Entrada:
      *   -ImplMenu menu
-     * Postcondiciones: el menú es insertado en el fichero de movimiento de los menús.
+     * Postcondiciones: El menú es insertado en el fichero de movimiento de los menús.
      * */
     /**
      * Inserta un menú en el archivo de movimiento de los menús.
@@ -23,17 +23,17 @@ public class FuncionesMenus {
         ObjectOutputStream oos = null;
         File fichero = new File("src\\Ficheros\\MovimientosMenu.dat");
         try{
-            if(fichero.exists()) {
+            //if(fichero.exists()) { //Si el fichero existe
                 fos = new FileOutputStream(fichero, true);
                 moos = new MyObjectOutputStream(fos);
                 moos.writeObject(menu);//Insertamos el nuevo producto en el almacén
                 moos.close();
-            }else {
+            /*}else {
                 fos = new FileOutputStream(fichero);
                 oos = new ObjectOutputStream(fos);
                 oos.writeObject(menu);
                 oos.close();
-            }
+            }*/
         } catch(IOException error){
             error.printStackTrace();
         }finally {
@@ -52,6 +52,9 @@ public class FuncionesMenus {
     * Cabecera: public ImplMenu obtenerMenu(int idMenu)
     * Entrada:
     *   -entero idMenu
+    * Precondiciones:
+    *   - El fichero ListaMenus.dat debe tener una cabecera valida.
+    *   - El fichero MovimientosMenu.dat debe tener una cabecera valida.
     * Salida:
     *   -ImplMenu menu
     * Postcondiciones: La función devuelve un tipo ImplMenu asociado al nombre, que es
@@ -65,11 +68,10 @@ public class FuncionesMenus {
      */
     public ImplMenu obtenerMenu(int idMenu){
         ImplMenu menu = null;
-        File fichero = new File("src\\Ficheros\\ListaMenus.dat");
 
         menu = buscarEnMovimientos(idMenu);//Buscamos en el fichero de movimientos
-        //Si no se ha encontrado en el fichero de mov, no se ha marcado como eliminado y el fichero maestro existe.
-        if(menu == null && !menuEliminado(idMenu) && fichero.exists()){
+        //Si no se ha encontrado en el fichero de movimiento y no se ha marcado como eliminado
+        if(menu == null && !menuEliminado(idMenu)){
             menu = buscarEnListaMenus(idMenu);
         }
         return menu;
@@ -83,6 +85,7 @@ public class FuncionesMenus {
      * Cabecera: public ImplMenu buscarEnListaMenus(int id)
      * Entrada:
      *   -entero id
+     * Precondiciones: el fichero ListaMenus.dat debe tener una cabecera de la clase ObjectStream
      * Salida:
      *   -ImplMenu menu
      * Postcondiciones: La función devuelve un tipo ImplMenu asociado al nombre, si se ha
@@ -98,18 +101,14 @@ public class FuncionesMenus {
         ImplMenu menu = null;
         FileInputStream fis = null;
         ObjectInputStream ois = null;
-        boolean encontrado = false;
 
         try{
             fis = new FileInputStream("src\\Ficheros\\ListaMenus.dat");
             ois = new ObjectInputStream(fis);
-            //Repetir mientras no sea fin de fichero, no se haya encontrado el producto y sea posible encontrarlo aún.
+            //Repetir mientras no sea fin de fichero y sea posible encontrarlo
             do{
                 menu = (ImplMenu) ois.readObject();
-                if(menu.getId() == id){
-                    encontrado = true;
-                }
-            }while(!encontrado && menu.getId() <= id);
+            }while(menu.getId() <= id);
         }catch(FileNotFoundException error1){
             error1.printStackTrace();
         }catch (EOFException error){
@@ -140,6 +139,8 @@ public class FuncionesMenus {
      * Cabecera: public ImplMenu buscarEnMovimientos(int id)
      * Entrada:
      *   -entero id
+     * Precondiciones:
+     *  - El fichero movimientoMenu.dat debe tener una cabecera de la clase ObjectStream.
      * Salida:
      *   -ImplMenu menu
      * Postcondiciones: La función devuelve un tipo ImplMenu asociado al nombre, si
@@ -160,7 +161,7 @@ public class FuncionesMenus {
             fis = new FileInputStream("src\\Ficheros\\MovimientosMenu.dat");
             ois = new ObjectInputStream(fis);
 
-            //Mientras no sea fin de fichero y no se haya encontrado el producto.
+            //Mientras no sea fin de fichero
             while (true) {
                 registro = (ImplMenu) ois.readObject();
                 if(registro.getId() == id){
@@ -193,7 +194,7 @@ public class FuncionesMenus {
      * menuEliminado
      * Comentario: comprueba si un menú está marcado como eliminado o no.
      * Entrada: entero ID.
-     * Precondiciones: no hay.
+     * Precondiciones: el fichero MovimientosMenu.dat debe tener una cabecera de la clase ObjectStream.
      * Salida: boolean ret.
      * Postcondiciones: Asociado al nombre devuelve un boolean. True en caso que el ultimo registro con esa ID sea marcado
      * como eliminado. False en caso contrario.
@@ -243,7 +244,7 @@ public class FuncionesMenus {
 
     /*
      * Interfaz
-     * Nombre: eliminarMenu (Actu) (Funciona)
+     * Nombre: eliminarMenu
      * Comentario: Esta función nos permite eliminar un menú de la lista de menús.
      * Cabecera: public int eliminarMenu(int id)
      * Entrada:
@@ -251,7 +252,7 @@ public class FuncionesMenus {
      * Salida:
      *   -entero validez
      * Postcondiciones: La función devuelve un número entero asociado al nombre, 0 si se
-     * ha conseguido eliminar el menú o -1 si no se encuentre el menú en la lista de menús.
+     * ha conseguido eliminar el menú o -1 si no se encuentra el menú en la lista de menús.
      * */
     /**
      * Elimina un menú de la lista de menús.
@@ -265,10 +266,9 @@ public class FuncionesMenus {
         MyObjectOutputStream oos = null;
 
         //Si el menú existe
-        if((menu = obtenerMenu(id)) != null){
+        if((menu = obtenerMenu(id)) != null){ //Si el menú existe.
             validez = 0;
             menu.setNombre("*"+menu.getNombre());
-
             try{
                 fos = new FileOutputStream("src\\Ficheros\\MovimientosMenu.dat", true);
                 oos = new MyObjectOutputStream(fos);
@@ -293,6 +293,9 @@ public class FuncionesMenus {
     * Comentario: Esta función permite sincronizar el fichero maestro(ListaMenus) y de movimientos
     * (MovimientosMenu) en un maestro actualizado, que será nombrado como el maestro.
     * Cabecera: public void sincronizarListaMenus()
+    * Precondiciones:
+    *   - El fichero ListaMenus.dat debe tener una cabecera de la clase ObjectStream.
+    *   - El fichero MovimientosMenu.dat debe tener una cabecera de la clase ObjectStream.
     * Postcondiciones: Los ficheros quedan sincronizados en 1 solo. Se renombra a Maestro y se borran
     * el fichero de movimiento y el antiguo maestro.
     * */
@@ -308,8 +311,8 @@ public class FuncionesMenus {
         ObjectOutputStream oos = null;
         File movimientos = new File("src\\Ficheros\\MovimientosMenu.dat");
         File maestroActualizado = new File("src\\Ficheros\\MaestroActualizado.dat");
-        File maestro = new File("src\\Ficheros\\ListaMenus.dat"), aux = null;
-        int idActual = 0, saltoExcepcion = 0;
+        File maestro = new File("src\\Ficheros\\ListaMenus.dat");
+        int idActual = 0, saltoExcepcion = 1;
         FuncionesOrdenacionFicheros ordenacion = new FuncionesOrdenacionFicheros();
         ordenacion.mezclaDirecta2("src\\Ficheros\\MovimientosMenu.dat");
 
@@ -319,7 +322,7 @@ public class FuncionesMenus {
             fis2 = new FileInputStream(movimientos);
             ois2 = new ObjectInputStream(fis2);
             fis1 = new FileInputStream(maestro);
-            ois1 = new ObjectInputStream(fis1);//Si el fichero se encuentra vacío directamente nos salta la excepción
+            ois1 = new ObjectInputStream(fis1);
 
             menu1 = (ImplMenu) ois1.readObject();
             saltoExcepcion = 2;
@@ -360,8 +363,10 @@ public class FuncionesMenus {
             error1.printStackTrace();
         }catch (EOFException error){
             try{
-                if(saltoExcepcion == 0){//Si la lista de menús estaba vacía
-                    menu2 = (ImplMenu) ois2.readObject();
+                if(saltoExcepcion == 1){//Si la excepcion saltó en el fichero maestro.
+                    if(menu2 == null){
+                        menu2 = (ImplMenu)ois2.readObject();
+                    }
                     while (true) {
                         idActual = menu2.getId();//Almacemos la id del producto actual
                         if ((menu2 = buscarEnMovimientos(menu2.getId())) != null) {
@@ -372,21 +377,9 @@ public class FuncionesMenus {
                         } while (menu2.getId() == idActual);//Mientras sea un registro con el mismo id
                     }
                 }else{
-                    if(saltoExcepcion == 1){
-                        while(true) {
-                            idActual = menu2.getId();//Almacemos la id del producto actual
-                            if ((menu2 = buscarEnMovimientos(menu2.getId())) != null) {
-                                oos.writeObject(menu2);
-                            }
-                            do {
-                                menu2 = (ImplMenu) ois2.readObject();
-                            } while (menu2.getId() == idActual);//Mientras sea un registro con el mismo id
-                        }
-                    }else{
-                        while(true){
-                            oos.writeObject(menu1);
-                            menu1 = (ImplMenu) ois1.readObject();
-                        }
+                    while(true){
+                        oos.writeObject(menu1);
+                        menu1 = (ImplMenu)ois1.readObject();
                     }
                 }
             }catch (FileNotFoundException error1) {
@@ -403,24 +396,47 @@ public class FuncionesMenus {
             error3.printStackTrace();
         }finally {
             try{
-                if(ficheroVacio("src\\Ficheros\\ListaMenus.dat") == -1){
-                    ois1.close();
-                }
+                ois1.close();
                 fis1.close();
-                if(ficheroVacio("src\\Ficheros\\MovimientosMenu.dat") == -1){
-                    ois2.close();
-                }
+                ois2.close();
                 fis2.close();
                 oos.close();
                 fos.close();
 
                 //Eliminamos los ficheros del maestro y el de movimientos
-                maestro.delete();
-                movimientos.delete();
-                maestroActualizado.renameTo(aux = new File ("src\\Ficheros\\ListaMenus.dat"));
+                limpiarFicheros();
+                maestroActualizado.renameTo(new File ("src\\Ficheros\\ListaMenus.dat"));
             }catch (IOException error){
                 error.printStackTrace();
             }
+        }
+    }
+
+    /*
+    * Hacer interfaz
+    * */
+    public void limpiarFicheros(){
+        File movimientos = new File("src\\Ficheros\\MovimientosMenu.dat");
+        File maestro = new File("src\\Ficheros\\ListaMenus.dat");
+        FileOutputStream fos = null;
+        ObjectOutputStream oos = null;
+        FileOutputStream fos2 = null;
+        ObjectOutputStream oos2 = null;
+
+        //Borramos los ficheros.
+        maestro.delete();
+        movimientos.delete();
+
+        //Creamos los ficheros.
+        try{
+            fos = new FileOutputStream(movimientos);
+            oos = new ObjectOutputStream(fos);
+            fos2 = new FileOutputStream(maestro);
+            oos2 = new ObjectOutputStream(fos2);
+        }catch(FileNotFoundException error){
+            error.printStackTrace();
+        }catch(IOException error2){
+            error2.printStackTrace();
         }
     }
 
@@ -473,6 +489,9 @@ public class FuncionesMenus {
      * Nombre: mostrarListaMenus
      * Comentario: Esta función permite mostrar todo el almacén de menús.
      * Cabecera: public void mostrarListaMenus()
+     * Precondiciones:
+     *  - El fichero ListaMenus.dat debe tener una cabecera de la clase ObjectStream.
+     * - El fichero MovimientosMenu.dat debe tener una cabecera de la clase ObjectStream
      * Postcondiciones: el fichero de movimiento queda ordenado y muestra en pantalla todo el almacén.
      * */
     /**
@@ -484,7 +503,7 @@ public class FuncionesMenus {
         ObjectInputStream ois1 = null, ois2 = null;
         File movimientos = new File("src\\Ficheros\\MovimientosMenu.dat");
         File maestro = new File("src\\Ficheros\\ListaMenus.dat");
-        int idActual = 0, saltoExcepcion = 0;
+        int idActual = 0, saltoExcepcion = 1;
         FuncionesOrdenacionFicheros ordenacion = new FuncionesOrdenacionFicheros();
         ordenacion.mezclaDirecta2("src\\Ficheros\\MovimientosMenu.dat");
 
@@ -492,7 +511,7 @@ public class FuncionesMenus {
             fis2 = new FileInputStream(movimientos);
             ois2 = new ObjectInputStream(fis2);
             fis1 = new FileInputStream(maestro);
-            ois1 = new ObjectInputStream(fis1);//Si el fichero se encuentra vacío directamente nos salta la excepción
+            ois1 = new ObjectInputStream(fis1);
 
             menu1 = (ImplMenu) ois1.readObject();
             saltoExcepcion = 2;
@@ -533,8 +552,10 @@ public class FuncionesMenus {
             error1.printStackTrace();
         }catch (EOFException error){
             try{
-                if(saltoExcepcion == 0){//Si la lista de menús estaba vacía
-                    menu2 = (ImplMenu) ois2.readObject();
+                if(saltoExcepcion == 1){//Si la excepcion saltó en el fichero maestro
+                    if(menu2 == null){
+                        menu2 = (ImplMenu)ois2.readObject();
+                    }
                     while (true) {
                         idActual = menu2.getId();//Almacemos la id del producto actual
                         if ((menu2 = buscarEnMovimientos(menu2.getId())) != null) {
@@ -545,21 +566,9 @@ public class FuncionesMenus {
                         } while (menu2.getId() == idActual);//Mientras sea un registro con el mismo id
                     }
                 }else{
-                    if(saltoExcepcion == 1){
-                        while(true) {
-                            idActual = menu2.getId();//Almacemos la id del producto actual
-                            if ((menu2 = buscarEnMovimientos(menu2.getId())) != null) {
-                                System.out.println(menu2);
-                            }
-                            do {
-                                menu2 = (ImplMenu) ois2.readObject();
-                            } while (menu2.getId() == idActual);//Mientras sea un registro con el mismo id
-                        }
-                    }else{
-                        while(true){
-                            System.out.println(menu1);
-                            menu1 = (ImplMenu) ois1.readObject();
-                        }
+                    while(true){
+                        System.out.println(menu1);
+                        menu1 = (ImplMenu)ois1.readObject();
                     }
                 }
             }catch (FileNotFoundException error1) {
@@ -576,13 +585,9 @@ public class FuncionesMenus {
             error3.printStackTrace();
         }finally {
             try{
-                if(ficheroVacio("src\\Ficheros\\ListaMenus.dat") == -1){
-                    ois1.close();
-                }
+                ois1.close();
                 fis1.close();
-                if(ficheroVacio("src\\Ficheros\\MovimientosMenu.dat") == -1){
-                    ois2.close();
-                }
+                ois2.close();
                 fis2.close();
             }catch (IOException error){
                 error.printStackTrace();
@@ -625,6 +630,10 @@ public class FuncionesMenus {
     * Cabecera: public void eliminarMenusPorProductoDeterminado(int idProducto)
     * Entrada:
     *   -entero idProducto
+    * Precondiciones:
+    *   - El idProducto debe ser mayor o igual a 0
+    *   - El fichero ListaMenus.dat debe tener una cabecera de la clase ObjectStream
+    *   - El fichero MovimientosMneu.dat debe tener una cabecera de la clase ObjectStream
     * Postcondiciones: La función elimina todos los menús de la lista que contengan
     * el mismo producto.
     * */
@@ -632,7 +641,7 @@ public class FuncionesMenus {
         ImplMenu menu1 = null, menu2 = null;
         FileInputStream fis1 = null, fis2 = null;
         ObjectInputStream ois1 = null, ois2 = null;
-        int idActual = 0, saltoExcepcion = 0;
+        int idActual = 0, saltoExcepcion = 1;
         ArrayList<Integer> menusAEliminar = new ArrayList<Integer>();
         FuncionesOrdenacionFicheros ordenacion = new FuncionesOrdenacionFicheros();
         ordenacion.mezclaDirecta2("src\\Ficheros\\MovimientosMenu.dat");
@@ -684,8 +693,10 @@ public class FuncionesMenus {
             error1.printStackTrace();
         }catch (EOFException error){
             try{
-                if(saltoExcepcion == 0){//Si la lista de menús estaba vacía
-                    menu2 = (ImplMenu) ois2.readObject();
+                if(saltoExcepcion == 1){//Si la excepcion ha saltado en el fichero maestro
+                    if(menu2 == null){
+                        menu2 = (ImplMenu)ois2.readObject();
+                    }
                     while (true) {
                         idActual = menu2.getId();//Almacemos la id del producto actual
                         if ((menu2 = buscarEnMovimientos(menu2.getId())) != null && menuContieneProducto(menu2, idProducto)) {
@@ -696,21 +707,9 @@ public class FuncionesMenus {
                         } while (menu2.getId() == idActual);//Mientras sea un registro con el mismo id
                     }
                 }else{
-                    if(saltoExcepcion == 1){
-                        while(true) {
-                            idActual = menu2.getId();//Almacemos la id del producto actual
-                            if ((menu2 = buscarEnMovimientos(menu2.getId())) != null && menuContieneProducto(menu2, idProducto)) {
-                                menusAEliminar.add(menu2.getId());
-                            }
-                            do {
-                                menu2 = (ImplMenu) ois2.readObject();
-                            } while (menu2.getId() == idActual);//Mientras sea un registro con el mismo id
-                        }
-                    }else{
-                        while(true){
-                            menusAEliminar.add(menu1.getId());
-                            menu1 = (ImplMenu) ois1.readObject();
-                        }
+                    while(true){
+                        menusAEliminar.add(menu1.getId());
+                        menu1 = (ImplMenu)ois1.readObject();
                     }
                 }
             }catch (FileNotFoundException error1) {
@@ -727,13 +726,9 @@ public class FuncionesMenus {
             error3.printStackTrace();
         }finally {
             try{
-                if(ficheroVacio("src\\Ficheros\\ListaMenus.dat") == -1){
-                    ois1.close();
-                }
+                ois1.close();
                 fis1.close();
-                if(ficheroVacio("src\\Ficheros\\MovimientosMenu.dat") == -1){
-                    ois2.close();
-                }
+                ois2.close();
                 fis2.close();
 
                 for(int i = 0;  i < menusAEliminar.size(); i++){
@@ -811,7 +806,14 @@ public class FuncionesMenus {
     }
 
     /*
-    * Completar
+    * Interfaz
+    * Nombre: encabezarFichero()
+    * Comentario: nos permite crear una cabecera en un fichero para evitar errores de lectura por la clase ObjectInputStream.
+    * Cabecera: public void encabezarFichero(String direccion)
+    * Entrada:
+    *   - String direccion.
+    * Precondiciones: debe ser una direccion existente.
+    * PostCondiciones: inserta una nueva cabecera en un fichero.
     * */
     public void encabezarFichero(String direccion){
         FileOutputStream fos = null;
