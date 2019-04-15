@@ -15,6 +15,9 @@ public class ConductorFuncionesMenus {
         ImplMenu menu4 = new ImplMenu(4, "Pato", "El 4.", productos, 9.5);
         ImplMenu menu5 = new ImplMenu(22, "Nueevo", "El 22.", productos2, 9.5);
 
+        funcion.encabezarFichero("src\\Ficheros\\MovimientosMenu.dat");
+        funcion.encabezarFichero("src\\Ficheros\\ListaMenus.dat");
+
         //insertarMenu
         funcion.insertarMenu(menu1);
         funcion.insertarMenu(menu2);

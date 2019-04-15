@@ -287,6 +287,13 @@ public class BurguerDonaldStore {
         File listaMenus = new File("src\\Ficheros\\ListaMenus.dat");
         File movimientosMenus = new File("src\\Ficheros\\MovimientosMenu.dat");
 
+        if(!listaMenus.isFile()) { //
+            fm.encabezarFichero("src\\Ficheros\\ListaMenus.dat");
+        }
+        if(!movimientosMenus.isFile()){
+            fm.encabezarFichero("src\\Ficheros\\MovimientosMenu.dat");
+        }
+
         do{
             //leerYValidarOpcionMenu *
             opcionMenu = validacion.leerYValidarOpcionMenu();
@@ -434,7 +441,7 @@ public class BurguerDonaldStore {
                                         id = validacion.leerYValidarId();
                                         if(fm.obtenerMenu(id) != null) {//Si el menú existe
                                             //leerYValidarMenu* //El ID se recibe como parametro
-                                            menu = validacion.leerYValidarNuevoMenu();
+                                            menu = validacion.leerYValidarNuevoMenu(id);
                                             //modificarMenu*
                                             //resguardoMenus.insertarMenu(menu);
                                             fm.insertarMenu(menu);
@@ -466,15 +473,20 @@ public class BurguerDonaldStore {
                                     break;
                                     case 4://para opcionSubMenu2 ==4
                                         //InsercionMenu
-                                        if(!fp.almacenVacio()) {//Si almacen de productos no esta vacio
-                                            //leerYValidarMenu*
-                                            menu = validacion.leerYValidarNuevoMenu();
+                                        //leerYValidarId*
+                                        id = validacion.leerYValidarId();
+
+                                        if(fm.obtenerMenu(id) == null) {//Si el menu no existe
+                                            //LeerValidarMenu*
+                                            menu = validacion.leerYValidarNuevoMenu(id);
+
                                             //insertarMenu*
-                                            //resguardoMenus.insertarMenu(menu);
+                                            //resguardo.insertarMenu(menu);
                                             fm.insertarMenu(menu);
-                                        }else {//Sino
-                                            System.out.println("No se ha podido insertar el menu.");//MensajeExplicatorio5
-                                        }//Fin_si
+                                        }else{
+                                            //MensajeExplicatorio1
+                                            System.out.println("No se ha podido insertar el menu.");
+                                        }
                                     break;
                                     case 5://para opcionSubMenu2 ==5
                                         //EliminacionMenu

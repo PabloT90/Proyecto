@@ -79,7 +79,7 @@ public class ConductorValidacionesBurguerDonald {
         //LeerYValidarNuevoMenu (funciona pero)
         //Cuando muestra los productos el primero lo ignora.
         //Supongo que en el toString debemos mostrar el ID de los productos. Esto es facil.
-        System.out.println(funcion.leerYValidarNuevoMenu());
+        System.out.println(funcion.leerYValidarNuevoMenu(1));
 
         //leerYValidarNuevoMenu //-------------------Pendiente--------------------------------
         //System.out.println(funcion.leerYValidarNuevoMenu());

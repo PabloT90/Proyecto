@@ -579,7 +579,11 @@ public class ValidacionesBurguerDonald {
     * Nombre: leerYValidarNuevoMenu
     * Comentario: Esta función nos permite obtener un tipo ImplMenu válido
     * para el programa BurguerDonald.
-    * Cabecera: public ImplMenu leerYValidarNuevoMenu()
+    * Cabecera: public ImplMenu leerYValidarNuevoMenu(int id)
+    * Entrada:
+    *   -int id
+    * Precondiciones:
+    *   -el id debe ser positivo.
     * Salida:
     *   -ImplMenu menu
     * Postcondiciones: La función devuelve un tipo ImplMenu asociado al nombre,
@@ -590,15 +594,13 @@ public class ValidacionesBurguerDonald {
      * Obtiene un tipo ImplMenu válido para el programa BurguerDonald.
      * @return Asociado al nombre devuelve un tipo ImplMenu, que es un menu válido para el programa.
      */
-    public ImplMenu leerYValidarNuevoMenu(){
+    public ImplMenu leerYValidarNuevoMenu(int id){
         ImplMenu menu = null;
         Scanner teclado = new Scanner(System.in);
-        int idMenu = 0;
         double precio =0;
         String nombre = " ", descripcion = " ";
         int[] productos;
 
-        idMenu = leerYValidarId();
         System.out.println("Introduce el nombre del men\u00fa.");
         nombre = teclado.nextLine();
         System.out.println("Introduce la descripci\u00f3n del men\u00fa.");
@@ -606,7 +608,7 @@ public class ValidacionesBurguerDonald {
         productos = leerYValidarListaProductos();
         precio = leerYValidarPrecio();
 
-        menu = new ImplMenu(idMenu, nombre, descripcion, productos, precio);
+        menu = new ImplMenu(id, nombre, descripcion, productos, precio);
 
         return menu;
     }

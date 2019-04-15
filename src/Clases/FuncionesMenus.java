@@ -125,7 +125,7 @@ public class FuncionesMenus {
                 error.printStackTrace();
             }
         }
-        if(menu.getId() != id){
+        if(menu != null && menu.getId() != id){
             menu = null;
         }
 
@@ -809,4 +809,30 @@ public class FuncionesMenus {
 
         return validez;
     }
+
+    /*
+    * Completar
+    * */
+    public void encabezarFichero(String direccion){
+        FileOutputStream fos = null;
+        ObjectOutputStream oos = null;
+
+        try{
+            fos = new FileOutputStream(direccion);
+            oos = new ObjectOutputStream(fos);
+
+        }catch(FileNotFoundException error){
+            error.printStackTrace();
+        }catch(IOException error2){
+            error2.printStackTrace();
+        }finally{
+            try {
+                fos.close();
+                oos.close();
+            }catch(IOException error3){
+               error3.printStackTrace();
+            }
+        }
+    }
+
 }

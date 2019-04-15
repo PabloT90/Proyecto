@@ -528,11 +528,14 @@ public class FuncionesOrdenacionFicheros {
             error1.printStackTrace();
         }catch (EOFException error){
         }catch (IOException error2){
-            error2.printStackTrace();
+            //error2.printStackTrace();
         }finally {
             try{
-                ois.close();
+                if(ois != null) {
+                    ois.close();
+                }
                 fis.close();
+
             }catch (IOException error1){
                 error1.printStackTrace();
             }
