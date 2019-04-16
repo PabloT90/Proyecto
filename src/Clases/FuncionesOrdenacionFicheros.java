@@ -247,7 +247,7 @@ public class FuncionesOrdenacionFicheros {
     *   -Cadena direccionFichero //Es la dirección(Path) del fichero.
     * Precondiciones:
     *   -La dirección debe apuntar a un fichero existente.
-    *   -El fichero solo almacena números enteros.
+    *   -El fichero solo debe almacenar productos.
     * Postcondiciones: Se han ordenado los registros del fichero en orden ascendente, según el valor de los enteros
     * que almacena.
     * */
@@ -384,7 +384,7 @@ public class FuncionesOrdenacionFicheros {
 
     /*
      * Interfaz
-     * Nombre: partirFicheroEnSecuencias2 (Pablo modifica la interfaz)
+     * Nombre: partirFicheroEnSecuencias2
      * Comentario: Esta función permite partir(distribuir) los datos de un fichero en
      * secuencias dentro de dos nuevos ficheros. Esta función no modifica el estado del fichero
      * de origen.
@@ -462,16 +462,16 @@ public class FuncionesOrdenacionFicheros {
 
     /*
      * Interfaz
-     * Nombre: mezclaDirecta (Pablo modifica la interfaz)
+     * Nombre: mezclaDirecta2 (Pablo modifica la interfaz)
      * Comentario: Esta función permite ordenar de manera ascendente un fichero que almacena objetos ImplMenu.
-     * Cabecera: public void mezclaDirecta(String direccionFichero)
+     * Cabecera: public void mezclaDirecta2(String direccionFichero)
      * Entrada:
      *   -Cadena direccionFichero //Es la dirección(Path) del fichero.
      * Precondiciones:
      *   -La dirección debe apuntar a un fichero existente.
-     *   -El fichero solo almacena números enteros.
-     * Postcondiciones: Se han ordenado los registros del fichero en orden ascendente, según el valor de los enteros
-     * que almacena.
+     *   -El fichero solo almacena menús.
+     * Postcondiciones: Se han ordenado los registros del fichero en orden ascendente, según el valor de las id's
+     * de los menús que almacena.
      * */
     /**
      * Ordena de manera ascendente un fichero que almacena números enteros.
@@ -491,7 +491,7 @@ public class FuncionesOrdenacionFicheros {
 
     /*
      * Interfaz
-     * Nombre: numeroRegistrosFichero2 (Pablo modifica la interfaz)
+     * Nombre: numeroRegistrosFichero2
      * Comentario: Esta función permite obtener el número de registros almacenados en
      * un fichero.
      * Cabecera: public int numeroRegistrosFichero(String direccionFichero)
@@ -528,7 +528,7 @@ public class FuncionesOrdenacionFicheros {
             error1.printStackTrace();
         }catch (EOFException error){
         }catch (IOException error2){
-            //error2.printStackTrace();
+            error2.printStackTrace();
         }finally {
             try{
                 if(ois != null) {
