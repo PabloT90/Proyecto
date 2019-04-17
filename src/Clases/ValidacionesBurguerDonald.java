@@ -216,7 +216,6 @@ public class ValidacionesBurguerDonald {
         stock = leerYValidarStock();//Obtenemos un stock válido
 
         producto = new ImplStockProducto(idProducto, tipo, precio, nombre, descripcion, vegano, stock);
-
         return producto;
     }
 
@@ -266,7 +265,6 @@ public class ValidacionesBurguerDonald {
                 tipoProducto = EnumTipo.COMPLEMENTO;
             break;
         }
-
         return tipoProducto;
     }
 
@@ -293,7 +291,6 @@ public class ValidacionesBurguerDonald {
             System.out.println("Indica el precio del producto (No puede ser negativo).");
             precio = teclado.nextDouble();
         }while(precio < 0);
-
         return precio;
     }
 
@@ -320,7 +317,6 @@ public class ValidacionesBurguerDonald {
             System.out.println("Indica el stock del producto (No puede ser negativo).");
             stock = teclado.nextInt();
         }while(stock < 0);
-
         return stock;
     }
 
@@ -332,7 +328,7 @@ public class ValidacionesBurguerDonald {
     * El usuario podrá modificar los campos del producto que el desee.
     * Cabecera: public ImplStockProducto leerYValidarProductoModificado(int idProducto)
     * Entrada:
-    *   -int idProducto
+    *   -entero idProducto
     * Salida:
     *   -ImplStockProducto producto
     * Postcondiciones: La función devuelve un tipo ImplStockProducto asociado al nombre, que
@@ -616,34 +612,32 @@ public class ValidacionesBurguerDonald {
     /*
     * Interfaz
     * Nombre: leerYValidarListaProductos
-    * Comentario: Esta función nos permite obtener un array del tipo
-    * ImplProducto válido para un menú. Obtendremos un array lleno de
-    * productos, el array no contendrá ningún elemento nulo.
-    * Cabecera: public ImplProducto[] leerYValidarListaProductos()
+    * Comentario: Esta función nos permite obtener un array de enteros
+    * que son las id's de los productos que contendrá un menú.
+    * Cabecera: public int[] leerYValidarListaProductos()
     * Salida:
-    *   -ImplProducto[] productos
+    *   -entero[] productos
     * Precondiciones:
     *   -El almacén de productos no debe estar vacío. (Fichero AlmacenProductos y FicheroMovimientoNuevosProductos)
-    * Postcondiciones: La función devuelve un array del tipo ImplProducto
-    * asociado al nombre, que es una lista de productos válida para un menú.
+    * Postcondiciones: La función devuelve un array de enteros asociado al nombre,
+    * que es una lista de los id's de productos válida para un menú.
     * */
 
     /**
-     * Obtiene un array del tipo ImplProducto válido para un menú.
-     * @return Asociado al nombre devuelve un array del tipo ImplProducto, que es una lista de productos válida para un menú.
+     * Obtiene un array de enteros válido para un menú.
+     * @return Asociado al nombre devuelve un array de enteros, que es una lista de id's de productos válida para un menú.
      */
     public int[] leerYValidarListaProductos(){
-        int[] productos = new int[1];
+        int[] productos = new int[1], aux = null;
         char respuesta;
 
         do{
             productos[productos.length-1] = leerYValidarProductoDelAlmacen();
             respuesta = leerYValidarRespuestaInsercion();
             if(respuesta == 's'){//Incrementamos el tamaño del array
-                //aux = new ImplProducto[productos.length+1];
-                //System.arraycopy(productos, 0, aux, 0, productos.length);
-                //productos = aux;
-                productos = aumentarTamano(productos);
+                aux = new int[productos.length+1];
+                System.arraycopy(productos, 0, aux, 0, productos.length);
+                productos = aux;
             }
         }while(respuesta == 's');
 
@@ -654,7 +648,7 @@ public class ValidacionesBurguerDonald {
      * Interfaz
      * Nombre: aumentarTamano
      * Comentario: Esta función nos permite aumentar en 1 unidad el tamaño de un array pasado por parametro,
-     * copiando los datos que guardaba.
+     * manteniendo los datos que guardaba.
      * Cabecera: public ImplProducto[] aumentarTamano(ImplProducto[] productos)
      * Entrada:
      *   - ImplProducto[] producto
@@ -670,13 +664,13 @@ public class ValidacionesBurguerDonald {
      * @param productos Array de productos.
      * @return Asociado al nombre devuelve un array del tipo ImplProducto, que es una lista válida para un menú.
      */
-    public int[] aumentarTamano(int[] productos){
+    /*public int[] aumentarTamano(int[] productos){
         int[] aux = null;
         aux = new int[productos.length+1];
         System.arraycopy(productos, 0, aux, 0, productos.length);
         productos = aux;
         return productos;
-    }
+    }*/
 
     /*
     * Interfaz
