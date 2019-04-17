@@ -282,12 +282,10 @@ public class BurguerDonaldStore {
         int opcionMenu, opcionSubMenu1, opcionSubMenu2, opcionSubMenu3, opcionSubMenu4;
         int id;
         int stock;
-        File almacen = new File("src\\Ficheros\\AlmacenProductos.txt");
-        File movimientosProductos = new File("src\\Ficheros\\Movimientos.txt");
         File listaMenus = new File("src\\Ficheros\\ListaMenus.dat");
         File movimientosMenus = new File("src\\Ficheros\\MovimientosMenu.dat");
 
-        if(!listaMenus.isFile()) { //
+        if(!listaMenus.isFile()){ //
             fm.encabezarFichero("src\\Ficheros\\ListaMenus.dat");
         }
         if(!movimientosMenus.isFile()){

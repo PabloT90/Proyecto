@@ -462,7 +462,7 @@ public class FuncionesOrdenacionFicheros {
 
     /*
      * Interfaz
-     * Nombre: mezclaDirecta2 (Pablo modifica la interfaz)
+     * Nombre: mezclaDirecta2
      * Comentario: Esta función permite ordenar de manera ascendente un fichero que almacena objetos ImplMenu.
      * Cabecera: public void mezclaDirecta2(String direccionFichero)
      * Entrada:
