@@ -494,7 +494,7 @@ public class FuncionesProductos {
 
     /*
     * Interfaz
-    * Nombre: eliminarProducto (Actu) (Funciona)
+    * Nombre: eliminarProducto
     * Comentario: Esta función nos permite eliminar un producto del almacén.
     * Cabecera: public int eliminarProducto(int id)
     * Entrada:
@@ -512,14 +512,14 @@ public class FuncionesProductos {
     public int eliminarProducto(int id){
         int validez = -1;
         ImplStockProducto producto;
+        FuncionesMenus fm = new FuncionesMenus();
 
         //Si el producto existe
         if((producto = obtenerProductoAlmacen(id)) != null){
             validez = 0;
             producto.setProductoNombre("*"+producto.getProductoNombre());
-
-            //Insertamos el producto con la marca de eliminado
-            insertarProducto(producto);
+            insertarProducto(producto); //Insertamos el producto con la marca de eliminado
+            fm.eliminarMenusPorProductoDeterminado(id); //Eliminamos el menu que contenga ese producto.
         }
         return validez;
     }
