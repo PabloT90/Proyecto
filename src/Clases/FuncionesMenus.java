@@ -408,17 +408,13 @@ public class FuncionesMenus {
     /*
     * Interfaz
     * Nombre: limpiarFichero
-    * Comentario: Esta función nos permite vaciar un fichero binario,
-    * asignandole una nueva cabecera para las clases de ObjectStream.
-    * Cabecera: public int limpiarFichero(String direccionFichero)
+    * Comentario: Esta función vacia los datos del fichero recibido como parametro.
+    * Cabecera: public void limpiarFichero(String direccionFichero)
     * Entrada:
     *   -Cadena direccionFichero
-    * Salida:
-    *   -entero validez
     * Precondiciones:
-    *   -direccionFichero debe apuntar a un fichero binario existente.
-    * Postcondiciones: La función devuelve un número entero asociado al nombre,
-    * 0 si se ha conseguido vaciar el fichero o -1 en caso contrario.
+    *   -direccionFichero debe apuntar a un fichero existente.
+    * Postcondiciones: los ficheros quedan vacios de los datos que contenia anteriormente..
     * */
     public void limpiarFichero(String direccionFichero){
         File fichero = new File(direccionFichero);

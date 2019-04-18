@@ -633,7 +633,7 @@ public class FuncionesProductos {
 
             //Eliminamos los ficheros del maestro y el de movimientos
             ficheroMaestro.delete();
-            ficheroMovimiento.delete();
+            limpiarFichero("src\\Ficheros\\Movimientos.txt");
             ficheroMaestroActualizado.renameTo(new File ("src\\Ficheros\\AlmacenProductos.txt"));
         }catch (FileNotFoundException error1){
             error1.printStackTrace();
@@ -642,7 +642,32 @@ public class FuncionesProductos {
         }
     }
 
+    /*
+     * Interfaz
+     * Nombre: limpiarFichero
+     * Comentario: Esta función nos permite vaciar los datos de un fichero recibido como parametro..
+     * Cabecera: public void limpiarFichero(String direccion)
+     * Entrada:
+     *   -Cadena direccion
+     * Precondiciones:
+     *   -direccionFichero debe apuntar a un fichero binario existente.
+     * Postcondiciones: El fichero queda limpio de datos.
+     * */
+    public void limpiarFichero(String direccion){
+        File fichero = new File(direccion);
+        FileWriter fw = null;
 
+        try{
+            //Borramos el fichero.
+            fichero.delete();
+            //Creamos el fichero.
+            fw = new FileWriter(fichero);
+        }catch(FileNotFoundException error){
+            error.printStackTrace();
+        }catch(IOException error2){
+            error2.printStackTrace();
+        }
+    }
 
     /*
      * Interfaz

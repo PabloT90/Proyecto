@@ -30,7 +30,7 @@ public class FuncionesDeConfiguracion {
             cafeGratis();
         }else{
             cafePrecioPredeterminado();
-            if(dia == 6 && (hora == 13 || hora == 14 && minuto == 0)){//Si es sabado y esta en el rango de horas permitido
+            if(dia == 7 && (hora == 13 || (hora == 14 && minuto == 0))){//Si es sabado y esta en el rango de horas permitido
                 almacenProductos.sincronizarAlmacen();
                 listaMenus.sincronizarListaMenus();
             }

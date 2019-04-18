@@ -1,2 +1,0 @@
-12,BEBIDA,12.0,*dgfd,fdgdfh,true,45
-12,BEBIDA,12.0,dgfd,modificado,true,45

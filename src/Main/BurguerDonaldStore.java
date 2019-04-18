@@ -268,7 +268,6 @@ package Main;
 
 import Clases.*;
 import Enums.EnumTipo;
-
 import java.io.File;
 
 public class BurguerDonaldStore {

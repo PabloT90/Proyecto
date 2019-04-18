@@ -1,1 +1,4 @@
-12,BEBIDA,12.0,dgfd,modificado,true,45
+1,BEBIDA,1.0,cafelito,gratis,true,45
+1,BEBIDA,1.0,cafelito,gratis,true,45
+1,BEBIDA,1.0,cafelito,gratis,true,45
+1,BEBIDA,1.0,cafelito,gratis,true,45
