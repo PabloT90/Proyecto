@@ -72,6 +72,9 @@
  *
  * PG Nivel: 0
  * Inicio
+ *   comprobacionFicheros*
+ *   ajustesEncabezamiento*
+ *   configuracionInicial*
  *   Repetir
  *       leerYValidarOpcionMenu*
  *       Si opcionMenu != 0
@@ -268,7 +271,6 @@ package Main;
 
 import Clases.*;
 import Enums.EnumTipo;
-import java.io.File;
 
 public class BurguerDonaldStore {
     public static void main(String[]args){
@@ -281,15 +283,11 @@ public class BurguerDonaldStore {
         int opcionMenu, opcionSubMenu1, opcionSubMenu2, opcionSubMenu3, opcionSubMenu4;
         int id;
         int stock;
-        File listaMenus = new File("src\\Ficheros\\ListaMenus.dat");
-        File movimientosMenus = new File("src\\Ficheros\\MovimientosMenu.dat");
+        FuncionesDeConfiguracion fc = new FuncionesDeConfiguracion();
 
-        if(!listaMenus.isFile()){ //
-            fm.encabezarFichero("src\\Ficheros\\ListaMenus.dat");
-        }
-        if(!movimientosMenus.isFile()){
-            fm.encabezarFichero("src\\Ficheros\\MovimientosMenu.dat");
-        }
+        fc.comprobacionFicheros();
+        fc.ajustesEncabezamiento();
+        fc.configuracionInicial();
 
         do{
             //leerYValidarOpcionMenu *

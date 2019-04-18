@@ -1,5 +1,8 @@
 package Clases;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
@@ -88,5 +91,43 @@ public class FuncionesDeConfiguracion {
         return validez;
     }
 
+
+    /*
+    *
+    * */
+    public void ajustesEncabezamiento(){
+        File listaMenus = new File("src\\Ficheros\\ListaMenus.dat");
+        File movimientosMenus = new File("src\\Ficheros\\MovimientosMenu.dat");
+        FuncionesMenus fm = new FuncionesMenus();
+
+        if(!listaMenus.isFile()){
+            fm.encabezarFichero("src\\Ficheros\\ListaMenus.dat");
+        }
+        if(!movimientosMenus.isFile()){
+            fm.encabezarFichero("src\\Ficheros\\MovimientosMenu.dat");
+        }
+    }
+
+    /*
+    *
+    *
+    * */
+    public void comprobacionFicheros(){
+        File fichero = new File("src\\Ficheros\\Movimientos.txt");
+        File fichero2 = new File("src\\Ficheros\\AlmacenProductos.txt");
+        FileWriter fw = null;
+        FileWriter fw2 = null;
+
+        try{
+            if(!fichero.isFile()){
+                fw = new FileWriter(fichero);
+            }
+            if(!fichero2.isFile()){
+                fw2 = new FileWriter(fichero2);
+            }
+        }catch(IOException error){
+            error.printStackTrace();
+        }
+    }
 
 }
