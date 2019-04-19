@@ -10,7 +10,7 @@ public class FuncionesDeConfiguracion {
     /*
     * Interfaz
     * Nombre: configuracionInicial
-    * Comentario: Esta función permite permite realizar modificaciones
+    * Comentario: Esta función permite realizar modificaciones
     * automáticas en el almacén de productos y en la lista de menús, según
     * el día y hora a la que se ejecute la aplicación. Modificaciones
     * predeterminadas:
@@ -93,7 +93,14 @@ public class FuncionesDeConfiguracion {
 
 
     /*
-    *
+    * Interfaz
+    * Nombre: ajustesEncabezamiento
+    * Comentario: Esta función permite establecer la cabecera inicial del
+    * fichero maestro y el de movimientos para la lista de menús.
+    * Cabecera: public void ajustesEncabezamiento()
+    * Postcondiciones: La función puede llegar a crear un fichero maestro y/o
+    * de movimientos con la cabecera para poder manejar correctamente el fichero
+    * con la clases de ObjectStream.
     * */
     public void ajustesEncabezamiento(){
         File listaMenus = new File("src\\Ficheros\\ListaMenus.dat");
@@ -109,8 +116,13 @@ public class FuncionesDeConfiguracion {
     }
 
     /*
-    *
-    *
+    * Interfaz
+    * Nombre: comprobacionFicheros
+    * Comentario: Esta función crea el fichero maestro y de movimientos
+    * del almacén de productos, en caso de que no existan.
+    * Cabecera: public void comprobacionFicheros()
+    * Postcondiciones: La función puede llegar a generar dos ficheros
+    * de texto para aplicación BurguerDonald.
     * */
     public void comprobacionFicheros(){
         File fichero = new File("src\\Ficheros\\Movimientos.txt");

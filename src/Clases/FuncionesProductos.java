@@ -872,7 +872,7 @@ public class FuncionesProductos {
     * si en el almacén existen productos de ese tipo determinado o -1 en caso contrario.
     * */
     /**
-     * Permite conocer ei en el almacén existen productos de un tipo determinado.
+     * Permite conocer si en el almacén existen productos de un tipo determinado.
      * @param tipo Tipo del que queremos saber si existen productos.
      * @return True en caso de que existan. False en caso contrario.
      */
@@ -944,7 +944,7 @@ public class FuncionesProductos {
                 while (registro2 != null && !resultado) {
                     //Buscamos el movimiento más reciente del producto
                     producto = buscarEnMovimientos(Integer.parseInt(separador2[0]));
-                    //Si el último movimiento no es una eliminación y es vegano.
+                    //Si el último movimiento no es una eliminación y es del mismo tipo.
                     if (producto != null && producto.getProductoTipo() == tipo) {
                         resultado = true;
                     }else{
