@@ -53,7 +53,6 @@ public class FuncionesMenus {
     * Postcondiciones: La función devuelve un tipo ImplMenu asociado al nombre, que es
     * el menú con misma id en la lista o null si el menú con esa id no se encuentra en la lista.
     * */
-
     /**
      * Obtiene un menú de la lista de menús.
      * @param idMenu id del menú que queremos obtener.
@@ -325,7 +324,7 @@ public class FuncionesMenus {
                     oos.writeObject(menu1);
                     saltoExcepcion = 1;
                     menu1 = (ImplMenu) ois1.readObject();
-                } else {
+                }else{
                     if (menu1.getId() > menu2.getId()) {
                         //Si el producto no sufre una posterior eliminación
                         idActual = menu2.getId();//Almacemos la id del producto actual
@@ -336,7 +335,7 @@ public class FuncionesMenus {
                         do {
                             menu2 = (ImplMenu) ois2.readObject();
                         } while (menu2.getId() == idActual);//Mientras sea un registro con el mismo id
-                    } else {
+                    }else {
                         //Buscamos el movimiento más reciente del producto
                         //Si el último movimiento no es una eliminación.
                         idActual = menu2.getId();//Almacemos la id del producto actual
@@ -414,8 +413,12 @@ public class FuncionesMenus {
     *   -Cadena direccionFichero
     * Precondiciones:
     *   -direccionFichero debe apuntar a un fichero existente.
-    * Postcondiciones: los ficheros quedan vacios de los datos que contenia anteriormente..
+    * Postcondiciones: los ficheros quedan vacios de los datos que contenia anteriormente.
     * */
+    /**
+     * Vacía los datos del fichero recibido como parametro.
+     * @param direccionFichero Path del fichero.
+     */
     public void limpiarFichero(String direccionFichero){
         File fichero = new File(direccionFichero);
         FileOutputStream fos = null;
@@ -600,6 +603,12 @@ public class FuncionesMenus {
     * Postcondiciones: La función devuelve un valor booleano asociado al nombre, verdadero
     * si el menú contiene el producto y falso en caso contrario.
     * */
+    /**
+     * Verifica si un menu contiene un determinado producto.
+     * @param menu Menú que queremos ver.
+     * @param id ID del producto.
+     * @return True en caso de contener el producto. False en caso contrario.
+     */
     public boolean menuContieneProducto(ImplMenu menu, int id){
         boolean resultado = false;
         int[] ids = menu.getProductos();
@@ -627,6 +636,10 @@ public class FuncionesMenus {
     * Postcondiciones: La función elimina todos los menús de la lista que contengan
     * el mismo producto.
     * */
+    /**
+     * Elimina todos los menus que contengan un producto determinado.
+     * @param idProducto ID del producto.
+     */
     public void eliminarMenusPorProductoDeterminado(int idProducto){
         ImplMenu menu1 = null, menu2 = null;
         FileInputStream fis1 = null, fis2 = null;
@@ -746,6 +759,11 @@ public class FuncionesMenus {
     * Postcondiciones: La función devuelve un valor booleano asociado al nombre, verdadero
     * si el menú contiene algún producto sin stock y falso en caso contrario.
     * */
+    /**
+     * Verifica si un menú contiene algun producto sin stock.
+     * @param idMenu ID del menú que queremos ver.
+     * @return True si contiene algun producto sin stock. False en caso contrario.
+     */
     public boolean productoSinStock(int idMenu){
         boolean resultado = false;
         ImplMenu menu = obtenerMenu(idMenu);
@@ -778,6 +796,11 @@ public class FuncionesMenus {
     * Postcondiciones: La función devuelve un número entero asociado al nombre, 0 si
     * se ha conseguido canjear el menú o -1 si el menú contiene algún producto sin stock.
     * */
+    /**
+     * Canjea los productos que forman el menú. Es decir, decrementa los productos del almacén que componen ese menú.
+     * @param menu Menu que queremos canjear.
+     * @return 0 si se ha canjeado. -1 si tiene algun producto sin stock.
+     */
     public int canjeoMenu(ImplMenu menu){
         int validez = -1;
         ImplStockProducto producto = null;
@@ -805,6 +828,10 @@ public class FuncionesMenus {
     *   -direccion debe apuntar a un fichero existente.
     * Postcondiciones: La función inserta una nueva cabecera en un fichero.
     * */
+    /**
+     * Crea una cabecera en un fichero para evitar errores de lectura por la clase ObjectInputStream.
+     * @param direccion Path del fichero.
+     */
     public void encabezarFichero(String direccion){
         FileOutputStream fos = null;
         ObjectOutputStream oos = null;

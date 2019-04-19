@@ -9,7 +9,6 @@ public class MenusYPantallas {
     * Cabecera: public void mostrarMenu1()
     * Postcondiciones: Nada, solo se pinta un menú por pantalla.
     * */
-
     /**
      * Muestra por pantalla el primer menú de la aplicacion BurguerDonald.
      */
@@ -54,7 +53,6 @@ public class MenusYPantallas {
      * Cabecera: public void mostrarMenu3()
      * Postcondiciones: Nada, solo se pinta un menú por pantalla.
      * */
-
     /**
      * Esta función permite mostrar por pantalla el tercer submenú de la aplicación BurguerDonald.
      */
@@ -79,7 +77,6 @@ public class MenusYPantallas {
      * Cabecera: public void mostrarMenu4()
      * Postcondiciones: Nada, solo se pinta un menú por pantalla.
      * */
-
     /**
      *Esta función permite mostrar por pantalla un menú de consultas sobre productos de la aplicación BurguerDonald.
      */
@@ -100,8 +97,7 @@ public class MenusYPantallas {
      * la modificación de stock de productos de la aplicación BurguerDonald.
      * Cabecera: public void mostrarMenu5()
      * Postcondiciones: Nada, solo se pinta un menú por pantalla.
-     * */
-
+     */
     /**
      * Esta función permite mostrar por pantalla un menú sobre la modificación de stock de
      * productos de la aplicación BurguerDonald.

@@ -15,7 +15,6 @@ public class ValidacionesBurguerDonald {
     * Postcondiciones: La función devuelve un número entero asociado al nombre, que
     * es una opción válida del menú.
     * */
-
     /**
      * Obtiene una opcion para el primer menu del programa BurgerDonald.
      * @return asociado al nombre devuelve un número entero con la opción valida del menú.
@@ -44,7 +43,6 @@ public class ValidacionesBurguerDonald {
     * Postcondiciones: La función devuelve un número entero asociado al nombre,
     * que es una opción válida del menú.
     * */
-
     /**
      * Obtiene un opcion valida del primer submenú de la aplicación BurgerDonald.
      * @return Asociado al nombre devuelve un número entero con la opción valida del menú.
@@ -73,7 +71,6 @@ public class ValidacionesBurguerDonald {
      * Postcondiciones: La función devuelve un número entero asociado al nombre,
      * que es una opción válida del menú.
      * */
-
     /**
      * Obtiene una opcion valida del segundo submenú de la aplicación BurguerDonald
      * @return Asociado al nombre devuelve un número entero con la opción valida del menú.
@@ -102,7 +99,6 @@ public class ValidacionesBurguerDonald {
      * Postcondiciones: La función devuelve un número entero asociado al nombre,
      * que es una opción válida del menú.
      * */
-
     /**
      * Obtiene una opcion valida del tercer submenú de la aplicacion BurguerDonald
      * @return Asociado al nombre devuelve un número entero con la opción valida del menú.
@@ -131,7 +127,6 @@ public class ValidacionesBurguerDonald {
      * Postcondiciones: La función devuelve un número entero asociado al nombre,
      * que es una opción válida del menú.
      * */
-
     /**
      * Obtiene una opcion válida del cuarto submenú de la aplicación BurguerDonald.
      * @return Asociado al nombre devuelve un número entero con la opción válida del menú.
@@ -335,7 +330,6 @@ public class ValidacionesBurguerDonald {
     * es un producto del almacén modificado o null si idProducto no coincide con ninguno de los
     * productos del almacén (Si no se encontró el producto en el almacén).
     * */
-
     /**
      * Obtiene un tipo StockImplProducto válido, que es un producto modificado por el usuario.
      * @param idProducto ID del producto a modificar.
@@ -392,7 +386,6 @@ public class ValidacionesBurguerDonald {
     * Postcondiciones: La función devuelve un carácter asociado al nombre, que es
     * una respuesta válida.
     * */
-
     /**
      * Obtiene una respuesta valida para la modificación del tipo producto.
      * @param producto Producto al que le queremos modificar el tipo.
@@ -424,7 +417,6 @@ public class ValidacionesBurguerDonald {
      * Postcondiciones: La función devuelve un carácter asociado al nombre, que es
      * una respuesta válida.
      * */
-
     /**
      * Obtiene un respuesta válida para la modificación del precio de un producto.
      * @param producto Producto al que queremos modificar el precio.
@@ -456,7 +448,6 @@ public class ValidacionesBurguerDonald {
      * Postcondiciones: La función devuelve un carácter asociado al nombre, que es
      * una respuesta válida.
      * */
-
     /**
      * Obtiene una respuesta valida para la modificación del nombre de un producto.
      * @param producto Producto al que le queremos modificar el nombre.
@@ -488,7 +479,6 @@ public class ValidacionesBurguerDonald {
      * Postcondiciones: La función devuelve un carácter asociado al nombre, que es
      * una respuesta válida.
      * */
-
     /**
      * Obtiene un respuesta válida para la modificación de la descripión de un producto.
      * @param producto Producto al que le queremos modificar la descripción.
@@ -585,7 +575,6 @@ public class ValidacionesBurguerDonald {
     * Postcondiciones: La función devuelve un tipo ImplMenu asociado al nombre,
     * que es un menú válido para el programa.
     * */
-
     /**
      * Obtiene un tipo ImplMenu válido para el programa BurguerDonald.
      * @return Asociado al nombre devuelve un tipo ImplMenu, que es un menu válido para el programa.
@@ -622,7 +611,6 @@ public class ValidacionesBurguerDonald {
     * Postcondiciones: La función devuelve un array de enteros asociado al nombre,
     * que es una lista de los id's de productos válida para un menú.
     * */
-
     /**
      * Obtiene un array de enteros válido para un menú.
      * @return Asociado al nombre devuelve un array de enteros, que es una lista de id's de productos válida para un menú.
@@ -658,7 +646,6 @@ public class ValidacionesBurguerDonald {
      * Postcondiciones: La función devuelve un array del tipo ImplProducto
      * asociado al nombre, que es una lista de productos válida para un menú.
      * */
-
     /**
      * Aumenta en una unidad el tamaño de un array recibido como parametro. Sin modificar los datos que contuviera anteriormente.
      * @param productos Array de productos.
@@ -684,7 +671,6 @@ public class ValidacionesBurguerDonald {
     * Postcondiciones: La función devuelve un caracter asociado al nombre,
     * que es una respuesta válida.
     * */
-
     /**
      * Obtiene una respuesta válida a la hora de insertar un nuevo producto en un menú.
      * @return Asociado al nombre devuelve 's' o 'n'.
@@ -714,7 +700,6 @@ public class ValidacionesBurguerDonald {
     * Postcondiciones: La función devuelve un tipo ImplProducto asociado al nombre,
     * que es un producto del almacén.
     * */
-
     /**
      * Obtiene un tipo ImplProducto válido para el almacén de productos.
      * @return Asociado al nombre devuelve un producto del almacén.

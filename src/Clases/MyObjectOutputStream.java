@@ -4,7 +4,7 @@ package Clases;
 * Creamos una subclase de ObjectOutputStream modificando uno de sus métodos protegidos, para
 * impedir que a la hora de ingresar nueva información en un fichero cree una nueva cabecerá distinta
 * a la original.
-* */
+*/
 
 import java.io.IOException;
 import java.io.ObjectOutputStream;

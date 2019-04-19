@@ -21,6 +21,10 @@ public class FuncionesDeConfiguracion {
     * Postcondiciones: La función modifica el estado del almacén de productos y/o
     * de la lista de menús.
     * */
+    /**
+     * Realiza modificaciones automáticas en el almacén de productos y en la lista de menús según el día y hora en que se ejecute la aplicación.
+     * Modifica el estado del almacén de productos y/o de la lista de menús.
+     */
     public void configuracionInicial(){
         Calendar fecha = new GregorianCalendar();
         int dia = fecha.get(Calendar.DAY_OF_WEEK);
@@ -31,7 +35,7 @@ public class FuncionesDeConfiguracion {
 
         if(dia == 1){//Si es lunes
             cafeGratis();
-        }else{
+        }else{ //Si es cualquier otro dia
             cafePrecioPredeterminado();
             if(dia == 7 && (hora == 13 || (hora == 14 && minuto == 0))){//Si es sabado y esta en el rango de horas permitido
                 almacenProductos.sincronizarAlmacen();
@@ -51,6 +55,11 @@ public class FuncionesDeConfiguracion {
     * si se ha conseguido modificar el precio del café o -1 si no se ha encontrado
     * el producto en el almacén.
     * */
+    /**
+     * Modifica el precio del café a 0.
+     * @return 0 si se ha conseguido modificar el precio del café.
+     *         -1 si no se ha encontrado el producto en el almacén.
+     */
     public int cafeGratis(){
         int validez = -1;
         FuncionesProductos funcion = new FuncionesProductos();
@@ -69,14 +78,19 @@ public class FuncionesDeConfiguracion {
      * Interfaz
      * Nombre: cafePrecioPredeterminado
      * Comentario: Esta función permite modificar el precio del café a su precio
-     * predereminado, es decir, de 1 euro.
-     * Cabecera: public int cafeGratis()
+     * predeterminado, es decir, de 1 euro.
+     * Cabecera: public int cafePrecioPredeterminado()
      * Salida:
      *   -entero validez
      * Postcondiciones: La función devuelve un número entero asociado al nombre, 0
      * si se ha conseguido modificar el precio del café o -1 si no se ha encontrado
      * el producto en el almacén.
      * */
+    /**
+     * Modifica el precio del café a su precio predeterminado.
+     * @return 0 si se ha conseguido modificar el precio.
+     *        -1 si no se ha encontrado el producto en el almacén.
+     */
     public int cafePrecioPredeterminado(){
         int validez = -1;
         FuncionesProductos funcion = new FuncionesProductos();
@@ -102,6 +116,9 @@ public class FuncionesDeConfiguracion {
     * de movimientos con la cabecera para poder manejar correctamente el fichero
     * con la clases de ObjectStream.
     * */
+    /**
+     * Establece la cabecera inicial del fichero maestro y el de movimientos para la lista de menús.
+     */
     public void ajustesEncabezamiento(){
         File listaMenus = new File("src\\Ficheros\\ListaMenus.dat");
         File movimientosMenus = new File("src\\Ficheros\\MovimientosMenu.dat");
@@ -124,6 +141,9 @@ public class FuncionesDeConfiguracion {
     * Postcondiciones: La función puede llegar a generar dos ficheros
     * de texto para aplicación BurguerDonald.
     * */
+    /**
+     * Crea el fichero maestro y de movimientos del almacén de productos, en caso de no existir.
+     */
     public void comprobacionFicheros(){
         File fichero = new File("src\\Ficheros\\Movimientos.txt");
         File fichero2 = new File("src\\Ficheros\\AlmacenProductos.txt");
