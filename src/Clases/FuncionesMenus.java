@@ -448,7 +448,7 @@ public class FuncionesMenus {
      * @param direccion Path del fichero.
      * @return 0 si está vacio. -1 si tiene algún registro. - 2 si no existe.
      */
-    /*public int ficheroVacio(String direccion){
+    public int ficheroVacio(String direccion){
         int ret = -1;
         FileInputStream fis = null;
         ObjectInputStream ois = null;
@@ -478,7 +478,7 @@ public class FuncionesMenus {
             }
         }
         return ret;
-    }*/
+    }
 
     /*
      * Interfaz

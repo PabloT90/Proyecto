@@ -28,8 +28,8 @@
  * public void setPrecio(double precio)
  *
  * Funciones añadidas:
- * public ImplProducto[] getProductos()
- * public void setProductos(ImplProducto[] productos)
+ * public int[] getProductos()
+ * public void setProductos(int[] productos)
  *
  * public int hashCode()
  * public boolean equals(Object obj)

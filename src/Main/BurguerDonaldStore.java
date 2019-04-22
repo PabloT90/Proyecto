@@ -227,12 +227,15 @@
  *
  * InsercionMenu
  * Inicio
- *   Si almacen de productos no esta vacio //Si no hay productos
- *       leerYValidarMenu*
- *       insertarMenu*
- *   Sino
- *       MensajeExplicatorio5
- *   Fin_si
+ * leerValidarId*
+ * si almacenProductos.txt no está vacío
+ *   si el menu no existe
+ *      leerYValidarNuevoMenu*
+ *      insertarMenu*
+ *   sino
+ *      Mensaje explicatorio
+ * sino
+ *     Mensaje explicatorio
  * Fin
  *
  * EliminacionMenu
@@ -470,17 +473,20 @@ public class BurguerDonaldStore {
                                         //InsercionMenu
                                         //leerYValidarId*
                                         id = validacion.leerYValidarId();
+                                        if(fm.ficheroVacio("src\\Ficheros\\AlmacenProductos.txt") == -1) { //
+                                            if (fm.obtenerMenu(id) == null) {//Si el menu no existe
+                                                //LeerValidarMenu*
+                                                menu = validacion.leerYValidarNuevoMenu(id);
 
-                                        if(fm.obtenerMenu(id) == null) {//Si el menu no existe
-                                            //LeerValidarMenu*
-                                            menu = validacion.leerYValidarNuevoMenu(id);
-
-                                            //insertarMenu*
-                                            //resguardo.insertarMenu(menu);
-                                            fm.insertarMenu(menu);
+                                                //insertarMenu*
+                                                //resguardo.insertarMenu(menu);
+                                                fm.insertarMenu(menu);
+                                            } else {
+                                                //MensajeExplicatorio1
+                                                System.out.println("No se ha podido insertar el menu.");
+                                            }
                                         }else{
-                                            //MensajeExplicatorio1
-                                            System.out.println("No se ha podido insertar el menu.");
+                                            System.out.println("No se puede insertar, no existen productos");
                                         }
                                     break;
                                     case 5://para opcionSubMenu2 ==5
