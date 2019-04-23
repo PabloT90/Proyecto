@@ -16,11 +16,10 @@ public class FuncionesOrdenacionFicheros {
     *   -Cadena ficheroNuevo2   //Dirección del segundo nuevo fichero.
     *   -entero longitud    //longitud de la secuencia
     * Precondiciones:
-    *   -fichero debe apuntar a un fichero existente.
-    *   -ficheroNuevo1 debe ser una dirección(Path) correcta para el nuevo fichero.
-    *   -ficheroNuevo2 debe ser una dirección(Path) correcta para el nuevo fichero.
     *   -longitud debe ser mayor que 0.
     * Postcondiciones: Se han creado dos nuevos ficheros con la información partida en secuencias de un fichero origen.
+    * Si alguna dirección de fichero es erronea o no existe, se lanzará una excepción: FileNotFoundException.
+    * Si ocurre algún error durante la entrada o salida de datos se lanzará IOException.
     * */
     /**
      * Parte los datos de un fichero en secuencias dentro de dos nuevos ficheros.
@@ -96,11 +95,10 @@ public class FuncionesOrdenacionFicheros {
     *   -Cadena ficheroNuevo //Dirección del nuevo fichero.
     *   -entero longitud //Longitud de la secuencia
     * Precondiciones:
-    *   -fichero1 debe apuntar a un fichero existente.
-    *   -fichero2 debe apuntar a un fichero existente.
-    *   -ficheroNuevo debe ser una dirección(Path) correcta para el nuevo fichero.
     *   -longitud debe ser mayor que 0.
     * Postcondiciones: En un fichero se ha almacenado la información partida en secuencias de dos ficheros origen.
+    * Si alguna dirección de fichero es erronea o no existe, se lanzará la excepción FileNotFoundException.
+    * Si ocurre algún error durante la entrada o salida de datos se lanzará IOException.
     * */
     /**
      * Mezcla la información de 2 ficheros en secuencias, originando un nuevo fichero con la información de ambos.
@@ -198,10 +196,10 @@ public class FuncionesOrdenacionFicheros {
     *   -Cadena direccionFichero //Es la dirección(Path) del fichero.
     * Salida:
     *   -entero numeroRegistros
-    * Precondiciones:
-    *   -La dirección debe apuntar a un fichero existente.
     * Postcondiciones: La función devuelve un número entero asociado al nombre,
     * que es el número de registros que almacena el fichero.
+    * Si alguna dirección de fichero es erronea o no existe, se lanzará la excepción FileNotFoundException.
+    * Si ocurre algún error durante la entrada o salida de datos se lanzará IOException.
     * */
     /**
      * Obtiene el número de registros de un fichero.
@@ -279,11 +277,12 @@ public class FuncionesOrdenacionFicheros {
      *   -Cadena ficheroNuevo //Dirección del nuevo fichero.
      *   -entero longitud //Longitud de la secuencia
      * Precondiciones:
-     *   -fichero1 debe apuntar a un fichero existente.
-     *   -fichero2 debe apuntar a un fichero existente.
-     *   -ficheroNuevo debe ser una dirección(Path) correcta para el nuevo fichero.
      *   -longitud debe ser mayor que 0.
      * Postcondiciones: En un fichero se ha almacenado la información partida en secuencias de dos ficheros origen.
+     * Si alguna dirección de fichero es erronea o no existe, se lanzará la excepción FileNotFoundException.
+     * Si ocurre algún error durante la entrada o salida de datos se lanzará IOException.
+     * Si se llega a final de fichero se lanzará EOFExepcion.
+     * Si no se encuentra la clase de un objeto serializado se lanzará ClassNotFoundException.
      * */
     /**
      * Mezcla la información de 2 ficheros en secuencias, originando un nuevo fichero con la información de ambos.
@@ -395,11 +394,12 @@ public class FuncionesOrdenacionFicheros {
      *   -Cadena ficheroNuevo2   //Dirección del segundo nuevo fichero.
      *   -entero longitud    //longitud de la secuencia
      * Precondiciones:
-     *   -fichero debe apuntar a un fichero existente.
-     *   -ficheroNuevo1 debe ser una dirección(Path) correcta para el nuevo fichero.
-     *   -ficheroNuevo2 debe ser una dirección(Path) correcta para el nuevo fichero.
      *   -longitud debe ser mayor que 0.
      * Postcondiciones: Se han creado dos nuevos ficheros con la información partida en secuencias de un fichero origen.
+     * Si alguna dirección de fichero es erronea o no existe, se lanzará la excepción FileNotFoundException.
+     * Si ocurre algún error durante la entrada o salida de datos se lanzará IOException.
+     * Si se llega a final de fichero se lanzará EOFExepcion.
+     * Si no se encuentra la clase de un objeto serializado se lanzará ClassNotFoundException.
      * */
     /**
      * Parte los datos de un fichero en secuencias dentro de 2 ficheros recibidos como parámetros.
@@ -499,10 +499,13 @@ public class FuncionesOrdenacionFicheros {
      *   -Cadena direccionFichero //Es la dirección(Path) del fichero.
      * Salida:
      *   -entero numeroRegistros
-     * Precondiciones:
-     *   -La dirección debe apuntar a un fichero existente.
      * Postcondiciones: La función devuelve un número entero asociado al nombre,
      * que es el número de registros que almacena el fichero.
+     * Si alguna dirección de fichero es erronea o no existe, se lanzará la excepción FileNotFoundException.
+     * Si ocurre algún error durante la entrada o salida de datos se lanzará IOException.
+     * Si se llega a final de fichero se lanzará EOFExepcion.
+     * Si no se encuentra la clase de un objeto serializado se lanzará ClassNotFoundException.
+     *
      * */
     /**
      * Obtiene el número de registros de un fichero.

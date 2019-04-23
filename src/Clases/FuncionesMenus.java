@@ -411,8 +411,6 @@ public class FuncionesMenus {
     * Cabecera: public void limpiarFichero(String direccionFichero)
     * Entrada:
     *   -Cadena direccionFichero
-    * Precondiciones:
-    *   -direccionFichero debe apuntar a un fichero existente.
     * Postcondiciones: los ficheros quedan vacios de los datos que contenia anteriormente.
     * */
     /**
@@ -791,8 +789,7 @@ public class FuncionesMenus {
     * Salida:
     *   -entero validez
     * Precondiciones:
-    *   -idMenu debe coincidir con algún id de la lista de menús.
-    *   -El menú debe contener productos existentes en el almacén.
+    *   -El menú debe contener productos del almacén.
     * Postcondiciones: La función devuelve un número entero asociado al nombre, 0 si
     * se ha conseguido canjear el menú o -1 si el menú contiene algún producto sin stock.
     * */
@@ -824,8 +821,6 @@ public class FuncionesMenus {
     * Cabecera: public void encabezarFichero(String direccion)
     * Entrada:
     *   -Cadena direccion.
-    * Precondiciones:
-    *   -direccion debe apuntar a un fichero existente.
     * Postcondiciones: La función inserta una nueva cabecera en un fichero.
     * */
     /**

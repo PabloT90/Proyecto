@@ -15,20 +15,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Clases/FuncionesProductos.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
-              <caret line="518" column="24" lean-forward="true" selection-start-line="518" selection-start-column="24" selection-end-line="518" selection-end-column="24" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -65,7 +52,7 @@
     <setting file="file://$PROJECT_DIR$/src/Clases/FuncionesMenus.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Main/BurguerDonaldStore.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Resguardos/Resguardo.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/Clases/FuncionesProductos.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Clases/FuncionesProductos.java" root0="SKIP_INSPECTION" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -88,7 +75,6 @@
         <option value="$PROJECT_DIR$/src/Ficheros/MovimientosMenu.dat" />
         <option value="$PROJECT_DIR$/src/Resguardos/ResguardoMenus.java" />
         <option value="$PROJECT_DIR$/../Proyecto - Terminado/src/Clases/FuncionesProductos.java" />
-        <option value="$PROJECT_DIR$/src/Clases/FuncionesOrdenacionFicheros.java" />
         <option value="$PROJECT_DIR$/src/Conductores/ConductorFuncionesMenus.java" />
         <option value="$PROJECT_DIR$/src/Conductores/ConductorFuncionesOrdenacionFicheros.java" />
         <option value="$PROJECT_DIR$/src/Conductores/ConductorFuncionesProductos.java" />
@@ -97,14 +83,15 @@
         <option value="$PROJECT_DIR$/src/Ficheros/AlmacenProductos.txt" />
         <option value="$PROJECT_DIR$/src/Ficheros/Movimientos.txt" />
         <option value="$PROJECT_DIR$/src/Conductores/ConductorConfiguracion.java" />
-        <option value="$PROJECT_DIR$/src/Clases/FuncionesProductos.java" />
-        <option value="$PROJECT_DIR$/src/Clases/FuncionesDeConfiguracion.java" />
         <option value="$PROJECT_DIR$/src/Clases/MenusYPantallas.java" />
         <option value="$PROJECT_DIR$/src/Clases/MyObjectOutputStream.java" />
         <option value="$PROJECT_DIR$/src/Clases/ValidacionesBurguerDonald.java" />
-        <option value="$PROJECT_DIR$/src/Clases/FuncionesMenus.java" />
         <option value="$PROJECT_DIR$/src/Main/BurguerDonaldStore.java" />
         <option value="$PROJECT_DIR$/src/Clases/ImplMenu.java" />
+        <option value="$PROJECT_DIR$/src/Clases/FuncionesDeConfiguracion.java" />
+        <option value="$PROJECT_DIR$/src/Clases/FuncionesMenus.java" />
+        <option value="$PROJECT_DIR$/src/Clases/FuncionesOrdenacionFicheros.java" />
+        <option value="$PROJECT_DIR$/src/Clases/FuncionesProductos.java" />
       </list>
     </option>
   </component>
@@ -118,6 +105,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -158,8 +147,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -274,7 +261,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="UI Designer" order="0" />
       <window_info id="Capture Tool" order="1" />
@@ -476,14 +462,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Conductores/ConductorConfiguracion.java" />
-    <entry file="file://$PROJECT_DIR$/src/Clases/FuncionesOrdenacionFicheros.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="442" column="82" selection-start-line="442" selection-start-column="82" selection-end-line="442" selection-end-column="82" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Clases/FuncionesDeConfiguracion.java" />
     <entry file="file://$PROJECT_DIR$/src/Clases/MyObjectOutputStream.java" />
     <entry file="file://$PROJECT_DIR$/src/Clases/MenusYPantallas.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -516,16 +494,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="84">
           <caret line="226" column="2" lean-forward="true" selection-start-line="226" selection-start-column="2" selection-end-line="226" selection-end-column="2" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Clases/FuncionesMenus.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="448" column="59" selection-start-line="448" selection-start-column="59" selection-end-line="448" selection-end-column="77" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -566,13 +534,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Clases/FuncionesProductos.java">
+    <entry file="file://$PROJECT_DIR$/src/Clases/FuncionesDeConfiguracion.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="518" column="24" lean-forward="true" selection-start-line="518" selection-start-column="24" selection-end-line="518" selection-end-column="24" />
+        <state relative-caret-position="-1880">
+          <caret line="60" column="14" selection-start-line="60" selection-start-column="14" selection-end-line="60" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Clases/FuncionesMenus.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="822" column="26" selection-start-line="822" selection-start-column="26" selection-end-line="822" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Clases/FuncionesProductos.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="258">
+          <caret line="1002" column="4" lean-forward="true" selection-start-line="1002" selection-start-column="4" selection-end-line="1002" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Clases/FuncionesOrdenacionFicheros.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="503" column="7" lean-forward="true" selection-start-line="503" selection-start-column="7" selection-end-line="503" selection-end-column="108" />
         </state>
       </provider>
     </entry>
@@ -633,7 +625,6 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
-                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>

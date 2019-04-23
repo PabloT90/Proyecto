@@ -58,7 +58,7 @@ public class FuncionesDeConfiguracion {
     /**
      * Modifica el precio del café a 0.
      * @return 0 si se ha conseguido modificar el precio del café.
-     *         -1 si no se ha encontrado el producto en el almacén.
+     *        -1 si no se ha encontrado el producto en el almacén.
      */
     public int cafeGratis(){
         int validez = -1;

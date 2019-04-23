@@ -12,12 +12,11 @@ public class FuncionesProductos {
      *   -ImplStockProducto producto
      * Postcondiciones: La función inserta un tipo ImplStockProducto en el fichero
      * del almacén.
+     * Si hay algún error durante la entrada de datos se lanzará IOException.
      * */
     /**
      * Inserta un producto en el almacen.
      * @param producto Producto que se quiere insertar.
-     * Postcondiciones: La función inserta un tipo ImplStockProducto en el fichero del almacen.
-     * Cabecera: public void insertarProducto(ImplStockProducto producto)
      */
     public void insertarProducto(ImplStockProducto producto){
         FileWriter fw = null;
@@ -92,6 +91,8 @@ public class FuncionesProductos {
      * Postcondiciones: La función devuelve un tipo ImplStockProducto asociado al nombre, si
      * se ha encontrado un producto con la misma id en el almacén, en caso contrario la función
      * devuelve null.
+     * Si hay algún error durante la salida de datos se lanzará IOException.
+     * Si alguna dirección de fichero es erronea o no existe, se lanzará la excepción FileNotFoundException.
      * */
     /**
      * Obtiene un tipo ImplStockProducto de un directorio.
@@ -162,6 +163,8 @@ public class FuncionesProductos {
      * Postcondiciones: La función devuelve un tipo ImplStockProducto asociado al nombre, si
      * se ha encontrado un producto con la misma id en el fichero de movimientos, en caso
      * contrario la función devuelve null.
+     * Si hay algún error durante la salida de datos se lanzará IOException.
+     * Si alguna dirección de fichero es erronea o no existe, se lanzará la excepción FileNotFoundException.
      * */
     /**
      * Busca un producto en el archivo de movimientos que coincida con la ID recibida.
@@ -223,8 +226,9 @@ public class FuncionesProductos {
     * almacén. Tanto de fichero de movimiento como de almacen.
     * Cabecera: public void mostrarProductosAlmacen()
     * Postcondiciones: Nada, solo se muestra por pantalla los productos del almacén.
+    * Si hay algún error durante la salida de datos se lanzará IOException.
+    * Si alguna dirección de fichero es erronea o no existe, se lanzará la excepción FileNotFoundException.
     * */
-
     /**
      * Permite mostrar todos los productos del almacen.
      * Postcondiciones: nada, solo se muestran todos los productos del almacen.
@@ -331,6 +335,8 @@ public class FuncionesProductos {
      * almacén.
      * Cabecera: public void mostrarProductosVeganos()
      * Postcondiciones: Nada, solo se muestra por pantalla los productos veganos del almacén.
+     * Si hay algún error durante la salida de datos se lanzará IOException.
+     * Si alguna dirección de fichero es erronea o no existe, se lanzará la excepción FileNotFoundException.
      * */
     /**
      * Permite mostrar todos los productos veganos del almacen
@@ -442,10 +448,11 @@ public class FuncionesProductos {
     * ProductoEliminado
     * Comentario: comprueba si un producto esta marcado como eliminado o no.
     * Entrada: entero ID.
-    * Precondiciones: no hay.
     * Salida: boolean ret.
     * Postcondiciones: Asociado al nombre devuelve un boolean. True en caso que el ultimo registro con esa ID sea marcado
     * como eliminado. False en caso contrario.
+    * Si hay algún error durante la salida de datos se lanzará IOException.
+    * Si alguna dirección de fichero es erronea o no existe, se lanzará la excepción FileNotFoundException.
     * Cabecera: public boolean productoEliminado(int ID)
     * */
     /**
@@ -533,6 +540,8 @@ public class FuncionesProductos {
     * Cabecera: public void sincronizarAlmacen()
     * Postcondiciones: La función sincroniza dos ficheros que almacenan productos, dejando al
     * maestro actualizado.
+    * Si hay algún error durante la salida o entrada de datos se lanzará IOException.
+     * Si alguna dirección de fichero es erronea o no existe, se lanzará la excepción FileNotFoundException.
     * */
     public void sincronizarAlmacen(){
         ImplStockProducto producto = null;
@@ -652,6 +661,8 @@ public class FuncionesProductos {
      * Precondiciones:
      *   -direccionFichero debe apuntar a un fichero binario existente.
      * Postcondiciones: El fichero queda limpio de datos.
+     * Si hay algún error durante la salida de datos se lanzará IOException.
+     * Si alguna dirección de fichero es erronea o no existe, se lanzará la excepción FileNotFoundException.
      * */
     public void limpiarFichero(String direccion){
         File fichero = new File(direccion);
@@ -679,6 +690,8 @@ public class FuncionesProductos {
      *   -EnumTipo tipo
      * Postcondiciones: Nada, solo se muestra por pantalla los productos de un tipo
      * determinado del almacén.
+     * Si hay algún error durante la salida de datos se lanzará IOException.
+     * Si alguna dirección de fichero es erronea o no existe, se lanzará la excepción FileNotFoundException.
      * */
     /**
      * Muestra los productos de un tipo determinado.
@@ -829,7 +842,7 @@ public class FuncionesProductos {
      * Salida:
      *   -entero validez
      * Precondiciones:
-     *   -incremento debe ser mayor que 0.
+     *   -decremento debe ser mayor que 0.
      * Postcondiciones: La función devuelve un número entero asociado al nombre, 0 si se
      * ha conseguido decrementar el stock del producto, -1 si no se ha encontrado el
      * producto en el almacén o -2 si decremento es mayor que el stock actual del producto.
@@ -870,6 +883,8 @@ public class FuncionesProductos {
     *   -booleano resultado
     * Postcondiciones: La función devuelve un valor booleano asociado al nombre, verdadero
     * si en el almacén existen productos de ese tipo determinado o -1 en caso contrario.
+    * Si hay algún error durante la salida de datos se lanzará IOException.
+    * Si alguna dirección de fichero es erronea o no existe, se lanzará la excepción FileNotFoundException.
     * */
     /**
      * Permite conocer si en el almacén existen productos de un tipo determinado.
@@ -984,6 +999,8 @@ public class FuncionesProductos {
     *   -booleano vacio
     * Postcondiciones: La función devuelve un valor booleano asociado al nombre, verdadero
     * si el almacén se encuentra vacío o falso en caso contrario.
+    * Si hay algún error durante la salida de datos se lanzará IOException.
+    * Si alguna dirección de fichero es erronea o no existe, se lanzará la excepción FileNotFoundException.
     * */
     /**
      * Permite saber si el almacén está vacío o no.
