@@ -17,11 +17,21 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Clases/FuncionesMenus.java">
+        <entry file="file://$PROJECT_DIR$/src/Clases/MenusYPantallas.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="47">
-              <caret line="887" column="6" selection-start-line="887" selection-start-column="6" selection-end-line="887" selection-end-column="6" />
+            <state relative-caret-position="2599">
+              <caret line="113" lean-forward="true" selection-start-line="113" selection-end-line="113" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Main/BurguerDonaldStore.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2711">
+              <caret line="296" column="10" selection-start-line="296" selection-start-column="10" selection-end-line="296" selection-end-column="10" />
               <folding>
+                <element signature="e#0#23092#0" expanded="true" />
                 <element signature="imports" expanded="true" />
               </folding>
             </state>
@@ -29,22 +39,27 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Clases/FuncionesOrdenacionFicheros.java">
+        <entry file="file://$PROJECT_DIR$/src/Resguardos/ResguardoConfiguracion.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-367">
-              <caret line="518" column="40" selection-start-line="518" selection-start-column="40" selection-end-line="518" selection-end-column="40" />
+            <state relative-caret-position="506">
+              <caret line="22" column="44" selection-start-line="22" selection-start-column="44" selection-end-line="22" selection-end-column="44" />
+              <folding>
+                <element signature="e#992#993#0" expanded="true" />
+                <element signature="e#1043#1044#0" expanded="true" />
+                <element signature="e#4493#4494#0" expanded="true" />
+                <element signature="e#4544#4545#0" expanded="true" />
+                <element signature="e#5456#5457#0" expanded="true" />
+                <element signature="e#5485#5486#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Clases/FuncionesProductos.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Clases/FuncionesDeConfiguracion.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3219">
-              <caret line="915" column="7" selection-start-line="915" selection-start-column="7" selection-end-line="915" selection-end-column="7" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="162">
+              <caret line="142" column="67" selection-start-line="142" selection-start-column="67" selection-end-line="142" selection-end-column="67" />
             </state>
           </provider>
         </entry>
@@ -120,12 +135,13 @@
         <option value="$PROJECT_DIR$/src/Clases/MenusYPantallas.java" />
         <option value="$PROJECT_DIR$/src/Clases/MyObjectOutputStream.java" />
         <option value="$PROJECT_DIR$/src/Clases/ValidacionesBurguerDonald.java" />
-        <option value="$PROJECT_DIR$/src/Main/BurguerDonaldStore.java" />
         <option value="$PROJECT_DIR$/src/Clases/ImplMenu.java" />
-        <option value="$PROJECT_DIR$/src/Clases/FuncionesDeConfiguracion.java" />
         <option value="$PROJECT_DIR$/src/Clases/FuncionesMenus.java" />
         <option value="$PROJECT_DIR$/src/Clases/FuncionesOrdenacionFicheros.java" />
         <option value="$PROJECT_DIR$/src/Clases/FuncionesProductos.java" />
+        <option value="$PROJECT_DIR$/src/Resguardos/ResguardoConfiguracion.java" />
+        <option value="$PROJECT_DIR$/src/Main/BurguerDonaldStore.java" />
+        <option value="$PROJECT_DIR$/src/Clases/FuncionesDeConfiguracion.java" />
       </list>
     </option>
   </component>
@@ -176,6 +192,12 @@
               <item name="Proyecto" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Proyecto" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Proyecto" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Resguardos" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -329,20 +351,20 @@
       <window_info id="UI Designer" order="0" />
       <window_info id="Capture Tool" order="1" />
       <window_info id="Image Layers" order="2" />
-      <window_info content_ui="combo" id="Project" order="3" visible="true" weight="0.1592262" />
+      <window_info active="true" content_ui="combo" id="Project" order="3" visible="true" weight="0.19178082" />
       <window_info id="Structure" order="4" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Terminal" order="0" />
       <window_info anchor="bottom" id="Message" order="1" />
-      <window_info anchor="bottom" id="Find" order="2" weight="0.32405892" />
-      <window_info active="true" anchor="bottom" id="Run" order="3" visible="true" weight="0.5319149" />
-      <window_info anchor="bottom" id="Debug" order="4" weight="0.2667758" />
+      <window_info anchor="bottom" id="Find" order="2" weight="0.32394367" />
+      <window_info anchor="bottom" id="Run" order="3" weight="0.65630114" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.502455" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="7" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.3289689" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.29787233" />
       <window_info anchor="right" id="Theme Preview" order="0" />
@@ -368,7 +390,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://F:/../Primer Año/Programacion/Alumnos/Luis Z/Examen2Trim2.17-18-LZ/src/Clases/PruebaDeIngresoImpl.java" />
     <entry file="file://$PROJECT_DIR$/AlmacenProductos.txt" />
     <entry file="file://$PROJECT_DIR$/src/Ficheros/MaestroActualizado.txt" />
     <entry file="file://$PROJECT_DIR$/../Proyecto - v1/src/Resguardos/Resguardo.java" />
@@ -498,13 +519,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Conductores/ConductorConfiguracion.java" />
     <entry file="file://$PROJECT_DIR$/src/Clases/MyObjectOutputStream.java" />
-    <entry file="file://$PROJECT_DIR$/src/Clases/MenusYPantallas.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="517">
-          <caret line="96" column="5" selection-start-line="96" selection-start-column="5" selection-end-line="96" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Clases/ValidacionesBurguerDonald.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="497">
@@ -524,16 +538,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Ficheros/Movimientos.txt">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main/BurguerDonaldStore.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="226" column="2" lean-forward="true" selection-start-line="226" selection-start-column="2" selection-end-line="226" selection-end-column="2" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Clases/ImplProducto.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -569,23 +573,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Clases/FuncionesDeConfiguracion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1271">
-          <caret line="60" column="14" selection-start-line="60" selection-start-column="14" selection-end-line="60" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Clases/FuncionesMenus.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="47">
-          <caret line="887" column="6" selection-start-line="887" selection-start-column="6" selection-end-line="887" selection-end-column="6" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Clases/FuncionesOrdenacionFicheros.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-367">
@@ -595,9 +582,59 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Clases/FuncionesProductos.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3219">
+        <state relative-caret-position="20949">
           <caret line="915" column="7" selection-start-line="915" selection-start-column="7" selection-end-line="915" selection-end-column="7" />
           <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Clases/FuncionesMenus.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20401">
+          <caret line="887" column="6" selection-start-line="887" selection-start-column="6" selection-end-line="887" selection-end-column="6" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Clases/FuncionesDeConfiguracion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="142" column="67" selection-start-line="142" selection-start-column="67" selection-end-line="142" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Resguardos/ResguardoConfiguracion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="22" column="44" selection-start-line="22" selection-start-column="44" selection-end-line="22" selection-end-column="44" />
+          <folding>
+            <element signature="e#992#993#0" expanded="true" />
+            <element signature="e#1043#1044#0" expanded="true" />
+            <element signature="e#4493#4494#0" expanded="true" />
+            <element signature="e#4544#4545#0" expanded="true" />
+            <element signature="e#5456#5457#0" expanded="true" />
+            <element signature="e#5485#5486#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Clases/MenusYPantallas.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2599">
+          <caret line="113" lean-forward="true" selection-start-line="113" selection-end-line="113" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main/BurguerDonaldStore.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2711">
+          <caret line="296" column="10" selection-start-line="296" selection-start-column="10" selection-end-line="296" selection-end-column="10" />
+          <folding>
+            <element signature="e#0#23092#0" expanded="true" />
             <element signature="imports" expanded="true" />
           </folding>
         </state>

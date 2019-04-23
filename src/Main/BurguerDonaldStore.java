@@ -274,6 +274,7 @@ package Main;
 
 import Clases.*;
 import Enums.EnumTipo;
+import Resguardos.ResguardoConfiguracion;
 
 public class BurguerDonaldStore {
     public static void main(String[]args){
@@ -287,9 +288,13 @@ public class BurguerDonaldStore {
         int id;
         int stock;
         FuncionesDeConfiguracion fc = new FuncionesDeConfiguracion();
+        ResguardoConfiguracion rc = new ResguardoConfiguracion();
 
+        //rc.comprobacionFicheros();
         fc.comprobacionFicheros();
+        //rc.ajustesEncabezamiento();
         fc.ajustesEncabezamiento();
+        //rc.configuracionInicial();
         fc.configuracionInicial();
 
         do{

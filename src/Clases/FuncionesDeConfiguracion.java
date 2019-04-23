@@ -140,9 +140,11 @@ public class FuncionesDeConfiguracion {
     * Cabecera: public void comprobacionFicheros()
     * Postcondiciones: La función puede llegar a generar dos ficheros
     * de texto para aplicación BurguerDonald.
+    * IOException si ocurre algún error en la entrada de los datos.
     * */
     /**
      * Crea el fichero maestro y de movimientos del almacén de productos, en caso de no existir.
+     * @throws IOException si ocurre algún error en la entrada de los datos.
      */
     public void comprobacionFicheros(){
         File fichero = new File("src\\Ficheros\\Movimientos.txt");
