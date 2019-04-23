@@ -290,6 +290,7 @@ public class BurguerDonaldStore {
         FuncionesDeConfiguracion fc = new FuncionesDeConfiguracion();
         ResguardoConfiguracion rc = new ResguardoConfiguracion();
 
+        fc.sonidos(1);
         //rc.comprobacionFicheros();
         fc.comprobacionFicheros();
         //rc.ajustesEncabezamiento();

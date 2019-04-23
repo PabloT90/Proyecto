@@ -5,6 +5,10 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import javazoom.jl.decoder.JavaLayerException;
+import javazoom.jl.player.Player;
 
 public class FuncionesDeConfiguracion {
     /*
@@ -161,6 +165,23 @@ public class FuncionesDeConfiguracion {
             }
         }catch(IOException error){
             error.printStackTrace();
+        }
+    }
+
+    public void sonidos(int numAudio){
+        Player apl = null;
+        try {
+            if (numAudio == 0) {
+                apl = new Player(new FileInputStream("src\\Media\\gorrino.mp3"));
+                apl.play();
+            } else if (numAudio == 1) {
+                apl = new Player(new FileInputStream("src\\Media\\intro.mp3"));
+                apl.play();
+            }
+        }catch(FileNotFoundException error){
+            error.printStackTrace();
+        }catch(JavaLayerException error2){
+            error2.printStackTrace();
         }
     }
 

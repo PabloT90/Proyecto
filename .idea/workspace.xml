@@ -15,25 +15,14 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Resguardos/ResguardoMenus.java">
+        <entry file="file://$PROJECT_DIR$/src/Clases/FuncionesDeConfiguracion.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="483">
-              <caret line="21" column="44" selection-start-line="21" selection-start-column="44" selection-end-line="21" selection-end-column="44" />
+            <state relative-caret-position="484">
+              <caret line="177" column="75" selection-start-line="177" selection-start-column="75" selection-end-line="177" selection-end-column="75" />
               <folding>
-                <element signature="e#752#753#0" expanded="true" />
-                <element signature="e#803#804#0" expanded="true" />
-                <element signature="e#13477#13478#0" expanded="true" />
-                <element signature="e#13528#13529#0" expanded="true" />
-                <element signature="e#19251#19252#0" expanded="true" />
-                <element signature="e#19302#19303#0" expanded="true" />
-                <element signature="e#22782#22783#0" expanded="true" />
-                <element signature="e#22833#22834#0" expanded="true" />
-                <element signature="e#29621#29622#0" expanded="true" />
-                <element signature="e#29672#29673#0" expanded="true" />
-                <element signature="e#38159#38160#0" expanded="true" />
-                <element signature="e#38195#38196#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -42,20 +31,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Main/BurguerDonaldStore.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="322" column="85" lean-forward="true" selection-start-line="322" selection-start-column="85" selection-end-line="322" selection-end-column="85" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Clases/FuncionesMenus.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="668">
-              <caret line="914" column="5" lean-forward="true" selection-start-line="6" selection-start-column="4" selection-end-line="914" selection-end-column="5" />
+            <state relative-caret-position="-596">
+              <caret line="292" column="20" selection-start-line="292" selection-start-column="20" selection-end-line="292" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -136,13 +113,13 @@
         <option value="$PROJECT_DIR$/src/Clases/FuncionesMenus.java" />
         <option value="$PROJECT_DIR$/src/Clases/FuncionesOrdenacionFicheros.java" />
         <option value="$PROJECT_DIR$/src/Resguardos/ResguardoConfiguracion.java" />
-        <option value="$PROJECT_DIR$/src/Main/BurguerDonaldStore.java" />
-        <option value="$PROJECT_DIR$/src/Clases/FuncionesDeConfiguracion.java" />
         <option value="$PROJECT_DIR$/src/Ficheros/AlmacenProductos.txt" />
         <option value="$PROJECT_DIR$/src/Clases/FuncionesProductos.java" />
         <option value="$PROJECT_DIR$/src/Ficheros/Movimientos.txt" />
         <option value="$PROJECT_DIR$/src/Resguardos/Resguardo.java" />
         <option value="$PROJECT_DIR$/src/Resguardos/ResguardoMenus.java" />
+        <option value="$PROJECT_DIR$/src/Clases/FuncionesDeConfiguracion.java" />
+        <option value="$PROJECT_DIR$/src/Main/BurguerDonaldStore.java" />
       </list>
     </option>
   </component>
@@ -156,8 +133,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -180,25 +157,11 @@
               <item name="Proyecto" type="b2602c69:ProjectViewProjectNode" />
               <item name="Proyecto" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Enums" type="462c0819:PsiDirectoryNode" />
+              <item name="Media" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Proyecto" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Proyecto" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Ficheros" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Proyecto" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Proyecto" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Proyecto" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Proyecto" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Resguardos" type="462c0819:PsiDirectoryNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
           <select />
@@ -208,8 +171,8 @@
   </component>
   <component name="PropertiesComponent">
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555576768469" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/JLayer1.0.1/jl1.0.1.jar!/" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
@@ -322,14 +285,14 @@
       <window_info id="UI Designer" order="0" />
       <window_info id="Capture Tool" order="1" />
       <window_info id="Image Layers" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="3" visible="true" weight="0.14014752" />
+      <window_info content_ui="combo" id="Project" order="3" visible="true" weight="0.14014752" />
       <window_info id="Structure" order="4" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Terminal" order="0" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.32394367" />
-      <window_info anchor="bottom" id="Run" order="3" weight="0.7215601" />
+      <window_info anchor="bottom" id="Run" order="3" weight="0.77681476" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.36511377" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
@@ -351,15 +314,15 @@
       <window_info id="UI Designer" order="0" />
       <window_info id="Capture Tool" order="1" />
       <window_info id="Image Layers" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="3" visible="true" weight="0.19178082" />
+      <window_info active="true" content_ui="combo" id="Project" order="3" visible="true" weight="0.14014752" />
       <window_info id="Structure" order="4" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Terminal" order="0" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.32394367" />
-      <window_info anchor="bottom" id="Run" order="3" weight="0.65630114" />
-      <window_info anchor="bottom" id="Debug" order="4" weight="0.502455" />
+      <window_info anchor="bottom" id="Run" order="3" weight="0.7215601" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.36511377" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="7" />
@@ -398,8 +361,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Ficheros/MaestroActualizado.txt" />
-    <entry file="file://$PROJECT_DIR$/../Proyecto - v1/src/Resguardos/Resguardo.java" />
     <entry file="file://$PROJECT_DIR$/src/Tests/TestImplProducto.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1598">
@@ -555,13 +516,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Clases/FuncionesDeConfiguracion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="142" column="67" selection-start-line="142" selection-start-column="67" selection-end-line="142" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Resguardos/ResguardoConfiguracion.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="506">
@@ -574,13 +528,6 @@
             <element signature="e#5456#5457#0" expanded="true" />
             <element signature="e#5485#5486#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Clases/MenusYPantallas.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2599">
-          <caret line="113" lean-forward="true" selection-start-line="113" selection-end-line="113" />
         </state>
       </provider>
     </entry>
@@ -636,13 +583,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Clases/FuncionesMenus.java">
+    <entry file="file://$PROJECT_DIR$/src/Media.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="668">
-          <caret line="914" column="5" lean-forward="true" selection-start-line="6" selection-start-column="4" selection-end-line="914" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state>
+          <caret column="18" selection-start-column="18" selection-end-column="18" />
         </state>
       </provider>
     </entry>
@@ -653,24 +597,51 @@
           <folding>
             <element signature="e#752#753#0" expanded="true" />
             <element signature="e#803#804#0" expanded="true" />
-            <element signature="e#13477#13478#0" expanded="true" />
-            <element signature="e#13528#13529#0" expanded="true" />
-            <element signature="e#19251#19252#0" expanded="true" />
-            <element signature="e#19302#19303#0" expanded="true" />
-            <element signature="e#22782#22783#0" expanded="true" />
-            <element signature="e#22833#22834#0" expanded="true" />
-            <element signature="e#29621#29622#0" expanded="true" />
-            <element signature="e#29672#29673#0" expanded="true" />
-            <element signature="e#38159#38160#0" expanded="true" />
-            <element signature="e#38195#38196#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Clases/MenusYPantallas.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Clases/FuncionesMenus.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="668">
+          <caret line="914" column="5" selection-start-line="6" selection-start-column="4" selection-end-line="914" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Proyectos-Java/Proyectos Sueltos/Prueba de sonido/src/com/company/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="8" column="8" lean-forward="true" selection-start-line="8" selection-start-column="8" selection-end-line="9" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Clases/FuncionesDeConfiguracion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret line="177" column="75" selection-start-line="177" selection-start-column="75" selection-end-line="177" selection-end-column="75" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main/BurguerDonaldStore.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="322" column="85" lean-forward="true" selection-start-line="322" selection-start-column="85" selection-end-line="322" selection-end-column="85" />
+        <state relative-caret-position="-596">
+          <caret line="292" column="20" selection-start-line="292" selection-start-column="20" selection-end-line="292" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -734,6 +705,7 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
@@ -741,6 +713,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
+          <last-edited>jl1.0.1</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
