@@ -12,7 +12,7 @@ public class FuncionesMenus {
      * Entrada:
      *   -ImplMenu menu
      * Postcondiciones: El menú es insertado en el fichero de movimiento de los menús.
-     * Lanzará IOException en caso de ocurrir algun error durante la entrada de datos.
+     * Lanzará IOException en caso de ocurrir algún error durante la entrada de datos.
      * */
     /**
      * Inserta un menú en el archivo de movimiento de los menús.
@@ -40,21 +40,21 @@ public class FuncionesMenus {
     }
 
     /*
-    * Interfaz
-    * Nombre: obtenerMenu
-    * Comentario: Esta función nos permite obtener un menú de la lista de menús.
-    * Cabecera: public ImplMenu obtenerMenu(int idMenu)
-    * Entrada:
-    *   -entero idMenu
-    * Precondiciones:
-    *   - Debe existir el fichero maestro y de movimientos de menús.
-    *   - El fichero ListaMenus.dat debe tener una cabecera valida.
-    *   - El fichero MovimientosMenu.dat debe tener una cabecera valida.
-    * Salida:
-    *   -ImplMenu menu
-    * Postcondiciones: La función devuelve un tipo ImplMenu asociado al nombre, que es
-    * el menú con misma id en la lista o null si el menú con esa id no se encuentra en la lista.
-    * */
+     * Interfaz
+     * Nombre: obtenerMenu
+     * Comentario: Esta función nos permite obtener un menú de la lista de menús.
+     * Cabecera: public ImplMenu obtenerMenu(int idMenu)
+     * Entrada:
+     *   -entero idMenu
+     * Precondiciones:
+     *   - Debe existir el fichero maestro y de movimientos de menús.
+     *   - El fichero ListaMenus.dat debe tener una cabecera valida.
+     *   - El fichero MovimientosMenu.dat debe tener una cabecera valida.
+     * Salida:
+     *   -ImplMenu menu
+     * Postcondiciones: La función devuelve un tipo ImplMenu asociado al nombre, que es
+     * el menú con misma id en la lista o null si el menú con esa id no se encuentra en la lista.
+     * */
     /**
      * Obtiene un menú de la lista de menús.
      * @param idMenu id del menú que queremos obtener.
@@ -110,7 +110,7 @@ public class FuncionesMenus {
             ois = new ObjectInputStream(fis);
             do{ //Repetir mientras no sea fin de fichero y sea posible encontrarlo
                 menu = (ImplMenu) ois.readObject();
-            }while(menu.getId() <= id);
+            }while(menu.getId() < id);
         }catch(FileNotFoundException error1){
             error1.printStackTrace();
         }catch (EOFException error){
@@ -239,11 +239,11 @@ public class FuncionesMenus {
             while(true) {//Recorremos el fichero de movimientos
                 menu = (ImplMenu)ois.readObject();
                 if(menu.getId() == id){
-                   if(menu.getNombre().charAt(0) == '*'){
-                       ret = true;
-                   }else{
-                       ret = false;
-                   }
+                    if(menu.getNombre().charAt(0) == '*'){
+                        ret = true;
+                    }else{
+                        ret = false;
+                    }
                 }
             }
         }catch (ClassNotFoundException error1) {
@@ -309,21 +309,21 @@ public class FuncionesMenus {
     }
 
     /*
-    * Interfaz
-    * Nombre: sincronizarListaMenus
-    * Comentario: Esta función permite sincronizar el fichero maestro(ListaMenus) y de movimientos
-    * (MovimientosMenu) en un maestro actualizado, que será nombrado como el maestro.
-    * Cabecera: public void sincronizarListaMenus()
-    * Precondiciones:
-    *   - El fichero ListaMenus.dat debe tener una cabecera de la clase ObjectStream.
-    *   - El fichero MovimientosMenu.dat debe tener una cabecera de la clase ObjectStream.
-    * Postcondiciones: Los ficheros quedan sincronizados en uno solo. El maestro actualizado se renombra
-    * a Maestro, se borra el maestro desactualizado y se vacía el fichero de movimientos.
-    * FileNotFoundException en caso de no encontrar un archivo.
-    * EOFException al llegar al fin de fichero.
-    * IOException al ocurrir un error durante la entrada o salida de datos.
-    * ClassNotFoundException si no se encuentra la clase de un objeto serializado.
-    * */
+     * Interfaz
+     * Nombre: sincronizarListaMenus
+     * Comentario: Esta función permite sincronizar el fichero maestro(ListaMenus) y de movimientos
+     * (MovimientosMenu) en un maestro actualizado, que será nombrado como el maestro.
+     * Cabecera: public void sincronizarListaMenus()
+     * Precondiciones:
+     *   - El fichero ListaMenus.dat debe tener una cabecera de la clase ObjectStream.
+     *   - El fichero MovimientosMenu.dat debe tener una cabecera de la clase ObjectStream.
+     * Postcondiciones: Los ficheros quedan sincronizados en uno solo. El maestro actualizado se renombra
+     * a Maestro, se borra el maestro desactualizado y se vacía el fichero de movimientos.
+     * FileNotFoundException en caso de no encontrar un archivo.
+     * EOFException al llegar al fin de fichero.
+     * IOException al ocurrir un error durante la entrada o salida de datos.
+     * ClassNotFoundException si no se encuentra la clase de un objeto serializado.
+     * */
     /**
      * Sincroniza el fichero maestro y el de movimientos en un maestro actualizado. El maestro actualizado se renombra
      * a Maestro, se borra el maestro desactualizado y se vacía el fichero de movimientos.
@@ -392,7 +392,7 @@ public class FuncionesMenus {
         }catch (EOFException error){
             try{
                 if(saltoExcepcion == 1){//Si la excepcion saltó en el fichero maestro.
-                    if(menu2 == null){
+                    if(menu2 == null){//Si la excepción saltó antes de la lectura del primer registro de movimientos
                         menu2 = (ImplMenu)ois2.readObject();
                     }
                     while (true) {
@@ -441,16 +441,16 @@ public class FuncionesMenus {
     }
 
     /*
-    * Interfaz
-    * Nombre: limpiarFichero
-    * Comentario: Esta función vacia los datos del fichero recibido como parametro.
-    * Cabecera: public void limpiarFichero(String direccionFichero)
-    * Entrada:
-    *   -Cadena direccionFichero
-    * Postcondiciones: los ficheros quedan vacios de los datos que contenia anteriormente.
-    * FileNotFoundException en caso de no encontrar un archivo.
-    * IOException al ocurrir un error durante la salida de datos.
-    * */
+     * Interfaz
+     * Nombre: limpiarFichero
+     * Comentario: Esta función vacía los datos de un fichero.
+     * Cabecera: public void limpiarFichero(String direccionFichero)
+     * Entrada:
+     *   -Cadena direccionFichero
+     * Postcondiciones: El fichero queda vacío de datos.
+     * FileNotFoundException en caso de no encontrar un archivo.
+     * IOException al ocurrir un error durante la salida de datos.
+     * */
     /**
      * Vacía los datos del fichero recibido como parametro.
      * @param direccionFichero Path del fichero.
@@ -475,7 +475,8 @@ public class FuncionesMenus {
 
     /*
      * Interfaz
-     * Permite conocer si un fichero está vacío, no existe o si tiene algún registro.
+     * Nombre: ficheroVacio
+     * Comentario: Permite verificar si un fichero está vacío, no existe o si tiene algún registro.
      * Cabecera: public int ficheroVacio(String direccion)
      * Entrada: String direccion.
      * Salida: entero ret.
@@ -612,11 +613,15 @@ public class FuncionesMenus {
                         } while (menu2.getId() == idActual);//Mientras sea un registro con el mismo id
                     }
                 }else{
+                    if(idActual == menu1.getId()){ //Si saltó la excepcion cuando ambos registros tenian el mismo id.
+                        menu1 = (ImplMenu)ois1.readObject();
+                    }
                     while(true){
                         System.out.println(menu1);
                         menu1 = (ImplMenu)ois1.readObject();
                     }
                 }
+
             }catch (FileNotFoundException error1) {
                 error1.printStackTrace();
             }catch (EOFException error4){
@@ -642,19 +647,19 @@ public class FuncionesMenus {
     }
 
     /*
-    * Interfaz
-    * Nombre: menuContieneProducto
-    * Comentario: Esta función nos permite verificar si un menú contiene un determinado
-    * producto.
-    * Cabecera: public boolean menuContieneProducto(ImplMenu menu, int id)
-    * Entrada:
-    *   -ImplMenu menu
-    *   -entero id
-    * Salida:
-    *   -booleano resultado
-    * Postcondiciones: La función devuelve un valor booleano asociado al nombre, verdadero
-    * si el menú contiene el producto y falso en caso contrario.
-    * */
+     * Interfaz
+     * Nombre: menuContieneProducto
+     * Comentario: Esta función nos permite verificar si un menú contiene un determinado
+     * producto.
+     * Cabecera: public boolean menuContieneProducto(ImplMenu menu, int id)
+     * Entrada:
+     *   -ImplMenu menu
+     *   -entero id
+     * Salida:
+     *   -booleano resultado
+     * Postcondiciones: La función devuelve un valor booleano asociado al nombre, verdadero
+     * si el menú contiene el producto y falso en caso contrario.
+     * */
     /**
      * Verifica si un menú contiene un determinado producto.
      * @param menu Menú que queremos ver.
@@ -674,24 +679,24 @@ public class FuncionesMenus {
     }
 
     /*
-    * Interfaz
-    * Nombre: eliminarMenusPorProductoDeterminado
-    * Comentario: Esta función nos permite eliminar todas los menús de la lista de
-    * menús que contengan un producto determinado.
-    * Cabecera: public void eliminarMenusPorProductoDeterminado(int idProducto)
-    * Entrada:
-    *   -entero idProducto
-    * Precondiciones:
-    *   - El idProducto debe ser mayor o igual a 0
-    *   - El fichero ListaMenus.dat debe tener una cabecera de la clase ObjectStream.
-    *   - El fichero MovimientosMneu.dat debe tener una cabecera de la clase ObjectStream.
-    * Postcondiciones: La función elimina todos los menús de la lista que contengan
-    * el mismo producto.
-    * FileNotFoundException en caso de no encontrar un archivo.
-    * EOFException al llegar al fin de fichero.
-    * IOException al ocurrir un error durante la salida de datos.
-    * ClassNotFoundException si no se encuentra la clase de un objeto serializado.
-    * */
+     * Interfaz
+     * Nombre: eliminarMenusPorProductoDeterminado
+     * Comentario: Esta función nos permite eliminar todas los menús de la lista de
+     * menús que contengan un producto determinado.
+     * Cabecera: public void eliminarMenusPorProductoDeterminado(int idProducto)
+     * Entrada:
+     *   -entero idProducto
+     * Precondiciones:
+     *   - El idProducto debe ser mayor o igual a 0
+     *   - El fichero ListaMenus.dat debe tener una cabecera de la clase ObjectStream.
+     *   - El fichero MovimientosMneu.dat debe tener una cabecera de la clase ObjectStream.
+     * Postcondiciones: La función elimina todos los menús de la lista que contengan
+     * el mismo producto.
+     * FileNotFoundException en caso de no encontrar un archivo.
+     * EOFException al llegar al fin de fichero.
+     * IOException al ocurrir un error durante la salida de datos.
+     * ClassNotFoundException si no se encuentra la clase de un objeto serializado.
+     * */
     /**
      * Elimina todos los menus que contengan un producto determinado.
      * @param idProducto ID del producto.
@@ -713,7 +718,7 @@ public class FuncionesMenus {
             fis2 = new FileInputStream("src\\Ficheros\\MovimientosMenu.dat");
             ois2 = new ObjectInputStream(fis2);
             fis1 = new FileInputStream("src\\Ficheros\\ListaMenus.dat");
-            ois1 = new ObjectInputStream(fis1);//Si el fichero se encuentra vacío directamente nos salta la excepción
+            ois1 = new ObjectInputStream(fis1);
 
             menu1 = (ImplMenu) ois1.readObject();
             saltoExcepcion = 2;
@@ -757,7 +762,7 @@ public class FuncionesMenus {
         }catch (EOFException error){
             try{
                 if(saltoExcepcion == 1){//Si la excepcion ha saltado en el fichero maestro
-                    if(menu2 == null){
+                    if(menu2 == null){//Si la excepción saltó antes de leer el primer registro de movimientos
                         menu2 = (ImplMenu)ois2.readObject();
                     }
                     while (true) {
@@ -771,7 +776,9 @@ public class FuncionesMenus {
                     }
                 }else{
                     while(true){
-                        menusAEliminar.add(menu1.getId());
+                        if (menuContieneProducto(menu1, idProducto)){
+                            menusAEliminar.add(menu1.getId());
+                        }
                         menu1 = (ImplMenu)ois1.readObject();
                     }
                 }
@@ -804,21 +811,21 @@ public class FuncionesMenus {
     }
 
     /*
-    * Interfaz
-    * Nombre: productoSinStock
-    * Comentario: Esta función nos permite verificar si un menú contiene algún
-    * producto sin stock.
-    * Cabecera: public boolean productoSinStock(int idMenu)
-    * Entrada:
-    *   -entero idMenu
-    * Salida:
-    *   -booleano resultado
-    * Precondiciones:
-    *   -idMenu debe coincidir con algún id de la lista de menús.
-    *   -El menú debe contener productos existentes en el almacén.
-    * Postcondiciones: La función devuelve un valor booleano asociado al nombre, verdadero
-    * si el menú contiene algún producto sin stock y falso en caso contrario.
-    * */
+     * Interfaz
+     * Nombre: productoSinStock
+     * Comentario: Esta función nos permite verificar si un menú contiene algún
+     * producto sin stock.
+     * Cabecera: public boolean productoSinStock(int idMenu)
+     * Entrada:
+     *   -entero idMenu
+     * Salida:
+     *   -booleano resultado
+     * Precondiciones:
+     *   -idMenu debe coincidir con algún id de la lista de menús.
+     *   -El menú debe contener productos existentes en el almacén.
+     * Postcondiciones: La función devuelve un valor booleano asociado al nombre, verdadero
+     * si el menú contiene algún producto sin stock y falso en caso contrario.
+     * */
     /**
      * Verifica si un menú contiene algun producto sin stock.
      * @param idMenu ID del menú que queremos ver.
@@ -840,21 +847,21 @@ public class FuncionesMenus {
     }
 
     /*
-    * Interfaz
-    * Nombre: canjeoMenu
-    * Comentario: Esta función nos permite canjear los productos que contiene
-    * un menú, es decir, nos permite decrementar el stock de los productos del
-    * menú que se encuentran en el almacén.
-    * Cabecera: public int canjeoMenu(ImplMenu menu)
-    * Entrada:
-    *   -ImplMenu menu
-    * Salida:
-    *   -entero validez
-    * Precondiciones:
-    *   -El menú debe contener productos del almacén.
-    * Postcondiciones: La función devuelve un número entero asociado al nombre, 0 si
-    * se ha conseguido canjear el menú o -1 si el menú contiene algún producto sin stock.
-    * */
+     * Interfaz
+     * Nombre: canjeoMenu
+     * Comentario: Esta función nos permite canjear los productos que contiene
+     * un menú, es decir, nos permite decrementar el stock de los productos del
+     * menú que se encuentran en el almacén.
+     * Cabecera: public int canjeoMenu(ImplMenu menu)
+     * Entrada:
+     *   -ImplMenu menu
+     * Salida:
+     *   -entero validez
+     * Precondiciones:
+     *   -El menú debe contener productos del almacén.
+     * Postcondiciones: La función devuelve un número entero asociado al nombre, 0 si
+     * se ha conseguido canjear el menú o -1 si el menú contiene algún producto sin stock.
+     * */
     /**
      * Canjea los productos que forman el menú. Es decir, decrementa los productos del almacén que componen ese menú.
      * @param menu Menu que queremos canjear.
@@ -876,17 +883,17 @@ public class FuncionesMenus {
     }
 
     /*
-    * Interfaz
-    * Nombre: encabezarFichero()
-    * Comentario: Nos permite crear una cabecera en un fichero para evitar errores de lectura
-    * por la clase ObjectInputStream.
-    * Cabecera: public void encabezarFichero(String direccion)
-    * Entrada:
-    *   -Cadena direccion.
-    * Postcondiciones: La función inserta una nueva cabecera en un fichero.
-    * FileNotFoundException en caso de no encontrar un archivo.
-    * IOException al ocurrir un error durante la salida de datos.
-    * */
+     * Interfaz
+     * Nombre: encabezarFichero()
+     * Comentario: Nos permite crear una cabecera en un fichero para evitar errores de lectura
+     * por la clase ObjectInputStream.
+     * Cabecera: public void encabezarFichero(String direccion)
+     * Entrada:
+     *   -Cadena direccion.
+     * Postcondiciones: La función inserta una nueva cabecera en un fichero.
+     * FileNotFoundException en caso de no encontrar un archivo.
+     * IOException al ocurrir un error durante la salida de datos.
+     * */
     /**
      * Crea una cabecera en un fichero para evitar errores de lectura por la clase ObjectInputStream.
      * @param direccion Path del fichero.
@@ -909,9 +916,8 @@ public class FuncionesMenus {
                 fos.close();
                 oos.close();
             }catch(IOException error3){
-               error3.printStackTrace();
+                error3.printStackTrace();
             }
         }
     }
-
 }

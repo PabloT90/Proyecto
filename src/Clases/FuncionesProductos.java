@@ -53,8 +53,6 @@ public class FuncionesProductos {
      *   -entero id
      * Salida:
      *   -ImplStockProducto producto
-     * Precondiciones:
-     *   -id debe ser mayor o igual que 0.
      * Postcondiciones: La función devuelve un tipo ImplStockProducto asociado al nombre, si
      * se ha encontrado un producto con la misma id en el almacén, en caso contrario la función
      * devuelve null.
@@ -84,9 +82,9 @@ public class FuncionesProductos {
      * AlmacenProductos.txt.
      * Se pasará por parámetros un número de id.
      * Si no existe un producto con la misma id en el almacen la función devuelve null.
-     * Cabecera: public ImplStockProducto buscarEnAlmacen(int ID)
+     * Cabecera: public ImplStockProducto buscarEnAlmacen(int id)
      * Entrada:
-     *   -entero ID
+     *   -entero id
      * Salida:
      *   -ImplStockProducto producto
      * Postcondiciones: La función devuelve un tipo ImplStockProducto asociado al nombre, si
@@ -97,13 +95,13 @@ public class FuncionesProductos {
      * */
     /**
      * Obtiene un tipo ImplStockProducto de un directorio.
-     * @param ID ID del producto.
+     * @param id id del producto.
      * @return Asociado al nombre devuelve un tipo ImplStockProducto si se ha encontrado un producto con el mismo ID
      * en el almacén y null en caso contrario.
      * @throws FileNotFoundException en caso de no encontrar un archivo.
      * @throws IOException al ocurrir un error durante la salida de datos.
      */
-    public ImplStockProducto buscarEnAlmacen(int ID){
+    public ImplStockProducto buscarEnAlmacen(int id){
         ImplStockProducto producto = null;
         int stock = 0;
         double precio = 0.0;
@@ -122,14 +120,14 @@ public class FuncionesProductos {
             while (registro != null && producto == null && rangoValido) {
                 separador = registro.split(",");//Separamos el registro en campos
 
-                if (Integer.parseInt(separador[0]) == ID) {//Si los id's coinciden
+                if (Integer.parseInt(separador[0]) == id) {//Si los id's coinciden
                     tipo = EnumTipo.valueOf(separador[1]);
                     precio = Double.parseDouble(separador[2]);
                     vegano = Boolean.parseBoolean(separador[5]);
                     stock = Integer.parseInt(separador[6]);
-                    producto = new ImplStockProducto(ID, tipo, precio, separador[3], separador[4], vegano, stock);
+                    producto = new ImplStockProducto(id, tipo, precio, separador[3], separador[4], vegano, stock);
                 } else {
-                    if(Integer.parseInt(separador[0]) > ID){
+                    if(Integer.parseInt(separador[0]) > id){
                         rangoValido = false;
                     }else{
                         registro = br1.readLine();
@@ -157,10 +155,10 @@ public class FuncionesProductos {
      * Comentario: La función nos permite obtener un tipo ImplStockProducto del fichero
      * Movimientos.txt.
      * Se pasará por parámetros un número de id.
-     * Si no existe un producto con la misma id en el almacen la función devuelve null.
+     * Si no existe un producto con la misma id en el fichero de movimientos la función devuelve null.
      * Cabecera: public ImplStockProducto buscarEnMovimientos(int ID)
      * Entrada:
-     *   -entero ID
+     *   -entero id
      * Salida:
      *   -ImplStockProducto producto
      * Postcondiciones: La función devuelve un tipo ImplStockProducto asociado al nombre, si
@@ -202,10 +200,11 @@ public class FuncionesProductos {
                     stock = Integer.parseInt(separador[6]);
                     producto = new ImplStockProducto(id, tipo, precio, separador[3], separador[4], vegano, stock);
                 }
-                    registro = br1.readLine();
+                registro = br1.readLine();
             }
             //Si el producto no es nulo y el último registro del producto fue una eliminación
-            if(producto != null && productoEliminado(id)){
+            //if(producto != null && productoEliminado(id)){
+            if(producto != null && producto.getProductoNombre().charAt(0) == '*'){
                 producto = null;
             }
         }catch(FileNotFoundException error1){
@@ -220,20 +219,19 @@ public class FuncionesProductos {
                 error.printStackTrace();
             }
         }
-
         return producto;
     }
 
     /*
-    * Interfaz
-    * Nombre: mostrarProductosAlmacen
-    * Comentario: Esta función nos permite mostrar por pantalla todos los productos del
-    * almacén. Tanto de fichero de movimiento como de almacen.
-    * Cabecera: public void mostrarProductosAlmacen()
-    * Postcondiciones: Nada, solo se muestra por pantalla los productos del almacén.
-    * Si hay algún error durante la salida de datos se lanzará IOException.
-    * Si alguna dirección de fichero es erronea o no existe, se lanzará la excepción FileNotFoundException.
-    * */
+     * Interfaz
+     * Nombre: mostrarProductosAlmacen
+     * Comentario: Esta función nos permite mostrar por pantalla todos los productos del
+     * almacén. Tanto de fichero de movimiento como de almacen.
+     * Cabecera: public void mostrarProductosAlmacen()
+     * Postcondiciones: Nada, solo se muestra por pantalla los productos del almacén.
+     * Si hay algún error durante la salida de datos se lanzará IOException.
+     * Si alguna dirección de fichero es erronea o no existe, se lanzará la excepción FileNotFoundException.
+     * */
     /**
      * Permite mostrar todos los productos del almacen.
      * Postcondiciones: nada, solo se muestran todos los productos del almacen.
@@ -312,13 +310,13 @@ public class FuncionesProductos {
                 //Buscamos el movimiento más reciente del producto
                 producto = obtenerProductoAlmacen(Integer.parseInt(separador2[0]));
                 //Si el último movimiento no es una eliminación
-                if(producto != null) {
+                if(producto != null){
                     System.out.println(producto);
                 }
                 idActual = Integer.parseInt(separador2[0]);
-                while (registro2 != null && Integer.parseInt(separador2[0]) == idActual) {
+                while(registro2 != null && Integer.parseInt(separador2[0]) == idActual) {
                     registro2 = br2.readLine();
-                    if (registro2 != null) {
+                    if(registro2 != null){
                         separador2 = registro2.split(",");
                     }
                 }
@@ -354,7 +352,7 @@ public class FuncionesProductos {
      * @throws FileNotFoundException en caso de no encontrar un archivo.
      * @throws IOException al ocurrir un error durante la salida de datos.
      */
-    public void mostrarProductosVeganos(){ //No funciona bien.
+    public void mostrarProductosVeganos(){
         ImplStockProducto producto = null;
         FileReader fr1 = null;
         BufferedReader br1 = null;
@@ -457,24 +455,27 @@ public class FuncionesProductos {
     }
 
     /*
-    * ProductoEliminado
-    * Comentario: comprueba si un producto esta marcado como eliminado o no.
-    * Entrada: entero ID.
-    * Salida: boolean ret.
-    * Postcondiciones: Asociado al nombre devuelve un boolean. True en caso que el ultimo registro con esa ID sea marcado
-    * como eliminado. False en caso contrario.
-    * Si hay algún error durante la salida de datos se lanzará IOException.
-    * Si alguna dirección de fichero es erronea o no existe, se lanzará la excepción FileNotFoundException.
-    * Cabecera: public boolean productoEliminado(int ID)
-    * */
+     * Interfaz
+     * Nombre: ProductoEliminado
+     * Comentario: Comprueba si un producto esta marcado como eliminado o no.
+     * Cabecera: public boolean productoEliminado(int ID)
+     * Entrada:
+     *   -entero id
+     * Salida:
+     *   -booleano ret
+     * Postcondiciones: Asociado al nombre devuelve un boolean. True en caso de que el último registro con esa id sea marcado
+     * como eliminado. False en caso contrario.
+     * Si hay algún error durante la salida de datos se lanzará IOException.
+     * Si alguna dirección de fichero es erronea o no existe, se lanzará la excepción FileNotFoundException.
+     * */
     /**
      * Comprueba si un producto está marcado como eliminado o no.
-     * @param ID ID del producto a comprobar.
+     * @param id id del producto a comprobar.
      * @return True en caso de estar eliminado. False en caso contrario.
      * @throws FileNotFoundException en caso de no encontrar un archivo.
      * @throws IOException al ocurrir un error durante la salida de datos.
      */
-    public boolean productoEliminado(int ID){
+    public boolean productoEliminado(int id){
         boolean ret = false;
 
         //Recorremos el fichero de movimiento buscando si el ultimo registro con ese ID se encuentra en estado de borrado.
@@ -490,7 +491,7 @@ public class FuncionesProductos {
             //Recorremos el fichero de movimiento.
             while((registro = br1.readLine()) != null) {
                 partesRegistro = registro.split(",");//Separamos el registro en campos
-                if (Integer.parseInt(partesRegistro[0]) == ID) {//Comprueba que este marcado como eliminado ('*')
+                if (Integer.parseInt(partesRegistro[0]) == id) {//Comprueba que este marcado como eliminado ('*')
                     if (partesRegistro[3].charAt(0) == '*') {
                         ret = true;
                     } else {
@@ -514,17 +515,17 @@ public class FuncionesProductos {
     }
 
     /*
-    * Interfaz
-    * Nombre: eliminarProducto
-    * Comentario: Esta función nos permite eliminar un producto del almacén.
-    * Cabecera: public int eliminarProducto(int id)
-    * Entrada:
-    *   -entero id
-    * Salida:
-    *   -entero validez
-    * Postcondiciones: La función devuelve un número entero asociado al nombre, 0 si se
-    * ha conseguido eliminar el producto o -1 si no se encuentre el producto en el almacén.
-    * */
+     * Interfaz
+     * Nombre: eliminarProducto
+     * Comentario: Esta función nos permite eliminar un producto del almacén.
+     * Cabecera: public int eliminarProducto(int id)
+     * Entrada:
+     *   -entero id
+     * Salida:
+     *   -entero validez
+     * Postcondiciones: La función devuelve un número entero asociado al nombre, 0 si se
+     * ha conseguido eliminar el producto o -1 si no se encuentre el producto en el almacén.
+     * */
     /**
      * Elimina un producto del almacén.
      * @param id ID del producto a eliminar.
@@ -546,17 +547,17 @@ public class FuncionesProductos {
     }
 
     /*
-    * Interfaz
-    * Nombre: sincronizarAlmacen
-    * Comentario: Esta función permite sincronizar el fichero maestro AlmacenProductos.txt con
-    * el fichero de movimientos Movimientos.txt. Esta función permite reorganizar el almacén
-    * de productos.
-    * Cabecera: public void sincronizarAlmacen()
-    * Postcondiciones: La función sincroniza dos ficheros que almacenan productos, dejando al
-    * maestro actualizado.
-    * Si hay algún error durante la salida o entrada de datos se lanzará IOException.
-    * Si alguna dirección de fichero es erronea o no existe, se lanzará la excepción FileNotFoundException.
-    * */
+     * Interfaz
+     * Nombre: sincronizarAlmacen
+     * Comentario: Esta función permite sincronizar el fichero maestro AlmacenProductos.txt con
+     * el fichero de movimientos Movimientos.txt. Esta función permite reorganizar el almacén
+     * de productos.
+     * Cabecera: public void sincronizarAlmacen()
+     * Postcondiciones: La función sincroniza dos ficheros que almacenan productos, dejando al
+     * maestro actualizado.
+     * Si hay algún error durante la salida o entrada de datos se lanzará IOException.
+     * Si alguna dirección de fichero es erronea o no existe, se lanzará la excepción FileNotFoundException.
+     * */
     /**
      * Sincroniza el fichero maestro AlmacenProductos.txt con el fichero de movimientos Movimientos.txt. Reorganiza el almacén de productos.
      * @throws FileNotFoundException en caso de no encontrar un archivo.
@@ -629,14 +630,14 @@ public class FuncionesProductos {
                     }
                 }
             }
-
+            //Si aún quedan registros en el fichero maestro
             while(registro1 != null){
                 bw.write(registro1);
                 bw.newLine();
                 bw.flush();
                 registro1 = br1.readLine();
             }
-
+            //Si aún quedan registros en el fichero de movimientos
             while(registro2 != null){
                 separador2 = registro2.split(",");
                 if((producto = obtenerProductoAlmacen(Integer.parseInt(separador2[0]))) != null) {
@@ -652,32 +653,36 @@ public class FuncionesProductos {
                     }
                 }while(registro2 != null && Integer.parseInt(separador2[0]) == idActual);
             }
-            br1.close();//Cerramos los streams
-            fr1.close();
-            br2.close();
-            fr2.close();
-            fw.close();
-            bw.close();
-
-            //Eliminamos los ficheros del maestro y el de movimientos
-            ficheroMaestro.delete();
-            limpiarFichero("src\\Ficheros\\Movimientos.txt");
-            ficheroMaestroActualizado.renameTo(new File ("src\\Ficheros\\AlmacenProductos.txt"));
         }catch (FileNotFoundException error1){
             error1.printStackTrace();
         }catch (IOException error2){
             error2.printStackTrace();
+        }finally{
+            try {
+                br1.close();//Cerramos los streams
+                fr1.close();
+                br2.close();
+                fr2.close();
+                fw.close();
+                bw.close();
+            }catch(IOException error){
+                error.printStackTrace();
+            }
         }
+        //Eliminamos los ficheros del maestro y el de movimientos
+        ficheroMaestro.delete();
+        limpiarFichero("src\\Ficheros\\Movimientos.txt");
+        ficheroMaestroActualizado.renameTo(new File ("src\\Ficheros\\AlmacenProductos.txt"));
     }
 
     /*
      * Interfaz
      * Nombre: limpiarFichero
-     * Comentario: Esta función nos permite vaciar los datos de un fichero recibido como parametro.
+     * Comentario: Esta función nos permite vaciar los datos de un fichero.
      * Cabecera: public void limpiarFichero(String direccion)
      * Entrada:
      *   -Cadena direccion
-     * Postcondiciones: El fichero queda limpio de datos.
+     * Postcondiciones: El fichero queda vacío de datos.
      * Si hay algún error durante la entrada de datos se lanzará IOException.
      * Si alguna dirección de fichero es erronea o no existe, se lanzará la excepción FileNotFoundException.
      * */
@@ -791,6 +796,9 @@ public class FuncionesProductos {
                 registro1 = br1.readLine();
             }
 
+            if(registro2 != null && separador2 == null){
+                separador2 = registro2.split(",");
+            }
             while(registro2 != null){
                 //Buscamos el movimiento más reciente del producto
                 producto = obtenerProductoAlmacen(Integer.parseInt(separador2[0]));
@@ -897,20 +905,20 @@ public class FuncionesProductos {
     }
 
     /*
-    * Interfaz
-    * Nombre: existenProductos
-    * Comentario: Esta función nos permite saber si en el almacén existen productos
-    * de un tipo determinado.
-    * Cabecera: public boolean existenProductos(EnumTipo tipo)
-    * Entrada:
-    *   -EnumTipo tipo
-    * Salida:
-    *   -booleano resultado
-    * Postcondiciones: La función devuelve un valor booleano asociado al nombre, verdadero
-    * si en el almacén existen productos de ese tipo determinado o -1 en caso contrario.
-    * Si hay algún error durante la salida de datos se lanzará IOException.
-    * Si alguna dirección de fichero es erronea o no existe, se lanzará la excepción FileNotFoundException.
-    * */
+     * Interfaz
+     * Nombre: existenProductos
+     * Comentario: Esta función nos permite saber si en el almacén existen productos
+     * de un tipo determinado.
+     * Cabecera: public boolean existenProductos(EnumTipo tipo)
+     * Entrada:
+     *   -EnumTipo tipo
+     * Salida:
+     *   -booleano resultado
+     * Postcondiciones: La función devuelve un valor booleano asociado al nombre, verdadero
+     * si en el almacén existen productos de ese tipo determinado y falso en caso contrario.
+     * Si hay algún error durante la salida de datos se lanzará IOException.
+     * Si alguna dirección de fichero es erronea o no existe, se lanzará la excepción FileNotFoundException.
+     * */
     /**
      * Permite conocer si en el almacén existen productos de un tipo determinado.
      * @param tipo Tipo del que queremos saber si existen productos.
@@ -1017,18 +1025,18 @@ public class FuncionesProductos {
     }
 
     /*
-    * Interfaz
-    * Nombre: almacenVacio
-    * Comentario: Esta función nos permite verificar si el almacén no contiene
-    * ningún producto.
-    * Cabecera: public boolean almacenVacio()
-    * Salida:
-    *   -booleano vacio
-    * Postcondiciones: La función devuelve un valor booleano asociado al nombre, verdadero
-    * si el almacén se encuentra vacío o falso en caso contrario.
-    * Si hay algún error durante la salida de datos se lanzará IOException.
-    * Si alguna dirección de fichero es erronea o no existe, se lanzará la excepción FileNotFoundException.
-    * */
+     * Interfaz
+     * Nombre: almacenVacio
+     * Comentario: Esta función nos permite verificar si el almacén no contiene
+     * ningún producto.
+     * Cabecera: public boolean almacenVacio()
+     * Salida:
+     *   -booleano vacio
+     * Postcondiciones: La función devuelve un valor booleano asociado al nombre, verdadero
+     * si el almacén se encuentra vacío o falso en caso contrario.
+     * Si hay algún error durante la salida de datos se lanzará IOException.
+     * Si alguna dirección de fichero es erronea o no existe, se lanzará la excepción FileNotFoundException.
+     * */
     /**
      * Permite saber si el almacén está vacío o no.
      * @return True en caso de estar vacio. False en caso contrario.
@@ -1053,21 +1061,20 @@ public class FuncionesProductos {
             if(br1.readLine() != null){
                 vacio = false;
             }else{
-                if((registro = br2.readLine()) != null){//Si el fichero de movimientos no se encuentra vacío
-                    while(registro != null && vacio){
-                        separador = registro.split(",");
-                        //Buscamos el movimiento más reciente del producto
-                        producto = buscarEnMovimientos(Integer.parseInt(separador[0]));
-                        //Si el último movimiento no es una eliminación.
-                        if(producto != null){
-                            vacio = false;
-                        }else{
-                            idActual = Integer.parseInt(separador[0]);
-                            while(registro != null && Integer.parseInt(separador[0]) == idActual) {
-                                registro = br2.readLine();
-                                if(registro != null)
-                                    separador = registro.split(",");
-                            }
+                registro = br2.readLine();
+                while(registro != null && vacio){//Si el fichero de movimientos no se encuentra vacío
+                    separador = registro.split(",");
+                    //Buscamos el movimiento más reciente del producto
+                    producto = buscarEnMovimientos(Integer.parseInt(separador[0]));
+                    //Si el último movimiento no es una eliminación.
+                    if(producto != null){
+                        vacio = false;
+                    }else{
+                        idActual = Integer.parseInt(separador[0]);
+                        while(registro != null && Integer.parseInt(separador[0]) == idActual) {
+                            registro = br2.readLine();
+                            if(registro != null)
+                                separador = registro.split(",");
                         }
                     }
                 }
@@ -1088,4 +1095,5 @@ public class FuncionesProductos {
         }
         return vacio;
     }
+
 }

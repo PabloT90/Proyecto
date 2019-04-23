@@ -633,33 +633,6 @@ public class ValidacionesBurguerDonald {
     }
 
     /*
-     * Interfaz
-     * Nombre: aumentarTamano
-     * Comentario: Esta función nos permite aumentar en 1 unidad el tamaño de un array pasado por parametro,
-     * manteniendo los datos que guardaba.
-     * Cabecera: public ImplProducto[] aumentarTamano(ImplProducto[] productos)
-     * Entrada:
-     *   - ImplProducto[] producto
-     * Precondiciones: el array no debe estar vacío.
-     * Salida:
-     *   -ImplProducto[] productos
-     * Postcondiciones: La función devuelve un array del tipo ImplProducto
-     * asociado al nombre, que es una lista de productos válida para un menú.
-     * */
-    /**
-     * Aumenta en una unidad el tamaño de un array recibido como parametro. Sin modificar los datos que contuviera anteriormente.
-     * @param productos Array de productos.
-     * @return Asociado al nombre devuelve un array del tipo ImplProducto, que es una lista válida para un menú.
-     */
-    /*public int[] aumentarTamano(int[] productos){
-        int[] aux = null;
-        aux = new int[productos.length+1];
-        System.arraycopy(productos, 0, aux, 0, productos.length);
-        productos = aux;
-        return productos;
-    }*/
-
-    /*
     * Interfaz
     * Nombre: leerYValidarRespuestaInsercion
     * Comentario: Esta función nos permite obtener una respuesta válida

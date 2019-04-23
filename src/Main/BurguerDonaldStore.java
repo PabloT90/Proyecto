@@ -290,7 +290,7 @@ public class BurguerDonaldStore {
         FuncionesDeConfiguracion fc = new FuncionesDeConfiguracion();
         ResguardoConfiguracion rc = new ResguardoConfiguracion();
 
-        fc.sonidos(1);
+        //fc.sonidos(1);
         //rc.comprobacionFicheros();
         fc.comprobacionFicheros();
         //rc.ajustesEncabezamiento();
@@ -319,20 +319,29 @@ public class BurguerDonaldStore {
                                             if(opcionSubMenu3 != 0) {//Si opcionSubMenu3 != 0
                                                 switch(opcionSubMenu3) {//Segun(opcionSubMenu3)
                                                     case 1: //para opcionSubMenu3 ==1
-                                                        // mostrarProductosAlmacen *
-                                                        //resguardo.mostrarProductosAlmacen();
-                                                        fp.mostrarProductosAlmacen();
+                                                        if(!fp.almacenVacio()){
+                                                            // mostrarProductosAlmacen *
+                                                            //resguardo.mostrarProductosAlmacen();
+                                                            fp.mostrarProductosAlmacen();
+                                                        }else{
+                                                            System.out.println("El almacen esta vacio.");
+                                                        }
+
                                                     break;
                                                     case 2: //para opcionSubMenu3 == 2
                                                         // MostrarProductosPorTipo
                                                         //leerYValidarTipoProducto*
                                                         tipo =  validacion.leerYValidarTipoProducto();
-                                                        //mostrarProductosTipo*
-                                                        //resguardo.mostrarProductosPorTipo(tipo);
-                                                        fp.mostrarProductosPorTipo(tipo);
+                                                        if(fp.existenProductos(tipo)) {
+                                                            //mostrarProductosTipo*
+                                                            //resguardo.mostrarProductosPorTipo(tipo);
+                                                            fp.mostrarProductosPorTipo(tipo);
+                                                        }else{
+                                                            System.out.println("No hay productos del tipo indicado.");
+                                                        }
                                                     break;
                                                     case 3: //para opcionSubMenu3 ==3
-                                                        //mostrarProductosVeganos *
+                                                        //mostrarProductosVeganos*
                                                         //resguardo.mostrarProductosVeganos();
                                                         fp.mostrarProductosVeganos();
                                                     break;
@@ -354,7 +363,7 @@ public class BurguerDonaldStore {
                                             fp.insertarProducto(producto);
                                         }else {
                                             //MensajeExplicatorio1
-                                            System.out.println("No ha sido posible modificar el producto.");
+                                            System.out.println("No ha sido posible encontrar el producto.");
                                         }
                                         break;
 
@@ -369,19 +378,30 @@ public class BurguerDonaldStore {
                                                             //IncrementoStock
                                                             //LeerYValidarID*
                                                             id = validacion.leerYValidarId();
-                                                            //LeerValidarStock*
-                                                            stock = validacion.leerYValidarStock();
-                                                            //incrementarStock*
-                                                            fp.incrementarStock(id,stock);
+                                                            if(fp.obtenerProductoAlmacen(id) != null) {
+                                                                //LeerValidarStock*
+                                                                stock = validacion.leerYValidarStock();
+                                                                //incrementarStock*
+                                                                fp.incrementarStock(id, stock);
+                                                            }else{
+                                                                System.out.println("No existe producto con ese id");
+                                                            }
                                                         break;
                                                         case 2://para opcionMenu4 == 2
                                                             //DecrementoStock
                                                             //LeerYValidarID*
                                                             id = validacion.leerYValidarId();
-                                                            //LeerValidarStock*
-                                                            stock = validacion.leerYValidarStock();
-                                                            //decrementarStock*
-                                                            fp.decrementarStock(id,stock);
+                                                            if((producto = fp.obtenerProductoAlmacen(id)) != null) {
+                                                                //LeerValidarStock*
+                                                                stock = validacion.leerYValidarStock();
+
+                                                                if(producto.getStock() >= stock) {//si el stock del producto es mayor que
+                                                                    //decrementarStock*
+                                                                    fp.decrementarStock(id, stock);
+                                                                }
+                                                            }else{
+                                                                System.out.println("No existe producto con ese id");
+                                                            }
                                                         break;
                                                     }
                                                 }
@@ -436,8 +456,12 @@ public class BurguerDonaldStore {
                                 switch(opcionSubMenu2) {//Segun(opcionSubMenu2)
                                     case 1://para opcionSubMenu2 ==1
                                         //mostrarMenus*
-                                        //resguardoMenus.mostrarListaMenus();
-                                        fm.mostrarListaMenus();
+                                        if(fm.ficheroVacio("src\\Ficheros\\ListaMenus.dat") == -1 || fm.ficheroVacio("src\\Ficheros\\MovimientosMenu.dat") == -1) {
+                                            //resguardoMenus.mostrarListaMenus();
+                                            fm.mostrarListaMenus();
+                                        }else{
+                                            System.out.println("No hay menus en los ficheros.");
+                                        }
                                     break;
                                     case 2: //para opcionSubMenu2 == 2
                                         //ModificacionMenu
@@ -451,7 +475,7 @@ public class BurguerDonaldStore {
                                             fm.insertarMenu(menu);
                                         }else{
                                             //MensajeExplicatorio3
-                                            System.out.println("No ha sido posible modificar el menu.");
+                                            System.out.println("El menu indicado no existe");
                                         }
                                     break;
                                     case 3://para opcionSubMenu2 ==3
@@ -479,7 +503,7 @@ public class BurguerDonaldStore {
                                         //InsercionMenu
                                         //leerYValidarId*
                                         id = validacion.leerYValidarId();
-                                        if(fm.ficheroVacio("src\\Ficheros\\AlmacenProductos.txt") == -1) { //
+                                        if(fm.ficheroVacio("src\\Ficheros\\ListaMenus.dat") == -1) {
                                             if (fm.obtenerMenu(id) == null) {//Si el menu no existe
                                                 //LeerValidarMenu*
                                                 menu = validacion.leerYValidarNuevoMenu(id);
@@ -487,7 +511,7 @@ public class BurguerDonaldStore {
                                                 //insertarMenu*
                                                 //resguardo.insertarMenu(menu);
                                                 fm.insertarMenu(menu);
-                                            } else {
+                                            }else {
                                                 //MensajeExplicatorio1
                                                 System.out.println("No se ha podido insertar el menu.");
                                             }
