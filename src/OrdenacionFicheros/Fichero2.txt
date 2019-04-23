@@ -1,4 +1,1 @@
-1,BEBIDA,1.0,cafelito,gratis,true,45
-1,BEBIDA,1.0,cafelito,gratis,true,45
-1,BEBIDA,1.0,cafelito,gratis,true,45
-1,BEBIDA,1.0,cafelito,gratis,true,45
+1,BEBIDA,1.0,gola,dgdfg,false,12

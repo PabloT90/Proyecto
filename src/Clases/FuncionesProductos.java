@@ -305,17 +305,20 @@ public class FuncionesProductos {
                 registro1 = br1.readLine();
             }
 
+            if(registro2 != null && separador2 == null){
+                separador2 = registro2.split(",");
+            }
             while(registro2 != null){
                 //Buscamos el movimiento más reciente del producto
                 producto = obtenerProductoAlmacen(Integer.parseInt(separador2[0]));
                 //Si el último movimiento no es una eliminación
-                if(producto != null){
+                if(producto != null) {
                     System.out.println(producto);
                 }
                 idActual = Integer.parseInt(separador2[0]);
-                while(registro2 != null && Integer.parseInt(separador2[0]) == idActual) {
+                while (registro2 != null && Integer.parseInt(separador2[0]) == idActual) {
                     registro2 = br2.readLine();
-                    if(registro2 != null) {
+                    if (registro2 != null) {
                         separador2 = registro2.split(",");
                     }
                 }
