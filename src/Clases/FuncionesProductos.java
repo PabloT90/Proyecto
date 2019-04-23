@@ -17,6 +17,7 @@ public class FuncionesProductos {
     /**
      * Inserta un producto en el almacen.
      * @param producto Producto que se quiere insertar.
+     * @throws IOException al ocurrir un error durante la salida de datos.
      */
     public void insertarProducto(ImplStockProducto producto){
         FileWriter fw = null;
@@ -99,6 +100,8 @@ public class FuncionesProductos {
      * @param ID ID del producto.
      * @return Asociado al nombre devuelve un tipo ImplStockProducto si se ha encontrado un producto con el mismo ID
      * en el almacén y null en caso contrario.
+     * @throws FileNotFoundException en caso de no encontrar un archivo.
+     * @throws IOException al ocurrir un error durante la salida de datos.
      */
     public ImplStockProducto buscarEnAlmacen(int ID){
         ImplStockProducto producto = null;
@@ -170,6 +173,8 @@ public class FuncionesProductos {
      * Busca un producto en el archivo de movimientos que coincida con la ID recibida.
      * @param id ID que queremos buscar.
      * @return Null en caso de no encontrarlo. ImplProducto en caso contrario.
+     * @throws FileNotFoundException en caso de no encontrar un archivo.
+     * @throws IOException al ocurrir un error durante la salida de datos.
      */
     public ImplStockProducto buscarEnMovimientos(int id){
         ImplStockProducto producto = null;
@@ -232,6 +237,8 @@ public class FuncionesProductos {
     /**
      * Permite mostrar todos los productos del almacen.
      * Postcondiciones: nada, solo se muestran todos los productos del almacen.
+     * @throws FileNotFoundException en caso de no encontrar un archivo.
+     * @throws IOException al ocurrir un error durante la salida de datos.
      */
     public void mostrarProductosAlmacen(){
         ImplStockProducto producto = null;
@@ -341,6 +348,8 @@ public class FuncionesProductos {
     /**
      * Permite mostrar todos los productos veganos del almacen
      * Postcondiciones: nada, solo se muestran todos los productos veganos del almacen.
+     * @throws FileNotFoundException en caso de no encontrar un archivo.
+     * @throws IOException al ocurrir un error durante la salida de datos.
      */
     public void mostrarProductosVeganos(){ //No funciona bien.
         ImplStockProducto producto = null;
@@ -459,6 +468,8 @@ public class FuncionesProductos {
      * Comprueba si un producto está marcado como eliminado o no.
      * @param ID ID del producto a comprobar.
      * @return True en caso de estar eliminado. False en caso contrario.
+     * @throws FileNotFoundException en caso de no encontrar un archivo.
+     * @throws IOException al ocurrir un error durante la salida de datos.
      */
     public boolean productoEliminado(int ID){
         boolean ret = false;
@@ -541,8 +552,13 @@ public class FuncionesProductos {
     * Postcondiciones: La función sincroniza dos ficheros que almacenan productos, dejando al
     * maestro actualizado.
     * Si hay algún error durante la salida o entrada de datos se lanzará IOException.
-     * Si alguna dirección de fichero es erronea o no existe, se lanzará la excepción FileNotFoundException.
+    * Si alguna dirección de fichero es erronea o no existe, se lanzará la excepción FileNotFoundException.
     * */
+    /**
+     * Sincroniza el fichero maestro AlmacenProductos.txt con el fichero de movimientos Movimientos.txt. Reorganiza el almacén de productos.
+     * @throws FileNotFoundException en caso de no encontrar un archivo.
+     * @throws IOException al ocurrir un error durante la entrada o salida de datos.
+     */
     public void sincronizarAlmacen(){
         ImplStockProducto producto = null;
         File ficheroMovimiento = new File("src\\Ficheros\\Movimientos.txt");
@@ -654,16 +670,20 @@ public class FuncionesProductos {
     /*
      * Interfaz
      * Nombre: limpiarFichero
-     * Comentario: Esta función nos permite vaciar los datos de un fichero recibido como parametro..
+     * Comentario: Esta función nos permite vaciar los datos de un fichero recibido como parametro.
      * Cabecera: public void limpiarFichero(String direccion)
      * Entrada:
      *   -Cadena direccion
-     * Precondiciones:
-     *   -direccionFichero debe apuntar a un fichero binario existente.
      * Postcondiciones: El fichero queda limpio de datos.
-     * Si hay algún error durante la salida de datos se lanzará IOException.
+     * Si hay algún error durante la entrada de datos se lanzará IOException.
      * Si alguna dirección de fichero es erronea o no existe, se lanzará la excepción FileNotFoundException.
      * */
+    /**
+     * Permite vaciar los datos de un fichero recibido como parametro.
+     * @param direccion Path del fichero.
+     * @throws FileNotFoundException en caso de no encontrar un archivo.
+     * @throws IOException al ocurrir un error durante la entrada de datos.
+     */
     public void limpiarFichero(String direccion){
         File fichero = new File(direccion);
         FileWriter fw = null;
@@ -696,6 +716,8 @@ public class FuncionesProductos {
     /**
      * Muestra los productos de un tipo determinado.
      * @param tipo Tipo del que queremos hacer una busqueda.
+     * @throws FileNotFoundException en caso de no encontrar un archivo.
+     * @throws IOException al ocurrir un error durante la salida de datos.
      */
     public void mostrarProductosPorTipo(EnumTipo tipo){
         ImplStockProducto producto = null;
@@ -890,6 +912,8 @@ public class FuncionesProductos {
      * Permite conocer si en el almacén existen productos de un tipo determinado.
      * @param tipo Tipo del que queremos saber si existen productos.
      * @return True en caso de que existan. False en caso contrario.
+     * @throws FileNotFoundException en caso de no encontrar un archivo.
+     * @throws IOException al ocurrir un error durante la salida de datos.
      */
     public boolean existenProductos(EnumTipo tipo){
         boolean resultado = false;
@@ -1005,6 +1029,8 @@ public class FuncionesProductos {
     /**
      * Permite saber si el almacén está vacío o no.
      * @return True en caso de estar vacio. False en caso contrario.
+     * @throws FileNotFoundException en caso de no encontrar un archivo.
+     * @throws IOException al ocurrir un error durante la salida de datos.
      */
     public boolean almacenVacio(){
         boolean vacio = true;

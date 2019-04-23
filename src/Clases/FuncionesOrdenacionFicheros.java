@@ -27,6 +27,8 @@ public class FuncionesOrdenacionFicheros {
      * @param ficheroNuevo1 Dirección del primer nuevo fichero.
      * @param ficheroNuevo2 Dirección del segundo nuevo fichero.
      * @param longitud Longitud de la secuencia.
+     * @throws FileNotFoundException en caso de no encontrar un archivo.
+     * @throws IOException al ocurrir un error durante la salida de datos.
      */
     public void partirFicheroEnSecuencias(String fichero, String ficheroNuevo1, String ficheroNuevo2, int longitud){
         int contadorSecuencia = 1;
@@ -106,6 +108,8 @@ public class FuncionesOrdenacionFicheros {
      * @param fichero2 Dirección del segundo fichero.
      * @param ficheroNuevo Dirección del nuevo fichero.
      * @param longitud Longitud de la secuencia.
+     * @throws FileNotFoundException en caso de no encontrar un archivo.
+     * @throws IOException al ocurrir un error durante la salida de datos.
      */
     public void mezclaFicherosEnSecuencias(String fichero1, String fichero2, String ficheroNuevo, int longitud){
         int contadorSecuencia1 = 1, contadorSecuencia2 = 1;
@@ -205,6 +209,8 @@ public class FuncionesOrdenacionFicheros {
      * Obtiene el número de registros de un fichero.
      * @param direccionFichero Dirección del fichero.
      * @return Numero de registros del fichero.
+     * @throws FileNotFoundException en caso de no encontrar un archivo.
+     * @throws IOException al ocurrir un error durante la salida de datos.
      */
     public int numeroRegistrosFichero(String direccionFichero){
         int numeroRegistros = 0;
@@ -290,6 +296,10 @@ public class FuncionesOrdenacionFicheros {
      * @param fichero2 Path del segundo fichero.
      * @param ficheroNuevo Path del nuevo fichero.
      * @param longitud Longitud de la secuencia.
+     * @throws FileNotFoundException en caso de no encontrar un archivo.
+     * @throws EOFException al llegar al fin de fichero.
+     * @throws IOException al ocurrir un error durante la salida de datos.
+     * @throws ClassNotFoundException si no se encuentra la clase de un objeto serializado.
      */
     public void mezclaFicherosEnSecuencias2(String fichero1, String fichero2, String ficheroNuevo, int longitud){
         int contadorSecuencia1 = 1, contadorSecuencia2 = 1, saltoExcepcion = 1;
@@ -407,6 +417,10 @@ public class FuncionesOrdenacionFicheros {
      * @param ficheroNuevo1 Path del primer fichero.
      * @param ficheroNuevo2 Path del segundo fichero.
      * @param longitud Longitud de la secuencia.
+     * @throws FileNotFoundException en caso de no encontrar un archivo.
+     * @throws EOFException al llegar al fin de fichero.
+     * @throws IOException al ocurrir un error durante la salida o entrada de datos.
+     * @throws ClassNotFoundException si no se encuentra la clase de un objeto serializado.
      */
     public void partirFicheroEnSecuencias2(String fichero, String ficheroNuevo1, String ficheroNuevo2, int longitud) {
         int contadorSecuencia = 1;
@@ -502,7 +516,7 @@ public class FuncionesOrdenacionFicheros {
      * Postcondiciones: La función devuelve un número entero asociado al nombre,
      * que es el número de registros que almacena el fichero.
      * Si alguna dirección de fichero es erronea o no existe, se lanzará la excepción FileNotFoundException.
-     * Si ocurre algún error durante la entrada o salida de datos se lanzará IOException.
+     * Si ocurre algún error durante la salida de datos se lanzará IOException.
      * Si se llega a final de fichero se lanzará EOFExepcion.
      * Si no se encuentra la clase de un objeto serializado se lanzará ClassNotFoundException.
      *
@@ -511,6 +525,10 @@ public class FuncionesOrdenacionFicheros {
      * Obtiene el número de registros de un fichero.
      * @param direccionFichero Path del fichero.
      * @return Número de registros del fichero.
+     * @throws FileNotFoundException en caso de no encontrar un archivo.
+     * @throws EOFException al llegar al fin de fichero.
+     * @throws IOException al ocurrir un error durante la salida de datos.
+     * @throws ClassNotFoundException si no se encuentra la clase de un objeto serializado.
      */
     public int numeroRegistrosFichero2(String direccionFichero) {
         int numeroRegistros = 0;

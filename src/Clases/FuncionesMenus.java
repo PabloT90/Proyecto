@@ -12,10 +12,12 @@ public class FuncionesMenus {
      * Entrada:
      *   -ImplMenu menu
      * Postcondiciones: El menú es insertado en el fichero de movimiento de los menús.
+     * Lanzará IOException en caso de ocurrir algun error durante la entrada de datos.
      * */
     /**
      * Inserta un menú en el archivo de movimiento de los menús.
      * @param menu Menú que queremos insertar.
+     * @throws IOException Si ocurre algún error durante la entrada de datos.
      */
     public void insertarMenu(ImplMenu menu){
         MyObjectOutputStream moos = null;
@@ -84,11 +86,19 @@ public class FuncionesMenus {
      * Postcondiciones: La función devuelve un tipo ImplMenu asociado al nombre, si se ha
      * encontrado un menú con la misma id en el fichero, en caso contrario la función
      * devuelve null.
+     * FileNotFoundException en caso de no encontrar un archivo.
+     * EOFException al llegar al fin de fichero.
+     * IOException al ocurrir un error durante la salida de datos.
+     * ClassNotFoundException si no se encuentra la clase de un objeto serializado.
      * */
     /**
      * Obtiene un tipo ImplMenu del fichero ListaMenus.dat
      * @param id id del menú a buscar.
      * @return Devuelve un menú en caso de encontrar alguno que coincida con la id recibida. NULL en caso contrario.
+     * @throws FileNotFoundException en caso de no encontrar un archivo.
+     * @throws EOFException al llegar al fin de fichero.
+     * @throws IOException al ocurrir un error durante la salida de datos.
+     * @throws ClassNotFoundException si no se encuentra la clase de un objeto serializado.
      */
     public ImplMenu buscarEnListaMenus(int id){
         ImplMenu menu = null;
@@ -138,11 +148,19 @@ public class FuncionesMenus {
      * Postcondiciones: La función devuelve un tipo ImplMenu asociado al nombre, si
      * se ha encontrado un menú con misma id en el fichero de movimientos, en caso
      * contrario la función devuelve null.
+     * FileNotFoundException en caso de no encontrar un archivo.
+     * EOFException al llegar al fin de fichero.
+     * IOException al ocurrir un error durante la salida de datos.
+     * ClassNotFoundException si no se encuentra la clase de un objeto serializado.
      * */
     /**
      * Obtiene un tipo ImplMenu del fichero MovimientosMenus.dat.
      * @param id id del Menú a buscar.
      * @return Devuelve un menú en caso de coincidir con la id recibida. NULL en caso contrario.
+     * @throws FileNotFoundException en caso de no encontrar un archivo.
+     * @throws EOFException al llegar al fin de fichero.
+     * @throws IOException al ocurrir un error durante la salida de datos.
+     * @throws ClassNotFoundException si no se encuentra la clase de un objeto serializado.
      */
     public ImplMenu buscarEnMovimientos(int id){
         ImplMenu menu = null, registro = null;
@@ -194,11 +212,19 @@ public class FuncionesMenus {
      *  -El fichero MovimientosMenu.dat debe tener una cabecera de la clase ObjectStream.
      * Postcondiciones: Asociado al nombre devuelve un boolean. True en caso de que el último
      * registro con esa id sea marcado como eliminado. False en caso contrario.
+     * FileNotFoundException en caso de no encontrar un archivo.
+     * EOFException al llegar al fin de fichero.
+     * IOException al ocurrir un error durante la salida de datos.
+     * ClassNotFoundException si no se encuentra la clase de un objeto serializado.
      * */
     /**
      * Comprueba si un menú está marcado como eliminado o no.
      * @param id id del menú a comprobar.
      * @return True en caso de estar marcado como eliminado. False en caso contrario.
+     * @throws FileNotFoundException en caso de no encontrar un archivo.
+     * @throws EOFException al llegar al fin de fichero.
+     * @throws IOException al ocurrir un error durante la salida de datos.
+     * @throws ClassNotFoundException si no se encuentra la clase de un objeto serializado.
      */
     public boolean menuEliminado(int id){
         boolean ret = false;
@@ -247,11 +273,13 @@ public class FuncionesMenus {
      *   -entero validez
      * Postcondiciones: La función devuelve un número entero asociado al nombre, 0 si se
      * ha conseguido eliminar el menú o -1 si no se encuentra el menú en la lista de menús.
+     * IOException al ocurrir un error durante la entrada de datos.
      * */
     /**
      * Elimina un menú de la lista de menús.
      * @param id id del menú a eliminar.
      * @return 0 si se ha conseguido eliminar. -1 si no se encuentra el menú en la lista de menús.
+     * @throws IOException al ocurrir un error durante la entrada de datos.
      */
     public int eliminarMenu(int id){
         int validez = -1;
@@ -291,10 +319,18 @@ public class FuncionesMenus {
     *   - El fichero MovimientosMenu.dat debe tener una cabecera de la clase ObjectStream.
     * Postcondiciones: Los ficheros quedan sincronizados en uno solo. El maestro actualizado se renombra
     * a Maestro, se borra el maestro desactualizado y se vacía el fichero de movimientos.
+    * FileNotFoundException en caso de no encontrar un archivo.
+    * EOFException al llegar al fin de fichero.
+    * IOException al ocurrir un error durante la entrada o salida de datos.
+    * ClassNotFoundException si no se encuentra la clase de un objeto serializado.
     * */
     /**
      * Sincroniza el fichero maestro y el de movimientos en un maestro actualizado. El maestro actualizado se renombra
      * a Maestro, se borra el maestro desactualizado y se vacía el fichero de movimientos.
+     * @throws FileNotFoundException en caso de no encontrar un archivo.
+     * @throws EOFException al llegar al fin de fichero.
+     * @throws IOException al ocurrir un error durante la entrada o salida de datos.
+     * @throws ClassNotFoundException si no se encuentra la clase de un objeto serializado.
      */
     public void sincronizarListaMenus() {
         ImplMenu menu1 = null, menu2 = null;
@@ -412,10 +448,14 @@ public class FuncionesMenus {
     * Entrada:
     *   -Cadena direccionFichero
     * Postcondiciones: los ficheros quedan vacios de los datos que contenia anteriormente.
+    * FileNotFoundException en caso de no encontrar un archivo.
+    * IOException al ocurrir un error durante la salida de datos.
     * */
     /**
      * Vacía los datos del fichero recibido como parametro.
      * @param direccionFichero Path del fichero.
+     * @throws FileNotFoundException en caso de no encontrar un archivo.
+     * @throws IOException al ocurrir un error durante la salida de datos.
      */
     public void limpiarFichero(String direccionFichero){
         File fichero = new File(direccionFichero);
@@ -436,15 +476,21 @@ public class FuncionesMenus {
     /*
      * Interfaz
      * Permite conocer si un fichero está vacío, no existe o si tiene algún registro.
-     * Cabecera: public int ficheroMovimientoVacio(String direccion)
+     * Cabecera: public int ficheroVacio(String direccion)
      * Entrada: String direccion.
      * Salida: entero ret.
      * Postcondiciones: Asociado al nombre devuelve 0 si está vacío, -1 si tiene algún registro o -2 si no existe.
+     * FileNotFoundException en caso de no encontrar un archivo.
+     * EOFException al llegar al fin de fichero.
+     * IOException al ocurrir un error durante la salida de datos.
      * */
     /**
      * Permite conocer si un fichero está vacío, no existe o si tiene algún registro.
      * @param direccion Path del fichero.
      * @return 0 si está vacio. -1 si tiene algún registro. - 2 si no existe.
+     * @throws FileNotFoundException en caso de no encontrar un archivo.
+     * @throws EOFException al llegar al fin de fichero.
+     * @throws IOException al ocurrir un error durante la salida de datos.
      */
     public int ficheroVacio(String direccion){
         int ret = -1;
@@ -487,9 +533,17 @@ public class FuncionesMenus {
      *  -El fichero ListaMenus.dat debe tener una cabecera de la clase ObjectStream.
      *  -El fichero MovimientosMenu.dat debe tener una cabecera de la clase ObjectStream
      * Postcondiciones: El fichero de movimiento queda ordenado y muestra en pantalla todo el almacén.
+     * FileNotFoundException en caso de no encontrar un archivo.
+     * EOFException al llegar al fin de fichero.
+     * IOException al ocurrir un error durante la salida de datos.
+     * ClassNotFoundException si no se encuentra la clase de un objeto serializado.
      * */
     /**
      * Muestra todo el almacén de menús.
+     * @throws FileNotFoundException en caso de no encontrar un archivo.
+     * @throws EOFException al llegar al fin de fichero.
+     * @throws IOException al ocurrir un error durante la salida de datos.
+     * @throws ClassNotFoundException si no se encuentra la clase de un objeto serializado.
      */
     public void mostrarListaMenus() {
         ImplMenu menu1 = null, menu2 = null;
@@ -602,7 +656,7 @@ public class FuncionesMenus {
     * si el menú contiene el producto y falso en caso contrario.
     * */
     /**
-     * Verifica si un menu contiene un determinado producto.
+     * Verifica si un menú contiene un determinado producto.
      * @param menu Menú que queremos ver.
      * @param id ID del producto.
      * @return True en caso de contener el producto. False en caso contrario.
@@ -633,10 +687,18 @@ public class FuncionesMenus {
     *   - El fichero MovimientosMneu.dat debe tener una cabecera de la clase ObjectStream.
     * Postcondiciones: La función elimina todos los menús de la lista que contengan
     * el mismo producto.
+    * FileNotFoundException en caso de no encontrar un archivo.
+    * EOFException al llegar al fin de fichero.
+    * IOException al ocurrir un error durante la salida de datos.
+    * ClassNotFoundException si no se encuentra la clase de un objeto serializado.
     * */
     /**
      * Elimina todos los menus que contengan un producto determinado.
      * @param idProducto ID del producto.
+     * @throws FileNotFoundException en caso de no encontrar un archivo.
+     * @throws EOFException al llegar al fin de fichero.
+     * @throws IOException al ocurrir un error durante la salida de datos.
+     * @throws ClassNotFoundException si no se encuentra la clase de un objeto serializado.
      */
     public void eliminarMenusPorProductoDeterminado(int idProducto){
         ImplMenu menu1 = null, menu2 = null;
@@ -822,10 +884,14 @@ public class FuncionesMenus {
     * Entrada:
     *   -Cadena direccion.
     * Postcondiciones: La función inserta una nueva cabecera en un fichero.
+    * FileNotFoundException en caso de no encontrar un archivo.
+    * IOException al ocurrir un error durante la salida de datos.
     * */
     /**
      * Crea una cabecera en un fichero para evitar errores de lectura por la clase ObjectInputStream.
      * @param direccion Path del fichero.
+     * @throws FileNotFoundException en caso de no encontrar un archivo.
+     * @throws IOException al ocurrir un error durante la entrada de datos.
      */
     public void encabezarFichero(String direccion){
         FileOutputStream fos = null;
