@@ -1,2 +1,2 @@
-12,BEBIDA,12.0,gola,dgdfg,false,12
-12,BEBIDA,12.0,holaita,dgdfg,false,12
+2,BEBIDA,12.0,krgfd,fgfhgfg,true,17
+2,BEBIDA,12.0,krgfd,fgfhgfg,true,12

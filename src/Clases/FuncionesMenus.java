@@ -405,6 +405,9 @@ public class FuncionesMenus {
                         } while (menu2.getId() == idActual);//Mientras sea un registro con el mismo id
                     }
                 }else{
+                    if(idActual == menu1.getId()){ //Si saltó la excepcion cuando ambos registros tenian el mismo id.
+                        menu1 = (ImplMenu)ois1.readObject();
+                    }
                     while(true){
                         oos.writeObject(menu1);
                         menu1 = (ImplMenu)ois1.readObject();
@@ -496,19 +499,28 @@ public class FuncionesMenus {
      * @throws ClassNotFoundException si no se encuentra la clase de un objeto serializado.
      */
     public int ficheroVacio(String direccion){
-        int ret = -1;
+        int ret = 0;
         FileInputStream fis = null;
         ObjectInputStream ois = null;
         File fichero = new File(direccion);
+        ImplMenu menu = null;
 
         try {
             fis = new FileInputStream(fichero);
             ois = new ObjectInputStream(fis);
-            ois.readObject();
+
+            menu = (ImplMenu) ois.readObject();
+            while(ret == 0) {
+                if(obtenerMenu(menu.getId()) != null){
+                    ret = -1;
+                }else{
+                    menu = (ImplMenu) ois.readObject();
+                }
+            }
         }catch(FileNotFoundException error1) {
             error1.printStackTrace();
         }catch(EOFException error2){
-            ret = 0;
+
         }catch(IOException error){
             error.printStackTrace();
         }catch(ClassNotFoundException error3){

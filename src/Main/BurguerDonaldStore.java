@@ -444,7 +444,7 @@ public class BurguerDonaldStore {
                                                 fp.insertarProducto(producto);
                                             }else{
                                                 //MensajeExplicatorio1
-                                                System.out.println("No se ha podido insertar.");
+                                                System.out.println("No se ha podido insertar. El producto no existe.");
                                             }
                                         break;
                                         case 5://para opcionSubMenu1 ==5
@@ -458,7 +458,7 @@ public class BurguerDonaldStore {
                                                 fp.eliminarProducto(id);
                                             }else{//Sino
                                                 //MensajeExplicatorio
-                                                System.out.println("No ha sido posible eliminar el producto");
+                                                System.out.println("No ha sido posible eliminar. El producto no existe.");
                                             }
                                         break;
                                         case 6://para opcionSubMenu1 ==6
@@ -534,7 +534,7 @@ public class BurguerDonaldStore {
                                                 fm.insertarMenu(menu);
                                             }else {
                                                 //MensajeExplicatorio1
-                                                System.out.println("No se ha podido insertar el menu.");
+                                                System.out.println("Ya existe un menu con ese id.");
                                             }
                                         }else{
                                             System.out.println("No se puede insertar, no existen productos");
@@ -550,7 +550,7 @@ public class BurguerDonaldStore {
                                             fm.eliminarMenu(id);
                                         }else {//Sino
                                             //MensajeExplicatorio3
-                                            System.out.println("No se ha podido eliminar el menu");
+                                            System.out.println("El menu no existe. No se ha podido eliminar.");
                                         }//Fin_si
                                     break;
                                     case 6://para opcionSubMenu2 ==6
