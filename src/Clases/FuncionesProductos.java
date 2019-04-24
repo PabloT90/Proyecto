@@ -1096,4 +1096,120 @@ public class FuncionesProductos {
         return vacio;
     }
 
+    /*
+     * Interfaz
+     * Nombre: existenProductosVeganos
+     * Comentario: Esta función nos permite saber si en el almacén existen productos
+     * veganos.
+     * Cabecera: public boolean existenProductosVeganos()
+     * Salida:
+     *   -booleano resultado
+     * Postcondiciones: La función devuelve un valor booleano asociado al nombre, verdadero
+     * si en el almacén existen productos veganos y falso en caso contrario.
+     * Si hay algún error durante la salida de datos se lanzará IOException.
+     * Si alguna dirección de fichero es erronea o no existe, se lanzará la excepción FileNotFoundException.
+     * */
+    /**
+     * Permite conocer si en el almacén existen productos veganos.
+     * @return True en caso de que existan. False en caso contrario.
+     * @throws FileNotFoundException en caso de no encontrar un archivo.
+     * @throws IOException al ocurrir un error durante la salida de datos.
+     */
+    public boolean existenProductosVeganos(){
+        boolean resultado = false;
+        ImplStockProducto producto = null;
+        FileReader fr1 = null;
+        BufferedReader br1 = null;
+        FileReader fr2 = null;
+        BufferedReader br2 = null;
+        String registro1, registro2;
+        String[] separador1 = null, separador2 = null;
+        FuncionesOrdenacionFicheros ordenacion = new FuncionesOrdenacionFicheros();
+        ordenacion.mezclaDirecta("src\\Ficheros\\Movimientos.txt");
+        int idActual = 0;
+
+        try{
+            fr1 = new FileReader("src\\Ficheros\\AlmacenProductos.txt");
+            br1 = new BufferedReader(fr1);
+            fr2 = new FileReader("src\\Ficheros\\Movimientos.txt");
+            br2 = new BufferedReader(fr2);
+
+            registro1 = br1.readLine();
+            registro2 = br2.readLine();
+            //Mientras no haya ningún fin de fichero y no se haya encontrado un producto del tipo especificado
+            while(registro1 != null && registro2 != null && !resultado){
+                separador1 = registro1.split(",");
+                separador2 = registro2.split(",");
+                if(Integer.parseInt(separador1[0]) < Integer.parseInt(separador2[0])){
+                    if(Boolean.parseBoolean(separador1[5])) {
+                        resultado = true;
+                    }else{
+                        registro1 = br1.readLine();
+                    }
+                }else{
+                    if(Integer.parseInt(separador1[0]) > Integer.parseInt(separador2[0])){
+                        if(Boolean.parseBoolean(separador2[5]) && separador2[3].charAt(0) != '*') {
+                            resultado = true;
+                        }else{
+                            registro2 = br2.readLine();
+                        }
+                    }else{
+                        //Buscamos el movimiento más reciente del producto
+                        producto = buscarEnMovimientos(Integer.parseInt(separador2[0]));
+                        //Si el último movimiento no es una eliminación y es del mismo tipo.
+                        if(producto != null && producto.getProductoVegano()){
+                            resultado = true;
+                        }else{
+                            while(registro2 != null && Integer.parseInt(separador2[0]) == Integer.parseInt(separador1[0])) {
+                                registro2 = br2.readLine();
+                                if(registro2 != null)
+                                    separador2 = registro2.split(",");
+                            }
+                            registro1 = br1.readLine();
+                        }
+                    }
+                }
+            }
+            if(!resultado) {//Si aún no se ha encontrado un producto del tipo especificado
+                while (registro1 != null && !resultado) {
+                    separador1 = registro1.split(",");
+                    if (Boolean.parseBoolean(separador1[5])) {
+                        resultado = true;
+                    }else{
+                        registro1 = br1.readLine();
+                    }
+                }
+
+                while (registro2 != null && !resultado) {
+                    //Buscamos el movimiento más reciente del producto
+                    producto = buscarEnMovimientos(Integer.parseInt(separador2[0]));
+                    //Si el último movimiento no es una eliminación y es del mismo tipo.
+                    if (producto != null && producto.getProductoVegano()) {
+                        resultado = true;
+                    }else{
+                        idActual = Integer.parseInt(separador2[0]);
+                        while (registro2 != null && Integer.parseInt(separador2[0]) == idActual) {
+                            registro2 = br2.readLine();
+                            if (registro2 != null)
+                                separador2 = registro2.split(",");
+                        }
+                    }
+                }
+            }
+        }catch (FileNotFoundException error1){
+            error1.printStackTrace();
+        }catch (IOException error2){
+            error2.printStackTrace();
+        }finally {
+            try{
+                br1.close();
+                fr1.close();
+                br2.close();
+                fr2.close();
+            }catch (IOException error){
+                error.printStackTrace();
+            }
+        }
+        return resultado;
+    }
 }
