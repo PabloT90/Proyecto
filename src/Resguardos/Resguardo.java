@@ -298,27 +298,25 @@ public class Resguardo {
      * Interfaz
      * Nombre: decrementarStock
      * Comentario: Esta función permite decrementar el stock de un producto.
-     * Cabecera: public int decrementarStock(int idProducto, int decremento)
+     * Cabecera: public int decrementarStock(ImplStockProducto productos, int decremento)
      * Entrada:
-     *   -entero idProducto
+     *   -ImplStockProducto producto.
      *   -entero decremento
      * Salida:
      *   -entero validez
      * Precondiciones:
      *   -decremento debe ser mayor que 0.
      * Postcondiciones: La función devuelve un número entero asociado al nombre, 0 si se
-     * ha conseguido decrementar el stock del producto, -1 si no se ha encontrado el
-     * producto en el almacén o -2 si decremento es mayor que el stock actual del producto.
+     * ha conseguido decrementar el stock del producto, -1 si no se ha podido decrementar
      * */
     /**
      * Decrementa el stock de un producto.
-     * @param idProducto ID del producto a decrementar.
+     * @param producto producto al que le vamos a decrementar el stock.
      * @param decremento Numero de unidades a restar.
      * @return 0 si se ha conseguido decrementar.
-     *        -1 si no se ha encontrado el producto.
-     *        -2 si el decremento en mayor que el stock actual del producto.
+     *        -1 si el decremento en mayor que el stock actual del producto.
      */
-    public int decrementarStock(int idProducto, int decremento){
+    public int decrementarStock(ImplStockProducto producto, int decremento){
         System.out.println("En resguardo.");
         return 0;
     }

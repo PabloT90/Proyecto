@@ -49,10 +49,10 @@
  *   -Un número entero para opcionSubMenu2.
  *   -Un número entero para opcionSubMenu3
  *   -Un número entero para opcionSubMenu4
- *   -Un número entero para id.//Para produto o menú.
+ *   -Un número entero para id.
  *   -Un tipo ImplMenu para menu.
  *   -Un tipo ImplProducto para producto.
- *   -Un número entero para modificadorStock.//Variable para incrementar o decrementar el stock de un producto.
+ *   -Un número entero para stock.
  *   -Una cadena para tipoProducto.
  *
  * Salida:
@@ -281,12 +281,10 @@
  * Inicio
  *   leerYValidarId*
  *   si el producto existe
- *      leerYValidarStock*
- *          si el stock del producto es mayor o igual al decremento
- *              decrementarStock*
- *          fin_si
+ *      leerYValidarDecremento*
+ *       decremententarStock*
  *   sino
- *      Mostrar Mensaje explicativo13
+ *      mostrar Mensaje explicativo13
  *   fin_si
  * Fin
  * */
@@ -414,10 +412,9 @@ public class BurguerDonaldStore {
                                                             if((producto = fp.obtenerProductoAlmacen(id)) != null) {
                                                                 //LeerValidarDecremento*
                                                                 stock = validacion.leerValidarDecremento(producto);
-
                                                                 //decrementarStock*
                                                                 //resguardo.decrementarStock(id, stock);
-                                                                fp.decrementarStock(id, stock);
+                                                                fp.decrementarStock(producto, stock);
                                                             }else{
                                                                 System.out.println("No existe producto con ese id");
                                                             }
