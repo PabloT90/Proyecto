@@ -371,4 +371,28 @@ public class Resguardo {
         System.out.println("En resguardo.");
         return true;
     }
+
+    /*
+     * Interfaz
+     * Nombre: existenProductosVeganos
+     * Comentario: Esta función nos permite saber si en el almacén existen productos
+     * veganos.
+     * Cabecera: public boolean existenProductosVeganos()
+     * Salida:
+     *   -booleano resultado
+     * Postcondiciones: La función devuelve un valor booleano asociado al nombre, verdadero
+     * si en el almacén existen productos veganos y falso en caso contrario.
+     * Si hay algún error durante la salida de datos se lanzará IOException.
+     * Si alguna dirección de fichero es erronea o no existe, se lanzará la excepción FileNotFoundException.
+     * */
+    /**
+     * Permite conocer si en el almacén existen productos veganos.
+     * @return True en caso de que existan. False en caso contrario.
+     * @throws FileNotFoundException en caso de no encontrar un archivo.
+     * @throws IOException al ocurrir un error durante la salida de datos.
+     */
+    public boolean existenProductosVeganos(){
+        System.out.println("En construccion.");
+        return true;
+    }
 }

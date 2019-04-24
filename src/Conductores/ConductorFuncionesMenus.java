@@ -15,8 +15,8 @@ public class ConductorFuncionesMenus {
         ImplMenu menu4 = new ImplMenu(4, "Pato", "El 4.", productos, 9.5);
         ImplMenu menu5 = new ImplMenu(22, "Nueevo", "El 22.", productos2, 9.5);
 
-        funcion.encabezarFichero("src\\Ficheros\\MovimientosMenu.dat");
-        funcion.encabezarFichero("src\\Ficheros\\ListaMenus.dat");
+        funcion.crearFichero("src\\Ficheros\\MovimientosMenu.dat");
+        funcion.crearFichero("src\\Ficheros\\ListaMenus.dat");
 
         //insertarMenu
         funcion.insertarMenu(menu1);
@@ -26,35 +26,35 @@ public class ConductorFuncionesMenus {
         funcion.insertarMenu(menu5);
 
         //menuEliminado
-        //System.out.println(funcion.menuEliminado(1));
+        System.out.println(funcion.menuEliminado(1));
 
         //eliminarMenu
-        //System.out.println(funcion.eliminarMenu(3));
+        System.out.println(funcion.eliminarMenu(3));
 
         //buscarEnListaMenus
-        //System.out.println(funcion.buscarEnListaMenus(3));
+        System.out.println(funcion.buscarEnListaMenus(3));
 
         //buscarMovimientosMenu
-        //System.out.println(funcion.buscarEnMovimientos(1));
+        System.out.println(funcion.buscarEnMovimientos(1));
 
         //obtenerMenu
-        //System.out.println(funcion.obtenerMenu(3));
+        System.out.println(funcion.obtenerMenu(3));
 
         //sincronizarListaMenus
-        //funcion.sincronizarListaMenus();
+        funcion.sincronizarListaMenus();
 
         //mostrarListaMenus (funciona)
         funcion.mostrarListaMenus();
 
         //menuContieneProducto (funciona)
-        //System.out.println(funcion.menuContieneProducto(menu1,66));
+        System.out.println(funcion.menuContieneProducto(menu1,66));
 
         //eliminarMenusPorProductoDeterminado
-        //funcion.eliminarMenusPorProductoDeterminado(66);
+        funcion.eliminarMenusPorProductoDeterminado(66);
 
-        //System.out.println(funcion.productoSinStock(19));
+        System.out.println(funcion.productoSinStock(19));
 
-        //System.out.println(funcion.canjeoMenu(menu1));
+        System.out.println(funcion.canjeoMenu(menu1));
 
     }
 }

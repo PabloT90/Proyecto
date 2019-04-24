@@ -2,6 +2,9 @@ package Resguardos;
 
 import Clases.ImplMenu;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
 public class ResguardoMenus {
     /*
      * Interfaz
@@ -383,23 +386,23 @@ public class ResguardoMenus {
 
     /*
      * Interfaz
-     * Nombre: encabezarFichero()
-     * Comentario: Nos permite crear una cabecera en un fichero para evitar errores de lectura
-     * por la clase ObjectInputStream.
-     * Cabecera: public void encabezarFichero(String direccion)
+     * Nombre: crearFichero
+     * Comentario: Nos permite crear un fichero con una cabecera valida para evitar errores de lectura
+     * de la clase ObjectInputStream.
+     * Cabecera: public void crearFichero(String direccion)
      * Entrada:
      *   -Cadena direccion.
-     * Postcondiciones: La función inserta una nueva cabecera en un fichero.
+     * Postcondiciones: el fichero es creado con una cabecera válida para la clase ObjectInputStream.
      * FileNotFoundException en caso de no encontrar un archivo.
      * IOException al ocurrir un error durante la salida de datos.
      * */
     /**
-     * Crea una cabecera en un fichero para evitar errores de lectura por la clase ObjectInputStream.
+     * Crea un fichero con una cabecera válida para evitar errores de lectura de la clase la clase ObjectInputStream.
      * @param direccion Path del fichero.
      * @throws FileNotFoundException en caso de no encontrar un archivo.
      * @throws IOException al ocurrir un error durante la entrada de datos.
      */
-    public void encabezarFichero(String direccion) {
+    public void crearFichero(String direccion) {
         System.out.println("En resguardo.");
     }
 }

@@ -241,6 +241,8 @@
  *           MensajeExplicatorio7
  *       Sino
  *           canjeaoMenu*
+ *           reproducirGorrino*
+ *           mostrar mensaje satisfactorio
  *       Fin_si
  *   Sino
  *       MensajeExplicatorio8
@@ -313,7 +315,7 @@ public class BurguerDonaldStore {
         FuncionesDeConfiguracion fc = new FuncionesDeConfiguracion();
         ResguardoConfiguracion rc = new ResguardoConfiguracion();
 
-        //fc.sonidos(0);
+        fc.sonidos(1);
         //rc.comprobacionFicheros();
         fc.comprobacionFicheros();
         //rc.ajustesEncabezamiento();
@@ -407,6 +409,7 @@ public class BurguerDonaldStore {
                                                                 //LeerValidarStock*
                                                                 stock = validacion.leerYValidarStock();
                                                                 //incrementarStock*
+                                                                //resguardo.incrementarStock(id, stock);
                                                                 fp.incrementarStock(id, stock);
                                                             }else{
                                                                 System.out.println("No existe producto con ese id");
@@ -514,6 +517,12 @@ public class BurguerDonaldStore {
                                                 //canjearMenu*
                                                 //resguardoMenus.canjeoMenu(menu);
                                                 fm.canjeoMenu(menu);
+
+                                                //ReproducirGorrino*
+                                                fc.sonidos(0);
+
+                                                //MensajeSatisfactorio
+                                                System.out.println("Canjeo exitoso.");
                                             }
                                         }else{
                                             //MensajeExplicatorio3

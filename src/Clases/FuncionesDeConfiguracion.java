@@ -129,10 +129,10 @@ public class FuncionesDeConfiguracion {
         FuncionesMenus fm = new FuncionesMenus();
 
         if(!listaMenus.isFile()){
-            fm.encabezarFichero("src\\Ficheros\\ListaMenus.dat");
+            fm.crearFichero("src\\Ficheros\\ListaMenus.dat");
         }
         if(!movimientosMenus.isFile()){
-            fm.encabezarFichero("src\\Ficheros\\MovimientosMenu.dat");
+            fm.crearFichero("src\\Ficheros\\MovimientosMenu.dat");
         }
     }
 
