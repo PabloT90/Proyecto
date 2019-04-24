@@ -876,7 +876,7 @@ public class FuncionesMenus {
         if(!productoSinStock(menu.getId())){
             for(int i = 0; i < menu.getProductos().length; i++){
                 producto = funcion.obtenerProductoAlmacen(menu.getProductos()[i]);
-                funcion.decrementarStock(producto.getProductoId(), 1);
+                funcion.decrementarStock(producto, 1);
             }
             validez = 0;
         }

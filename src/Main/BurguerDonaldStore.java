@@ -282,7 +282,7 @@
  *   leerYValidarId*
  *   si el producto existe
  *      leerYValidarDecremento*
- *       decremententarStock*
+ *      decremententarStock*
  *   sino
  *      mostrar Mensaje explicativo13
  *   fin_si
