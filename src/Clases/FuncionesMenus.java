@@ -480,18 +480,20 @@ public class FuncionesMenus {
      * Cabecera: public int ficheroVacio(String direccion)
      * Entrada: String direccion.
      * Salida: entero ret.
-     * Postcondiciones: Asociado al nombre devuelve 0 si está vacío, -1 si tiene algún registro o -2 si no existe.
+     * Postcondiciones: Asociado al nombre devuelve 0 si está vacío, -1 si tiene algún registro.
      * FileNotFoundException en caso de no encontrar un archivo.
      * EOFException al llegar al fin de fichero.
      * IOException al ocurrir un error durante la salida de datos.
+     * ClassNotFoundException si no se encuentra la clase de un objeto serializado.
      * */
     /**
-     * Permite conocer si un fichero está vacío, no existe o si tiene algún registro.
+     * Permite conocer si un fichero está vacío o si tiene algún registro.
      * @param direccion Path del fichero.
-     * @return 0 si está vacio. -1 si tiene algún registro. - 2 si no existe.
+     * @return 0 si está vacio. -1 si tiene algún registro.
      * @throws FileNotFoundException en caso de no encontrar un archivo.
      * @throws EOFException al llegar al fin de fichero.
      * @throws IOException al ocurrir un error durante la salida de datos.
+     * @throws ClassNotFoundException si no se encuentra la clase de un objeto serializado.
      */
     public int ficheroVacio(String direccion){
         int ret = -1;
@@ -499,27 +501,26 @@ public class FuncionesMenus {
         ObjectInputStream ois = null;
         File fichero = new File(direccion);
 
-        if(!fichero.exists()){
-            ret = -2;
-        }else{
+        try {
+            fis = new FileInputStream(fichero);
+            ois = new ObjectInputStream(fis);
+            ois.readObject();
+        }catch(FileNotFoundException error1) {
+            error1.printStackTrace();
+        }catch(EOFException error2){
+            ret = 0;
+        }catch(IOException error){
+            error.printStackTrace();
+        }catch(ClassNotFoundException error3){
+            error3.printStackTrace();
+        }finally{
             try {
-                fis = new FileInputStream(fichero);
-                ois = new ObjectInputStream(fis);
-            }catch(FileNotFoundException error1) {
-                error1.printStackTrace();
-            }catch(EOFException error2){
-                ret = 0;
-            }catch(IOException error){
-                error.printStackTrace();
-            }finally{
-                try {
-                    if(ret != 0) {
-                        ois.close();
-                    }
-                    fis.close();
-                }catch(IOException error4){
-                    error4.printStackTrace();
+                if(ret != 0) {
+                    ois.close();
                 }
+                fis.close();
+            }catch(IOException error4){
+                error4.printStackTrace();
             }
         }
         return ret;

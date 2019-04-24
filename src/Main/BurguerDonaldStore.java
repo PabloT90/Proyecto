@@ -119,7 +119,7 @@
  *       Si opcionSubMenu2 != 0
  *           Segun (opcionSubMenu2)
  *               para opcionSubMenu2 == 1
- *                   mostrarMenus*
+ *                   mostrarMenus
  *               para opcionSubMenu2 == 2
  *                   ModificacionMenu
  *               para opcionSubMenu2 == 3
@@ -143,9 +143,18 @@
  *       Si opcionSubMenu3 != 0
  *           Segun (opcionSubMenu3)
  *               para opcionSubMenu3 == 1
- *                   mostrarProductosAlmacen*
+ *                   si el almacen no esta vacio
+ *                      mostrarProductosAlmacen*
+ *                   sino
+ *                      Mostrar mensaje explicativo1
+ *                   fin_si
  *               para opcionSubMenu3 == 2
- *                   MostrarProductosPorTipo
+ *                   leerYValidarTipoProducto*
+ *                   si existen productos de ese tipo
+ *                      mostrarProductosPorTipo*
+ *                   sino
+ *                      Mostrar mensaje explicativo2
+ *                   fin_si
  *               para opcionSubMenu3 == 3
  *                   mostrarProductosVeganos*
  *           Fin_segun
@@ -157,7 +166,7 @@
  * Inicio
  *   leerYValidarId*
  *   Si el producto existe
- *       LeerValidarProducto*
+ *       LeerValidarProductoModificado*
  *       modificarProducto*
  *   Sino
  *       MensajeExplicatorio1
@@ -183,10 +192,10 @@
  * Inicio
  *   leerYValidarId*
  *   Si el producto no existe
- *       LeerValidarProducto*
+ *       LeerValidarNuevoProducto*
  *       insertarProducto*
  *   Sino
- *       MensajeExplicatorio1
+ *       MensajeExplicatorio3
  *   Fin_si
  * Fin
  *
@@ -196,18 +205,27 @@
  *   Si existe el producto
  *       eliminarProducto*
  *   Sino
- *       MensajeExplicatorio
+ *       MensajeExplicatorio4
  *   Fin_si
  * Fin
+ *
+ * MostrarMenus
+ * Inicio
+ *      si ListaMenus.dat o MovimientosMenu.dat tiene algun registro
+ *          mostrarListaMenus*
+ *      sino
+ *          mostrar Mensaje explicativo5
+ *      fin_si
+ * fin
  *
  * ModificacionMenu
  * Inicio
  *   leerYValidarId*
  *   Si el menú existe
- *       leerYValidarMenu* //El ID se recibe como parametro
+ *       leerYValidarNuevoMenu*
  *       modificarMenu*
  *   Sino
- *       MensajeExplicatorio3
+ *       MensajeExplicatorio6
  *   Fin_si
  * Fin
  *
@@ -216,26 +234,26 @@
  *   leerYValidarId*
  *   Si el menú existe
  *       Si el menú contiene algún producto sin stock
- *           MensajeExplicatorio4
+ *           MensajeExplicatorio7
  *       Sino
- *           canjearMenu*
+ *           canjeaoMenu*
  *       Fin_si
  *   Sino
- *       MensajeExplicatorio3
+ *       MensajeExplicatorio8
  *   Fin_si
  * Fin
  *
  * InsercionMenu
  * Inicio
  * leerValidarId*
- * si almacenProductos.txt no está vacío
- *   si el menu no existe
+ * Si el almacen de productos no está vacío
+ *   Si el menu no existe
  *      leerYValidarNuevoMenu*
  *      insertarMenu*
- *   sino
- *      Mensaje explicatorio
- * sino
- *     Mensaje explicatorio
+ *   Sino
+ *      Mensaje explicatorio9
+ * Sino
+ *     Mensaje explicatorio10
  * Fin
  *
  * EliminacionMenu
@@ -244,29 +262,32 @@
  *   Si el menú existe
  *       eliminarMenu*
  *   Sino
- *       MensajeExplicatorio3
+ *       MensajeExplicatorio11
  *   Fin_si
- * Fin
- *
- * PG Nivel: 3
- * MostrarProductosPorTipo
- * Inicio
- *   leerYValidarTipoProducto*
- *   mostrarProductosTipo*
  * Fin
  *
  * IncrementarStock
  * Inicio
  *   leerYValidarId*
- *   leerYValidarStock*
- *   incrementarStock*
+ *   Si el producto existe
+ *      leerYValidarStock*
+ *      incrementarStock*
+ *   Sino
+ *      mostrar mensaje explicativo12
+ *   Fin_si
  * Fin
  *
  * DecrementarStock
  * Inicio
  *   leerYValidarId*
- *   leerYValidarStock*
- *   decrementarStock*
+ *   si el producto existe
+ *      leerYValidarStock*
+ *          si el stock del producto es mayor o igual al decremento
+ *              decrementarStock*
+ *          fin_si
+ *   sino
+ *      Mostrar Mensaje explicativo13
+ *   fin_si
  * Fin
  * */
 
@@ -290,7 +311,7 @@ public class BurguerDonaldStore {
         FuncionesDeConfiguracion fc = new FuncionesDeConfiguracion();
         ResguardoConfiguracion rc = new ResguardoConfiguracion();
 
-        //fc.sonidos(1);
+        //fc.sonidos(0);
         //rc.comprobacionFicheros();
         fc.comprobacionFicheros();
         //rc.ajustesEncabezamiento();
@@ -326,7 +347,6 @@ public class BurguerDonaldStore {
                                                         }else{
                                                             System.out.println("El almacen esta vacio.");
                                                         }
-
                                                     break;
                                                     case 2: //para opcionSubMenu3 == 2
                                                         // MostrarProductosPorTipo
@@ -483,9 +503,7 @@ public class BurguerDonaldStore {
                                         //leerYValidarId*
                                         id = validacion.leerYValidarId();
                                         //Si el menú existe
-                                        //menu = resguardoMenus.obtenerMenu(id);
-                                        menu = fm.obtenerMenu(id);
-                                        if(menu != null) {
+                                        if((menu = fm.obtenerMenu(id)) != null) {
                                             if (fm.productoSinStock(id)) {//Si el menú contiene algún producto sin stock
                                                 //MensajeExplicatorio4
                                                 System.out.println("Alguno de los productos del menu no tenia stock.");
@@ -503,7 +521,7 @@ public class BurguerDonaldStore {
                                         //InsercionMenu
                                         //leerYValidarId*
                                         id = validacion.leerYValidarId();
-                                        if(fm.ficheroVacio("src\\Ficheros\\ListaMenus.dat") == -1) {
+                                        if(!fp.almacenVacio()) { //Si el almacen de productos no está vacío
                                             if (fm.obtenerMenu(id) == null) {//Si el menu no existe
                                                 //LeerValidarMenu*
                                                 menu = validacion.leerYValidarNuevoMenu(id);
