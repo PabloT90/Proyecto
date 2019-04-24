@@ -693,4 +693,26 @@ public class ValidacionesBurguerDonald {
         return idProducto;
     }
 
+    /*
+    * Lee y valida el decremento que se le aplicara a un producto
+    * Entrada: ImplStockProducto producto.
+    * Salida: entero stock.
+    * Postcondiciones: Asociado al nombre se devuelve el stock.
+    * Cabecera: leerValidarDecremento(ImplStockProducto producto)
+    * */
+    /**
+     * Lee y valida el decremento.
+     * @param producto Producto para saber su stock.
+     * @return Asociado al nombre se manda el stock.
+     */
+    public int leerValidarDecremento(ImplStockProducto producto){
+        Scanner teclado = new Scanner(System.in);
+        int stock;
+        do{
+            System.out.println("Cuanto decremento quieres aplicar?");
+            stock = teclado.nextInt();
+        }while(producto.getStock() < stock);
+        return stock;
+    }
+
 }

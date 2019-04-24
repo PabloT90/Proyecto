@@ -168,6 +168,17 @@ public class FuncionesDeConfiguracion {
         }
     }
 
+    /*
+    * Reproduce pistas de audio en formato .mp3
+    * Entrada:
+    *   - entero pista
+    * Postcondiciones: nada, solo reproduce sonido.
+    * Cabecera: void sonidos(int numAudio)
+    * */
+    /**
+     * Reproduce pistas de audio en formato .mp3
+     * @param numAudio Numero de pista
+     */
     public void sonidos(int numAudio){
         Player apl = null;
         try {

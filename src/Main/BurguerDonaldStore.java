@@ -360,7 +360,7 @@ public class BurguerDonaldStore {
                                                             System.out.println("No hay productos del tipo indicado.");
                                                         }
                                                     break;
-                                                    case 3: //para opcionSubMenu3 ==3
+                                                    case 3: //para opcionSubMenu3 == 3
                                                         //mostrarProductosVeganos*
                                                         //resguardo.mostrarProductosVeganos();
                                                         fp.mostrarProductosVeganos();
@@ -412,13 +412,12 @@ public class BurguerDonaldStore {
                                                             //LeerYValidarID*
                                                             id = validacion.leerYValidarId();
                                                             if((producto = fp.obtenerProductoAlmacen(id)) != null) {
-                                                                //LeerValidarStock*
-                                                                stock = validacion.leerYValidarStock();
+                                                                //LeerValidarDecremento*
+                                                                stock = validacion.leerValidarDecremento(producto);
 
-                                                                if(producto.getStock() >= stock) {//si el stock del producto es mayor que
-                                                                    //decrementarStock*
-                                                                    fp.decrementarStock(id, stock);
-                                                                }
+                                                                //decrementarStock*
+                                                                //resguardo.decrementarStock(id, stock);
+                                                                fp.decrementarStock(id, stock);
                                                             }else{
                                                                 System.out.println("No existe producto con ese id");
                                                             }
