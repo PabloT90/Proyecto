@@ -709,7 +709,7 @@ public class ValidacionesBurguerDonald {
         Scanner teclado = new Scanner(System.in);
         int stock;
         do{
-            System.out.println("Cuanto decremento quieres aplicar?");
+            System.out.println("Cuanto decremento quieres aplicar?. Stock actual: "+producto.getStock());
             stock = teclado.nextInt();
         }while(producto.getStock() < stock);
         return stock;

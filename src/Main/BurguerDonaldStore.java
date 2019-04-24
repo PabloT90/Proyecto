@@ -156,7 +156,11 @@
  *                      Mostrar mensaje explicativo2
  *                   fin_si
  *               para opcionSubMenu3 == 3
- *                   mostrarProductosVeganos*
+ *                   si existe algun producto vegano
+ *                      mostrarProductosVeganos*
+ *                   sino
+ *                      mostrar mensaje explicativo14
+ *                   fin_si
  *           Fin_segun
  *       Fin_si
  *   Mientras opcionSubMenu3 != 0
@@ -359,9 +363,12 @@ public class BurguerDonaldStore {
                                                         }
                                                     break;
                                                     case 3: //para opcionSubMenu3 == 3
-                                                        //mostrarProductosVeganos*
-                                                        //resguardo.mostrarProductosVeganos();
-                                                        fp.mostrarProductosVeganos();
+                                                        if(fp.existenProductosVeganos())//si existe algun producto vegano
+                                                            //mostrarProductosVeganos*
+                                                            //resguardo.mostrarProductosVeganos();
+                                                            fp.mostrarProductosVeganos();
+                                                        else
+                                                            System.out.println("No existen productos veganos.");
                                                     break;
                                                 }
                                             }
