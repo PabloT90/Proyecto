@@ -286,11 +286,15 @@
  * DecrementarStock
  * Inicio
  *   leerYValidarId*
- *   si el producto existe
- *      leerYValidarDecremento*
- *      decremententarStock*
- *   sino
- *      mostrar Mensaje explicativo13
+ *   Si el producto existe
+ *      Si el producto posee stock
+ *          leerYValidarDecremento*
+ *          decremententarStock*
+ *      Sino
+ *          mostrar Mensaje explicativo13
+ *      Fin_si
+ *   Sino
+ *      mostrar Mensaje explicativo14
  *   fin_si
  * Fin
  * */
@@ -420,11 +424,15 @@ public class BurguerDonaldStore {
                                                             //LeerYValidarID*
                                                             id = validacion.leerYValidarId();
                                                             if((producto = fp.obtenerProductoAlmacen(id)) != null) {
-                                                                //LeerValidarDecremento*
-                                                                stock = validacion.leerYValidarDecremento(producto);
-                                                                //decrementarStock*
-                                                                //resguardo.decrementarStock(id, stock);
-                                                                fp.decrementarStock(producto, stock);
+                                                                if(producto.getStock() > 0){
+                                                                    //LeerValidarDecremento*
+                                                                    stock = validacion.leerYValidarDecremento(producto);
+                                                                    //decrementarStock*
+                                                                    //resguardo.decrementarStock(id, stock);
+                                                                    fp.decrementarStock(producto, stock);
+                                                                }else{
+                                                                    System.out.println("El producto se encuentra sin stock actualmente.");
+                                                                }
                                                             }else{
                                                                 System.out.println("No existe producto con ese id");
                                                             }
