@@ -113,15 +113,16 @@ public class FuncionesDeConfiguracion {
     /*
     * Interfaz
     * Nombre: ajustesEncabezamiento
-    * Comentario: Esta función permite establecer la cabecera inicial del
-    * fichero maestro y el de movimientos para la lista de menús.
+    * Comentario: Esta función crear los ficheros maestro y de movimiento para el manejo de menús con una
+    * cabecera válida para trabajar con la clase ObjectStream, en caso de no existir dichos ficheros.
     * Cabecera: public void ajustesEncabezamiento()
     * Postcondiciones: La función puede llegar a crear un fichero maestro y/o
     * de movimientos con la cabecera para poder manejar correctamente el fichero
     * con la clases de ObjectStream.
     * */
     /**
-     * Establece la cabecera inicial del fichero maestro y el de movimientos para la lista de menús.
+     * Esta función crear los ficheros maestro y de movimiento con una cabecera válida para trabajar
+     * con la clase ObjectStream, en caso de no existir.
      */
     public void ajustesEncabezamiento(){
         File listaMenus = new File("src\\Ficheros\\ListaMenus.dat");
@@ -143,7 +144,7 @@ public class FuncionesDeConfiguracion {
     * del almacén de productos, en caso de que no existan.
     * Cabecera: public void comprobacionFicheros()
     * Postcondiciones: La función puede llegar a generar dos ficheros
-    * de texto para aplicación BurguerDonald.
+    * de texto para la aplicación BurguerDonald.
     * IOException si ocurre algún error en la entrada de los datos.
     * */
     /**
