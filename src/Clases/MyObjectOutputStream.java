@@ -20,7 +20,5 @@ public class MyObjectOutputStream extends ObjectOutputStream {
     //Sobreescribimos el método writeStreamHeader para evitar que a la hora de insertar un objeto en un fichero en el que
     //anteriormente se inserto un objeto con ObjectOutputStream, cree una nueva cabecera.
     @Override
-    public void writeStreamHeader() throws IOException{//Los métodos vacíos también me hacen llorar.
-
-    }
+    public void writeStreamHeader() throws IOException{ }
 }
