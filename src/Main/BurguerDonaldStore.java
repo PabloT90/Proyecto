@@ -172,6 +172,7 @@
  *   Si el producto existe
  *       LeerValidarProductoModificado*
  *       modificarProducto*
+ *       sonido*
  *   Sino
  *       MensajeExplicatorio1
  *   Fin_si
@@ -198,6 +199,7 @@
  *   Si el producto no existe
  *       LeerValidarNuevoProducto*
  *       insertarProducto*
+ *       sonido*
  *   Sino
  *       MensajeExplicatorio3
  *   Fin_si
@@ -392,6 +394,9 @@ public class BurguerDonaldStore {
                                             //modificarProducto* (es una insercion)
                                             //resguardo.insertarProducto(producto);
                                             fp.insertarProducto(producto);
+
+                                            //sonido*
+                                            fc.sonidos(3);
                                         }else {
                                             //MensajeExplicatorio1
                                             System.out.println("No ha sido posible encontrar el producto.");
@@ -453,6 +458,9 @@ public class BurguerDonaldStore {
                                                 //insertarProducto*
                                                 //resguardo.insertarProducto(producto);
                                                 fp.insertarProducto(producto);
+
+                                                //sonido*
+                                                fc.sonidos(3);
                                             }else{
                                                 //MensajeExplicatorio1
                                                 System.out.println("No se ha podido insertar. El producto no existe.");

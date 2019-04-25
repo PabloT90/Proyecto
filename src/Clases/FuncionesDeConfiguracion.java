@@ -193,6 +193,9 @@ public class FuncionesDeConfiguracion {
             } else if (numAudio == 1) {
                 apl = new Player(new FileInputStream("src\\Media\\intro.mp3"));
                 apl.play();
+            }else{
+                apl = new Player(new FileInputStream("src\\Media\\me.mp3"));
+                apl.play();
             }
         }catch(FileNotFoundException error){
             error.printStackTrace();
