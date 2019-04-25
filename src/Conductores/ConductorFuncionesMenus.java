@@ -52,8 +52,10 @@ public class ConductorFuncionesMenus {
         //eliminarMenusPorProductoDeterminado
         funcion.eliminarMenusPorProductoDeterminado(66);
 
+        //productoSinStock
         System.out.println(funcion.productoSinStock(19));
 
+        //canjeoMenu
         System.out.println(funcion.canjeoMenu(menu1));
 
     }
