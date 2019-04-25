@@ -108,7 +108,7 @@ public class FuncionesMenus {
         try{
             fis = new FileInputStream("src\\Ficheros\\ListaMenus.dat");
             ois = new ObjectInputStream(fis);
-            do{ //Repetir mientras no sea fin de fichero y sea posible encontrarlo
+            do{ //Repetir mientras sea posible encontrarlo
                 menu = (ImplMenu) ois.readObject();
             }while(menu.getId() < id);
         }catch(FileNotFoundException error1){
@@ -137,7 +137,7 @@ public class FuncionesMenus {
      * Interfaz
      * Nombre: buscarEnMovimientos
      * Comentario: La función nos permite obtener un tipo ImplMenu del fichero
-     * MovimientosMenus.dat.
+     * MovimientosMenu.dat.
      * Cabecera: public ImplMenu buscarEnMovimientos(int id)
      * Entrada:
      *   -entero id
@@ -154,7 +154,7 @@ public class FuncionesMenus {
      * ClassNotFoundException si no se encuentra la clase de un objeto serializado.
      * */
     /**
-     * Obtiene un tipo ImplMenu del fichero MovimientosMenus.dat.
+     * Obtiene un tipo ImplMenu del fichero MovimientosMenu.dat.
      * @param id id del Menú a buscar.
      * @return Devuelve un menú en caso de coincidir con la id recibida. NULL en caso contrario.
      * @throws FileNotFoundException en caso de no encontrar un archivo.
@@ -174,7 +174,7 @@ public class FuncionesMenus {
             while (true) {//Mientras no sea fin de fichero
                 registro = (ImplMenu) ois.readObject();
                 if(registro.getId() == id){
-                    if(registro.getNombre().charAt(0) != '*'){//Si el movimiento no es de eliminación
+                    if(registro.getNombre().charAt(0) != '*'){//Si no está marcado como eliminado.
                         menu = registro;
                     }else{
                         menu = null;
@@ -209,6 +209,7 @@ public class FuncionesMenus {
      * Salida:
      *  -booleano ret
      * Precondiciones:
+     *  -id debe ser mayor que 0.
      *  -El fichero MovimientosMenu.dat debe tener una cabecera de la clase ObjectStream.
      * Postcondiciones: Asociado al nombre devuelve un boolean. True en caso de que el último
      * registro con esa id sea marcado como eliminado. False en caso contrario.
@@ -362,8 +363,8 @@ public class FuncionesMenus {
                     menu1 = (ImplMenu) ois1.readObject();
                 }else{
                     if (menu1.getId() > menu2.getId()) {
-                        //Si el producto no sufre una posterior eliminación
                         idActual = menu2.getId();//Almacemos la id del producto actual
+                        //Si el producto no sufre una posterior eliminación
                         if ((menu2 = obtenerMenu(menu2.getId())) != null) {
                             oos.writeObject(menu2);
                         }
@@ -372,9 +373,9 @@ public class FuncionesMenus {
                             menu2 = (ImplMenu) ois2.readObject();
                         } while (menu2.getId() == idActual);//Mientras sea un registro con el mismo id
                     }else {
+                        idActual = menu2.getId();//Almacemos la id del producto actual
                         //Buscamos el movimiento más reciente del producto
                         //Si el último movimiento no es una eliminación.
-                        idActual = menu2.getId();//Almacemos la id del producto actual
                         if ((menu2 = buscarEnMovimientos(menu2.getId())) != null) {
                             oos.writeObject(menu2);
                         }
@@ -459,13 +460,13 @@ public class FuncionesMenus {
         File fichero = new File(direccionFichero);
 
         fichero.delete();//Borramos el fichero
-        crearFichero(direccionFichero);
+        crearFichero(direccionFichero); //Creamos el fichero.
     }
 
     /*
      * Interfaz
      * Nombre: ficheroVacio
-     * Comentario: Permite verificar si un fichero está vacío, no existe o si tiene algún registro.
+     * Comentario: Permite verificar si un fichero está vacío o si tiene algún registro.
      * Cabecera: public int ficheroVacio(String direccion)
      * Entrada: String direccion.
      * Salida: entero ret.
@@ -568,8 +569,8 @@ public class FuncionesMenus {
                     menu1 = (ImplMenu) ois1.readObject();
                 } else {
                     if (menu1.getId() > menu2.getId()) {
-                        //Si el producto no sufre una posterior eliminación
                         idActual = menu2.getId();//Almacemos la id del producto actual
+                        //Si el producto no sufre una posterior eliminación
                         if ((menu2 = obtenerMenu(menu2.getId())) != null) {
                             System.out.println(menu2);
                         }
@@ -578,9 +579,9 @@ public class FuncionesMenus {
                             menu2 = (ImplMenu) ois2.readObject();
                         } while (menu2.getId() == idActual);//Mientras sea un registro con el mismo id
                     } else {
+                        idActual = menu2.getId();//Almacemos la id del producto actual
                         //Buscamos el movimiento más reciente del producto
                         //Si el último movimiento no es una eliminación.
-                        idActual = menu2.getId();//Almacemos la id del producto actual
                         if ((menu2 = buscarEnMovimientos(menu2.getId())) != null) {
                             System.out.println(menu2);
                         }
@@ -679,7 +680,7 @@ public class FuncionesMenus {
     /*
      * Interfaz
      * Nombre: eliminarMenusPorProductoDeterminado
-     * Comentario: Esta función nos permite eliminar todas los menús de la lista de
+     * Comentario: Esta función nos permite eliminar todos los menús de la lista de
      * menús que contengan un producto determinado.
      * Cabecera: public void eliminarMenusPorProductoDeterminado(int idProducto)
      * Entrada:
@@ -730,8 +731,8 @@ public class FuncionesMenus {
                     menu1 = (ImplMenu) ois1.readObject();
                 } else {
                     if (menu1.getId() > menu2.getId()) {
-                        //Si el producto no sufre una posterior eliminación
                         idActual = menu2.getId();//Almacemos la id del producto actual
+                        //Si el producto no sufre una posterior eliminación y el menú contiene dicho producto.
                         if ((menu2 = obtenerMenu(menu2.getId())) != null && menuContieneProducto(menu2, idProducto)) {
                             menusAEliminar.add(menu2.getId());
                         }
@@ -740,9 +741,9 @@ public class FuncionesMenus {
                             menu2 = (ImplMenu) ois2.readObject();
                         } while (menu2.getId() == idActual);//Mientras sea un registro con el mismo id
                     } else {
-                        //Buscamos el movimiento más reciente del producto
-                        //Si el último movimiento no es una eliminación.
                         idActual = menu2.getId();//Almacemos la id del producto actual
+                        //Buscamos el movimiento más reciente del producto
+                        //Si el último movimiento no es una eliminación y el menu contiene dicho producto
                         if ((menu2 = buscarEnMovimientos(menu2.getId())) != null && menuContieneProducto(menu2, idProducto)) {
                             menusAEliminar.add(menu2.getId());
                         }

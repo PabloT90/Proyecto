@@ -19,7 +19,7 @@ public class FuncionesDeConfiguracion {
     * el día y hora a la que se ejecute la aplicación. Modificaciones
     * predeterminadas:
     *   -Todos los lunes los cafés pasan a ser gratuitos.
-    *   -Cada sabados de 13:00 a 14:00 se realizará una sincronización del almacén
+    *   -Cada sábado de 13:00 a 14:00 se realizará una sincronización del almacén
     *   de productos y de la lista de menús.
     * Cabecera: public void configuracionInicial()
     * Postcondiciones: La función modifica el estado del almacén de productos y/o

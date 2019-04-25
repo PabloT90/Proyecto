@@ -2,6 +2,7 @@ package Resguardos;
 
 import Clases.ImplMenu;
 
+import java.io.EOFException;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
@@ -132,6 +133,7 @@ public class ResguardoMenus {
      * Salida:
      *  -booleano ret
      * Precondiciones:
+     *  -id debe ser mayor que 0.
      *  -El fichero MovimientosMenu.dat debe tener una cabecera de la clase ObjectStream.
      * Postcondiciones: Asociado al nombre devuelve un boolean. True en caso de que el último
      * registro con esa id sea marcado como eliminado. False en caso contrario.
@@ -229,22 +231,25 @@ public class ResguardoMenus {
 
     /*
      * Interfaz
-     * Permite conocer si un fichero está vacío, no existe o si tiene algún registro.
+     * Nombre: ficheroVacio
+     * Comentario: Permite verificar si un fichero está vacío o si tiene algún registro.
      * Cabecera: public int ficheroVacio(String direccion)
      * Entrada: String direccion.
      * Salida: entero ret.
-     * Postcondiciones: Asociado al nombre devuelve 0 si está vacío, -1 si tiene algún registro o -2 si no existe.
+     * Postcondiciones: Asociado al nombre devuelve 0 si está vacío, -1 si tiene algún registro.
      * FileNotFoundException en caso de no encontrar un archivo.
      * EOFException al llegar al fin de fichero.
      * IOException al ocurrir un error durante la salida de datos.
+     * ClassNotFoundException si no se encuentra la clase de un objeto serializado.
      * */
     /**
-     * Permite conocer si un fichero está vacío, no existe o si tiene algún registro.
+     * Permite conocer si un fichero está vacío o si tiene algún registro.
      * @param direccion Path del fichero.
-     * @return 0 si está vacio. -1 si tiene algún registro. - 2 si no existe.
+     * @return 0 si está vacio. -1 si tiene algún registro.
      * @throws FileNotFoundException en caso de no encontrar un archivo.
      * @throws EOFException al llegar al fin de fichero.
      * @throws IOException al ocurrir un error durante la salida de datos.
+     * @throws ClassNotFoundException si no se encuentra la clase de un objeto serializado.
      */
     public int ficheroVacio(String direccion){
         System.out.println("En resguardo.");
