@@ -16,36 +16,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Main/BurguerDonaldStore.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5907">
-              <caret line="315" column="30" selection-start-line="315" selection-start-column="30" selection-end-line="315" selection-end-column="30" />
-              <folding>
-                <element signature="e#0#26620#0" expanded="true" />
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Clases/FuncionesMenus.java">
+        <entry file="file://$PROJECT_DIR$/src/Resguardos/Resguardo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3156">
-              <caret line="734" column="77" selection-start-line="734" selection-start-column="77" selection-end-line="734" selection-end-column="77" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Resguardos/ResguardoMenus.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="247" column="59" lean-forward="true" selection-start-line="247" selection-start-column="59" selection-end-line="247" selection-end-column="59" />
+            <state relative-caret-position="-234">
+              <caret line="318" column="36" selection-start-line="318" selection-start-column="36" selection-end-line="318" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -137,7 +112,6 @@
         <option value="$PROJECT_DIR$/src/Ficheros/AlmacenProductos.txt" />
         <option value="$PROJECT_DIR$/src/Clases/FuncionesProductos.java" />
         <option value="$PROJECT_DIR$/src/Clases/ValidacionesBurguerDonald.java" />
-        <option value="$PROJECT_DIR$/src/Resguardos/Resguardo.java" />
         <option value="$PROJECT_DIR$/src/Conductores/ConductorFuncionesMenus.java" />
         <option value="$PROJECT_DIR$/src/Conductores/ConductorConfiguracion.java" />
         <option value="$PROJECT_DIR$/src/Conductores/ConductorFuncionesProductos.java" />
@@ -146,6 +120,7 @@
         <option value="$PROJECT_DIR$/src/Clases/FuncionesDeConfiguracion.java" />
         <option value="$PROJECT_DIR$/src/Resguardos/ResguardoMenus.java" />
         <option value="$PROJECT_DIR$/src/Clases/FuncionesMenus.java" />
+        <option value="$PROJECT_DIR$/src/Resguardos/Resguardo.java" />
       </list>
     </option>
   </component>
@@ -516,16 +491,6 @@
     <entry file="file://$PROJECT_DIR$/src/Ficheros/ListaMenus.dat">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Resguardos/Resguardo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="803">
-          <caret line="395" column="20" selection-start-line="395" selection-start-column="20" selection-end-line="395" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Ficheros/MovimientosMenu.dat">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -611,6 +576,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Clases/FuncionesMenus.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="885" column="67" lean-forward="true" selection-start-line="885" selection-start-column="67" selection-end-line="885" selection-end-column="67" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Main/BurguerDonaldStore.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5907">
@@ -624,7 +599,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Resguardos/ResguardoMenus.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
+        <state relative-caret-position="922">
           <caret line="247" column="59" lean-forward="true" selection-start-line="247" selection-start-column="59" selection-end-line="247" selection-end-column="59" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -632,10 +607,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Clases/FuncionesMenus.java">
+    <entry file="file://$PROJECT_DIR$/src/Resguardos/Resguardo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3156">
-          <caret line="734" column="77" selection-start-line="734" selection-start-column="77" selection-end-line="734" selection-end-column="77" />
+        <state relative-caret-position="-234">
+          <caret line="318" column="36" selection-start-line="318" selection-start-column="36" selection-end-line="318" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

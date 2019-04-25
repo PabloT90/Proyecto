@@ -8,7 +8,7 @@ import java.io.*;
 public class Resguardo {
     /*
      * Interfaz
-     * Nombre: insertarProducto (Funciona)
+     * Nombre: insertarProducto
      * Comentario: Esta función permite insertar un producto en el almacen.
      * Cabecera: public void insertarProducto(ImplStockProducto producto)
      * Entrada:
@@ -30,7 +30,7 @@ public class Resguardo {
      * Interfaz
      * Nombre: obtenerProductoAlmacen
      * Comentario: La función nos permite obtener un tipo ImplStockProducto
-     * del fichero AlmacenProductos. Se pasará por parámetros un número de id,
+     * del almacén de productos. Se pasará por parámetros un número de id,
      * si no existe un producto con la misma id en el almacen la función devuelve null.
      * Cabecera: public ImplStockProducto obtenerProductoAlmacen(int id)
      * Entrada:
@@ -44,7 +44,7 @@ public class Resguardo {
      * devuelve null.
      **/
     /**
-     * Obtiene un tipo ImplStockProducto del fichero AlmacenProductos.
+     * Obtiene un tipo ImplStockProducto del almacén de productos.
      * @param id ID del producto.
      * @return Asociado al nombre devuelve un tipo ImplStockProducto si se ha encontrado un producto con la
      * misma ID en el almacén, en caso contrario devuelve null.
@@ -74,10 +74,10 @@ public class Resguardo {
      * Si alguna dirección de fichero es erronea o no existe, se lanzará la excepción FileNotFoundException.
      * */
     /**
-     * Obtiene un tipo ImplStockProducto de un directorio.
+     * Obtiene un tipo ImplStockProducto del fichero AlmacenProductos.txt.
      * @param ID ID del producto.
      * @return Asociado al nombre devuelve un tipo ImplStockProducto si se ha encontrado un producto con el mismo ID
-     * en el almacén y null en caso contrario.
+     * en el fichero y null en caso contrario.
      * @throws FileNotFoundException en caso de no encontrar un archivo.
      * @throws IOException al ocurrir un error durante la salida de datos.
      */
@@ -94,7 +94,7 @@ public class Resguardo {
      * Movimientos.txt.
      * Se pasará por parámetros un número de id.
      * Si no existe un producto con la misma id en el almacen la función devuelve null.
-     * Cabecera: public ImplStockProducto buscarEnMovimientos(int ID)
+     * Cabecera: public ImplStockProducto buscarEnMovimientos(int id)
      * Entrada:
      *   -entero ID
      * Salida:
@@ -106,8 +106,8 @@ public class Resguardo {
      * Si alguna dirección de fichero es erronea o no existe, se lanzará la excepción FileNotFoundException.
      * */
     /**
-     * Busca un producto en el archivo de movimientos que coincida con la ID recibida.
-     * @param id ID que queremos buscar.
+     * Busca un producto en el archivo de movimientos que coincida con la id recibida.
+     * @param id id que queremos buscar.
      * @return Null en caso de no encontrarlo. ImplProducto en caso contrario.
      * @throws FileNotFoundException en caso de no encontrar un archivo.
      * @throws IOException al ocurrir un error durante la salida de datos.
@@ -302,6 +302,8 @@ public class Resguardo {
      * Entrada:
      *   -ImplStockProducto producto.
      *   -entero decremento
+     * Precondiciones:
+     *   -producto debe tener un stock positivo.
      * Salida:
      *   -entero validez
      * Precondiciones:
@@ -314,7 +316,7 @@ public class Resguardo {
      * @param producto producto al que le vamos a decrementar el stock.
      * @param decremento Numero de unidades a restar.
      * @return 0 si se ha conseguido decrementar.
-     *        -1 si el decremento en mayor que el stock actual del producto.
+     *        -1 si el decremento es mayor que el stock actual del producto.
      */
     public int decrementarStock(ImplStockProducto producto, int decremento){
         System.out.println("En resguardo.");
