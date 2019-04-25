@@ -1,5 +1,2 @@
-2,BEBIDA,123.0,retre,retre,true,3
-2,BEBIDA,123.0,*retre,retre,true,3
-4,POSTRE,23.0,Pedro,dasda,true,45
-4,POSTRE,23.0,Pedro,dasda,true,0
-3245,BEBIDA,21.0,vera,la risa,false,4
+1,BEBIDA,1.0,Cafe,Delicius!!!,true,3000
+1,BEBIDA,1.0,Cafe,Delicius!!!,true,2999

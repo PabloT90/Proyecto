@@ -1,2 +1,16 @@
+1,BEBIDA,1.0,Cafe,Delicius!!!,true,3000
+1,BEBIDA,1.0,Cafe,Delicius!!!,true,3000
 2,BEBIDA,123.0,retre,retre,true,3
 2,BEBIDA,123.0,*retre,retre,true,3
+4,POSTRE,23.0,Pedro,dasda,true,45
+4,POSTRE,23.0,Pedro,dasda,true,0
+4,DESAYUNO,2.6,Pedro,dasda,true,0
+11,SANDWICH,2.5,Hamburguesa con queso,Esta muy rica.,false,34
+12,SANDWICH,3.78,Hamburguesa vegana,Mucha lechuga.,true,9
+14,SANDWICH,4.5,Hamburguesa Rey,Solo subimos el precio.,false,22
+21,ENSALADA,4.5,Ensalada de pollo.,Un poco seca.,false,12
+22,ENSALADA,3.4,Ensalada sin carne,Mucho tamatito.,true,34
+61,DESAYUNO,1.9,Tostada de jamon,Esta buena.,false,12
+72,DESAYUNO,2.3,Tostada a la napolitana.,Me lo acabo de inventar.,true,11
+81,COMPLEMENTO,1.0,Patatas Fritas,No muy sano.,true,78
+91,COMPLEMENTO,444.0,Wan-tun frito.,Este se nos ha colado.,true,12

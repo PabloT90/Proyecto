@@ -463,7 +463,7 @@ public class BurguerDonaldStore {
                                                 fc.sonidos(3);
                                             }else{
                                                 //MensajeExplicatorio1
-                                                System.out.println("No se ha podido insertar. El producto no existe.");
+                                                System.out.println("No se ha podido insertar. El producto ya existe.");
                                             }
                                         break;
                                         case 5://para opcionSubMenu1 ==5

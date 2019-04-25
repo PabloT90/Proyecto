@@ -1,2 +1,4 @@
-4,POSTRE,23.0,Pedro,dasda,true,45
-4,POSTRE,23.0,Pedro,dasda,true,0
+4,DESAYUNO,2.6,Pedro,dasda,true,2
+4,DESAYUNO,2.6,Pedro,dasda,true,0
+61,DESAYUNO,1.9,*Tostada de jamon,Esta buena.,false,12
+3245,BEBIDA,21.0,vera,la risa,false,4
