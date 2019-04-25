@@ -783,9 +783,6 @@ public class FuncionesProductos {
                 }
             }
 
-            if(registro1 != null && separador1 == null){
-                separador1 = registro1.split(",");
-            }
             while(registro1 != null){
                 separador1 = registro1.split(",");
                 if(separador1[1].equals(tipo.toString())) {
@@ -922,10 +919,8 @@ public class FuncionesProductos {
     public boolean existenProductos(EnumTipo tipo){
         boolean resultado = false;
         ImplStockProducto producto = null;
-        FileReader fr1 = null;
-        BufferedReader br1 = null;
-        FileReader fr2 = null;
-        BufferedReader br2 = null;
+        FileReader fr1 = null, fr2 = null;
+        BufferedReader br1 = null, br2 = null;
         String registro1, registro2;
         String[] separador1 = null, separador2 = null;
         FuncionesOrdenacionFicheros ordenacion = new FuncionesOrdenacionFicheros();
@@ -984,6 +979,9 @@ public class FuncionesProductos {
                     }
                 }
 
+                if(registro2 != null && separador2 == null){//Si registro2 es diferente de null y separador aún vale null
+                    separador2 = registro2.split(",");
+                }
                 while (registro2 != null && !resultado) {
                     //Buscamos el movimiento más reciente del producto
                     producto = buscarEnMovimientos(Integer.parseInt(separador2[0]));
@@ -1173,6 +1171,9 @@ public class FuncionesProductos {
                     }
                 }
 
+                if(registro2 != null && separador2 == null){//Si registro2 es diferente de null y separador aún vale null
+                    separador2 = registro2.split(",");
+                }
                 while (registro2 != null && !resultado) {
                     //Buscamos el movimiento más reciente del producto
                     producto = buscarEnMovimientos(Integer.parseInt(separador2[0]));
