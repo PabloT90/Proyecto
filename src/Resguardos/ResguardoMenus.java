@@ -386,23 +386,18 @@ public class ResguardoMenus {
 
     /*
      * Interfaz
-     * Nombre: crearFichero
-     * Comentario: Nos permite crear un fichero con una cabecera valida para evitar errores de lectura
-     * de la clase ObjectInputStream.
-     * Cabecera: public void crearFichero(String direccion)
+     * Nombre: limpiarFichero
+     * Comentario: Esta función vacía los datos de un fichero.
+     * Cabecera: public void limpiarFichero(String direccionFichero)
      * Entrada:
-     *   -Cadena direccion.
-     * Postcondiciones: el fichero es creado con una cabecera válida para la clase ObjectInputStream.
-     * FileNotFoundException en caso de no encontrar un archivo.
-     * IOException al ocurrir un error durante la salida de datos.
+     *   -Cadena direccionFichero
+     * Postcondiciones: El fichero queda vacío de datos.
      * */
     /**
-     * Crea un fichero con una cabecera válida para evitar errores de lectura de la clase la clase ObjectInputStream.
-     * @param direccion Path del fichero.
-     * @throws FileNotFoundException en caso de no encontrar un archivo.
-     * @throws IOException al ocurrir un error durante la entrada de datos.
+     * Vacía los datos del fichero recibido como parametro.
+     * @param direccionFichero Path del fichero.
      */
-    public void crearFichero(String direccion) {
+    public void crearFichero(String direccionFichero) {
         System.out.println("En resguardo.");
     }
 }

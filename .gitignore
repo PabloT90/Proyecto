@@ -4,3 +4,5 @@
 *.class
 *.xml
 out/production/BurguerDonald/Librerias/JLayer1.0.1/jl1.0.1.jar
+src/Ficheros/Movimientos.txt
+src/OrdenacionFicheros/Fichero1.dat

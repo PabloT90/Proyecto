@@ -433,14 +433,13 @@ public class FuncionesMenus {
                 fis2.close();
                 oos.close();
                 fos.close();
-
-                limpiarFichero("src\\Ficheros\\MovimientosMenu.dat");//Vaciamos el fichero de movimientos
-                maestro.delete();//Eliminamos el fichero maestro
-                maestroActualizado.renameTo(new File ("src\\Ficheros\\ListaMenus.dat"));//Renombramos el maestro actualizado
             }catch (IOException error){
                 error.printStackTrace();
             }
         }
+        limpiarFichero("src\\Ficheros\\MovimientosMenu.dat");//Vaciamos el fichero de movimientos
+        maestro.delete();//Eliminamos el fichero maestro
+        maestroActualizado.renameTo(new File ("src\\Ficheros\\ListaMenus.dat"));//Renombramos el maestro actualizado
     }
 
     /*
@@ -451,29 +450,16 @@ public class FuncionesMenus {
      * Entrada:
      *   -Cadena direccionFichero
      * Postcondiciones: El fichero queda vacío de datos.
-     * FileNotFoundException en caso de no encontrar un archivo.
-     * IOException al ocurrir un error durante la salida de datos.
      * */
     /**
      * Vacía los datos del fichero recibido como parametro.
      * @param direccionFichero Path del fichero.
-     * @throws FileNotFoundException en caso de no encontrar un archivo.
-     * @throws IOException al ocurrir un error durante la salida de datos.
      */
     public void limpiarFichero(String direccionFichero){
         File fichero = new File(direccionFichero);
-        FileOutputStream fos = null;
-        ObjectOutputStream oos = null;
 
         fichero.delete();//Borramos el fichero
-        try{//Creamos el fichero.
-            fos = new FileOutputStream(fichero);
-            oos = new ObjectOutputStream(fos);
-        }catch(FileNotFoundException error){
-            error.printStackTrace();
-        }catch(IOException error2){
-            error2.printStackTrace();
-        }
+        crearFichero(direccionFichero);
     }
 
     /*
@@ -545,7 +531,7 @@ public class FuncionesMenus {
      * Precondiciones:
      *  -El fichero ListaMenus.dat debe tener una cabecera de la clase ObjectStream.
      *  -El fichero MovimientosMenu.dat debe tener una cabecera de la clase ObjectStream
-     * Postcondiciones: El fichero de movimiento queda ordenado y muestra en pantalla todo el almacén.
+     * Postcondiciones: muestra en pantalla todo el almacén.
      * FileNotFoundException en caso de no encontrar un archivo.
      * EOFException al llegar al fin de fichero.
      * IOException al ocurrir un error durante la salida de datos.
@@ -812,13 +798,12 @@ public class FuncionesMenus {
                 fis1.close();
                 ois2.close();
                 fis2.close();
-
-                for(int i = 0;  i < menusAEliminar.size(); i++){
-                    eliminarMenu(menusAEliminar.get(i));
-                }
             }catch (IOException error){
                 error.printStackTrace();
             }
+        }
+        for(int i = 0;  i < menusAEliminar.size(); i++){
+            eliminarMenu(menusAEliminar.get(i));
         }
     }
 
