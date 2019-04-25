@@ -174,10 +174,14 @@ public class FuncionesDeConfiguracion {
     *   - entero pista
     * Postcondiciones: nada, solo reproduce sonido.
     * Cabecera: void sonidos(int numAudio)
+    * FileNotFoundException en caso de no encontrar un archivo.
+    * JavaLayerException si ocurre algun error a la hora de reproducir los archivos.
     * */
     /**
      * Reproduce pistas de audio en formato .mp3
      * @param numAudio Numero de pista
+     * @throws FileNotFoundException en caso de no encontrar un archivo.
+     * @throws JavaLayerException si ocurre algun error a la hora de reproducir los archivos.
      */
     public void sonidos(int numAudio){
         Player apl = null;
