@@ -421,7 +421,7 @@ public class BurguerDonaldStore {
                                                             id = validacion.leerYValidarId();
                                                             if((producto = fp.obtenerProductoAlmacen(id)) != null) {
                                                                 //LeerValidarDecremento*
-                                                                stock = validacion.leerValidarDecremento(producto);
+                                                                stock = validacion.leerYValidarDecremento(producto);
                                                                 //decrementarStock*
                                                                 //resguardo.decrementarStock(id, stock);
                                                                 fp.decrementarStock(producto, stock);
