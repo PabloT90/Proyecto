@@ -5,7 +5,7 @@ import java.io.*;
 public class FuncionesProductos {
     /*
      * Interfaz
-     * Nombre: insertarProducto (Funciona)
+     * Nombre: insertarProducto
      * Comentario: Esta función permite insertar un producto en el almacen.
      * Cabecera: public void insertarProducto(ImplStockProducto producto)
      * Entrada:
@@ -46,7 +46,7 @@ public class FuncionesProductos {
      * Interfaz
      * Nombre: obtenerProductoAlmacen
      * Comentario: La función nos permite obtener un tipo ImplStockProducto
-     * del fichero AlmacenProductos. Se pasará por parámetros un número de id,
+     * del almacén de productos. Se pasará por parámetros un número de id,
      * si no existe un producto con la misma id en el almacen la función devuelve null.
      * Cabecera: public ImplStockProducto obtenerProductoAlmacen(int id)
      * Entrada:
@@ -58,7 +58,7 @@ public class FuncionesProductos {
      * devuelve null.
      **/
     /**
-     * Obtiene un tipo ImplStockProducto del fichero AlmacenProductos.
+     * Obtiene un tipo ImplStockProducto del almacén de productos.
      * @param id ID del producto.
      * @return Asociado al nombre devuelve un tipo ImplStockProducto si se ha encontrado un producto con la
      * misma ID en el almacén, en caso contrario devuelve null.
@@ -88,16 +88,16 @@ public class FuncionesProductos {
      * Salida:
      *   -ImplStockProducto producto
      * Postcondiciones: La función devuelve un tipo ImplStockProducto asociado al nombre, si
-     * se ha encontrado un producto con la misma id en el almacén, en caso contrario la función
+     * se ha encontrado un producto con la misma id en el fichero, en caso contrario la función
      * devuelve null.
      * Si hay algún error durante la salida de datos se lanzará IOException.
      * Si alguna dirección de fichero es erronea o no existe, se lanzará la excepción FileNotFoundException.
      * */
     /**
-     * Obtiene un tipo ImplStockProducto de un directorio.
+     * Obtiene un tipo ImplStockProducto del fichero AlmacenProductos.txt.
      * @param id id del producto.
      * @return Asociado al nombre devuelve un tipo ImplStockProducto si se ha encontrado un producto con el mismo ID
-     * en el almacén y null en caso contrario.
+     * en el fichero y null en caso contrario.
      * @throws FileNotFoundException en caso de no encontrar un archivo.
      * @throws IOException al ocurrir un error durante la salida de datos.
      */
@@ -156,7 +156,7 @@ public class FuncionesProductos {
      * Movimientos.txt.
      * Se pasará por parámetros un número de id.
      * Si no existe un producto con la misma id en el fichero de movimientos la función devuelve null.
-     * Cabecera: public ImplStockProducto buscarEnMovimientos(int ID)
+     * Cabecera: public ImplStockProducto buscarEnMovimientos(int id)
      * Entrada:
      *   -entero id
      * Salida:
@@ -168,8 +168,8 @@ public class FuncionesProductos {
      * Si alguna dirección de fichero es erronea o no existe, se lanzará la excepción FileNotFoundException.
      * */
     /**
-     * Busca un producto en el archivo de movimientos que coincida con la ID recibida.
-     * @param id ID que queremos buscar.
+     * Busca un producto en el archivo de movimientos que coincida con la id recibida.
+     * @param id id que queremos buscar.
      * @return Null en caso de no encontrarlo. ImplProducto en caso contrario.
      * @throws FileNotFoundException en caso de no encontrar un archivo.
      * @throws IOException al ocurrir un error durante la salida de datos.
@@ -298,15 +298,15 @@ public class FuncionesProductos {
                 }
             }
 
-            while(registro1 != null){
+            while(registro1 != null){//Si aún quedan registros en el fichero maestro
                 System.out.println(registro1);
                 registro1 = br1.readLine();
             }
 
-            if(registro2 != null && separador2 == null){
+            if(registro2 != null && separador2 == null){//Si aún quedan registros de movimientos y separador aún sigue valiendo null
                 separador2 = registro2.split(",");
             }
-            while(registro2 != null){
+            while(registro2 != null){//Si aún quedan registros en el fichero de movimientos
                 //Buscamos el movimiento más reciente del producto
                 producto = obtenerProductoAlmacen(Integer.parseInt(separador2[0]));
                 //Si el último movimiento no es una eliminación
@@ -347,17 +347,15 @@ public class FuncionesProductos {
      * Si alguna dirección de fichero es erronea o no existe, se lanzará la excepción FileNotFoundException.
      * */
     /**
-     * Permite mostrar todos los productos veganos del almacen
+     * Permite mostrar todos los productos veganos del almacen.
      * Postcondiciones: nada, solo se muestran todos los productos veganos del almacen.
      * @throws FileNotFoundException en caso de no encontrar un archivo.
      * @throws IOException al ocurrir un error durante la salida de datos.
      */
     public void mostrarProductosVeganos(){
         ImplStockProducto producto = null;
-        FileReader fr1 = null;
-        BufferedReader br1 = null;
-        FileReader fr2 = null;
-        BufferedReader br2 = null;
+        FileReader fr1 = null, fr2 = null;
+        BufferedReader br1 = null, br2 = null;
         String registro1, registro2;
         String[] separador1 = null, separador2 = null;
         FuncionesOrdenacionFicheros ordenacion = new FuncionesOrdenacionFicheros();
@@ -477,8 +475,6 @@ public class FuncionesProductos {
      */
     public boolean productoEliminado(int id){
         boolean ret = false;
-
-        //Recorremos el fichero de movimiento buscando si el ultimo registro con ese ID se encuentra en estado de borrado.
         FileReader fr1 = null;
         BufferedReader br1 = null;
         String registro = " ";
@@ -535,7 +531,6 @@ public class FuncionesProductos {
         int validez = -1;
         ImplStockProducto producto;
         FuncionesMenus fm = new FuncionesMenus();
-
         //Si el producto existe
         if((producto = obtenerProductoAlmacen(id)) != null){
             validez = 0;
@@ -876,15 +871,16 @@ public class FuncionesProductos {
      *   -entero validez
      * Precondiciones:
      *   -decremento debe ser mayor que 0.
+     *   -producto debe tener un stock positivo.
      * Postcondiciones: La función devuelve un número entero asociado al nombre, 0 si se
-     * ha conseguido decrementar el stock del producto, -1 si no se ha podido decrementar
+     * ha conseguido decrementar el stock del producto, -1 si no se ha podido decrementar.
      * */
     /**
      * Decrementa el stock de un producto.
      * @param producto producto al que le vamos a decrementar el stock.
      * @param decremento Numero de unidades a restar.
      * @return 0 si se ha conseguido decrementar.
-     *        -1 si el decremento en mayor que el stock actual del producto.
+     *        -1 si el decremento es mayor que el stock actual del producto.
      */
     public int decrementarStock(ImplStockProducto producto, int decremento){
         int validez = -1;
