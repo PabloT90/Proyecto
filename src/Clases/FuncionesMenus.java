@@ -520,7 +520,6 @@ public class FuncionesMenus {
         }catch(FileNotFoundException error1) {
             error1.printStackTrace();
         }catch(EOFException error2){
-
         }catch(IOException error){
             error.printStackTrace();
         }catch(ClassNotFoundException error3){
