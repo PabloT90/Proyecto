@@ -1,1 +1,1 @@
-2,BEBIDA,12.0,krgfd,fgfhgfg,true,0
+2,BEBIDA,123.0,*retre,retre,true,3

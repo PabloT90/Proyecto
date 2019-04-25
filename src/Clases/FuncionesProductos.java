@@ -783,6 +783,9 @@ public class FuncionesProductos {
                 }
             }
 
+            if(registro1 != null && separador1 == null){
+                separador1 = registro1.split(",");
+            }
             while(registro1 != null){
                 separador1 = registro1.split(",");
                 if(separador1[1].equals(tipo.toString())) {
