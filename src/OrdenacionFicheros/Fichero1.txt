@@ -1,1 +1,2 @@
 2,BEBIDA,123.0,retre,retre,true,3
+2,BEBIDA,123.0,*retre,retre,true,3
